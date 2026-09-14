@@ -1,0 +1,34 @@
+{
+  "name": "普通电视_无支架",
+  "source": "https://animimostudios.itch.io/free-modern-tv-low-poly-4k-textures",
+  "author": "Animimo Studios",
+  "license": "CC0",
+  "modification": "Removed tabletop stand; retained original TV body and embedded texture. Centered bottom pivot; front faces Blender -Y.",
+  "size_m": [
+    1.2247865200042725,
+    0.13584600389003754,
+    0.813665509223938
+  ],
+  "removed_parts": [
+    "Cube.025",
+    "Cube.026",
+    "Cube.027",
+    "Cube.028",
+    "Cube.029",
+    "Cube.030",
+    "Cube.031",
+    "Cube.032",
+    "Cube.033",
+    "Cube.034",
+    "Cube.035",
+    "Cube.036",
+    "Cube.037",
+    "Cube.038"
+  ],
+  "mesh_objects": 1,
+  "texture_resolution": [
+    4096,
+    4096
+  ],
+  "material_slots": 1
+}

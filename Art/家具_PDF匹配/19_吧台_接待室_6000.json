@@ -1,0 +1,40 @@
+{
+  "id": 19,
+  "name": "吧台",
+  "room": "接待室_6000",
+  "pages": [
+    12
+  ],
+  "reference": "p12_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\19.png",
+  "dimensions_mm": [
+    6000,
+    500,
+    1100
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "19_吧台_接待室_6000.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\19.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "19_吧台_接待室_6000.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "aa904f7176a449597f3c1f576446b3210eb1e4df57e0d3e777fc60b755d870b9",
+  "preview_sha256": "333659e02374d928f5ed0f3ea5a695c6c9ab09b6e0f55dca63924ba617c70283",
+  "pdf_physical_pages": [
+    12
+  ],
+  "pdf_printed_pages": [
+    11
+  ],
+  "reference_file": "PDF参考图/19.png",
+  "web_search": {
+    "query_group": "吧台及吧椅",
+    "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+    "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

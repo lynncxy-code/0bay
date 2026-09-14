@@ -1,0 +1,41 @@
+{
+  "id": 24,
+  "name": "桌边柜",
+  "room": "员工区_含花槽",
+  "pages": [
+    14
+  ],
+  "reference": "p14_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\24.png",
+  "dimensions_mm": [
+    900,
+    400,
+    1250
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "24_桌边柜_员工区_含花槽.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\24.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "24_桌边柜_员工区_含花槽.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "dd08283544e5d76a0b50fe98050827982b3056a56a67701105ad5712612fb4f1",
+  "preview_sha256": "c625714335d0da1fcb19a60445fd9121ea77c159aaabe75770a43d38cfd65363",
+  "pdf_physical_pages": [
+    14
+  ],
+  "pdf_printed_pages": [
+    13
+  ],
+  "reference_file": "PDF参考图/24.png",
+  "web_search": {
+    "query_group": "柜体",
+    "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+    "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+  "dimension_note": "柜体含花槽按1250高建模；绿植超出柜体高度"
+}

@@ -1,0 +1,17 @@
+{
+  "pipeline": "Hunyuan3D-2mv + Hunyuan3D-Paint",
+  "input_views": [
+    "front.png",
+    "oblique45.png"
+  ],
+  "shape_glb": "D:\\0bay\\OfficeShell_OpenSteel\\UE56\\Art\\HaijuChuangyeCity\\HunyuanReverse\\Haiju_Hunyuan3D2mv_textured.glb",
+  "textured_glb": "D:\\0bay\\OfficeShell_OpenSteel\\UE56\\Art\\HaijuChuangyeCity\\HunyuanReverse\\Haiju_Hunyuan3D2mv_textured.glb",
+  "vertices": 38272,
+  "faces": 40000,
+  "texture_maps": [
+    "Haiju_Hunyuan3D2mv_textured.jpg",
+    "Haiju_Hunyuan3D2mv_textured_metallic.jpg",
+    "Haiju_Hunyuan3D2mv_textured_roughness.jpg"
+  ],
+  "notes": "Two supplied views; missing sides synthesized by mirrored view inputs."
+}

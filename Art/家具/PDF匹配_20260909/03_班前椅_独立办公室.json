@@ -1,0 +1,37 @@
+{
+  "id": 3,
+  "name": "班前椅",
+  "room": "独立办公室",
+  "pages": [
+    3
+  ],
+  "reference": "p03_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\03.png",
+  "dimensions_mm": null,
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "03_班前椅_独立办公室.glb",
+  "method": "本地Hunyuan3D-2mv图像重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\03.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "qa_repair": "保留混元椅身，重建变形的五星脚及脚轮",
+  "preview": "03_班前椅_独立办公室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "244719e88c99e3dc6a648236102255a237c81d412fea2f91122b82910d3ed1f5",
+  "preview_sha256": "3e9b72607e5a0ec4773f61011551154465062936eb2123c2865098ee168082e3",
+  "pdf_physical_pages": [
+    3
+  ],
+  "pdf_printed_pages": [
+    2
+  ],
+  "reference_file": "PDF参考图/03.png",
+  "web_search": {
+    "query_group": "办公椅及会议椅",
+    "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+    "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+  },
+  "source_type": "本地混元重建及网格修整",
+  "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+}

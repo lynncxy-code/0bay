@@ -1,0 +1,36 @@
+{
+  "id": 22,
+  "name": "员工椅",
+  "room": "员工区",
+  "pages": [
+    13
+  ],
+  "reference": "p13_i03.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\22.png",
+  "dimensions_mm": null,
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "22_员工椅_员工区.glb",
+  "method": "本地Hunyuan3D-2mv图像重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\22.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "22_员工椅_员工区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "aecd617bed66262593e5db63c05b813862837e97f2dcfe5ba8a5d8259998f884",
+  "preview_sha256": "fced91652df85856aa1575d08b077d0889a84235e74372cd9b49ed781ccf7fa5",
+  "pdf_physical_pages": [
+    13
+  ],
+  "pdf_printed_pages": [
+    12
+  ],
+  "reference_file": "PDF参考图/22.png",
+  "web_search": {
+    "query_group": "员工椅",
+    "candidate_page": "https://zeelproject.com/6994-chair-fx-808.html",
+    "reason": "未取得无需付费积分的对应独立下载文件"
+  },
+  "source_type": "本地混元重建及网格修整",
+  "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+}

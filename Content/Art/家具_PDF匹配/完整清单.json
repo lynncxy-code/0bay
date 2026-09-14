@@ -1,0 +1,1598 @@
+[
+  {
+    "id": 1,
+    "name": "经理桌",
+    "room": "独立办公室",
+    "pages": [
+      2
+    ],
+    "reference": "p02_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\01.png",
+    "dimensions_mm": [
+      1800,
+      1800,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "01_经理桌_独立办公室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\01.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "01_经理桌_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "091ec08aeb4942eb00cbe1e24c9f57a9b1004357a3f2feb6c77322672e1f6935",
+    "preview_sha256": "24833dae0999ad0f53a3424232d768352438a2aedc9473ccd8f0964edc2c5cbe",
+    "pdf_physical_pages": [
+      2
+    ],
+    "pdf_printed_pages": [
+      1
+    ],
+    "reference_file": "PDF参考图/01.png",
+    "web_search": {
+      "query_group": "经理桌",
+      "candidate_page": "https://www.meetcofurniture.com/product/reco-series-c-l-shaped-executive-desk/",
+      "reason": "找到尺寸接近的家具产品页，未取得对应免费独立模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 2,
+    "name": "班椅",
+    "room": "独立办公室",
+    "pages": [
+      3
+    ],
+    "reference": "p03_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\02.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "02_班椅_独立办公室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\02.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "02_班椅_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "07c4a64c39180219ac77a5efac0ffc23b68f0102d9b21ce010a1afc81c1a4e72",
+    "preview_sha256": "d1bea3248abfc48594355b7a8cc0cb70e0437d2d6fdb189f2924dfa8afeb6488",
+    "pdf_physical_pages": [
+      3
+    ],
+    "pdf_printed_pages": [
+      2
+    ],
+    "reference_file": "PDF参考图/02.png",
+    "web_search": {
+      "query_group": "办公椅及会议椅",
+      "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+      "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 3,
+    "name": "班前椅",
+    "room": "独立办公室",
+    "pages": [
+      3
+    ],
+    "reference": "p03_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\03.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "03_班前椅_独立办公室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\03.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建变形的五星脚及脚轮",
+    "preview": "03_班前椅_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "244719e88c99e3dc6a648236102255a237c81d412fea2f91122b82910d3ed1f5",
+    "preview_sha256": "3e9b72607e5a0ec4773f61011551154465062936eb2123c2865098ee168082e3",
+    "pdf_physical_pages": [
+      3
+    ],
+    "pdf_printed_pages": [
+      2
+    ],
+    "reference_file": "PDF参考图/03.png",
+    "web_search": {
+      "query_group": "办公椅及会议椅",
+      "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+      "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 4,
+    "name": "文件柜",
+    "room": "独立办公室",
+    "pages": [
+      3
+    ],
+    "reference": "p03_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\04.png",
+    "dimensions_mm": [
+      4500,
+      420,
+      3100
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "04_文件柜_独立办公室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\04.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "04_文件柜_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "ab7d54378c459d5bf685034010d876a2f9ec7492aa8e448cacbac197d6173f35",
+    "preview_sha256": "ccb032cf5ff99f1f68971dc064bb4eb3c3d6202d9d732d0db729e6c552e384be",
+    "pdf_physical_pages": [
+      3
+    ],
+    "pdf_printed_pages": [
+      2
+    ],
+    "reference_file": "PDF参考图/04.png",
+    "web_search": {
+      "query_group": "柜体",
+      "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+      "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+    "dimension_note": "5组900宽柜体合为4500宽；文件包含五组，避免按单组重复放置"
+  },
+  {
+    "id": 5,
+    "name": "沙发",
+    "room": "独立办公室",
+    "pages": [
+      4
+    ],
+    "reference": "p04_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\05.png",
+    "dimensions_mm": [
+      2130,
+      860,
+      820
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "05_沙发_独立办公室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\05.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "05_沙发_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "8e590a2c7ea70caec98464e803be6c7916422693b88bc29668f60df69365139b",
+    "preview_sha256": "5b886a3c849f77c9251d589a6a4475674060cbbcbf8e86f06363300ffa493a24",
+    "pdf_physical_pages": [
+      4
+    ],
+    "pdf_printed_pages": [
+      3
+    ],
+    "reference_file": "PDF参考图/05.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 6,
+    "name": "茶几",
+    "room": "独立办公室",
+    "pages": [
+      4
+    ],
+    "reference": "p04_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\06.png",
+    "dimensions_mm": [
+      1200,
+      600,
+      430
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "06_茶几_独立办公室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\06.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "06_茶几_独立办公室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "b2a4cdc67c505ac1d72a51a0eb19a799c8be25b54042769ba7d21906b90dc167",
+    "preview_sha256": "020fec3b80c94b88b518d130f2de6ed006fcccc092a40da60a1ff69cf5bfa2c2",
+    "pdf_physical_pages": [
+      4
+    ],
+    "pdf_printed_pages": [
+      3
+    ],
+    "reference_file": "PDF参考图/06.png",
+    "web_search": {
+      "query_group": "茶几及休闲桌",
+      "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+      "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 7,
+    "name": "会议桌",
+    "room": "大会议室",
+    "pages": [
+      5
+    ],
+    "reference": "p05_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\07.png",
+    "dimensions_mm": [
+      7000,
+      2000,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "07_会议桌_大会议室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\07.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "07_会议桌_大会议室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "f9014d2dd09a974ebd8e1d40b6a5026a5c903239a245d9feca13b4e32fb28adb",
+    "preview_sha256": "7208db65f0381859a1ba2d2897b72aa056d98bfca5724f3307a793338ea9ba79",
+    "pdf_physical_pages": [
+      5
+    ],
+    "pdf_printed_pages": [
+      4
+    ],
+    "reference_file": "PDF参考图/07.png",
+    "web_search": {
+      "query_group": "会议桌",
+      "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+      "reason": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 8,
+    "name": "椅子（带写字板）",
+    "room": "大会议室",
+    "pages": [
+      6
+    ],
+    "reference": "p06_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\08.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "08_椅子（带写字板）_大会议室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\08.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元几何，调整灰色网布与金属底架材质",
+    "preview": "08_椅子（带写字板）_大会议室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "452a88f91a583aa5670917cace5375c9481b88fe0705a2483ee0b6fbec9019fd",
+    "preview_sha256": "aa9ae67596a868906a3aba14878c1449db7726cac863221f1d4a7c0ef0140d47",
+    "pdf_physical_pages": [
+      6
+    ],
+    "pdf_printed_pages": [
+      5
+    ],
+    "reference_file": "PDF参考图/08.png",
+    "web_search": {
+      "query_group": "办公椅及会议椅",
+      "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+      "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 9,
+    "name": "会议椅",
+    "room": "大会议室",
+    "pages": [
+      6
+    ],
+    "reference": "p06_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\09.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "09_会议椅_大会议室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\09.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "09_会议椅_大会议室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "5ab97efba3362bfb8d8972711162d15acad3e440a4f9787dffd3b6e4f8aa2a57",
+    "preview_sha256": "781667dcfa64d491309072d3f9eb5b57187a4fc13d98c3715ed204bbfd708cb3",
+    "pdf_physical_pages": [
+      6
+    ],
+    "pdf_printed_pages": [
+      5
+    ],
+    "reference_file": "PDF参考图/09.png",
+    "web_search": {
+      "query_group": "办公椅及会议椅",
+      "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+      "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 10,
+    "name": "中会议桌",
+    "room": "中会议室",
+    "pages": [
+      7
+    ],
+    "reference": "p07_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\10.png",
+    "dimensions_mm": [
+      2200,
+      1000,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "10_中会议桌_中会议室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\10.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "10_中会议桌_中会议室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "daa630dafc5dbd8cc6c3f13e4e62449540d3427b73a245b7e21831335c033a28",
+    "preview_sha256": "c7406a5a6efeb0564b56cf1c5e3e5365abcb3b770667ed911a644cd1228fe4b8",
+    "pdf_physical_pages": [
+      7
+    ],
+    "pdf_printed_pages": [
+      6
+    ],
+    "reference_file": "PDF参考图/10.png",
+    "web_search": {
+      "query_group": "会议桌",
+      "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+      "reason": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 11,
+    "name": "会议椅",
+    "room": "中会议室及接待室",
+    "pages": [
+      7,
+      11
+    ],
+    "reference": "p07_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\11.png",
+    "dimensions_mm": [
+      500,
+      660,
+      820
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "11_会议椅_中会议室及接待室.glb",
+    "method": "混元推理后按PDF图片及尺寸重新建模",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\11.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "混元输出出现整片拉伸；依据PDF图片重建带横向分缝的座背、五星脚和脚轮",
+    "preview": "11_会议椅_中会议室及接待室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "daec1fec53cba938fae02dbb5c2e9f864beebc24c7423438311eb3cb944304fb",
+    "preview_sha256": "6ce764355688b53dc5a19846d51ffcb328c2365f45032b38eea8d5b4acebf5a0",
+    "pdf_physical_pages": [
+      7,
+      11
+    ],
+    "pdf_printed_pages": [
+      6,
+      10
+    ],
+    "reference_file": "PDF参考图/11.png",
+    "web_search": {
+      "query_group": "办公椅及会议椅",
+      "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+      "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 12,
+    "name": "中会议桌",
+    "room": "小会议室",
+    "pages": [
+      8
+    ],
+    "reference": "p08_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\12.png",
+    "dimensions_mm": [
+      1600,
+      800,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "12_中会议桌_小会议室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\12.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "12_中会议桌_小会议室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "cdda25ff56ff35139a9c19596466be669a5150da21e6a88fbd1da1087f8145e3",
+    "preview_sha256": "badad4efd41ee3f0b52d044efc84bbdc717bfa63b9823119070cc80859ff768e",
+    "pdf_physical_pages": [
+      8
+    ],
+    "pdf_printed_pages": [
+      7
+    ],
+    "reference_file": "PDF参考图/12.png",
+    "web_search": {
+      "query_group": "会议桌",
+      "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+      "reason": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 13,
+    "name": "会议椅",
+    "room": "小会议室_黄色",
+    "pages": [
+      8
+    ],
+    "reference": "p08_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\13.png",
+    "dimensions_mm": [
+      560,
+      530,
+      800
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "13_会议椅_小会议室_黄色.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\13.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+    "preview": "13_会议椅_小会议室_黄色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "60ce878f93ac0c6aa490b57715a988073f11d8ba1249adc9312d56dbb2e036ae",
+    "preview_sha256": "80cd4c982f3131e5a872d9ba81b6eb80047bdbfb958fcb61d460c96b4bfb87ce",
+    "pdf_physical_pages": [
+      8
+    ],
+    "pdf_printed_pages": [
+      7
+    ],
+    "reference_file": "PDF参考图/13.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 14,
+    "name": "接待沙发",
+    "room": "接待室",
+    "pages": [
+      9
+    ],
+    "reference": "p09_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\14.png",
+    "dimensions_mm": [
+      2000,
+      700,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "14_接待沙发_接待室.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\14.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "14_接待沙发_接待室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "acbeac214e4593d62eaa171173b03a693a29c2bbc1eff435d528aba5595f1a3e",
+    "preview_sha256": "c2b6b29fc11ad8da2433da6d20a25110f3a2e1b5437859c0bc89f732221e92f7",
+    "pdf_physical_pages": [
+      9
+    ],
+    "pdf_printed_pages": [
+      8
+    ],
+    "reference_file": "PDF参考图/14.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 15,
+    "name": "沙发墩",
+    "room": "接待室",
+    "pages": [
+      9
+    ],
+    "reference": "p09_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\15.png",
+    "dimensions_mm": [
+      500,
+      500,
+      470
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "15_沙发墩_接待室.glb",
+    "method": "混元推理后按PDF图片及尺寸重新建模",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\15.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "混元输出底部变形；依据PDF图片和500×470尺寸重建圆形软包及底座",
+    "preview": "15_沙发墩_接待室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "eca486d2a254f001e3177f3e41b5522e04518006ebc2165f03f2205906ed8e0f",
+    "preview_sha256": "5ab1f7de8860bd41a89bb1e997634827afd0bb6dc612a7021d4255d12d17c941",
+    "pdf_physical_pages": [
+      9
+    ],
+    "pdf_printed_pages": [
+      8
+    ],
+    "reference_file": "PDF参考图/15.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 16,
+    "name": "休闲椅",
+    "room": "接待室",
+    "pages": [
+      10
+    ],
+    "reference": "p10_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\16.png",
+    "dimensions_mm": [
+      700,
+      640,
+      770
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "16_休闲椅_接待室.glb",
+    "method": "混元推理后按PDF图片及尺寸重新建模",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\16.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "混元输出受照片背景影响；依据PDF图片重建包裹式高背曲面、座垫和四星脚",
+    "preview": "16_休闲椅_接待室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "646f1f0c559e54b64941f57b96b48af4bdef5e4162b274e0dc1f586cdbaa1d8b",
+    "preview_sha256": "218141197d6e62aeca3be77941a326af1ef517e36ec7f7cbde0f43db2ac01603",
+    "pdf_physical_pages": [
+      10
+    ],
+    "pdf_printed_pages": [
+      9
+    ],
+    "reference_file": "PDF参考图/16.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 17,
+    "name": "茶几",
+    "room": "接待室_兼接待茶几",
+    "pages": [
+      10,
+      19
+    ],
+    "reference": "p10_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\17.png",
+    "dimensions_mm": [
+      800,
+      800,
+      380
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "17_茶几_接待室_兼接待茶几.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\17.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "17_茶几_接待室_兼接待茶几.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "581bf0bcff846cde41b4e3d83c699e394dc41dbb03b1339e19cd85fc7e36c62c",
+    "preview_sha256": "684f69e2f4bac7b7994e513ec5f2bf6bc0184f56ecd1ab24b3fe9d97ce33b3c4",
+    "pdf_physical_pages": [
+      10,
+      19
+    ],
+    "pdf_printed_pages": [
+      9,
+      18
+    ],
+    "reference_file": "PDF参考图/17.png",
+    "web_search": {
+      "query_group": "茶几及休闲桌",
+      "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+      "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+    "document_names": [
+      "茶几",
+      "接待茶几"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "会议桌",
+    "room": "接待室",
+    "pages": [
+      11
+    ],
+    "reference": "p11_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\18.png",
+    "dimensions_mm": [
+      3200,
+      1200,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "18_会议桌_接待室.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\18.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "18_会议桌_接待室.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "4a030acff6be0d2422b365c8b54832761efc36f7bc67d2fca73b55a231a8ac76",
+    "preview_sha256": "38212e7ff03ff755b80ac79e2ddcb70bbf7db4fae3010d640b402fe691c85fcd",
+    "pdf_physical_pages": [
+      11
+    ],
+    "pdf_printed_pages": [
+      10
+    ],
+    "reference_file": "PDF参考图/18.png",
+    "web_search": {
+      "query_group": "会议桌",
+      "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+      "reason": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 19,
+    "name": "吧台",
+    "room": "接待室_6000",
+    "pages": [
+      12
+    ],
+    "reference": "p12_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\19.png",
+    "dimensions_mm": [
+      6000,
+      500,
+      1100
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "19_吧台_接待室_6000.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\19.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "19_吧台_接待室_6000.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "aa904f7176a449597f3c1f576446b3210eb1e4df57e0d3e777fc60b755d870b9",
+    "preview_sha256": "333659e02374d928f5ed0f3ea5a695c6c9ab09b6e0f55dca63924ba617c70283",
+    "pdf_physical_pages": [
+      12
+    ],
+    "pdf_printed_pages": [
+      11
+    ],
+    "reference_file": "PDF参考图/19.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 20,
+    "name": "吧椅",
+    "room": "接待室及员工区",
+    "pages": [
+      12,
+      15
+    ],
+    "reference": "p12_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\20.png",
+    "dimensions_mm": [
+      440,
+      400,
+      820
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "20_吧椅_接待室及员工区.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\20.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "20_吧椅_接待室及员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "3efe82d68d102251c757bef94c22bc09a6556bc2db0f0b32062eb3fe7f3b214a",
+    "preview_sha256": "fcc63ced9837c3ddb1e671460a134dc5dc2052e7f474f660795c56d6814ceaa9",
+    "pdf_physical_pages": [
+      12,
+      15
+    ],
+    "pdf_printed_pages": [
+      11,
+      14
+    ],
+    "reference_file": "PDF参考图/20.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 21,
+    "name": "升降员工桌",
+    "room": "员工区",
+    "pages": [
+      13
+    ],
+    "reference": "p13_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\21.png",
+    "dimensions_mm": [
+      1800,
+      800,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "21_升降员工桌_员工区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\21.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "21_升降员工桌_员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "e7ddf449db75b371e06b2332832a1109f1b8990aeb4785c08aa15f0b2c530716",
+    "preview_sha256": "639a82bfd6181f32abcc3567f0292fa00a181e191c0f5e213c64587dd49b0f79",
+    "pdf_physical_pages": [
+      13
+    ],
+    "pdf_printed_pages": [
+      12
+    ],
+    "reference_file": "PDF参考图/21.png",
+    "web_search": {
+      "query_group": "升降员工桌",
+      "candidate_page": "https://www.blenderkit.com/get-blenderkit/d8eb6c2b-11a2-4692-982a-9b16beb0415d/",
+      "reason": "发现升降桌候选，未找到桌屏、尺寸及结构对应的免费独立文件"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+    "dimension_note": "1800×800×750为桌面及桌架；桌屏额外高360，置于桌面以上"
+  },
+  {
+    "id": 22,
+    "name": "员工椅",
+    "room": "员工区",
+    "pages": [
+      13
+    ],
+    "reference": "p13_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\22.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "22_员工椅_员工区.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\22.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "22_员工椅_员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "aecd617bed66262593e5db63c05b813862837e97f2dcfe5ba8a5d8259998f884",
+    "preview_sha256": "fced91652df85856aa1575d08b077d0889a84235e74372cd9b49ed781ccf7fa5",
+    "pdf_physical_pages": [
+      13
+    ],
+    "pdf_printed_pages": [
+      12
+    ],
+    "reference_file": "PDF参考图/22.png",
+    "web_search": {
+      "query_group": "员工椅",
+      "candidate_page": "https://zeelproject.com/6994-chair-fx-808.html",
+      "reason": "未取得无需付费积分的对应独立下载文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 23,
+    "name": "活动柜",
+    "room": "员工区",
+    "pages": [
+      14
+    ],
+    "reference": "p14_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\23.png",
+    "dimensions_mm": [
+      390,
+      520,
+      600
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "23_活动柜_员工区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\23.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "23_活动柜_员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "49bc9607e04b3c035c809332098071571d944d1da9dee64106afeef7f1553f52",
+    "preview_sha256": "1fb25322f2d3683966d44fea4d9a0187a2d7f08d0d1b4eebcac37b8db100f56b",
+    "pdf_physical_pages": [
+      14
+    ],
+    "pdf_printed_pages": [
+      13
+    ],
+    "reference_file": "PDF参考图/23.png",
+    "web_search": {
+      "query_group": "柜体",
+      "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+      "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 24,
+    "name": "桌边柜",
+    "room": "员工区_含花槽",
+    "pages": [
+      14
+    ],
+    "reference": "p14_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\24.png",
+    "dimensions_mm": [
+      900,
+      400,
+      1250
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "24_桌边柜_员工区_含花槽.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\24.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "24_桌边柜_员工区_含花槽.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "dd08283544e5d76a0b50fe98050827982b3056a56a67701105ad5712612fb4f1",
+    "preview_sha256": "c625714335d0da1fcb19a60445fd9121ea77c159aaabe75770a43d38cfd65363",
+    "pdf_physical_pages": [
+      14
+    ],
+    "pdf_printed_pages": [
+      13
+    ],
+    "reference_file": "PDF参考图/24.png",
+    "web_search": {
+      "query_group": "柜体",
+      "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+      "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+    "dimension_note": "柜体含花槽按1250高建模；绿植超出柜体高度"
+  },
+  {
+    "id": 25,
+    "name": "窗边柜（不含花槽）",
+    "room": "员工区",
+    "pages": [
+      14
+    ],
+    "reference": "p14_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\25.png",
+    "dimensions_mm": [
+      900,
+      400,
+      1090
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "25_窗边柜（不含花槽）_员工区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\25.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "25_窗边柜（不含花槽）_员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "536ceabf976ddd4c05053f9f9ce3c003ab4178af283034451fcba1d8ebcb9dff",
+    "preview_sha256": "bfe3b050671a658016fc818fd258117fad1808906b9e30ba6b35c7ea1ebe66b1",
+    "pdf_physical_pages": [
+      14
+    ],
+    "pdf_printed_pages": [
+      13
+    ],
+    "reference_file": "PDF参考图/25.png",
+    "web_search": {
+      "query_group": "柜体",
+      "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+      "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 26,
+    "name": "文件高柜",
+    "room": "员工区",
+    "pages": [
+      14
+    ],
+    "reference": "p14_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\26.png",
+    "dimensions_mm": [
+      900,
+      400,
+      1850
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "26_文件高柜_员工区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\26.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "26_文件高柜_员工区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "d0774b55f84cba78b8c5687e6e72a8ce2f80ab4bd1155bdaa38c81cb76ce73c6",
+    "preview_sha256": "a981c216e40c65d0bac3ec5a1548624757ed8b823f816fee576cac30bd135951",
+    "pdf_physical_pages": [
+      14
+    ],
+    "pdf_printed_pages": [
+      13
+    ],
+    "reference_file": "PDF参考图/26.png",
+    "web_search": {
+      "query_group": "柜体",
+      "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+      "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 27,
+    "name": "吧台",
+    "room": "员工区_4500",
+    "pages": [
+      15
+    ],
+    "reference": "p15_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\27.png",
+    "dimensions_mm": [
+      4500,
+      500,
+      1100
+    ],
+    "derived_from": 19,
+    "status": "已交付模型及真实渲染预览",
+    "file": "27_吧台_员工区_4500.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\19.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "27_吧台_员工区_4500.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "d0fb0b92b8f8f6b6272c24d244db5f77351a73eafa4652df282e680c30c17d7b",
+    "preview_sha256": "78992ac351c56030487c28fe763db301c5375d58be729da3a555ab291a4a1eca",
+    "pdf_physical_pages": [
+      15
+    ],
+    "pdf_printed_pages": [
+      14
+    ],
+    "reference_file": "PDF参考图/27.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 28,
+    "name": "休闲桌",
+    "room": "休息区",
+    "pages": [
+      16
+    ],
+    "reference": "p16_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\28.png",
+    "dimensions_mm": [
+      680,
+      680,
+      450
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "28_休闲桌_休息区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\28.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "28_休闲桌_休息区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "28f6452f8c372f51746fdaf5112aea9201622993c532aa00db8f02139c50dacc",
+    "preview_sha256": "caa51b9006fe3a501a7129a2e6bddb541bd5ee64965c964ba64aed384094839f",
+    "pdf_physical_pages": [
+      16
+    ],
+    "pdf_printed_pages": [
+      15
+    ],
+    "reference_file": "PDF参考图/28.png",
+    "web_search": {
+      "query_group": "茶几及休闲桌",
+      "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+      "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 29,
+    "name": "休闲椅",
+    "room": "休息区_绿色",
+    "pages": [
+      16
+    ],
+    "reference": "p16_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\29.png",
+    "dimensions_mm": [
+      560,
+      530,
+      800
+    ],
+    "derived_from": 13,
+    "status": "已交付模型及真实渲染预览",
+    "file": "29_休闲椅_休息区_绿色.glb",
+    "method": "本地Hunyuan3D-2mv图像重建，PDF同款颜色变体",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\13.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+    "preview": "29_休闲椅_休息区_绿色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "337a364a2f3d35f500ce82f127e4b3601a2f5e1d6d72dff554a937fdd1f95dd3",
+    "preview_sha256": "e0a5bbf92b243208ebdf0676115a20ad92ab1b963272d1d4a55a94c16f6e1a17",
+    "pdf_physical_pages": [
+      16
+    ],
+    "pdf_printed_pages": [
+      15
+    ],
+    "reference_file": "PDF参考图/29.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair",
+    "dimension_note": "PDF尺寸标标准；根据同款会议椅估计560×530×800"
+  },
+  {
+    "id": 30,
+    "name": "休闲椅",
+    "room": "休息区_灰色",
+    "pages": [
+      16
+    ],
+    "reference": "p16_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\30.png",
+    "dimensions_mm": [
+      560,
+      530,
+      800
+    ],
+    "derived_from": 13,
+    "status": "已交付模型及真实渲染预览",
+    "file": "30_休闲椅_休息区_灰色.glb",
+    "method": "本地Hunyuan3D-2mv图像重建，PDF同款颜色变体",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\13.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+    "preview": "30_休闲椅_休息区_灰色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "d70dc625049fb918fb4cd15a89dc03a9c5a4447d846f8e371c081f2587927a79",
+    "preview_sha256": "2476391b4ac34af66328e10bc223a4407356facffeafba7edd34d499258e7baa",
+    "pdf_physical_pages": [
+      16
+    ],
+    "pdf_printed_pages": [
+      15
+    ],
+    "reference_file": "PDF参考图/30.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair",
+    "dimension_note": "PDF尺寸标标准；根据同款会议椅估计560×530×800"
+  },
+  {
+    "id": 31,
+    "name": "吧台",
+    "room": "打印茶水区_2800",
+    "pages": [
+      17
+    ],
+    "reference": "p17_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\31.png",
+    "dimensions_mm": [
+      2800,
+      700,
+      1100
+    ],
+    "derived_from": 19,
+    "status": "已交付模型及真实渲染预览",
+    "file": "31_吧台_打印茶水区_2800.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\19.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "31_吧台_打印茶水区_2800.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "6199993ecbf552e4abefec00c25b79622519a22a814667a958f322b12d91605c",
+    "preview_sha256": "d7d4d9cfa6c4a836ee30df4877617ec15a81485ac4195aab9717821abd3773dd",
+    "pdf_physical_pages": [
+      17
+    ],
+    "pdf_printed_pages": [
+      16
+    ],
+    "reference_file": "PDF参考图/31.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 32,
+    "name": "吧椅",
+    "room": "打印茶水区_黄色",
+    "pages": [
+      17
+    ],
+    "reference": "p17_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\32.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "32_吧椅_打印茶水区_黄色.glb",
+    "method": "混元推理后按PDF图片及尺寸重新建模",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\32.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "混元上部出现裂缝；按PDF照片重新建模，白色靠背、指定颜色座垫、金属脚踏圈和五星脚轮",
+    "preview": "32_吧椅_打印茶水区_黄色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "bd9c63b6ffd5b3db09ac06311e5bbdd0aeaaa04cfe8510af4c278f16984f5d7d",
+    "preview_sha256": "64c97ff42ffccc5ff8e8f4e30607f1e3a7490dc7b482fd4db566b5f7a15e78f4",
+    "pdf_physical_pages": [
+      17
+    ],
+    "pdf_printed_pages": [
+      16
+    ],
+    "reference_file": "PDF参考图/32.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 33,
+    "name": "吧椅",
+    "room": "打印茶水区_橙红色",
+    "pages": [
+      17
+    ],
+    "reference": "p17_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\33.png",
+    "dimensions_mm": null,
+    "derived_from": 32,
+    "status": "已交付模型及真实渲染预览",
+    "file": "33_吧椅_打印茶水区_橙红色.glb",
+    "method": "混元推理后按PDF图片及尺寸重新建模",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\32.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "混元上部出现裂缝；按PDF照片重新建模，白色靠背、指定颜色座垫、金属脚踏圈和五星脚轮",
+    "preview": "33_吧椅_打印茶水区_橙红色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "a36cf3eaccfe18527b80ff0dee1410edd12519cd98916499aa01b4d5bba00158",
+    "preview_sha256": "fbdf325d8bcbc793fdefb7a6640220caca67c75393a1aec97ceb3288de6b903d",
+    "pdf_physical_pages": [
+      17
+    ],
+    "pdf_printed_pages": [
+      16
+    ],
+    "reference_file": "PDF参考图/33.png",
+    "web_search": {
+      "query_group": "吧台及吧椅",
+      "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+      "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 34,
+    "name": "双人电话亭（含桌子椅子）",
+    "room": "打印茶水区",
+    "pages": [
+      18
+    ],
+    "reference": "p18_i02.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\34.png",
+    "dimensions_mm": [
+      1600,
+      1280,
+      2280
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "34_双人电话亭（含桌子椅子）_打印茶水区.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\34.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "34_双人电话亭（含桌子椅子）_打印茶水区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "3e90e421b10b87c01f37133dd89d5f07e5fc3f586e98b1b434f3787711402240",
+    "preview_sha256": "40c57bd9dbacb1db46e5ae197c15eeb2f072e39d89817ebb526691f7366a3c62",
+    "pdf_physical_pages": [
+      18
+    ],
+    "pdf_printed_pages": [
+      17
+    ],
+    "reference_file": "PDF参考图/34.png",
+    "web_search": {
+      "query_group": "双人电话亭",
+      "candidate_page": "https://sketchfab.com/3d-models/tono-box-20-phone-booth-1aeaa812177d4436974412e5f310db43",
+      "reason": "候选为不同规格的电话亭；另下载一款单人亭复核后排除"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+    "dimension_note": "亭体1600×1280×2280；开启的玻璃门会超出整体包围盒；包含简化的桌、座椅及圆凳"
+  },
+  {
+    "id": 35,
+    "name": "单人沙发（与门厅沙发同款）",
+    "room": "电话亭内部",
+    "pages": [
+      18
+    ],
+    "reference": "p18_i03.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\35.png",
+    "dimensions_mm": [
+      700,
+      695,
+      835
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "35_单人沙发（与门厅沙发同款）_电话亭内部.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\35.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "35_单人沙发（与门厅沙发同款）_电话亭内部.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "a8e928b7d696de1b9c400425de6264ce2ca405794d3d7d12d76dca8c8f42d376",
+    "preview_sha256": "64e0cf4533b0871de6517f9a2fe76839faab8ac93fc25437ae3a63a256a87491",
+    "pdf_physical_pages": [
+      18
+    ],
+    "pdf_printed_pages": [
+      17
+    ],
+    "reference_file": "PDF参考图/35.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 36,
+    "name": "圆凳",
+    "room": "电话亭内部",
+    "pages": [
+      18
+    ],
+    "reference": "p18_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\36.png",
+    "dimensions_mm": [
+      450,
+      450,
+      420
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "36_圆凳_电话亭内部.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\36.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元几何，修正黑色脚轮材质",
+    "preview": "36_圆凳_电话亭内部.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "983e0b011cba69504bd52c776aeebda70c7b37da256c36dedc8be4619e148ed3",
+    "preview_sha256": "d6feffcc4e99c0ab55d80315b4846042eca1b189fbe6957c03f0cab868007080",
+    "pdf_physical_pages": [
+      18
+    ],
+    "pdf_printed_pages": [
+      17
+    ],
+    "reference_file": "PDF参考图/36.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 37,
+    "name": "洽谈桌",
+    "room": "电话亭内部",
+    "pages": [
+      18
+    ],
+    "reference": "p18_i06.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\37.png",
+    "dimensions_mm": [
+      600,
+      600,
+      750
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "37_洽谈桌_电话亭内部.glb",
+    "method": "混元推理后按PDF尺寸及图片修整重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\37.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "preview": "37_洽谈桌_电话亭内部.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "8389bdb7882afda20bab3e1c23c6e70c3db6265b21490ee8b99322f0a8d649e1",
+    "preview_sha256": "fa8f251224d55820bf7f3637ea3105f2195aec5d61dd35daf73beb6d2ec70e20",
+    "pdf_physical_pages": [
+      18
+    ],
+    "pdf_printed_pages": [
+      17
+    ],
+    "reference_file": "PDF参考图/37.png",
+    "web_search": {
+      "query_group": "茶几及休闲桌",
+      "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+      "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+    },
+    "source_type": "依据PDF重新建模（混元尝试后修正）",
+    "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+  },
+  {
+    "id": 38,
+    "name": "接待沙发、单人沙发",
+    "room": "接待区",
+    "pages": [
+      19
+    ],
+    "reference": "p19_i05.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\38.png",
+    "dimensions_mm": [
+      3000,
+      660,
+      740
+    ],
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "38_接待沙发、单人沙发_接待区.glb",
+    "method": "本轮网上新下载的近似款",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\web_candidates\\38.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "web_source": "https://furnimesh.com/library/sofas/sofa/a-modern-armless-sofa-with-a-clean-cop0a1/",
+    "preview": "38_接待沙发、单人沙发_接待区.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "ae3947e29218b24d8a64188db214e8356de0b34842da1ca3ed7969486486ac15",
+    "preview_sha256": "9b270afbb8a6a1bec9c871eb1200b4f1b07a781821232d2a4f58a0bc27b766b8",
+    "pdf_physical_pages": [
+      19
+    ],
+    "pdf_printed_pages": [
+      18
+    ],
+    "reference_file": "PDF参考图/38.png",
+    "web_search": {
+      "reason": "本轮新下载接待沙发近似款，已实际导入渲染核对"
+    },
+    "source_type": "网上新下载（近似款）",
+    "match_note": "无扶手长沙发近似款；分缝、底架和局部比例与PDF不同；保留近似款标签",
+    "license_note": "来源网页公开免费下载；未将其标为已核验的商用授权"
+  },
+  {
+    "id": 39,
+    "name": "单人沙发",
+    "room": "接待区_白色",
+    "pages": [
+      19
+    ],
+    "reference": "p19_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\39.png",
+    "dimensions_mm": null,
+    "derived_from": null,
+    "status": "已交付模型及真实渲染预览",
+    "file": "39_单人沙发_接待区_白色.glb",
+    "method": "本地Hunyuan3D-2mv图像重建",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\39.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+    "preview": "39_单人沙发_接待区_白色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "8a3104058e4411db01ffc09f017f10f9554e5d822e40ba4a19e77f8d3cc7ee96",
+    "preview_sha256": "66fe38d8d5ac826cb1487a16f5bd2eb72f19499cbef4e2fcc34d158cc2c69d37",
+    "pdf_physical_pages": [
+      19
+    ],
+    "pdf_printed_pages": [
+      18
+    ],
+    "reference_file": "PDF参考图/39.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  },
+  {
+    "id": 40,
+    "name": "单人沙发",
+    "room": "接待区_灰色",
+    "pages": [
+      19
+    ],
+    "reference": "p19_i04.png",
+    "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\40.png",
+    "dimensions_mm": null,
+    "derived_from": 39,
+    "status": "已交付模型及真实渲染预览",
+    "file": "40_单人沙发_接待区_灰色.glb",
+    "method": "本地Hunyuan3D-2mv图像重建，PDF同款颜色变体",
+    "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\39.glb",
+    "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+    "preview": "40_单人沙发_接待区_灰色.jpg",
+    "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+    "sha256": "508f748897f204d10ed4fcc1c379a44f30f05499da69edc9930289ced63afb98",
+    "preview_sha256": "48128bc94154af54cbb0feb4d18cc8eb3d5ee8f8707ada9f385e97e8650a7b9a",
+    "pdf_physical_pages": [
+      19
+    ],
+    "pdf_printed_pages": [
+      18
+    ],
+    "reference_file": "PDF参考图/40.png",
+    "web_search": {
+      "query_group": "沙发、休闲椅及圆凳",
+      "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+      "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+    },
+    "source_type": "本地混元重建及网格修整",
+    "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+  }
+]

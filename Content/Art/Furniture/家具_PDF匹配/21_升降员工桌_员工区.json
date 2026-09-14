@@ -1,0 +1,41 @@
+{
+  "id": 21,
+  "name": "升降员工桌",
+  "room": "员工区",
+  "pages": [
+    13
+  ],
+  "reference": "p13_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\21.png",
+  "dimensions_mm": [
+    1800,
+    800,
+    750
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "21_升降员工桌_员工区.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\21.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "21_升降员工桌_员工区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "e7ddf449db75b371e06b2332832a1109f1b8990aeb4785c08aa15f0b2c530716",
+  "preview_sha256": "639a82bfd6181f32abcc3567f0292fa00a181e191c0f5e213c64587dd49b0f79",
+  "pdf_physical_pages": [
+    13
+  ],
+  "pdf_printed_pages": [
+    12
+  ],
+  "reference_file": "PDF参考图/21.png",
+  "web_search": {
+    "query_group": "升降员工桌",
+    "candidate_page": "https://www.blenderkit.com/get-blenderkit/d8eb6c2b-11a2-4692-982a-9b16beb0415d/",
+    "reason": "发现升降桌候选，未找到桌屏、尺寸及结构对应的免费独立文件"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+  "dimension_note": "1800×800×750为桌面及桌架；桌屏额外高360，置于桌面以上"
+}

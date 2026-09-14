@@ -1,0 +1,37 @@
+{
+  "id": 33,
+  "name": "吧椅",
+  "room": "打印茶水区_橙红色",
+  "pages": [
+    17
+  ],
+  "reference": "p17_i03.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\33.png",
+  "dimensions_mm": null,
+  "derived_from": 32,
+  "status": "已交付模型及真实渲染预览",
+  "file": "33_吧椅_打印茶水区_橙红色.glb",
+  "method": "混元推理后按PDF图片及尺寸重新建模",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\32.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "qa_repair": "混元上部出现裂缝；按PDF照片重新建模，白色靠背、指定颜色座垫、金属脚踏圈和五星脚轮",
+  "preview": "33_吧椅_打印茶水区_橙红色.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "a36cf3eaccfe18527b80ff0dee1410edd12519cd98916499aa01b4d5bba00158",
+  "preview_sha256": "fbdf325d8bcbc793fdefb7a6640220caca67c75393a1aec97ceb3288de6b903d",
+  "pdf_physical_pages": [
+    17
+  ],
+  "pdf_printed_pages": [
+    16
+  ],
+  "reference_file": "PDF参考图/33.png",
+  "web_search": {
+    "query_group": "吧台及吧椅",
+    "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+    "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

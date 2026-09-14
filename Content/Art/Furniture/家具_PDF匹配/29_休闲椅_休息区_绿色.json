@@ -1,0 +1,42 @@
+{
+  "id": 29,
+  "name": "休闲椅",
+  "room": "休息区_绿色",
+  "pages": [
+    16
+  ],
+  "reference": "p16_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\29.png",
+  "dimensions_mm": [
+    560,
+    530,
+    800
+  ],
+  "derived_from": 13,
+  "status": "已交付模型及真实渲染预览",
+  "file": "29_休闲椅_休息区_绿色.glb",
+  "method": "本地Hunyuan3D-2mv图像重建，PDF同款颜色变体",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\13.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "qa_repair": "保留混元椅身，重建底架并修正脚轮颜色",
+  "preview": "29_休闲椅_休息区_绿色.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "337a364a2f3d35f500ce82f127e4b3601a2f5e1d6d72dff554a937fdd1f95dd3",
+  "preview_sha256": "e0a5bbf92b243208ebdf0676115a20ad92ab1b963272d1d4a55a94c16f6e1a17",
+  "pdf_physical_pages": [
+    16
+  ],
+  "pdf_printed_pages": [
+    15
+  ],
+  "reference_file": "PDF参考图/29.png",
+  "web_search": {
+    "query_group": "沙发、休闲椅及圆凳",
+    "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+    "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+  },
+  "source_type": "本地混元重建及网格修整",
+  "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair",
+  "dimension_note": "PDF尺寸标标准；根据同款会议椅估计560×530×800"
+}

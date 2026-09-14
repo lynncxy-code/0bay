@@ -1,0 +1,40 @@
+{
+  "id": 25,
+  "name": "窗边柜（不含花槽）",
+  "room": "员工区",
+  "pages": [
+    14
+  ],
+  "reference": "p14_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\25.png",
+  "dimensions_mm": [
+    900,
+    400,
+    1090
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "25_窗边柜（不含花槽）_员工区.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\25.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "25_窗边柜（不含花槽）_员工区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "536ceabf976ddd4c05053f9f9ce3c003ab4178af283034451fcba1d8ebcb9dff",
+  "preview_sha256": "bfe3b050671a658016fc818fd258117fad1808906b9e30ba6b35c7ea1ebe66b1",
+  "pdf_physical_pages": [
+    14
+  ],
+  "pdf_printed_pages": [
+    13
+  ],
+  "reference_file": "PDF参考图/25.png",
+  "web_search": {
+    "query_group": "柜体",
+    "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+    "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

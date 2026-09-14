@@ -1,0 +1,40 @@
+{
+  "id": 38,
+  "name": "接待沙发、单人沙发",
+  "room": "接待区",
+  "pages": [
+    19
+  ],
+  "reference": "p19_i05.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\38.png",
+  "dimensions_mm": [
+    3000,
+    660,
+    740
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "38_接待沙发、单人沙发_接待区.glb",
+  "method": "本轮网上新下载的近似款",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\web_candidates\\38.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "web_source": "https://furnimesh.com/library/sofas/sofa/a-modern-armless-sofa-with-a-clean-cop0a1/",
+  "preview": "38_接待沙发、单人沙发_接待区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "ae3947e29218b24d8a64188db214e8356de0b34842da1ca3ed7969486486ac15",
+  "preview_sha256": "9b270afbb8a6a1bec9c871eb1200b4f1b07a781821232d2a4f58a0bc27b766b8",
+  "pdf_physical_pages": [
+    19
+  ],
+  "pdf_printed_pages": [
+    18
+  ],
+  "reference_file": "PDF参考图/38.png",
+  "web_search": {
+    "reason": "本轮新下载接待沙发近似款，已实际导入渲染核对"
+  },
+  "source_type": "网上新下载（近似款）",
+  "match_note": "无扶手长沙发近似款；分缝、底架和局部比例与PDF不同；保留近似款标签",
+  "license_note": "来源网页公开免费下载；未将其标为已核验的商用授权"
+}

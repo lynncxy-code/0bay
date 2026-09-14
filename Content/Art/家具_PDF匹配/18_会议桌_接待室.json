@@ -1,0 +1,40 @@
+{
+  "id": 18,
+  "name": "会议桌",
+  "room": "接待室",
+  "pages": [
+    11
+  ],
+  "reference": "p11_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\18.png",
+  "dimensions_mm": [
+    3200,
+    1200,
+    750
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "18_会议桌_接待室.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\18.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "18_会议桌_接待室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "4a030acff6be0d2422b365c8b54832761efc36f7bc67d2fca73b55a231a8ac76",
+  "preview_sha256": "38212e7ff03ff755b80ac79e2ddcb70bbf7db4fae3010d640b402fe691c85fcd",
+  "pdf_physical_pages": [
+    11
+  ],
+  "pdf_printed_pages": [
+    10
+  ],
+  "reference_file": "PDF参考图/18.png",
+  "web_search": {
+    "query_group": "会议桌",
+    "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+    "reason": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

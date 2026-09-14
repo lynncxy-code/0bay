@@ -1,0 +1,37 @@
+{
+  "id": 8,
+  "name": "椅子（带写字板）",
+  "room": "大会议室",
+  "pages": [
+    6
+  ],
+  "reference": "p06_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\08.png",
+  "dimensions_mm": null,
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "08_椅子（带写字板）_大会议室.glb",
+  "method": "本地Hunyuan3D-2mv图像重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\08.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "qa_repair": "保留混元几何，调整灰色网布与金属底架材质",
+  "preview": "08_椅子（带写字板）_大会议室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "452a88f91a583aa5670917cace5375c9481b88fe0705a2483ee0b6fbec9019fd",
+  "preview_sha256": "aa9ae67596a868906a3aba14878c1449db7726cac863221f1d4a7c0ef0140d47",
+  "pdf_physical_pages": [
+    6
+  ],
+  "pdf_printed_pages": [
+    5
+  ],
+  "reference_file": "PDF参考图/08.png",
+  "web_search": {
+    "query_group": "办公椅及会议椅",
+    "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+    "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+  },
+  "source_type": "本地混元重建及网格修整",
+  "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+}

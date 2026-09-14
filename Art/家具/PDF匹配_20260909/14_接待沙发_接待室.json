@@ -1,0 +1,40 @@
+{
+  "id": 14,
+  "name": "接待沙发",
+  "room": "接待室",
+  "pages": [
+    9
+  ],
+  "reference": "p09_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\14.png",
+  "dimensions_mm": [
+    2000,
+    700,
+    750
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "14_接待沙发_接待室.glb",
+  "method": "本地Hunyuan3D-2mv图像重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\14.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "14_接待沙发_接待室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "acbeac214e4593d62eaa171173b03a693a29c2bbc1eff435d528aba5595f1a3e",
+  "preview_sha256": "c2b6b29fc11ad8da2433da6d20a25110f3a2e1b5437859c0bc89f732221e92f7",
+  "pdf_physical_pages": [
+    9
+  ],
+  "pdf_printed_pages": [
+    8
+  ],
+  "reference_file": "PDF参考图/14.png",
+  "web_search": {
+    "query_group": "沙发、休闲椅及圆凳",
+    "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+    "reason": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+  },
+  "source_type": "本地混元重建及网格修整",
+  "geometry_source": "本轮本地Hunyuan3D-2mv生成网格；缩放、减面和材质处理；部分底架重新建模，见qa_repair"
+}

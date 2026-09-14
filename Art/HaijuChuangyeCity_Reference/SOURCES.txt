@@ -1,0 +1,12 @@
+参考来源：
+1. https://www.lezubangong.com/news/888.html（用户提供）
+2. https://touch.shio.gov.cn/jsp/whjljd_detail.jsp?id=20251203145512623
+3. https://sh.people.com.cn/n2/2025/0222/c134768-41143675.html
+4. https://www.sh-italent.com/Article/202510/202510220001.shtml
+图片直链：
+- https://n.sinaimg.cn/spider20240326/601/w1800h1201/20240326/3114-596911a8f43a762484e76508311ff5ec.jpg
+- https://www.001zf.com/admin/umeditor/php/upload/20240613/17182640225697.jpg
+说明：模型为基于公开资料和用户提供图片的比例化重建，不代表施工图或测绘数据。
+用户本轮指定参考：
+- user_view_45deg.png：用户提供的斜上45°视图
+- user_view_front.png：用户提供的正面视图

@@ -1,0 +1,74 @@
+{
+  "name": "绿萝盆栽",
+  "original_name": "Pothos Houseplant",
+  "author": "Ken Xie",
+  "source": "https://www.blendkit.com/asset-gallery-detail/05eab442-5217-4cb3-af52-8cb8f82ad4c2/",
+  "license": "BlenderKit Royalty Free",
+  "license_url": "https://www.blendkit.com/docs/licenses/",
+  "is_free": true,
+  "mesh_count": 1,
+  "material_slots": 3,
+  "texture_count": 6,
+  "texture_sizes": {
+    "T_Pothos_Pot_Color": [
+      1024,
+      1024
+    ],
+    "T_Pothos_Pot_Normal": [
+      1024,
+      1024
+    ],
+    "T_Pothos_Soil_Color": [
+      1024,
+      1024
+    ],
+    "T_Pothos_Soil_Normal": [
+      1024,
+      1024
+    ],
+    "T_Pothos_Leaves_Color": [
+      2048,
+      2048
+    ],
+    "T_Pothos_Leaves_Normal": [
+      2048,
+      2048
+    ]
+  },
+  "triangles": 98826,
+  "dimensions_m": [
+    0.9592689275741577,
+    0.8521610498428345,
+    0.42531445622444153
+  ],
+  "modifications": "Downloaded native Blender source because provider GLB baked maps were all black. Baked original color networks and tangent normals to 2K leaf / 1K pot and soil maps; retained source geometry; merged into one static mesh with bottom-centered pivot.",
+  "bake": [
+    {
+      "part": "Pot",
+      "material": "M_Pothos_Pot",
+      "textures": {
+        "Color": "T_Pothos_Pot_Color",
+        "Normal": "T_Pothos_Pot_Normal"
+      },
+      "resolution": 1024
+    },
+    {
+      "part": "Soil",
+      "material": "M_Pothos_Soil",
+      "textures": {
+        "Color": "T_Pothos_Soil_Color",
+        "Normal": "T_Pothos_Soil_Normal"
+      },
+      "resolution": 1024
+    },
+    {
+      "part": "Leaves",
+      "material": "M_Pothos_Leaves",
+      "textures": {
+        "Color": "T_Pothos_Leaves_Color",
+        "Normal": "T_Pothos_Leaves_Normal"
+      },
+      "resolution": 2048
+    }
+  ]
+}

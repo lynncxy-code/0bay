@@ -1,0 +1,40 @@
+{
+  "id": 23,
+  "name": "活动柜",
+  "room": "员工区",
+  "pages": [
+    14
+  ],
+  "reference": "p14_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\23.png",
+  "dimensions_mm": [
+    390,
+    520,
+    600
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "23_活动柜_员工区.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\23.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "23_活动柜_员工区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "49bc9607e04b3c035c809332098071571d944d1da9dee64106afeef7f1553f52",
+  "preview_sha256": "1fb25322f2d3683966d44fea4d9a0187a2d7f08d0d1b4eebcac37b8db100f56b",
+  "pdf_physical_pages": [
+    14
+  ],
+  "pdf_printed_pages": [
+    13
+  ],
+  "reference_file": "PDF参考图/23.png",
+  "web_search": {
+    "query_group": "柜体",
+    "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+    "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

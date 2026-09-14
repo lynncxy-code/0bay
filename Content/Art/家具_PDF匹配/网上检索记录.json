@@ -1,0 +1,111 @@
+[
+  {
+    "ids": [
+      1
+    ],
+    "category": "经理桌",
+    "candidate_page": "https://www.meetcofurniture.com/product/reco-series-c-l-shaped-executive-desk/",
+    "result": "找到尺寸接近的家具产品页，未取得对应免费独立模型"
+  },
+  {
+    "ids": [
+      2,
+      3,
+      8,
+      9,
+      11
+    ],
+    "category": "办公椅及会议椅",
+    "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+    "result": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+  },
+  {
+    "ids": [
+      4,
+      23,
+      24,
+      25,
+      26
+    ],
+    "category": "柜体",
+    "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+    "result": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+  },
+  {
+    "ids": [
+      6,
+      17,
+      28,
+      37
+    ],
+    "category": "茶几及休闲桌",
+    "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+    "result": "候选桌面和底架不同，按PDF尺寸及照片重建"
+  },
+  {
+    "ids": [
+      7,
+      10,
+      12,
+      18
+    ],
+    "category": "会议桌",
+    "candidate_page": "https://www.cgtrader.com/free-3d-models/furniture/table/conference-table--5",
+    "result": "检索到免费会议桌；尺寸、底架和桌面形式不对应。另下载一款桌子复核后排除"
+  },
+  {
+    "ids": [
+      19,
+      20,
+      27,
+      31,
+      32,
+      33
+    ],
+    "category": "吧台及吧椅",
+    "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+    "result": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+  },
+  {
+    "ids": [
+      21
+    ],
+    "category": "升降员工桌",
+    "candidate_page": "https://www.blenderkit.com/get-blenderkit/d8eb6c2b-11a2-4692-982a-9b16beb0415d/",
+    "result": "发现升降桌候选，未找到桌屏、尺寸及结构对应的免费独立文件"
+  },
+  {
+    "ids": [
+      22
+    ],
+    "category": "员工椅",
+    "candidate_page": "https://zeelproject.com/6994-chair-fx-808.html",
+    "result": "未取得无需付费积分的对应独立下载文件"
+  },
+  {
+    "ids": [
+      34
+    ],
+    "category": "双人电话亭",
+    "candidate_page": "https://sketchfab.com/3d-models/tono-box-20-phone-booth-1aeaa812177d4436974412e5f310db43",
+    "result": "候选为不同规格的电话亭；另下载一款单人亭复核后排除"
+  },
+  {
+    "ids": [
+      5,
+      13,
+      14,
+      15,
+      16,
+      29,
+      30,
+      35,
+      36,
+      39,
+      40
+    ],
+    "category": "沙发、休闲椅及圆凳",
+    "candidate_page": "https://furnimesh.com/library/seating/armchair/a-modern-armless-lounge-chair-with-a-ph56o8/",
+    "result": "另款无扶手椅已下载复核，靠背和底架不符；其余检索未确认同款可用免费文件"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "id": 11,
+  "name": "会议椅",
+  "room": "中会议室及接待室",
+  "pages": [
+    7,
+    11
+  ],
+  "reference": "p07_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\11.png",
+  "dimensions_mm": [
+    500,
+    660,
+    820
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "11_会议椅_中会议室及接待室.glb",
+  "method": "混元推理后按PDF图片及尺寸重新建模",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\11.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "qa_repair": "混元输出出现整片拉伸；依据PDF图片重建带横向分缝的座背、五星脚和脚轮",
+  "preview": "11_会议椅_中会议室及接待室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "daec1fec53cba938fae02dbb5c2e9f864beebc24c7423438311eb3cb944304fb",
+  "preview_sha256": "6ce764355688b53dc5a19846d51ffcb328c2365f45032b38eea8d5b4acebf5a0",
+  "pdf_physical_pages": [
+    7,
+    11
+  ],
+  "pdf_printed_pages": [
+    6,
+    10
+  ],
+  "reference_file": "PDF参考图/11.png",
+  "web_search": {
+    "query_group": "办公椅及会议椅",
+    "candidate_page": "https://www.blenderkit.com/asset-gallery-detail/3f400c9e-afd0-4046-9b43-4d3de3c6c42b/",
+    "reason": "检索到其他办公椅，靠背、扶手或底架不同；采用PDF图像本地建模"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

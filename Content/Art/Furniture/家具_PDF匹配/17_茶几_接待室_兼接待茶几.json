@@ -1,0 +1,47 @@
+{
+  "id": 17,
+  "name": "茶几",
+  "room": "接待室_兼接待茶几",
+  "pages": [
+    10,
+    19
+  ],
+  "reference": "p10_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\17.png",
+  "dimensions_mm": [
+    800,
+    800,
+    380
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "17_茶几_接待室_兼接待茶几.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\17.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "17_茶几_接待室_兼接待茶几.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "581bf0bcff846cde41b4e3d83c699e394dc41dbb03b1339e19cd85fc7e36c62c",
+  "preview_sha256": "684f69e2f4bac7b7994e513ec5f2bf6bc0184f56ecd1ab24b3fe9d97ce33b3c4",
+  "pdf_physical_pages": [
+    10,
+    19
+  ],
+  "pdf_printed_pages": [
+    9,
+    18
+  ],
+  "reference_file": "PDF参考图/17.png",
+  "web_search": {
+    "query_group": "茶几及休闲桌",
+    "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+    "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+  "document_names": [
+    "茶几",
+    "接待茶几"
+  ]
+}

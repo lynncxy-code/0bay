@@ -1,0 +1,40 @@
+{
+  "id": 6,
+  "name": "茶几",
+  "room": "独立办公室",
+  "pages": [
+    4
+  ],
+  "reference": "p04_i03.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\06.png",
+  "dimensions_mm": [
+    1200,
+    600,
+    430
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "06_茶几_独立办公室.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\06.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "06_茶几_独立办公室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "b2a4cdc67c505ac1d72a51a0eb19a799c8be25b54042769ba7d21906b90dc167",
+  "preview_sha256": "020fec3b80c94b88b518d130f2de6ed006fcccc092a40da60a1ff69cf5bfa2c2",
+  "pdf_physical_pages": [
+    4
+  ],
+  "pdf_printed_pages": [
+    3
+  ],
+  "reference_file": "PDF参考图/06.png",
+  "web_search": {
+    "query_group": "茶几及休闲桌",
+    "candidate_page": "https://furnimesh.com/library/tables/coffee-table/a-modern-round-coffee-table-featuring-a-202z10/",
+    "reason": "候选桌面和底架不同，按PDF尺寸及照片重建"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

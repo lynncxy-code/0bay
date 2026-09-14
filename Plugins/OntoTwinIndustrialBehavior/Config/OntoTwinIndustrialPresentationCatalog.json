@@ -1,0 +1,92 @@
+{
+  "catalog_id": "ot.industrial.presentation",
+  "catalog_version": "4.6.0-mock.1",
+  "package_id": "OntoTwinIndustrialPresentation",
+  "status": "published",
+  "entries": [
+    {
+      "resource_id": "ot.industrial.machine.idle",
+      "revision": 1,
+      "display_name": "设备待机",
+      "resource_type": "animation",
+      "channel": "animation",
+      "slot": "motion",
+      "supported_states": ["idle", "offline"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/animation/machine_idle",
+      "preview_kind": "thumbnail"
+    },
+    {
+      "resource_id": "ot.industrial.machine.running",
+      "revision": 1,
+      "display_name": "设备运行",
+      "resource_type": "animation",
+      "channel": "animation",
+      "slot": "motion",
+      "supported_states": ["running"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/animation/machine_running",
+      "preview_kind": "loop"
+    },
+    {
+      "resource_id": "ot.industrial.machine.fault",
+      "revision": 1,
+      "display_name": "设备故障停机",
+      "resource_type": "animation",
+      "channel": "animation",
+      "slot": "motion",
+      "supported_states": ["fault"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/animation/machine_fault",
+      "preview_kind": "loop"
+    },
+    {
+      "resource_id": "ot.industrial.fx.warning_flash",
+      "revision": 1,
+      "display_name": "告警闪烁",
+      "resource_type": "fx",
+      "channel": "fx",
+      "slot": "alarm",
+      "supported_states": ["warning", "fault"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/fx/warning_flash",
+      "preview_kind": "loop"
+    },
+    {
+      "resource_id": "ot.industrial.fx.critical_flash",
+      "revision": 1,
+      "display_name": "严重告警闪烁",
+      "resource_type": "fx",
+      "channel": "fx",
+      "slot": "alarm",
+      "supported_states": ["fault"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/fx/critical_flash",
+      "preview_kind": "loop"
+    },
+    {
+      "resource_id": "ot.industrial.material.warning_red",
+      "revision": 1,
+      "display_name": "告警红色材质",
+      "resource_type": "material",
+      "channel": "material",
+      "slot": "status_indicator",
+      "supported_states": ["warning", "fault"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/material/warning_red",
+      "preview_kind": "material_ball"
+    },
+    {
+      "resource_id": "ot.industrial.material.maintenance_gray",
+      "revision": 1,
+      "display_name": "维护灰度材质",
+      "resource_type": "material",
+      "channel": "material",
+      "slot": "status_indicator",
+      "supported_states": ["maintenance"],
+      "supported_object_types": ["工业设备", "AGV"],
+      "logical_asset_reference": "mock://industrial/material/maintenance_gray",
+      "preview_kind": "material_ball"
+    }
+  ]
+}

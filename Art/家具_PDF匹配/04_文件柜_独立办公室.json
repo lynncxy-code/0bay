@@ -1,0 +1,41 @@
+{
+  "id": 4,
+  "name": "文件柜",
+  "room": "独立办公室",
+  "pages": [
+    3
+  ],
+  "reference": "p03_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\04.png",
+  "dimensions_mm": [
+    4500,
+    420,
+    3100
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "04_文件柜_独立办公室.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\04.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "04_文件柜_独立办公室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "ab7d54378c459d5bf685034010d876a2f9ec7492aa8e448cacbac197d6173f35",
+  "preview_sha256": "ccb032cf5ff99f1f68971dc064bb4eb3c3d6202d9d732d0db729e6c552e384be",
+  "pdf_physical_pages": [
+    3
+  ],
+  "pdf_printed_pages": [
+    2
+  ],
+  "reference_file": "PDF参考图/04.png",
+  "web_search": {
+    "query_group": "柜体",
+    "candidate_page": "https://furnimesh.com/library/storage/cabinet/a-modern-twodrawer-mobile-filing-cabinet-featuring-z0dc0o/",
+    "reason": "候选抽屉数量与门板结构不符；花槽柜检索到家具商品但无同款免费模型"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+  "dimension_note": "5组900宽柜体合为4500宽；文件包含五组，避免按单组重复放置"
+}

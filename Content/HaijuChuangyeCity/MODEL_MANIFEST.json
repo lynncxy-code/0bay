@@ -1,0 +1,35 @@
+{
+  "project": "D:/0bay/OfficeShell_OpenSteel/UE56/ShanghaiOfficeShell_OpenSteel.uproject",
+  "target_map": "/Game/OfficeShell/Maps/Office_Demo",
+  "asset": "Shanghai_HaijuYingcai_EntrepreneurshipCity.glb",
+  "units": "meters",
+  "dimensions_m": {
+    "site": [
+      118,
+      92,
+      3
+    ],
+    "height": 62.6
+  },
+  "geometry_count": 453,
+  "materials": [
+    "glass",
+    "white_metal",
+    "bronze",
+    "paving",
+    "lawn",
+    "dark",
+    "interior",
+    "accent"
+  ],
+  "features": [
+    "twin towers",
+    "central skybridge",
+    "bronze entrance portal and canopy",
+    "glass curtain wall",
+    "vertical fins",
+    "landscaped plinth",
+    "lobby shell"
+  ],
+  "status": "conceptual reconstruction from public references and user-supplied images"
+}

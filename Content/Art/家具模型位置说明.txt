@@ -1,0 +1,6 @@
+UE实际内容目录模型位置：
+Content\Art\家具_PDF匹配：PDF对应模型
+Content\Art\家具_新增：新增模型
+Content\Art\Furniture\家具_PDF匹配：英文Furniture目录下的同步副本
+Content\Art\Furniture\家具_新增：英文Furniture目录下的同步副本
+PDF匹配40个GLB/40个JPG；新增14个GLB/15个JPG（含总览图）。JPG均为对应GLB实际渲染。

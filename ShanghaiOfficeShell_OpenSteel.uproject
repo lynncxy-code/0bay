@@ -1,0 +1,21 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.6",
+  "Category": "Architecture",
+  "Description": "Shanghai CAD office shell - white open steel ceiling at 3 metres",
+  "Modules": [{"Name":"OfficeHost","Type":"Runtime","LoadingPhase":"Default"}],
+  "Plugins": [
+    {"Name":"OntoTwinSync","Enabled":true},
+    {"Name":"OntoTwinIndustrialBehavior","Enabled":true},
+    {"Name":"OntoTwinCharacterPack_Core","Enabled":true},
+    {"Name":"glTFRuntime","Enabled":true},
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true
+    },
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    }
+  ]
+}

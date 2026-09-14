@@ -1,0 +1,40 @@
+{
+  "id": 1,
+  "name": "经理桌",
+  "room": "独立办公室",
+  "pages": [
+    2
+  ],
+  "reference": "p02_i03.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\01.png",
+  "dimensions_mm": [
+    1800,
+    1800,
+    750
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "01_经理桌_独立办公室.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\01.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "01_经理桌_独立办公室.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "091ec08aeb4942eb00cbe1e24c9f57a9b1004357a3f2feb6c77322672e1f6935",
+  "preview_sha256": "24833dae0999ad0f53a3424232d768352438a2aedc9473ccd8f0964edc2c5cbe",
+  "pdf_physical_pages": [
+    2
+  ],
+  "pdf_printed_pages": [
+    1
+  ],
+  "reference_file": "PDF参考图/01.png",
+  "web_search": {
+    "query_group": "经理桌",
+    "candidate_page": "https://www.meetcofurniture.com/product/reco-series-c-l-shaped-executive-desk/",
+    "reason": "找到尺寸接近的家具产品页，未取得对应免费独立模型"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

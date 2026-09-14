@@ -1,0 +1,40 @@
+{
+  "id": 31,
+  "name": "吧台",
+  "room": "打印茶水区_2800",
+  "pages": [
+    17
+  ],
+  "reference": "p17_i04.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\31.png",
+  "dimensions_mm": [
+    2800,
+    700,
+    1100
+  ],
+  "derived_from": 19,
+  "status": "已交付模型及真实渲染预览",
+  "file": "31_吧台_打印茶水区_2800.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\19.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "31_吧台_打印茶水区_2800.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "6199993ecbf552e4abefec00c25b79622519a22a814667a958f322b12d91605c",
+  "preview_sha256": "d7d4d9cfa6c4a836ee30df4877617ec15a81485ac4195aab9717821abd3773dd",
+  "pdf_physical_pages": [
+    17
+  ],
+  "pdf_printed_pages": [
+    16
+  ],
+  "reference_file": "PDF参考图/31.png",
+  "web_search": {
+    "query_group": "吧台及吧椅",
+    "candidate_page": "https://furnimesh.com/library/seating/bar-stool/a-modern-adjustable-bar-stool-featuring-a-25qv77/",
+    "reason": "候选吧椅采用圆盘底座，与照片脚轮或雪橇脚不同"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models"
+}

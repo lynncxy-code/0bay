@@ -1,0 +1,41 @@
+{
+  "id": 34,
+  "name": "双人电话亭（含桌子椅子）",
+  "room": "打印茶水区",
+  "pages": [
+    18
+  ],
+  "reference": "p18_i02.png",
+  "input": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\inputs\\34.png",
+  "dimensions_mm": [
+    1600,
+    1280,
+    2280
+  ],
+  "derived_from": null,
+  "status": "已交付模型及真实渲染预览",
+  "file": "34_双人电话亭（含桌子椅子）_打印茶水区.glb",
+  "method": "混元推理后按PDF尺寸及图片修整重建",
+  "inference_file": "D:\\0bay\\furniture_search\\pdf_rebuild_20260909\\raw_models\\34.glb",
+  "material_note": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+  "geometry_note": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+  "preview": "34_双人电话亭（含桌子椅子）_打印茶水区.jpg",
+  "preview_method": "Blender Cycles实际导入此GLB并渲染，960×960 JPEG",
+  "sha256": "3e90e421b10b87c01f37133dd89d5f07e5fc3f586e98b1b434f3787711402240",
+  "preview_sha256": "40c57bd9dbacb1db46e5ae197c15eeb2f072e39d89817ebb526691f7366a3c62",
+  "pdf_physical_pages": [
+    18
+  ],
+  "pdf_printed_pages": [
+    17
+  ],
+  "reference_file": "PDF参考图/34.png",
+  "web_search": {
+    "query_group": "双人电话亭",
+    "candidate_page": "https://sketchfab.com/3d-models/tono-box-20-phone-booth-1aeaa812177d4436974412e5f310db43",
+    "reason": "候选为不同规格的电话亭；另下载一款单人亭复核后排除"
+  },
+  "source_type": "依据PDF重新建模（混元尝试后修正）",
+  "geometry_source": "几何由本轮Blender脚本依据PDF图像及尺寸构建，非混元网格直接交付；混元原始推理保存在工作目录raw_models",
+  "dimension_note": "亭体1600×1280×2280；开启的玻璃门会超出整体包围盒；包含简化的桌、座椅及圆凳"
+}
