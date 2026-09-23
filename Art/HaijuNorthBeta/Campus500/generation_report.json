@@ -1,0 +1,21 @@
+{
+  "radius_m": 500,
+  "center_source_m": [
+    -96.47232348610945,
+    -61.612967162457394
+  ],
+  "style": "Illustrative modeled landscape; no satellite texture",
+  "pickable_buildings": 1676,
+  "ground_meshes": 13,
+  "detail_counts": {
+    "parking_bays": 192,
+    "pocket_plazas": 66,
+    "garden_islands": 83,
+    "new_trees": 290,
+    "benches": 63,
+    "lights": 63
+  },
+  "vertices": 51258,
+  "source_geometry_unchanged": true,
+  "landmark_overlay": "../Landmarks/replacement_manifest.json"
+}

@@ -10,6 +10,7 @@ class UChildActorComponent;
 class UStaticMeshComponent;
 class UMaterialInstanceDynamic;
 class UGrandNeoBayWidget;
+class ACampusInteraction;
 
 /** Optional building presentation. The office actors and the existing roaming system stay in place. */
 UCLASS(Blueprintable)
@@ -36,7 +37,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="GrandNeoBay")
     TObjectPtr<UCameraComponent> OverviewCamera;
 
-    /** In building-local centimetres. Building origin Z=480 makes this floor world Z=4320. */
+    /** In building-local centimetres; the floor follows the placed building actor. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GrandNeoBay|Floor", meta=(MakeEditWidget=true))
     FVector FloorOffset = FVector(0, 0, 3840);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GrandNeoBay|Floor", meta=(ClampMin="50"))
@@ -85,6 +86,8 @@ public:
 
     bool IsTransitioning() const { return bReturning || TransitionRemaining > 0; }
     bool IsFloorHovered() const { return bHovered; }
+    bool HasSelection() const { return bSelected || SelectedBuilding != INDEX_NONE; }
+    bool GetSelectedBuildingInfo(FText& Title, FText& Description) const;
     FVector GetCardWorldPosition() const;
     void ClickScene();
     void OrbitPreview(FVector2D Delta);
@@ -99,6 +102,8 @@ private:
     TWeakObjectPtr<APlayerController> Controller;
     TWeakObjectPtr<AActor> SavedViewTarget;
     TWeakObjectPtr<APawn> SavedPawn;
+    TWeakObjectPtr<ACampusInteraction> Campus;
+    int32 SelectedBuilding = INDEX_NONE;
     TMap<TWeakObjectPtr<class UUserWidget>, ESlateVisibility> SavedWidgets;
     TArray<TWeakObjectPtr<UActorComponent>> SuspendedPawnComponents;
     bool bSavedPawnTick = false;
@@ -121,15 +126,23 @@ private:
     double BeginSeconds = 0;
     int32 TestStep = 0;
     bool bSelfTest = false;
+    bool bCampusTest = false;
+    bool bLandmarkTest = false;
+    int32 TestCampusBuilding = INDEX_NONE;
     bool bTestFailed = false;
     TArray<FString> TestChecks;
     FVector TestSavedPawnLocation = FVector::ZeroVector;
 
     void UpdateCamera();
     void UpdatePresentation();
+    void UpdateHoverSelection();
+    void SyncMainBuildingHighlight();
     void ReleaseInput();
     void HideOfficeWidgets();
-    bool HitFloor() const;
+    bool HitFloor(float* Distance = nullptr) const;
+    int32 PickBuilding(bool& bFloor) const;
     void TickSelfTest();
+    void TickCampusTest();
+    void TickLandmarkTest();
     void RecordCheck(bool bPassed, const FString& Name);
 };

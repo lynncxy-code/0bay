@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "existing_actors_checked": 524,
+  "original_actor_transforms_changed": 0,
+  "unchanged_background_mesh_actors": 146,
+  "unchanged_pick_shapes": 1668,
+  "new_landmark_actors": 48,
+  "updated_pick_shapes": 8,
+  "total_pick_shapes": 1676,
+  "original_remainder_materials_retained": true,
+  "campus_ground_and_facilities_unchanged": true,
+  "ground_actor_z_cm": 3,
+  "ground_surface_z_cm": 1,
+  "nanite_fallback_landmark_triangles": 13015,
+  "nanite_fallback_remainder_triangles": 2498,
+  "source_geometry_validation": {
+    "passed": true,
+    "assets": [
+      {
+        "file": "HuoYingDong_Stadium.glb",
+        "bytes": 224256,
+        "sha256": "f23c371992e50539a67be794dd1bb25ab3ff49220486c3a150ab915c9f9d5f2f",
+        "triangles": 9596,
+        "meshes": 5,
+        "bounds_glb_m": [
+          [
+            25.608169555664062,
+            0.10000000149011612,
+            -260.797607421875
+          ],
+          [
+            172.0254364013672,
+            29.340999603271484,
+            -115.32632446289062
+          ]
+        ]
+      },
+      {
+        "file": "SJTU_Science_Courtyard.glb",
+        "bytes": 964336,
+        "sha256": "c6e52122a1350d45956dc1f205df5985d280ccec062ce1f53cc55bae90eca446",
+        "triangles": 17248,
+        "meshes": 43,
+        "bounds_glb_m": [
+          [
+            76.64836120605469,
+            0.0,
+            -53.63673782348633
+          ],
+          [
+            267.4192810058594,
+            39.099998474121094,
+            124.85064697265625
+          ]
+        ]
+      },
+      {
+        "file": "Landmarks_Combined.glb",
+        "bytes": 1188268,
+        "sha256": "fb177621dd13b97f40edf1bb46fd2369f4b0c41535b4b4c61f40b4e76108f062",
+        "triangles": 26844,
+        "meshes": 48,
+        "bounds_glb_m": [
+          [
+            25.608169555664062,
+            0.0,
+            -260.797607421875
+          ],
+          [
+            267.4192810058594,
+            39.099998474121094,
+            124.85064697265625
+          ]
+        ]
+      },
+      {
+        "file": "Background_Changed_Batches.glb",
+        "bytes": 569488,
+        "sha256": "541a799d97b9ee96ad7a6a7bdd2a75a97b667f2e13e50d2888619f67dbb5d343",
+        "triangles": 7854,
+        "meshes": 9,
+        "bounds_glb_m": [
+          [
+            -65.63899993896484,
+            0.0,
+            -516.1400146484375
+          ],
+          [
+            518.1270141601562,
+            32.59299850463867,
+            255.61599731445312
+          ]
+        ]
+      }
+    ],
+    "unchanged_meshes_geometry_and_uv": 146,
+    "unchanged_layers": [
+      "Roads_6",
+      "Roads_5",
+      "Roads_8",
+      "Trees_10",
+      "Trees_9",
+      "Ground_7"
+    ],
+    "filtered_batch_count": 9,
+    "removed_empty_batch_count": 3,
+    "filtered_triangles_are_subset_of_original": true,
+    "new_pick_shapes": 8,
+    "new_pick_triangles": 1882,
+    "ue_import_status": "pending separate UE integration",
+    "accuracy": "reference-guided exterior; science dimensions inferred, stadium official max height; original approximate georegistration retained"
+  }
+}

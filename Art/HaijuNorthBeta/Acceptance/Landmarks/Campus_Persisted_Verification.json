@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "buildings": 1676,
+  "unique_keys": true,
+  "invalid_shapes": [],
+  "details_meshes": [
+    "Campus_Ground",
+    "Campus_RoadExtension",
+    "Campus_Plant",
+    "Campus_Metal",
+    "Campus_Timber",
+    "Campus_WalkExtension",
+    "Campus_Paving",
+    "Campus_Stone",
+    "Campus_Asphalt",
+    "Campus_Paint",
+    "Campus_Grass",
+    "Campus_Bark",
+    "Campus_Canopy"
+  ],
+  "ground_and_road_z_cm": [
+    {
+      "mesh": "Ground_7",
+      "actor_z": 3.0,
+      "min_z": 1.0,
+      "max_z": 1.0
+    },
+    {
+      "mesh": "Roads_5",
+      "actor_z": 0.0,
+      "min_z": 6.0,
+      "max_z": 6.0
+    },
+    {
+      "mesh": "Roads_6",
+      "actor_z": 0.0,
+      "min_z": 2.499999523162842,
+      "max_z": 28.5
+    },
+    {
+      "mesh": "Roads_8",
+      "actor_z": 0.0,
+      "min_z": 7.500000476837158,
+      "max_z": 7.500000476837158
+    }
+  ],
+  "streaming": "AlwaysLoaded",
+  "original_scene_regression": "See install_verification.json"
+}

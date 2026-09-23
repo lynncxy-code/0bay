@@ -1,0 +1,32 @@
+{
+	"passed": true,
+	"checks": [
+		"PASS: Refined landmark shapes loaded; stadium annex targets merged",
+		"PASS: Imported landmark source geometry retains 26844 triangles (actual 26844)",
+		"PASS: Filtered background source geometry retains 7854 triangles (actual 7854)",
+		"PASS: Vertical roof ray picks osm219751253CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm219751253CHN",
+		"PASS: Stadium apex proxy is 29.341m roof plus 0.12m skin offset",
+		"PASS: Stadium roof triangle centroid is above the old flat height",
+		"PASS: Vertical roof ray picks osm1207394279CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394279CHN",
+		"PASS: Science pick reaches the new high tower roof",
+		"PASS: Vertical roof ray picks osm1207394280CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394280CHN",
+		"PASS: Vertical roof ray picks osm1207394281CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394281CHN",
+		"PASS: Vertical roof ray picks osm1207394283CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394283CHN",
+		"PASS: Vertical roof ray picks osm1207394297CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394297CHN",
+		"PASS: Vertical roof ray picks osm1207394298CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394298CHN",
+		"PASS: Vertical roof ray picks osm1207394299CHN",
+		"PASS: Roof ray hit matches triangle surface height: osm1207394299CHN",
+		"PASS: Stadium click starts with preview camera active and blend complete",
+		"PASS: UI pointer selects the stadium membrane roof",
+		"PASS: Science click starts with preview camera active and blend complete",
+		"PASS: UI pointer selects the science tower roof",
+		"PASS: Landmark preview returns to original office with clean input and highlights"
+	]
+}

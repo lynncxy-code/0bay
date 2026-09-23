@@ -18,6 +18,7 @@ class OFFICEHOST_API UGrandNeoBayWidget : public UUserWidget
 public:
     void SetExperience(AGrandNeoBayExperience* InExperience);
     void Refresh();
+    bool IsBuildingInfoCardVisible() const;
     /** Used only by -GNBTest: button delegates and native scene pointer events. */
     bool TestActivateControl(FName Control, FVector2D ViewportPoint = FVector2D::ZeroVector);
 protected:
@@ -36,9 +37,12 @@ private:
     UPROPERTY(Transient) TObjectPtr<UBackgroundBlur> CardGlass;
     UPROPERTY(Transient) TObjectPtr<UBorder> Card;
     UPROPERTY(Transient) TObjectPtr<UButton> EnterButton;
+    UPROPERTY(Transient) TObjectPtr<UButton> CloseButton;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> Status;
+    UPROPERTY(Transient) TObjectPtr<UTextBlock> CardEyebrow;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> CardTitle;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> CardDescription;
+    UPROPERTY(Transient) TObjectPtr<UTextBlock> CloseLabel;
     bool bOrbiting = false;
     bool IsPointerOverCard(FVector2D AbsolutePosition) const;
     void UpdatePreviewPointer(const FGeometry& Geometry, FVector2D AbsolutePosition);

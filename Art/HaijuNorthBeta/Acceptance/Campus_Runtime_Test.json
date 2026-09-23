@@ -1,0 +1,17 @@
+{
+	"passed": true,
+	"checks": [
+		"PASS: All surrounding buildings and main building have individual pick shapes",
+		"PASS: Campus overview uses the existing preview camera",
+		"PASS: Real UI pointer event selects one visible campus building",
+		"PASS: A visible nearby building is ray-pickable",
+		"PASS: Click selection shows only the selected building skin and edges",
+		"PASS: UI hit targets block scene selection",
+		"PASS: Empty scene click clears building selection",
+		"PASS: Hover highlights a building without selecting it",
+		"PASS: Leaving a building clears transient hover",
+		"PASS: Main building facade selects the complete building outside the ninth-floor target",
+		"PASS: Ninth-floor selection replaces whole-building highlight",
+		"PASS: Return to office clears campus highlights and restores input"
+	]
+}

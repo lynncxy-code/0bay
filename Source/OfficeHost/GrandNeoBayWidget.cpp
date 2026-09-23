@@ -97,7 +97,8 @@ void UGrandNeoBayWidget::NativeOnInitialized()
     CardGlass->AddChild(Card);
     auto* CardBox = WidgetTree->ConstructWidget<UVerticalBox>();
     Card->SetContent(CardBox);
-    Row(CardBox, Label(WidgetTree, FText::FromString(TEXT("●  当前楼层")), 12, Cyan, true), 8);
+    CardEyebrow = Label(WidgetTree, FText::FromString(TEXT("●  当前楼层")), 12, Cyan, true);
+    Row(CardBox, CardEyebrow, 8);
     CardTitle = Label(WidgetTree, FText::GetEmpty(), 24, FLinearColor::White, true);
     Row(CardBox, CardTitle, 12);
     CardDescription = Label(WidgetTree, FText::GetEmpty(), 14, Muted);
@@ -105,9 +106,10 @@ void UGrandNeoBayWidget::NativeOnInitialized()
     EnterButton = Button(WidgetTree, FText::FromString(TEXT("进入九层   →")), true);
     EnterButton->OnClicked.AddDynamic(this, &UGrandNeoBayWidget::Enter);
     Row(CardBox, EnterButton, 8);
-    auto* Close = Button(WidgetTree, FText::FromString(TEXT("收起楼层")));
-    Close->OnClicked.AddDynamic(this, &UGrandNeoBayWidget::CloseCard);
-    Row(CardBox, Close, 0);
+    CloseButton = Button(WidgetTree, FText::FromString(TEXT("收起楼层")));
+    CloseLabel = Cast<UTextBlock>(CloseButton->GetChildAt(0));
+    CloseButton->OnClicked.AddDynamic(this, &UGrandNeoBayWidget::CloseCard);
+    Row(CardBox, CloseButton, 0);
     Place(Canvas, CardGlass, FVector2D(750, 250), FVector2D(325, 286));
 
     Status = Label(WidgetTree, FText::FromString(TEXT("右键拖动观察  ·  滚轮缩放  ·  9 选择楼层  ·  Esc 返回")), 13, FLinearColor(.85f, .94f, .97f, 1));
@@ -124,11 +126,24 @@ void UGrandNeoBayWidget::Refresh()
     SetVisibility(ESlateVisibility::SelfHitTestInvisible);
     SceneSurface->SetVisibility(bOpen ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
     Status->SetVisibility(bOpen ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed);
-    CardGlass->SetVisibility(bOpen && Experience->IsFloorSelected() ? ESlateVisibility::SelfHitTestInvisible : ESlateVisibility::Collapsed);
+    FText BuildingTitle, BuildingDescription;
+    const bool bBuildingInfo = Experience->GetSelectedBuildingInfo(BuildingTitle, BuildingDescription);
+    const bool bFloor = Experience->IsFloorSelected();
+    CardGlass->SetVisibility(bOpen && (bFloor || bBuildingInfo) ? ESlateVisibility::SelfHitTestInvisible : ESlateVisibility::Collapsed);
+    EnterButton->SetVisibility(bFloor ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
     EnterButton->SetIsEnabled(!Experience->IsTransitioning());
-    CardTitle->SetText(Experience->FloorTitle);
-    CardDescription->SetText(Experience->FloorDescription);
+    CardEyebrow->SetText(FText::FromString(bFloor ? TEXT("●  当前楼层") : TEXT("●  建筑信息")));
+    CardTitle->SetText(bFloor ? Experience->FloorTitle : BuildingTitle);
+    CardDescription->SetText(bFloor ? Experience->FloorDescription : BuildingDescription);
+    CloseLabel->SetText(FText::FromString(bFloor ? TEXT("收起楼层") : TEXT("收起信息")));
+    Cast<UCanvasPanelSlot>(CardGlass->Slot)->SetSize(FVector2D(325, bFloor ? 286 : 222));
     if (!bOpen) bOrbiting = false;
+}
+
+bool UGrandNeoBayWidget::IsBuildingInfoCardVisible() const
+{
+    return CardGlass && EnterButton && CardGlass->GetVisibility() != ESlateVisibility::Collapsed
+        && EnterButton->GetVisibility() == ESlateVisibility::Collapsed;
 }
 
 void UGrandNeoBayWidget::NativeTick(const FGeometry& Geometry, float DeltaSeconds)
@@ -142,11 +157,16 @@ void UGrandNeoBayWidget::NativeTick(const FGeometry& Geometry, float DeltaSecond
     const FVector2D Size = Geometry.GetLocalSize();
     const bool bProjected = UWidgetLayoutLibrary::ProjectWorldLocationToWidgetPosition(
         GetOwningPlayer(), Experience->GetCardWorldPosition(), Point, true);
-    if (!bProjected) Point = FVector2D(Size.X - 365, Size.Y * .4f);
+    if (!bProjected)
+    {
+        CardGlass->SetVisibility(ESlateVisibility::Collapsed);
+        return;
+    }
     Point += FVector2D(35, -80);
     Point.X = FMath::Max(Point.X, Size.X * .72);
     Point.X = FMath::Clamp(Point.X, 24., FMath::Max(24., Size.X - 349));
-    Point.Y = FMath::Clamp(Point.Y, 24., FMath::Max(24., Size.Y - 310));
+    const float CardHeight = Experience->IsFloorSelected() ? 286.f : 222.f;
+    Point.Y = FMath::Clamp(Point.Y, 24., FMath::Max(24., Size.Y - CardHeight - 24.f));
     Cast<UCanvasPanelSlot>(CardGlass->Slot)->SetPosition(Point);
 }
 
@@ -154,7 +174,9 @@ FReply UGrandNeoBayWidget::NativeOnMouseButtonDown(const FGeometry& Geometry, co
 {
     if (!Experience || !Experience->IsOverviewOpen()) return FReply::Unhandled();
     UpdatePreviewPointer(Geometry, Event.GetScreenSpacePosition());
-    if (IsPointerOverCard(Event.GetScreenSpacePosition())) return FReply::Handled();
+    const bool bOverCard = IsPointerOverCard(Event.GetScreenSpacePosition());
+    Experience->SetPointerOverUI(bOverCard);
+    if (bOverCard) return FReply::Handled();
     if (Event.GetEffectingButton() == EKeys::RightMouseButton)
     {
         bOrbiting = true;
@@ -201,7 +223,7 @@ FReply UGrandNeoBayWidget::NativeOnKeyDown(const FGeometry& Geometry, const FKey
     if (!Experience || !Experience->IsOverviewOpen()) return FReply::Unhandled();
     if (Event.GetKey() == EKeys::Escape)
     {
-        if (Experience->IsFloorSelected()) CloseCard();
+        if (Experience->HasSelection()) CloseCard();
         else Experience->ReturnToOffice();
     }
     else if (Event.GetKey() == EKeys::F9) Experience->ReturnToOffice();
@@ -233,7 +255,8 @@ void UGrandNeoBayWidget::UpdatePreviewPointer(const FGeometry& Geometry, FVector
 
 bool UGrandNeoBayWidget::TestActivateControl(FName Control, FVector2D ViewportPoint)
 {
-    UWidget* Target = Control == TEXT("Enter") ? static_cast<UWidget*>(EnterButton) : static_cast<UWidget*>(SceneSurface);
+    UWidget* Target = Control == TEXT("Enter") ? static_cast<UWidget*>(EnterButton)
+        : Control == TEXT("Close") ? static_cast<UWidget*>(CloseButton) : static_cast<UWidget*>(SceneSurface);
     if (!Target || !Target->GetCachedWidget().IsValid()) return false;
     if (UButton* TestButton = Cast<UButton>(Target))
     {
@@ -243,7 +266,7 @@ bool UGrandNeoBayWidget::TestActivateControl(FName Control, FVector2D ViewportPo
     }
     const FGeometry& Geometry = Target->GetCachedGeometry();
     FVector2D Point = Geometry.LocalToAbsolute(Geometry.GetLocalSize() * .5);
-    if (Control == TEXT("Scene"))
+    if (Control == TEXT("Scene") || Control == TEXT("Hover"))
     {
         int32 Width = 0, Height = 0;
         GetOwningPlayer()->GetViewportSize(Width, Height);
@@ -255,6 +278,11 @@ bool UGrandNeoBayWidget::TestActivateControl(FName Control, FVector2D ViewportPo
     const TSet<FKey> Released;
     const FPointerEvent Down(0, Point, Point, Pressed, EKeys::LeftMouseButton, 0, FModifierKeysState());
     const FPointerEvent Up(0, Point, Point, Released, EKeys::LeftMouseButton, 0, FModifierKeysState());
+    if (Control == TEXT("Hover"))
+    {
+        FSlateApplication::Get().SetCursorPos(Point);
+        return NativeOnMouseMove(GetCachedGeometry(), Up).IsEventHandled();
+    }
     const bool bDown = NativeOnMouseButtonDown(GetCachedGeometry(), Down).IsEventHandled();
     const bool bUp = NativeOnMouseButtonUp(GetCachedGeometry(), Up).IsEventHandled();
     return bDown && bUp;
