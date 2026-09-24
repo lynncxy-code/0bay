@@ -1,0 +1,57 @@
+{
+  "_comment": "OntoTwin 机器狗地面巡逻。x/y/z 为实例 pivot（UE cm）；贴地不爬升。现用 SM_UnitreeGo2_Color 静态网格（官方骨骼会触发 Skin Cache OOM 导致不可见）；实例须 rotation_x=-90；pivot_z=floor_z=4320。无腿部骨骼动画，走路用轻微起伏模拟步态。",
+  "mode": "ground",
+  "floor_z": 4320.0,
+  "pivot_z": 4320.0,
+  "speed_cm_s": 90.0,
+  "yaw_rate_deg_s": 100.0,
+  "dwell_seconds_default": 3.5,
+  "walk_bob_cm": 2.5,
+  "walk_bob_hz": 2.2,
+  "probe_radius_cm": 35.0,
+  "probe_ahead_cm": 80.0,
+  "probe_half_height_cm": 20.0,
+  "blocked_giveup_seconds": 12.0,
+  "loop": true,
+  "dogs": [
+    {
+      "instance_id": "go2_zone4_meeting_table_01",
+      "display_name": "Go2·4号区",
+      "start_delay_seconds": 0.0,
+      "home": { "x": 6166.8, "y": -1528.5, "z": 4320.0, "yaw": 180.0 },
+      "waypoints": [
+        { "x": 6166.8, "y": -1528.5, "dwell_seconds": 2.0, "zone_id": "04", "zone_name": "智能维护与柔性装配" },
+        { "x": 6170.0, "y": -1320.0, "dwell_seconds": 4.0, "zone_id": "05", "zone_name": "检验检测与质量追溯" },
+        { "x": 5750.0, "y": -1400.0, "dwell_seconds": 2.0, "zone_id": "", "zone_name": "走廊" },
+        { "x": 5750.0, "y": -1700.0, "dwell_seconds": 3.0, "zone_id": "04", "zone_name": "智能维护与柔性装配" },
+        { "x": 6166.8, "y": -1528.5, "dwell_seconds": 2.0, "zone_id": "04", "zone_name": "停机位" }
+      ]
+    },
+    {
+      "instance_id": "go2_zone2_aisle_01",
+      "display_name": "Go2·2号区",
+      "start_delay_seconds": 6.0,
+      "home": { "x": 5350.0, "y": -1700.0, "z": 4320.0, "yaw": 0.0 },
+      "waypoints": [
+        { "x": 5350.0, "y": -1700.0, "dwell_seconds": 2.0, "zone_id": "02", "zone_name": "数字孪生与具身协同" },
+        { "x": 5030.0, "y": -1700.0, "dwell_seconds": 2.0, "zone_id": "02", "zone_name": "数字孪生西侧" },
+        { "x": 4530.0, "y": -1640.0, "dwell_seconds": 4.0, "zone_id": "01", "zone_name": "情境感知与智能设计" },
+        { "x": 5030.0, "y": -1500.0, "dwell_seconds": 2.0, "zone_id": "", "zone_name": "通道" },
+        { "x": 5350.0, "y": -1700.0, "dwell_seconds": 2.0, "zone_id": "02", "zone_name": "停机位" }
+      ]
+    },
+    {
+      "instance_id": "go2_zone3_logistics_01",
+      "display_name": "Go2·3号区",
+      "start_delay_seconds": 12.0,
+      "home": { "x": 5350.0, "y": -420.0, "z": 4320.0, "yaw": 90.0 },
+      "waypoints": [
+        { "x": 5350.0, "y": -420.0, "dwell_seconds": 2.0, "zone_id": "03", "zone_name": "供应链与智慧物流" },
+        { "x": 5550.0, "y": -250.0, "dwell_seconds": 3.0, "zone_id": "03", "zone_name": "物流北侧通道" },
+        { "x": 5200.0, "y": -250.0, "dwell_seconds": 2.0, "zone_id": "03", "zone_name": "物流西侧" },
+        { "x": 5200.0, "y": -500.0, "dwell_seconds": 2.0, "zone_id": "03", "zone_name": "物流南侧" },
+        { "x": 5350.0, "y": -420.0, "dwell_seconds": 2.0, "zone_id": "03", "zone_name": "停机位" }
+      ]
+    }
+  ]
+}

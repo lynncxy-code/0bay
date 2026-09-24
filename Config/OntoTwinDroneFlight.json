@@ -1,0 +1,183 @@
+{
+  "_comment": "OntoTwin 无人机巡航航点表。由 tools/drone_flight_config.py 生成；x/y/cruise_z 描述机身中心，运行时折算到实例 pivot。",
+  "cruise_z": 4500.0,
+  "body_forward_offset_cm": 45.4,
+  "body_above_pivot_cm": 23.5,
+  "speed_cm_s": 220.0,
+  "yaw_rate_deg_s": 120.0,
+  "takeoff_seconds": 3.0,
+  "landing_seconds": 3.5,
+  "hover_spin": true,
+  "probe_radius_cm": 55.0,
+  "probe_ahead_cm": 120.0,
+  "blocked_giveup_seconds": 20.0,
+  "loop": false,
+  "drones": [
+    {
+      "instance_id": "DRONE-001",
+      "start_delay_seconds": 0.0,
+      "waypoints": [
+        {
+          "x": 6170.0,
+          "y": -1320.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "05",
+          "zone_name": "检验检测与质量追溯"
+        },
+        {
+          "x": 6150.0,
+          "y": -1800.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "04",
+          "zone_name": "智能维护与柔性装配"
+        },
+        {
+          "x": 5350.0,
+          "y": -1700.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "02",
+          "zone_name": "数字孪生与具身协同"
+        },
+        {
+          "x": 4650.0,
+          "y": -1340.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 4530.0,
+          "y": -1520.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 4530.0,
+          "y": -1640.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "01",
+          "zone_name": "情境感知与智能设计"
+        },
+        {
+          "x": 4590.0,
+          "y": -1380.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 5130.0,
+          "y": -1180.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 5350.0,
+          "y": -420.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "03",
+          "zone_name": "供应链与智慧物流"
+        },
+        {
+          "x": 5550.0,
+          "y": -1220.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 6330.0,
+          "y": -1420.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        }
+      ]
+    },
+    {
+      "instance_id": "DRONE-002",
+      "start_delay_seconds": 12.0,
+      "waypoints": [
+        {
+          "x": 6170.0,
+          "y": -1320.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "05",
+          "zone_name": "检验检测与质量追溯"
+        },
+        {
+          "x": 6150.0,
+          "y": -1800.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "04",
+          "zone_name": "智能维护与柔性装配"
+        },
+        {
+          "x": 5350.0,
+          "y": -1700.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "02",
+          "zone_name": "数字孪生与具身协同"
+        },
+        {
+          "x": 4650.0,
+          "y": -1340.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 4530.0,
+          "y": -1520.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 4530.0,
+          "y": -1640.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "01",
+          "zone_name": "情境感知与智能设计"
+        },
+        {
+          "x": 4590.0,
+          "y": -1380.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 5130.0,
+          "y": -1180.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 5350.0,
+          "y": -420.0,
+          "dwell_seconds": 5.0,
+          "zone_id": "03",
+          "zone_name": "供应链与智慧物流"
+        },
+        {
+          "x": 5550.0,
+          "y": -1220.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        },
+        {
+          "x": 6330.0,
+          "y": -1360.0,
+          "dwell_seconds": 0.0,
+          "zone_id": "",
+          "zone_name": ""
+        }
+      ]
+    }
+  ]
+}
