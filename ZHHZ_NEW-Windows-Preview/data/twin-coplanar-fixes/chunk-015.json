@@ -1,0 +1,580 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-015.gltf",
+  "generated_at": "2026-08-31T19:19:16.672Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 85,
+  "scanned_primitives": 89,
+  "scanned_triangles": 1113839,
+  "sampled_triangles": 290822,
+  "plane_group_count": 17126,
+  "conflict_pair_count": 20,
+  "offset_target_count": 15,
+  "max_layer_rank": 3,
+  "targets": [
+    {
+      "key": "6:0",
+      "node_index": 6,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_0",
+      "mesh_name": "Obj3d66-16435176-296-15",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "7:0",
+      "node_index": 7,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "7:1",
+      "node_index": 7,
+      "primitive_index": 1,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 1,
+      "material_name": "MI_图案_飞机外壳_J35_7",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "7:3",
+      "node_index": 7,
+      "primitive_index": 3,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 3,
+      "material_name": "MI_图案_飞机外壳_J35_2",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "7:4",
+      "node_index": 7,
+      "primitive_index": 4,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 4,
+      "material_name": "MI_图案_飞机外壳_J35_4",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "7:7",
+      "node_index": 7,
+      "primitive_index": 7,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 7,
+      "material_name": "MI_图案_飞机外壳_J35_6",
+      "layer_priority": 4,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "7:8",
+      "node_index": 7,
+      "primitive_index": 8,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-16435176-293-514",
+      "material_index": 8,
+      "material_name": "MI_图案_飞机外壳_J35_9",
+      "layer_priority": 4,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "8:0",
+      "node_index": 8,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_2",
+      "mesh_name": "Obj3d66-16435176-268-761",
+      "material_index": 3,
+      "material_name": "MI_图案_飞机外壳_J35_2",
+      "layer_priority": 4,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "11:0",
+      "node_index": 11,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_7",
+      "mesh_name": "Obj3d66-16435176-297-753",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "12:0",
+      "node_index": 12,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_6",
+      "mesh_name": "Obj3d66-16435176-299-916",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "13:0",
+      "node_index": 13,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_9",
+      "mesh_name": "Obj3d66-16435176-252-268",
+      "material_index": 3,
+      "material_name": "MI_图案_飞机外壳_J35_2",
+      "layer_priority": 4,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "17:0",
+      "node_index": 17,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_13",
+      "mesh_name": "Obj3d66-16435176-50-603",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "18:0",
+      "node_index": 18,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_12",
+      "mesh_name": "Obj3d66-16435176-51-47",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "19:0",
+      "node_index": 19,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_15",
+      "mesh_name": "Obj3d66-16435176-53-434",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "20:0",
+      "node_index": 20,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_14",
+      "mesh_name": "Obj3d66-16435176-54-39",
+      "material_index": 0,
+      "material_name": "MI_图案_飞机外壳_J35_1",
+      "layer_priority": 4,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    }
+  ],
+  "conflicts": [
+    {
+      "a": {
+        "node_index": 11,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_7",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 12,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_6",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "12:0",
+      "plane_distance_m": 0.0009064392486314299,
+      "overlap_area_m2": 0.01901135101105421,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 17,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_13",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.000012029591889062274,
+      "overlap_area_m2": 1.004049776958582,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 5,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_玻璃_深色_低透明度_2"
+      },
+      "overlay": "7:0",
+      "plane_distance_m": 0.002654429706000494,
+      "overlap_area_m2": 0.011365857880098982,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 7,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_6"
+      },
+      "b": {
+        "node_index": 14,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_8",
+        "material_name": "MI_玻璃_深色_低透明度_1"
+      },
+      "overlay": "7:7",
+      "plane_distance_m": 0.0011126139902510879,
+      "overlap_area_m2": 0.004730818430639111,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 6,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_5"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 7,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_6"
+      },
+      "overlay": "7:7",
+      "plane_distance_m": 0.00019771406720425766,
+      "overlap_area_m2": 0.01119754704630026,
+      "overlap_ratio": 0.9987024225609034
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0001806086936817497,
+      "overlap_area_m2": 1.2571080653344098,
+      "overlap_ratio": 0.9982426721547735
+    },
+    {
+      "a": {
+        "node_index": 20,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "20:0",
+      "plane_distance_m": 0.0020851459787609716,
+      "overlap_area_m2": 0.520707204909146,
+      "overlap_ratio": 0.9897020554330667
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 11,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_7",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "11:0",
+      "plane_distance_m": 1.5260231878144737e-7,
+      "overlap_area_m2": 0.019401637951383773,
+      "overlap_ratio": 0.9816858793564707
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 17,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_13",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "17:0",
+      "plane_distance_m": 0.00009531997619616206,
+      "overlap_area_m2": 1.176927390195829,
+      "overlap_ratio": 0.9644088015016108
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 18,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "18:0",
+      "plane_distance_m": 0.002243035117494019,
+      "overlap_area_m2": 0.14988725652562537,
+      "overlap_ratio": 0.9419945939875433
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 3,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_2"
+      },
+      "b": {
+        "node_index": 8,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "MI_图案_飞机外壳_J35_2"
+      },
+      "overlay": "8:0",
+      "plane_distance_m": 0.00013996871148691525,
+      "overlap_area_m2": 0.0918273281754736,
+      "overlap_ratio": 0.8777938209892561
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 4,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_4"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "7:4",
+      "plane_distance_m": 0.003408163960542332,
+      "overlap_area_m2": 0.31103626321695654,
+      "overlap_ratio": 0.8691514277794801
+    },
+    {
+      "a": {
+        "node_index": 12,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_6",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "12:0",
+      "plane_distance_m": 0.001215210810785905,
+      "overlap_area_m2": 0.013995002269550659,
+      "overlap_ratio": 0.6837577302116429
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 8,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_9"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "7:8",
+      "plane_distance_m": 0.002611390993587648,
+      "overlap_area_m2": 0.059621524456307945,
+      "overlap_ratio": 0.6490597760595281
+    },
+    {
+      "a": {
+        "node_index": 13,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "MI_图案_飞机外壳_J35_2"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 3,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_2"
+      },
+      "overlay": "13:0",
+      "plane_distance_m": 0.0036525036474071015,
+      "overlap_area_m2": 0.010095802876964212,
+      "overlap_ratio": 0.5791173564183503
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 8,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_9"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 1,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_7"
+      },
+      "overlay": "7:8",
+      "plane_distance_m": 0.000003194677933304746,
+      "overlap_area_m2": 0.004257900057937017,
+      "overlap_ratio": 0.4887426374908819
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 1,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_7"
+      },
+      "overlay": "7:1",
+      "plane_distance_m": 0.0000019230100176681475,
+      "overlap_area_m2": 0.004257863704105882,
+      "overlap_ratio": 0.4887384646199669
+    },
+    {
+      "a": {
+        "node_index": 11,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_7",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 5,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "11:0",
+      "plane_distance_m": 1.2426489592876067e-7,
+      "overlap_area_m2": 0.0023936193044786394,
+      "overlap_ratio": 0.3839520003920892
+    },
+    {
+      "a": {
+        "node_index": 5,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "b": {
+        "node_index": 6,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "6:0",
+      "plane_distance_m": 1.254056768429379e-7,
+      "overlap_area_m2": 0.001592331610154072,
+      "overlap_ratio": 0.32580885533239456
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 3,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_2"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_图案_飞机外壳_J35_1"
+      },
+      "overlay": "7:3",
+      "plane_distance_m": 0.0007513835573984551,
+      "overlap_area_m2": 0.010252226294288546,
+      "overlap_ratio": 0.2971336175648112
+    }
+  ]
+}

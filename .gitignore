@@ -12,3 +12,39 @@ Plugins/**/Binaries/
 Plugins/**/Intermediate/
 Plugins/**/DerivedDataCache/
 Plugins/**/Saved/
+
+# Nested independent repo; has its own .git and local secrets.
+ontology-online-tool/
+
+# Office agent sidecar local secrets (Cursor API key).
+Tools/OfficeAgentSidecar/.env
+Tools/OfficeAgentSidecar/.venv/
+Tools/OfficeAgentSidecar/*.log
+Tools/OfficeAgentSidecar/models/
+Tools/OfficeAgentSidecar/*.wav
+Tools/OfficeAgentSidecar/_speak.ps1
+Tools/OfficeAgentSidecar/tts_input.txt
+Scripts/vite.log
+
+# Magpie spectator upscaler binary and local config.
+Tools/Magpie/
+
+node_modules/
+__pycache__/
+*.pyc
+
+# Local machine config and placeholder secrets.
+Scripts/lingyz.env.local
+Scripts/empty.secret
+Scripts/bin/
+Config/DefaultEditorPerProjectUserSettings.ini
+
+# Not stored in Git LFS, and larger than GitHub's 100 MB blob limit.
+Docs.zip
+OfficeWebXR/data/architecture.glb
+OfficeWebXR/data/environment/*.hdr
+ZHHZ_NEW-Windows-Preview/data/architecture.bin
+ZHHZ_NEW-Windows-Preview/data/environment/*.hdr
+ZHHZ_NEW-Windows-Preview/data/MainScreen_V.mp4
+ZHHZ_NEW-Windows-Preview/data/twin-chunks/chunk-003.bin
+ZHHZ_NEW-Windows-Preview/data/twin-chunks/chunk-004.bin

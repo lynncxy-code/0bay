@@ -28,6 +28,7 @@
 #include "TimerManager.h"
 #include "HAL/PlatformTime.h"
 #include "Engine/Engine.h"
+#include "GameFramework/GameModeBase.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
@@ -190,6 +191,42 @@ ATwinSceneManager::ATwinSceneManager()
     UEProjectId = FString::Printf(TEXT("ueproj_%s"), *UEProjectName);
 }
 
+bool ATwinSceneManager::ShouldYieldToHostVR() const
+{
+    const UWorld* World = GetWorld();
+    if (!World)
+    {
+        return false;
+    }
+
+    if (const AGameModeBase* GameMode = World->GetAuthGameMode())
+    {
+        if (GameMode->GetClass()->GetName().Contains(TEXT("OfficeVR")))
+        {
+            return true;
+        }
+    }
+
+    if (const APlayerController* PlayerController = UGameplayStatics::GetPlayerController(World, 0))
+    {
+        if (const APawn* Pawn = PlayerController->GetPawn())
+        {
+            if (Pawn->GetClass()->GetName().Contains(TEXT("OfficeVRPawn")))
+            {
+                return true;
+            }
+            if (const UCameraComponent* Camera = Pawn->FindComponentByClass<UCameraComponent>())
+            {
+                if (Camera->bLockToHmd)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 // ── BeginPlay ────────────────────────────────────────────────────────────────
 
 void ATwinSceneManager::BeginPlay()
@@ -220,6 +257,14 @@ void ATwinSceneManager::BeginPlay()
 
     Super::BeginPlay();
     SetActorTickEnabled(true);
+    if (ShouldYieldToHostVR())
+    {
+        DismissModelLoadingWidget();
+        GetWorldTimerManager().ClearTimer(PollTimerHandle);
+        SetActorTickEnabled(false);
+        UE_LOG(LogTemp, Log, TEXT("[孪生管理器] Office VR 模式：跳过后端模型轮询与加载界面"));
+        return;
+    }
     EnsureModelLoadingWidget();
 
     FString RealtimeEnabledOverride;
@@ -1618,7 +1663,7 @@ void ATwinSceneManager::SetPollTimerInterval(float IntervalSeconds, float FirstD
 
 void ATwinSceneManager::EnsureModelLoadingWidget()
 {
-    if (bInitialModelBaselineReady || ModelLoadingWidget)
+    if (ShouldYieldToHostVR() || bInitialModelBaselineReady || ModelLoadingWidget)
     {
         return;
     }
@@ -1686,7 +1731,7 @@ void ATwinSceneManager::CompleteInitialModelBaseline(const int32 Total)
 
 void ATwinSceneManager::FailInitialModelBaseline(const FString& Detail)
 {
-    if (bInitialModelBaselineReady)
+    if (ShouldYieldToHostVR() || bInitialModelBaselineReady)
     {
         return;
     }
@@ -1758,7 +1803,7 @@ void ATwinSceneManager::BindCurrentUEProjectToActiveDataset()
 
 void ATwinSceneManager::PollBackend()
 {
-    if (bRequestInFlight) return;
+    if (ShouldYieldToHostVR() || bRequestInFlight) return;
 
     if (!bInitialModelBaselineReady)
     {

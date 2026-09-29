@@ -1,0 +1,84 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #12171d;
+  color: #e6f0ff;
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+}
+
+#scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hud {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.hud h1,
+.hud p,
+.hud-meta {
+  margin: 0;
+  text-shadow: 0 1px 8px #000;
+}
+
+.hud h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hud p,
+.hud-meta {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.hud-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+#hint,
+#pad-debug {
+  position: fixed;
+  left: 16px;
+  bottom: 20px;
+  margin: 0;
+  max-width: 640px;
+  font-size: 13px;
+  text-shadow: 0 1px 8px #000;
+  pointer-events: none;
+}
+
+#pad-debug {
+  bottom: 48px;
+  font-family: Consolas, monospace;
+}
+
+#enter-vr {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #2f6fed;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+body.xr #hint {
+  display: none;
+}

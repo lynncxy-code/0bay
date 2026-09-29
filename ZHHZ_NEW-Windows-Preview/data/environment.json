@@ -1,0 +1,15 @@
+{
+  "schema": "zhhz.environment.v1",
+  "status": "PASS",
+  "source_asset": "/Game/AVIC_Show/Art/Material_Renew/Textures/HDRI/国际化工业风展馆全景图",
+  "source_object": "/Game/AVIC_Show/Art/Material_Renew/Textures/HDRI/国际化工业风展馆全景图.国际化工业风展馆全景图",
+  "source_class": "/Script/Engine.TextureCube",
+  "relative_path": "environment/AVIC_Show_environment.hdr",
+  "bytes": 149299251,
+  "sha256": "A374AB950179DD40F697BCE9F88C8F6FCCCDB1C66860D56B119BFF8AAF908D93",
+  "background_intensity": 0.4,
+  "baked_static_skylight_intensity": 1.0,
+  "runtime_policy": "Use as visual background and reflection fallback only; do not add a runtime dynamic light for baked static architecture",
+  "source_assets_saved": false,
+  "database_write_performed": false
+}

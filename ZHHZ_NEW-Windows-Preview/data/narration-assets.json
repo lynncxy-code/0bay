@@ -1,0 +1,301 @@
+{
+  "schema": "zhhz.narration-assets.v1",
+  "source": "http://localhost:5000/api/v2/scene-interactions/narration-assets",
+  "asset_count": 21,
+  "assets": [
+    {
+      "asset_id": "narration_14e56e189a4bf4636373f582",
+      "relative_path": "narration/narration_14e56e189a4bf4636373f582.wav",
+      "bytes": 523556,
+      "sha256": "14e56e189a4bf4636373f582f323cec336325a5591fbfc7dba22ab13e69b4db5",
+      "duration_sec": 16.357,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787626020478-16"
+        }
+      ],
+      "text": "进入创新体系展区，首先看到的是本展区的核心亮点，以歼10和翼龙无人机构成的有无人协同技术展示，后方是各型新能源、新构型无人机。"
+    },
+    {
+      "asset_id": "narration_17d3cf4b295bac7f8d6a9081",
+      "relative_path": "narration/narration_17d3cf4b295bac7f8d6a9081.wav",
+      "bytes": 409114,
+      "sha256": "17d3cf4b295bac7f8d6a90819f1937d7cd3222ee75bea69f7c39dcca98c52121",
+      "duration_sec": 12.781,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625994157-12"
+        }
+      ],
+      "text": "装备体系展区大屏幕循环播放智能协同主题影片，将“装备为王、体系制胜”的总体思路进一步深刻诠释。"
+    },
+    {
+      "asset_id": "narration_200b79c96453f4885463ba0b",
+      "relative_path": "narration/narration_200b79c96453f4885463ba0b.wav",
+      "bytes": 373402,
+      "sha256": "200b79c96453f4885463ba0bab19d12c0cb806d81ca846c3e6e0f69b16263500",
+      "duration_sec": 12.0,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484471498-4"
+        }
+      ],
+      "text": "这里是无人机及航空科技展区。多型无人机和先进机载系统，体现了航空装备向智能协同、高效精准和多场景应用方向不断发展"
+    },
+    {
+      "asset_id": "narration_242c43c6565b13d79eae452c",
+      "relative_path": "narration/narration_242c43c6565b13d79eae452c.wav",
+      "bytes": 1008156,
+      "sha256": "242c43c6565b13d79eae452c075ee5d163341fce14b39e060b5ca46e03c71fd6",
+      "duration_sec": 31.501,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625947801-2"
+        }
+      ],
+      "text": "进入展馆首先看到的是馆内的明星展品——歼35AE真机，与顶部的大屏联动呼应，形成强烈的第一视觉冲击。装备体系展区以“装备为王、体系制胜”为核心，各类装备在体系化建设的牵引下分类展示。嘉宾可沿展台中央通道，依次参观战、直、教、运、无各分展区。"
+    },
+    {
+      "asset_id": "narration_2c91e1693e20114052b73261",
+      "relative_path": "narration/narration_2c91e1693e20114052b73261.wav",
+      "bytes": 751652,
+      "sha256": "2c91e1693e20114052b73261a014a7639239fb7215cd7706f7531ff71c459819",
+      "duration_sec": 23.485,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787626039753-18"
+        }
+      ],
+      "text": "人工智能区域聚焦具身智能、工业元宇宙等相关应用，体现集团公司在智能技术领域的持续积累。民用机载创新部分，以AG600为平台，综合呈现了民用机载七大子系统，以及服务国产大飞机产业的支撑配套能力。"
+    },
+    {
+      "asset_id": "narration_39a90c7ad9fd442c2cf8929e",
+      "relative_path": "narration/narration_39a90c7ad9fd442c2cf8929e.wav",
+      "bytes": 415002,
+      "sha256": "39a90c7ad9fd442c2cf8929edd41433252f75b341a2baef88a5cced35a126aba",
+      "duration_sec": 12.0,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484466118-2"
+        }
+      ],
+      "text": "现在大家看到的是军用航空装备展区。战斗机、运输机、直升机等装备，集中展现了我国航空工业在体系化、信息化和智能化方向取得的进步。"
+    },
+    {
+      "asset_id": "narration_49417acf81a26b747d550f14",
+      "relative_path": "narration/narration_49417acf81a26b747d550f14.wav",
+      "bytes": 142044,
+      "sha256": "49417acf81a26b747d550f14663bc3c2cb428b67681eef9d6479f70e6c2231ce",
+      "duration_sec": 6.55,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484463416-1"
+        }
+      ],
+      "text": "感受中国航空人逐梦蓝天、建设航空强国的坚定力量"
+    },
+    {
+      "asset_id": "narration_639cda036af281fb8f0df50b",
+      "relative_path": "narration/narration_639cda036af281fb8f0df50b.wav",
+      "bytes": 976676,
+      "sha256": "639cda036af281fb8f0df50bc2a4b1123593f2736eced6169aa16415101261d1",
+      "duration_sec": 30.517,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625998981-14"
+        }
+      ],
+      "text": "在低空产业分展区，贯彻集团“136”低空产业发展战略，围绕航空应急救援、无人航空货运、低空作业运营三大场景，集中展示了相关重点装备和标志性成果。在工业体系展区，还设置了先进制造分展区，展现航空装备制造技术的创新与迭代升级。"
+    },
+    {
+      "asset_id": "narration_6c5c0dc348fbec5eac6f55d0",
+      "relative_path": "narration/narration_6c5c0dc348fbec5eac6f55d0.wav",
+      "bytes": 270874,
+      "sha256": "6c5c0dc348fbec5eac6f55d0ddedca66a859119c6d39097e57a99499df5144b1",
+      "duration_sec": 8.461,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625961828-5"
+        }
+      ],
+      "text": "在机载武器分展区，展示了全系列的空空、空面多域产品体系化发展成果。"
+    },
+    {
+      "asset_id": "narration_74f4c7f30d786fb2a967d1f0",
+      "relative_path": "narration/narration_74f4c7f30d786fb2a967d1f0.wav",
+      "bytes": 356888,
+      "sha256": "74f4c7f30d786fb2a967d1f043782f1932bd7f261c1166b3168951ea64c390b8",
+      "duration_sec": 11.149,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625971616-8"
+        }
+      ],
+      "text": "无人机展区除完整展现全系列各型无人装备外，首次体系化呈现了以光箭系列为代表的反无装备。"
+    },
+    {
+      "asset_id": "narration_7c5fd021b54e6b32ebb99160",
+      "relative_path": "narration/narration_7c5fd021b54e6b32ebb99160.wav",
+      "bytes": 412954,
+      "sha256": "7c5fd021b54e6b32ebb991601aeb18820837ac33767d33ff289cc78588a46c9b",
+      "duration_sec": 12.901,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625988886-11"
+        }
+      ],
+      "text": "在军用机载分展区，以各专业综合展项的形式，展示了面向现代和未来作战任务，新一代军用机载系统建设成果。"
+    },
+    {
+      "asset_id": "narration_7fbc47a07f4bcf4a07286432",
+      "relative_path": "narration/narration_7fbc47a07f4bcf4a07286432.wav",
+      "bytes": 387608,
+      "sha256": "7fbc47a07f4bcf4a07286432842b91321eb88c1148431368b5993d75c1fd9188",
+      "duration_sec": 12.109,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625967732-7"
+        }
+      ],
+      "text": "展台后方依次设置的是教练机展区和无人装备展区，教练机展区依次呈现了初、中、高各级教练机。"
+    },
+    {
+      "asset_id": "narration_91bba8cbdae7054f560d4d8c",
+      "relative_path": "narration/narration_91bba8cbdae7054f560d4d8c.wav",
+      "bytes": 503576,
+      "sha256": "91bba8cbdae7054f560d4d8c3dd8affe88ccdbf0fda498a60275e3e7d9c760ed",
+      "duration_sec": 15.733,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625956163-3"
+        }
+      ],
+      "text": "战斗机展区展示以歼20为代表的高低搭配的各型空军主战机型；同时营造福建舰为平台的“一舰四弹”场景，呈现海军舰载机全系列装备。"
+    },
+    {
+      "asset_id": "narration_96057b179e964def87c8c388",
+      "relative_path": "narration/narration_96057b179e964def87c8c388.wav",
+      "bytes": 395002,
+      "sha256": "96057b179e964def87c8c3883d949e645977ca3bdc91a552b6c0045c49d59be7",
+      "duration_sec": 12.0,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484468789-3"
+        }
+      ],
+      "text": "接下来是民用航空展区。这里展示了我国在通用航空、应急救援和航空运输等领域的探索成果，让航空科技更好地服务经济发展与社会生活。"
+    },
+    {
+      "asset_id": "narration_a168fe32944bcf79a0cc782e",
+      "relative_path": "narration/narration_a168fe32944bcf79a0cc782e.wav",
+      "bytes": 516442,
+      "sha256": "a168fe32944bcf79a0cc782ec5158688c78de30598941cf10b161ee89d911da2",
+      "duration_sec": 12.0,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484472850-5"
+        }
+      ],
+      "text": "各位观众，本次参观即将结束。感谢大家走进中航工业展厅，共同见证中国航空工业的创新与跨越。期待未来与大家再次相聚珠海航展，共看中国航空逐梦更高、更远的天空。"
+    },
+    {
+      "asset_id": "narration_a4eae55fd121c87c52e0e248",
+      "relative_path": "narration/narration_a4eae55fd121c87c52e0e248.wav",
+      "bytes": 614170,
+      "sha256": "a4eae55fd121c87c52e0e248b624d6bce544787d8b230b1048e6c693f1b881a6",
+      "duration_sec": 19.189,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787626492786-21"
+        }
+      ],
+      "text": "文化体系展区展示了集团公司的使命愿景、社会责任、品牌架构相关内容，综合呈现了以航空报国精神为代表的航空文化，并设置了集团公司航展三十周年小型回顾展。"
+    },
+    {
+      "asset_id": "narration_e4d9661cfcce1f2b6e3aaad1",
+      "relative_path": "narration/narration_e4d9661cfcce1f2b6e3aaad1.wav",
+      "bytes": 1098022,
+      "sha256": "e4d9661cfcce1f2b6e3aaad1caad13c9dcea00ac7f4c115b61065ece3c2da7b6",
+      "duration_sec": 34.309,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625980606-9"
+        }
+      ],
+      "text": "沿参观动线继续向前，支援保障分展区集中展示各型预警机、运输机，为体系化作战提供战场支持与战术保障。直升机分展区，聚焦战场机动与立体攻防能力建设，以直20为代表的低空、超低空骨干装备依次呈现。本届航展首次策划了集团公司在维修保障能力建设方面成果的集中展示。"
+    },
+    {
+      "asset_id": "narration_e55db0af5702a02504f1931f",
+      "relative_path": "narration/narration_e55db0af5702a02504f1931f.wav",
+      "bytes": 430628,
+      "sha256": "e55db0af5702a02504f1931f5cc0f47441075fa759e682c5cf534f2bc848e54a",
+      "duration_sec": 13.453,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787626044366-19"
+        }
+      ],
+      "text": "创新体系展区还介绍了集团公司在基础研究领域取得的相关成果和以昊龙无人货运飞船为代表的空天业务域探索成果。"
+    },
+    {
+      "asset_id": "narration_e604ee4bc17734bf212accdc",
+      "relative_path": "narration/narration_e604ee4bc17734bf212accdc.wav",
+      "bytes": 1491998,
+      "sha256": "e604ee4bc17734bf212accdcffaec9f7858e9c5ea77e72f68d614e076e1332bf",
+      "duration_sec": 46.621,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625944717-1"
+        }
+      ],
+      "text": "蓝天之下，南海之滨，第十六届珠海航展如约启航。请随镜头走进航空工业集团展区，了解集团公司的参展策划情况。穿过广场，进入室内展馆。整体展陈布局一目了然，以六边形为核心设计元素，依照展陈架构划分为装备体系、创新体系、工业体系、文化体系四大展区。"
+    },
+    {
+      "asset_id": "narration_eb0202c1be43356d56ead4e9",
+      "relative_path": "narration/narration_eb0202c1be43356d56ead4e9.wav",
+      "bytes": 340042,
+      "sha256": "eb0202c1be43356d56ead4e9a1088dee42fcdf79141d3854ddc64ccac3dc8d17",
+      "duration_sec": 12.0,
+      "routes": [
+        {
+          "route_id": "route.8f5c1a262b3e4bac",
+          "waypoint_id": "wp-1785484463416-1"
+        }
+      ],
+      "text": "各位观众，欢迎来到珠海航展中航工业展厅。今天，我们将共同了解中国航空工业的发展历程与创新成果，"
+    },
+    {
+      "asset_id": "narration_f54d948c359d605dd5d30646",
+      "relative_path": "narration/narration_f54d948c359d605dd5d30646.wav",
+      "bytes": 535072,
+      "sha256": "f54d948c359d605dd5d306463719edb3f2eb8d27170100111b7ad3ec30f1c8a7",
+      "duration_sec": 16.717,
+      "routes": [
+        {
+          "route_id": "route.3b204affe29542ea",
+          "waypoint_id": "wp-1787625995827-13"
+        }
+      ],
+      "text": "进入工业体系展区，首先看到的是国际协作分展区，呈现了集团公司国际化产业布局助力“一带一路”建设，以及以MA700为代表的民机出口机型。"
+    }
+  ]
+}

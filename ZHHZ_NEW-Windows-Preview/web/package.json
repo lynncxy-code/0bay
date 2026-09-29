@@ -1,0 +1,28 @@
+{
+  "name": "x300-webgpu-probe",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pathtracing-worker": "esbuild node_modules/three-mesh-bvh/src/workers/generateMeshBVH.worker.js --bundle --format=esm --outfile=workers/x300-bvh.worker.js",
+    "start": "node server.mjs",
+    "collect": "node collect-result.mjs",
+    "collect:offscreen": "node collect-offscreen-result.mjs",
+    "collect:webgl2": "node collect-webgl2-result.mjs",
+    "collect:pbr": "node collect-pbr-result.mjs"
+  },
+  "dependencies": {
+    "three": "^0.185.1",
+    "three-gpu-pathtracer": "^0.0.24",
+    "three-mesh-bvh": "^0.9.14",
+    "xatlas-web": "^0.1.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
+    "@gltf-transform/functions": "^4.5.0",
+    "esbuild": "^0.28.2",
+    "meshoptimizer": "^1.2.0",
+    "pngjs": "^7.0.0"
+  }
+}

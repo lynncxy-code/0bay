@@ -1,0 +1,3881 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-008.gltf",
+  "generated_at": "2026-08-31T19:19:09.977Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 1082,
+  "scanned_primitives": 1072,
+  "scanned_triangles": 1122268,
+  "sampled_triangles": 1084588,
+  "plane_group_count": 2122,
+  "conflict_pair_count": 155,
+  "offset_target_count": 82,
+  "max_layer_rank": 5,
+  "targets": [
+    {
+      "key": "136:0",
+      "node_index": 136,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_0",
+      "mesh_name": "Rectangle1918531304",
+      "material_index": 13,
+      "material_name": "Mat3d66-843621dfds2-2-40017",
+      "layer_priority": 1,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "137:0",
+      "node_index": 137,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Rectangle1918531305",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "138:0",
+      "node_index": 138,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_2",
+      "mesh_name": "Rectangle1918531311",
+      "material_index": 14,
+      "material_name": "Material__2097631176ea",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "139:0",
+      "node_index": 139,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_5",
+      "mesh_name": "Rectangle1918531307",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "140:0",
+      "node_index": 140,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_4",
+      "mesh_name": "Rectangle1918531308",
+      "material_index": 13,
+      "material_name": "Mat3d66-843621dfds2-2-40017",
+      "layer_priority": 1,
+      "layer_rank": 5,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -10
+    },
+    {
+      "key": "143:0",
+      "node_index": 143,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_9",
+      "mesh_name": "Layer_0",
+      "material_index": 17,
+      "material_name": "Material__2097631034",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "144:0",
+      "node_index": 144,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_8",
+      "mesh_name": "Layer_001",
+      "material_index": 17,
+      "material_name": "Material__2097631034",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "146:0",
+      "node_index": 146,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_10",
+      "mesh_name": "Circle9448",
+      "material_index": 19,
+      "material_name": "Mat3d66-8436212-2-40017",
+      "layer_priority": 1,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "149:0",
+      "node_index": 149,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_15",
+      "mesh_name": "Circle9446",
+      "material_index": 21,
+      "material_name": "05_-_Default",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "150:0",
+      "node_index": 150,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_14",
+      "mesh_name": "Circle9385",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "151:0",
+      "node_index": 151,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_17",
+      "mesh_name": "Circle9447",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "153:0",
+      "node_index": 153,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_19",
+      "mesh_name": "Rectangle1918531301",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "157:0",
+      "node_index": 157,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_23",
+      "mesh_name": "Rectangle1918531295",
+      "material_index": 21,
+      "material_name": "05_-_Default",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "158:0",
+      "node_index": 158,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_22",
+      "mesh_name": "Rectangle1918531294",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "159:0",
+      "node_index": 159,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_25",
+      "mesh_name": "Rectangle1918531297",
+      "material_index": 20,
+      "material_name": "Material__2097631W_031",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "161:0",
+      "node_index": 161,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_27",
+      "mesh_name": "Rectangle1918531325",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "165:0",
+      "node_index": 165,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_31",
+      "mesh_name": "Rectangle1918531324",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "167:0",
+      "node_index": 167,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_33",
+      "mesh_name": "Rectangle1918531327",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "174:0",
+      "node_index": 174,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_38",
+      "mesh_name": "Rectangle1918531326",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "178:0",
+      "node_index": 178,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_42",
+      "mesh_name": "Rectangle1918531268",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "179:0",
+      "node_index": 179,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_45",
+      "mesh_name": "Rectangle1918531271",
+      "material_index": 25,
+      "material_name": "Material__20976AADF31176",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "181:0",
+      "node_index": 181,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_47",
+      "mesh_name": "Layer_002",
+      "material_index": 17,
+      "material_name": "Material__2097631034",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "182:0",
+      "node_index": 182,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_46",
+      "mesh_name": "Layer_003",
+      "material_index": 17,
+      "material_name": "Material__2097631034",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "183:0",
+      "node_index": 183,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_49",
+      "mesh_name": "Rectangle1918531269",
+      "material_index": 5,
+      "material_name": "WorldGridMaterial",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "184:0",
+      "node_index": 184,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_48",
+      "mesh_name": "Rectangle1918531338",
+      "material_index": 24,
+      "material_name": "Material__2097631035",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "185:0",
+      "node_index": 185,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_51",
+      "mesh_name": "Rectangle1918531280",
+      "material_index": 26,
+      "material_name": "Material__2146938956",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "197:0",
+      "node_index": 197,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_63",
+      "mesh_name": "Rectangle1918531331",
+      "material_index": 20,
+      "material_name": "Material__2097631W_031",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "198:0",
+      "node_index": 198,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_62",
+      "mesh_name": "Rectangle1918531328",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "200:0",
+      "node_index": 200,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_64",
+      "mesh_name": "Rectangle1918531330",
+      "material_index": 21,
+      "material_name": "05_-_Default",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "204:0",
+      "node_index": 204,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_68",
+      "mesh_name": "Rectangle1918531336",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "207:0",
+      "node_index": 207,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_73",
+      "mesh_name": "Rectangle1918531333",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "211:0",
+      "node_index": 211,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_77",
+      "mesh_name": "图形764",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "212:0",
+      "node_index": 212,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_76",
+      "mesh_name": "图形763",
+      "material_index": 28,
+      "material_name": "Material__2147448509",
+      "layer_priority": 1,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "219:0",
+      "node_index": 219,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_85",
+      "mesh_name": "图形539",
+      "material_index": 19,
+      "material_name": "Mat3d66-8436212-2-40017",
+      "layer_priority": 1,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "220:0",
+      "node_index": 220,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_84",
+      "mesh_name": "Circle9492",
+      "material_index": 19,
+      "material_name": "Mat3d66-8436212-2-40017",
+      "layer_priority": 1,
+      "layer_rank": 4,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -8
+    },
+    {
+      "key": "222:0",
+      "node_index": 222,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_86",
+      "mesh_name": "Circle9493",
+      "material_index": 20,
+      "material_name": "Material__2097631W_031",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "223:0",
+      "node_index": 223,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_89",
+      "mesh_name": "Circle9490",
+      "material_index": 21,
+      "material_name": "05_-_Default",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "225:0",
+      "node_index": 225,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_91",
+      "mesh_name": "Rectangle1918531337",
+      "material_index": 23,
+      "material_name": "Material__2146938955",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "227:0",
+      "node_index": 227,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_93",
+      "mesh_name": "Circle9491",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "228:0",
+      "node_index": 228,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_92",
+      "mesh_name": "Circle9489",
+      "material_index": 12,
+      "material_name": "Material__2097631176",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "277:2",
+      "node_index": 277,
+      "primitive_index": 2,
+      "actor_label": "TwinRenderPart_7",
+      "mesh_name": "Shape364691",
+      "material_index": 49,
+      "material_name": "11_-_Default",
+      "layer_priority": 1,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "279:0",
+      "node_index": 279,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_9",
+      "mesh_name": "Line2029256959",
+      "material_index": 4,
+      "material_name": "MI_烤漆_白色_展台",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "282:0",
+      "node_index": 282,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_10",
+      "mesh_name": "Rectangle2133395908",
+      "material_index": 51,
+      "material_name": "Material__2146933854",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "283:0",
+      "node_index": 283,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_13",
+      "mesh_name": "Rectangle2133395907",
+      "material_index": 51,
+      "material_name": "Material__2146933854",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "287:0",
+      "node_index": 287,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_17",
+      "mesh_name": "Obj3d66-9556484-11-651",
+      "material_index": 52,
+      "material_name": "Mat3d66-9556484-6-87561",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "293:0",
+      "node_index": 293,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_23",
+      "mesh_name": "Obj3d66-9556484-6-735",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "297:0",
+      "node_index": 297,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_27",
+      "mesh_name": "Obj3d66-9556484-9-508",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "298:0",
+      "node_index": 298,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_26",
+      "mesh_name": "Obj3d66-9556484-2-97",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "299:0",
+      "node_index": 299,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_29",
+      "mesh_name": "Obj3d66-9556484-8-724",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "303:0",
+      "node_index": 303,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_33",
+      "mesh_name": "Obj3d66-9556484-12-661",
+      "material_index": 52,
+      "material_name": "Mat3d66-9556484-6-87561",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "306:0",
+      "node_index": 306,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_34",
+      "mesh_name": "Obj3d66-9556484-7-425",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "314:0",
+      "node_index": 314,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_42",
+      "mesh_name": "Obj3d66-9556484-8-725",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "316:0",
+      "node_index": 316,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_44",
+      "mesh_name": "Obj3d66-9556484-2-098",
+      "material_index": 53,
+      "material_name": "Mat3d66-9556484-4-65059",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "320:0",
+      "node_index": 320,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_48",
+      "mesh_name": "Obj3d66-9556484-12-662",
+      "material_index": 52,
+      "material_name": "Mat3d66-9556484-6-87561",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "327:0",
+      "node_index": 327,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_57",
+      "mesh_name": "Obj3d66-9556484-11-652",
+      "material_index": 52,
+      "material_name": "Mat3d66-9556484-6-87561",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "328:0",
+      "node_index": 328,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_56",
+      "mesh_name": "Obj3d66-9556484-10-495",
+      "material_index": 52,
+      "material_name": "Mat3d66-9556484-6-87561",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "329:0",
+      "node_index": 329,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_59",
+      "mesh_name": "Obj3d66-9556484-14-176",
+      "material_index": 54,
+      "material_name": "Mat3d66-9556484-5-82530",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "333:0",
+      "node_index": 333,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_63",
+      "mesh_name": "Obj3d66-10466134-36-531",
+      "material_index": 37,
+      "material_name": "Mat3d66-10466134-7-64613",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "347:0",
+      "node_index": 347,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_77",
+      "mesh_name": "Obj3d66-10466134-6-872",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "348:0",
+      "node_index": 348,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_76",
+      "mesh_name": "Obj3d66-10466134-9-813",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "349:0",
+      "node_index": 349,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_79",
+      "mesh_name": "Obj3d66-10466134-13-400",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "351:0",
+      "node_index": 351,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_81",
+      "mesh_name": "Obj3d66-10466134-7-161",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "352:0",
+      "node_index": 352,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_80",
+      "mesh_name": "Box2131643696",
+      "material_index": 1,
+      "material_name": "MI_不锈钢_拉丝_黑色",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "354:0",
+      "node_index": 354,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_82",
+      "mesh_name": "Obj3d66-10466134-38-428",
+      "material_index": 36,
+      "material_name": "Mat3d66-10466134-6-63178",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "355:0",
+      "node_index": 355,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_85",
+      "mesh_name": "Obj3d66-10466134-37-242",
+      "material_index": 36,
+      "material_name": "Mat3d66-10466134-6-63178",
+      "layer_priority": 0,
+      "layer_rank": 3,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -6
+    },
+    {
+      "key": "360:0",
+      "node_index": 360,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_88",
+      "mesh_name": "Shape1622260080",
+      "material_index": 47,
+      "material_name": "20_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "360:1",
+      "node_index": 360,
+      "primitive_index": 1,
+      "actor_label": "TwinRenderPart_88",
+      "mesh_name": "Shape1622260080",
+      "material_index": 48,
+      "material_name": "21_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "382:0",
+      "node_index": 382,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_110",
+      "mesh_name": "Obj3d66-9729673-12-211",
+      "material_index": 56,
+      "material_name": "Mat3d66-9729673-3-67431",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "396:0",
+      "node_index": 396,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_124",
+      "mesh_name": "Obj3d66-9729673-13-139",
+      "material_index": 56,
+      "material_name": "Mat3d66-9729673-3-67431",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "404:0",
+      "node_index": 404,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_132",
+      "mesh_name": "Obj3d66-10466134-26-930",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "409:0",
+      "node_index": 409,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_139",
+      "mesh_name": "Obj3d66-10466134-23-519",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "410:0",
+      "node_index": 410,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_138",
+      "mesh_name": "Obj3d66-10466134-27-922",
+      "material_index": 55,
+      "material_name": "Mat3d66-10466134-5-13315",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "413:0",
+      "node_index": 413,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_143",
+      "mesh_name": "Rectangle2133400771",
+      "material_index": 64,
+      "material_name": "Material__-2147483647_5",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "414:2",
+      "node_index": 414,
+      "primitive_index": 2,
+      "actor_label": "TwinRenderPart_142",
+      "mesh_name": "Shape1622260060",
+      "material_index": 49,
+      "material_name": "11_-_Default",
+      "layer_priority": 1,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "415:0",
+      "node_index": 415,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_145",
+      "mesh_name": "Shape1622260007",
+      "material_index": 47,
+      "material_name": "20_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "415:1",
+      "node_index": 415,
+      "primitive_index": 1,
+      "actor_label": "TwinRenderPart_145",
+      "mesh_name": "Shape1622260007",
+      "material_index": 48,
+      "material_name": "21_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "420:0",
+      "node_index": 420,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_148",
+      "mesh_name": "Obj3d66-10466134-36-532",
+      "material_index": 37,
+      "material_name": "Mat3d66-10466134-7-64613",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "421:0",
+      "node_index": 421,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_151",
+      "mesh_name": "Shape1622260081",
+      "material_index": 47,
+      "material_name": "20_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "421:1",
+      "node_index": 421,
+      "primitive_index": 1,
+      "actor_label": "TwinRenderPart_151",
+      "mesh_name": "Shape1622260081",
+      "material_index": 48,
+      "material_name": "21_-_Default_2",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "747:0",
+      "node_index": 747,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_1",
+      "mesh_name": "Shape65123688",
+      "material_index": 65,
+      "material_name": "蓝汪汪",
+      "layer_priority": 1,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "935:0",
+      "node_index": 935,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_0",
+      "mesh_name": "Shape65123822",
+      "material_index": 6,
+      "material_name": "MI_自发光_红色",
+      "layer_priority": 6,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "949:0",
+      "node_index": 949,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_1",
+      "mesh_name": "Shape1622260086",
+      "material_index": 35,
+      "material_name": "MI_自发光_白色",
+      "layer_priority": 6,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    }
+  ],
+  "conflicts": [
+    {
+      "a": {
+        "node_index": 139,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 136,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "136:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 0.045809023254050875,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 1.0993243970853672,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 136,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "136:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 0.04580578220750938,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 184,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_48",
+        "material_name": "Material__2097631035"
+      },
+      "b": {
+        "node_index": 145,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_11",
+        "material_name": "Material__2146938958"
+      },
+      "overlay": "184:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 0.034804609954131926,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 362,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_90",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 415,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_145",
+        "material_name": "20_-_Default_2"
+      },
+      "overlay": "415:0",
+      "plane_distance_m": 0.000776840626933506,
+      "overlap_area_m2": 0.014419986771205798,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 362,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_90",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 415,
+        "primitive_index": 1,
+        "actor_label": "TwinRenderPart_145",
+        "material_name": "21_-_Default_2"
+      },
+      "overlay": "415:1",
+      "plane_distance_m": 0.0007768406265249439,
+      "overlap_area_m2": 0.03708959598164062,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "178:0",
+      "plane_distance_m": 0.000004053380163071552,
+      "overlap_area_m2": 1.0992079559905477,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 336,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 360,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_88",
+        "material_name": "20_-_Default_2"
+      },
+      "overlay": "360:0",
+      "plane_distance_m": 0.001211212097985026,
+      "overlap_area_m2": 0.014419986771205798,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 336,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 360,
+        "primitive_index": 1,
+        "actor_label": "TwinRenderPart_88",
+        "material_name": "21_-_Default_2"
+      },
+      "overlay": "360:1",
+      "plane_distance_m": 0.0012112120976048857,
+      "overlap_area_m2": 0.03708959598164062,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 283,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_13",
+        "material_name": "Material__2146933854"
+      },
+      "b": {
+        "node_index": 281,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_11",
+        "material_name": "Material__-2147483625"
+      },
+      "overlay": "283:0",
+      "plane_distance_m": 0.0020605766369783396,
+      "overlap_area_m2": 0.032433983996741085,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 281,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_11",
+        "material_name": "Material__-2147483625"
+      },
+      "b": {
+        "node_index": 282,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_10",
+        "material_name": "Material__2146933854"
+      },
+      "overlay": "282:0",
+      "plane_distance_m": 0.0028100766531551358,
+      "overlap_area_m2": 0.032433983996741085,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 8.137659790463658e-8,
+      "overlap_area_m2": 13.802270424806027,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 4.9847933780711173e-8,
+      "overlap_area_m2": 1.812419813345353,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 183,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_49",
+        "material_name": "WorldGridMaterial"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 2.960459610790167e-8,
+      "overlap_area_m2": 1.6182318632966841,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 183,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_49",
+        "material_name": "WorldGridMaterial"
+      },
+      "overlay": "183:0",
+      "plane_distance_m": 2.9665663703326572e-8,
+      "overlap_area_m2": 1.6182318632966926,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "b": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 4.797264807621104e-9,
+      "overlap_area_m2": 13.8022710687835,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 145,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_11",
+        "material_name": "Material__2146938958"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "185:0",
+      "plane_distance_m": 8.831741951098593e-7,
+      "overlap_area_m2": 2.2970926159084413,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 184,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_48",
+        "material_name": "Material__2097631035"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "185:0",
+      "plane_distance_m": 9.133428449104031e-7,
+      "overlap_area_m2": 2.390003703544245,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "200:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 0.0022704062699929577,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "159:0",
+      "plane_distance_m": 3.552713678800501e-15,
+      "overlap_area_m2": 0.002270406269992965,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 136,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "136:0",
+      "plane_distance_m": 0.000002190069977814346,
+      "overlap_area_m2": 16.120175601843954,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 136,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "136:0",
+      "plane_distance_m": 0.0000021853080340861197,
+      "overlap_area_m2": 13.802271068783613,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 0.000002190195043993981,
+      "overlap_area_m2": 16.120175601843936,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "138:0",
+      "plane_distance_m": 0.00000218536915497225,
+      "overlap_area_m2": 13.802271068783629,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 139,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 0.000002194100868990745,
+      "overlap_area_m2": 16.46114905220964,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 139,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "139:0",
+      "plane_distance_m": 0.00000219403692369724,
+      "overlap_area_m2": 16.120175601843954,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 139,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "139:0",
+      "plane_distance_m": 0.0000021892749799690137,
+      "overlap_area_m2": 13.80227106878362,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 139,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "139:0",
+      "plane_distance_m": 3.90582499676384e-9,
+      "overlap_area_m2": 16.120175601843943,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 179,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_45",
+        "material_name": "Material__20976AADF31176"
+      },
+      "b": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "179:0",
+      "plane_distance_m": 0.0000035730908152231677,
+      "overlap_area_m2": 0.022406284468897687,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 155,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_21",
+        "material_name": "Material__2097631035"
+      },
+      "b": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "178:0",
+      "plane_distance_m": 0.001996791799051323,
+      "overlap_area_m2": 0.04960934679603106,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 278,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_6",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 421,
+        "primitive_index": 1,
+        "actor_label": "TwinRenderPart_151",
+        "material_name": "21_-_Default_2"
+      },
+      "overlay": "421:1",
+      "plane_distance_m": 0.0008773071165357749,
+      "overlap_area_m2": 0.037089604297600984,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 278,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_6",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 421,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_151",
+        "material_name": "20_-_Default_2"
+      },
+      "overlay": "421:0",
+      "plane_distance_m": 0.0008773071161662926,
+      "overlap_area_m2": 0.01441999013237189,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 414,
+        "primitive_index": 2,
+        "actor_label": "TwinRenderPart_142",
+        "material_name": "11_-_Default"
+      },
+      "b": {
+        "node_index": 279,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "overlay": "414:2",
+      "plane_distance_m": 0.004022549759003624,
+      "overlap_area_m2": 0.268112165587973,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 277,
+        "primitive_index": 2,
+        "actor_label": "TwinRenderPart_7",
+        "material_name": "11_-_Default"
+      },
+      "b": {
+        "node_index": 281,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_11",
+        "material_name": "Material__-2147483625"
+      },
+      "overlay": "277:2",
+      "plane_distance_m": 0.00021211291457134962,
+      "overlap_area_m2": 0.0867069926909835,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 339,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_69",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 351,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_81",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "351:0",
+      "plane_distance_m": 0.00023077086004619218,
+      "overlap_area_m2": 0.006131924617548015,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 404,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_132",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 399,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_129",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "404:0",
+      "plane_distance_m": 0.0002307477825809201,
+      "overlap_area_m2": 0.006131907479545902,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 413,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_143",
+        "material_name": "Material__-2147483647_5"
+      },
+      "b": {
+        "node_index": 353,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_83",
+        "material_name": "WorldGridMaterial"
+      },
+      "overlay": "413:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 1.1745008443874174,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 413,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_143",
+        "material_name": "Material__-2147483647_5"
+      },
+      "b": {
+        "node_index": 358,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_86",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "overlay": "413:0",
+      "plane_distance_m": 0,
+      "overlap_area_m2": 0.45000033347095497,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 278,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_6",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 413,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_143",
+        "material_name": "Material__-2147483647_5"
+      },
+      "overlay": "413:0",
+      "plane_distance_m": 0.003687421788139314,
+      "overlap_area_m2": 3.8425017295010666,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 336,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 413,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_143",
+        "material_name": "Material__-2147483647_5"
+      },
+      "overlay": "413:0",
+      "plane_distance_m": 0.003687421788139314,
+      "overlap_area_m2": 0.5000004073017654,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 362,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_90",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 413,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_143",
+        "material_name": "Material__-2147483647_5"
+      },
+      "overlay": "413:0",
+      "plane_distance_m": 0.003687421788139328,
+      "overlap_area_m2": 1.8200010915695155,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 284,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 355,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_85",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "355:0",
+      "plane_distance_m": 0.0021521038625601507,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 284,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 354,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_82",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "354:0",
+      "plane_distance_m": 0.002151998239298958,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 315,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_45",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 355,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_85",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "355:0",
+      "plane_distance_m": 0.0021521038625601507,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 315,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_45",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 354,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_82",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "354:0",
+      "plane_distance_m": 0.002151998239298958,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 352,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_80",
+        "material_name": "MI_不锈钢_拉丝_黑色"
+      },
+      "b": {
+        "node_index": 354,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_82",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "354:0",
+      "plane_distance_m": 0.002181377754503333,
+      "overlap_area_m2": 1.360000931291547,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 352,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_80",
+        "material_name": "MI_不锈钢_拉丝_黑色"
+      },
+      "b": {
+        "node_index": 284,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "overlay": "352:0",
+      "plane_distance_m": 0.000029379515204375206,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 352,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_80",
+        "material_name": "MI_不锈钢_拉丝_黑色"
+      },
+      "b": {
+        "node_index": 315,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_45",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "overlay": "352:0",
+      "plane_distance_m": 0.000029379515204375206,
+      "overlap_area_m2": 0.0032343329091464035,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 144,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_8",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "144:0",
+      "plane_distance_m": 0.0000050926883000262935,
+      "overlap_area_m2": 0.31797659763352815,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 182,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_46",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "182:0",
+      "plane_distance_m": 0.000004993526555890915,
+      "overlap_area_m2": 0.31797659763353553,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "b": {
+        "node_index": 144,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_8",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "144:0",
+      "plane_distance_m": 0.000005096894135997454,
+      "overlap_area_m2": 0.31797659763352754,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "b": {
+        "node_index": 182,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_46",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "182:0",
+      "plane_distance_m": 0.000004997732391862075,
+      "overlap_area_m2": 0.317976597633535,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 181,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_47",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "181:0",
+      "plane_distance_m": 0.0000021634921881924507,
+      "overlap_area_m2": 0.33306689209951656,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 181,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_47",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "181:0",
+      "plane_distance_m": 0.00000215928635222129,
+      "overlap_area_m2": 0.33306689209951656,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 143,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "143:0",
+      "plane_distance_m": 0.0000021634922070246088,
+      "overlap_area_m2": 0.3330668920995178,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 143,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "143:0",
+      "plane_distance_m": 0.0000021592863710534482,
+      "overlap_area_m2": 0.3330668920995178,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 290,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_18",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 297,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_27",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "297:0",
+      "plane_distance_m": 0.0000016625885412291375,
+      "overlap_area_m2": 0.07603368417763576,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 328,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_56",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 308,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_36",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "328:0",
+      "plane_distance_m": 0.000001559496485004086,
+      "overlap_area_m2": 0.07603368417763576,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 299,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_29",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 297,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_27",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "299:0",
+      "plane_distance_m": 0.0028143317329816786,
+      "overlap_area_m2": 0.07444095798913355,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 314,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 308,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_36",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "314:0",
+      "plane_distance_m": 0.0028143317329817896,
+      "overlap_area_m2": 0.07444095798913355,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 303,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_33",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 299,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_29",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "303:0",
+      "plane_distance_m": 0.002809112260949709,
+      "overlap_area_m2": 0.07762642455096072,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 303,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_33",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 285,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "303:0",
+      "plane_distance_m": 0.0027956881090429597,
+      "overlap_area_m2": 0.00453648945262435,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 320,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_48",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 314,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "320:0",
+      "plane_distance_m": 0.002808982156494888,
+      "overlap_area_m2": 0.07762642455096072,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 320,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_48",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 312,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_40",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "320:0",
+      "plane_distance_m": 0.0027951014189644408,
+      "overlap_area_m2": 0.00453648945262435,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 382,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_110",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "b": {
+        "node_index": 378,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_106",
+        "material_name": "Mat3d66-9729673-6-66345"
+      },
+      "overlay": "382:0",
+      "plane_distance_m": 0.002621179412070962,
+      "overlap_area_m2": 0.009174092444561514,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 396,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_124",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "b": {
+        "node_index": 381,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_111",
+        "material_name": "Mat3d66-9729673-6-66345"
+      },
+      "overlay": "396:0",
+      "plane_distance_m": 0.0026211794263544252,
+      "overlap_area_m2": 0.00917409421306697,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 147,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_13",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 150,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "150:0",
+      "plane_distance_m": 2.220446049250313e-16,
+      "overlap_area_m2": 0.12198976833025535,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 228,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_92",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 221,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_87",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "228:0",
+      "plane_distance_m": 2.220446049250313e-16,
+      "overlap_area_m2": 0.12198976833025535,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 223,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_89",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 221,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_87",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "223:0",
+      "plane_distance_m": 2.5315492213628943e-7,
+      "overlap_area_m2": 0.11511854059943548,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 149,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 150,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "150:0",
+      "plane_distance_m": 2.5315492280242324e-7,
+      "overlap_area_m2": 0.11511854059943548,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 148,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 150,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "150:0",
+      "plane_distance_m": 2.5315492391264627e-7,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 148,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 149,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "149:0",
+      "plane_distance_m": 1.1102230246251565e-15,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 222,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_86",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 221,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_87",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "222:0",
+      "plane_distance_m": 2.5315492346855706e-7,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 222,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_86",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 223,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_89",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "223:0",
+      "plane_distance_m": 1.3322676295501878e-15,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "198:0",
+      "plane_distance_m": 2.5276204396185165e-7,
+      "overlap_area_m2": 0.2579054912729597,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "159:0",
+      "plane_distance_m": 2.5276204440594086e-7,
+      "overlap_area_m2": 0.2579054912729597,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 153,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_19",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 150,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "153:0",
+      "plane_distance_m": 0.0020690456427781,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 153,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_19",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 149,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "153:0",
+      "plane_distance_m": 0.0020687924878552977,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 153,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_19",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 148,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "153:0",
+      "plane_distance_m": 0.0020687924878541875,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 225,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_91",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 221,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_87",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "225:0",
+      "plane_distance_m": 0.0020691161968864336,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 225,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_91",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 223,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_89",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "225:0",
+      "plane_distance_m": 0.0020688630419642973,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 225,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_91",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 222,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_86",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "225:0",
+      "plane_distance_m": 0.002068863041962965,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 161,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_27",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "161:0",
+      "plane_distance_m": 0.0020690820837490076,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 161,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_27",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "161:0",
+      "plane_distance_m": 0.002068829321705268,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 161,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_27",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "161:0",
+      "plane_distance_m": 0.0020688293217046017,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 165,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_31",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "165:0",
+      "plane_distance_m": 0.002069146142823497,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 165,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_31",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "165:0",
+      "plane_distance_m": 0.002068893380779757,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 165,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_31",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "165:0",
+      "plane_distance_m": 0.002068893380779091,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 174,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_38",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "174:0",
+      "plane_distance_m": 0.0020691735738223027,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 174,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_38",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "174:0",
+      "plane_distance_m": 0.002068920811778563,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 174,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_38",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "174:0",
+      "plane_distance_m": 0.0020689208117778968,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 167,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_33",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "167:0",
+      "plane_distance_m": 0.0020692011716751946,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 167,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_33",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "167:0",
+      "plane_distance_m": 0.0020689484096314548,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 167,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_33",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 159,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_25",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "167:0",
+      "plane_distance_m": 0.0020689484096307886,
+      "overlap_area_m2": 0.004979177928874512,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 194,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_58",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "198:0",
+      "plane_distance_m": 0.0020692769162211633,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 194,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_58",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "197:0",
+      "plane_distance_m": 0.0020690241541772014,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 194,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_58",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "200:0",
+      "plane_distance_m": 0.0020690241541769794,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 207,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_73",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "207:0",
+      "plane_distance_m": 0.002069340975302758,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 207,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_73",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "207:0",
+      "plane_distance_m": 0.002069088213258796,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 207,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_73",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "207:0",
+      "plane_distance_m": 0.002069088213258574,
+      "overlap_area_m2": 0.004979177928874157,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 195,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_61",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "198:0",
+      "plane_distance_m": 0.002069368405924976,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 195,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_61",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "197:0",
+      "plane_distance_m": 0.0020691156438810143,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 195,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_61",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "200:0",
+      "plane_distance_m": 0.0020691156438807923,
+      "overlap_area_m2": 0.004979177928874334,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 204,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_68",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "204:0",
+      "plane_distance_m": 0.002069396003786972,
+      "overlap_area_m2": 0.004979177928873625,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 204,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_68",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 197,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Material__2097631W_031"
+      },
+      "overlay": "204:0",
+      "plane_distance_m": 0.00206914324174301,
+      "overlap_area_m2": 0.004979177928873625,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 204,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_68",
+        "material_name": "Material__2146938955"
+      },
+      "b": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "204:0",
+      "plane_distance_m": 0.002069143241742788,
+      "overlap_area_m2": 0.004979177928873625,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 157,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_23",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "157:0",
+      "plane_distance_m": 8.57085401317903e-7,
+      "overlap_area_m2": 0.27485064457978364,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 199,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_65",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "200:0",
+      "plane_distance_m": 8.570854015399476e-7,
+      "overlap_area_m2": 0.2748506445797845,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 149,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 146,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_10",
+        "material_name": "Mat3d66-8436212-2-40017"
+      },
+      "overlay": "146:0",
+      "plane_distance_m": 0.001994588064087255,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 223,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_89",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 220,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_84",
+        "material_name": "Mat3d66-8436212-2-40017"
+      },
+      "overlay": "220:0",
+      "plane_distance_m": 0.001994588064087477,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 151,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_17",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 146,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_10",
+        "material_name": "Mat3d66-8436212-2-40017"
+      },
+      "overlay": "146:0",
+      "plane_distance_m": 0.0019958480440391835,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 151,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_17",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 149,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "151:0",
+      "plane_distance_m": 0.0000012599799519286137,
+      "overlap_area_m2": 0.11511854059943548,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 227,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_93",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 220,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_84",
+        "material_name": "Mat3d66-8436212-2-40017"
+      },
+      "overlay": "220:0",
+      "plane_distance_m": 0.0019958480440394055,
+      "overlap_area_m2": 0.10197348455715857,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 227,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_93",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 223,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_89",
+        "material_name": "05_-_Default"
+      },
+      "overlay": "227:0",
+      "plane_distance_m": 0.0000012599799519286137,
+      "overlap_area_m2": 0.11511854059943548,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 211,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_77",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "211:0",
+      "plane_distance_m": 0.002224853861446885,
+      "overlap_area_m2": 0.054837377800974925,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 400,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_128",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 410,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_138",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "410:0",
+      "plane_distance_m": 0.0032725663303820873,
+      "overlap_area_m2": 0.0033249167374507544,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 748,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_金属_沙银_扶手"
+      },
+      "b": {
+        "node_index": 747,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "蓝汪汪"
+      },
+      "overlay": "747:0",
+      "plane_distance_m": 0.0005385742854358,
+      "overlap_area_m2": 3.0108869440912422,
+      "overlap_ratio": 0.999999999788419
+    },
+    {
+      "a": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "138:0",
+      "plane_distance_m": 0.0000015014120577916401,
+      "overlap_area_m2": 1.0992079443244018,
+      "overlap_ratio": 0.9999999893867707
+    },
+    {
+      "a": {
+        "node_index": 934,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_金属烤漆_黑色_4_支架"
+      },
+      "b": {
+        "node_index": 935,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_自发光_红色"
+      },
+      "overlay": "935:0",
+      "plane_distance_m": 0.001538030868516671,
+      "overlap_area_m2": 13.626613968115832,
+      "overlap_ratio": 0.9999999870687676
+    },
+    {
+      "a": {
+        "node_index": 949,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_自发光_白色"
+      },
+      "b": {
+        "node_index": 950,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "overlay": "949:0",
+      "plane_distance_m": 0.0008454934299422234,
+      "overlap_area_m2": 4.307808269693279,
+      "overlap_ratio": 0.999999983475542
+    },
+    {
+      "a": {
+        "node_index": 219,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_85",
+        "material_name": "Mat3d66-8436212-2-40017"
+      },
+      "b": {
+        "node_index": 218,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_82",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "219:0",
+      "plane_distance_m": 0.00005946245411436735,
+      "overlap_area_m2": 0.05897001853553067,
+      "overlap_ratio": 0.9999999831997493
+    },
+    {
+      "a": {
+        "node_index": 136,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "b": {
+        "node_index": 140,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "Mat3d66-843621dfds2-2-40017"
+      },
+      "overlay": "140:0",
+      "plane_distance_m": 0.000002190133923107851,
+      "overlap_area_m2": 16.46114862531669,
+      "overlap_ratio": 0.9999999740666377
+    },
+    {
+      "a": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "137:0",
+      "plane_distance_m": 0.0000021901310987004763,
+      "overlap_area_m2": 16.120175178342574,
+      "overlap_ratio": 0.9999999737284896
+    },
+    {
+      "a": {
+        "node_index": 212,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_76",
+        "material_name": "Material__2147448509"
+      },
+      "b": {
+        "node_index": 211,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_77",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "212:0",
+      "plane_distance_m": 0.0007452121812647761,
+      "overlap_area_m2": 0.47489217280496654,
+      "overlap_ratio": 0.999999846822432
+    },
+    {
+      "a": {
+        "node_index": 183,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_49",
+        "material_name": "WorldGridMaterial"
+      },
+      "b": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "183:0",
+      "plane_distance_m": 2.0243337672809503e-8,
+      "overlap_area_m2": 1.6182314537814184,
+      "overlap_ratio": 0.9999997469365893
+    },
+    {
+      "a": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "overlay": "178:0",
+      "plane_distance_m": 0.000002177288497051677,
+      "overlap_area_m2": 1.3384023777097682,
+      "overlap_ratio": 0.9999996834314537
+    },
+    {
+      "a": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "185:0",
+      "plane_distance_m": 0.000012401184150689915,
+      "overlap_area_m2": 0.2788346546230531,
+      "overlap_ratio": 0.9999995812102802
+    },
+    {
+      "a": {
+        "node_index": 354,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_82",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "b": {
+        "node_index": 355,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_85",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "355:0",
+      "plane_distance_m": 0.00040928939461082336,
+      "overlap_area_m2": 0.09814615552309854,
+      "overlap_ratio": 0.9999937317735973
+    },
+    {
+      "a": {
+        "node_index": 156,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_20",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 158,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_22",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "158:0",
+      "plane_distance_m": 2.5276204373980704e-7,
+      "overlap_area_m2": 0.27484808845889536,
+      "overlap_ratio": 0.9999907156080758
+    },
+    {
+      "a": {
+        "node_index": 200,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_64",
+        "material_name": "05_-_Default"
+      },
+      "b": {
+        "node_index": 198,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_62",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "200:0",
+      "plane_distance_m": 2.5276204418389625e-7,
+      "overlap_area_m2": 0.2748479100974873,
+      "overlap_ratio": 0.9999900666686815
+    },
+    {
+      "a": {
+        "node_index": 373,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_103",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "b": {
+        "node_index": 382,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_110",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "overlay": "382:0",
+      "plane_distance_m": 0.0016242868045920344,
+      "overlap_area_m2": 0.03070342433633124,
+      "overlap_ratio": 0.999889664014122
+    },
+    {
+      "a": {
+        "node_index": 364,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_92",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "b": {
+        "node_index": 396,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_124",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "overlay": "396:0",
+      "plane_distance_m": 0.0012496521720712916,
+      "overlap_area_m2": 0.03070353471566718,
+      "overlap_ratio": 0.9998896639955294
+    },
+    {
+      "a": {
+        "node_index": 409,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_139",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 404,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_132",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "409:0",
+      "plane_distance_m": 0.00159226992770245,
+      "overlap_area_m2": 0.21407743317787234,
+      "overlap_ratio": 0.9970369392364787
+    },
+    {
+      "a": {
+        "node_index": 348,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_76",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 339,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_69",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "348:0",
+      "plane_distance_m": 0.001594213525117849,
+      "overlap_area_m2": 0.21409761889425333,
+      "overlap_ratio": 0.9970369392318995
+    },
+    {
+      "a": {
+        "node_index": 349,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_79",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 341,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_71",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "349:0",
+      "plane_distance_m": 0.002248676880332645,
+      "overlap_area_m2": 0.031038769430741305,
+      "overlap_ratio": 0.8493963461104602
+    },
+    {
+      "a": {
+        "node_index": 135,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "185:0",
+      "plane_distance_m": 0.000008197932132247843,
+      "overlap_area_m2": 0.22900209304144675,
+      "overlap_ratio": 0.821282409990624
+    },
+    {
+      "a": {
+        "node_index": 138,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Material__2097631176ea"
+      },
+      "b": {
+        "node_index": 185,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Material__2146938956"
+      },
+      "overlay": "185:0",
+      "plane_distance_m": 0.000009699344190039483,
+      "overlap_area_m2": 0.2290020833898943,
+      "overlap_ratio": 0.8212823753767471
+    },
+    {
+      "a": {
+        "node_index": 279,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 420,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_148",
+        "material_name": "Mat3d66-10466134-7-64613"
+      },
+      "overlay": "420:0",
+      "plane_distance_m": 0.002020105219767032,
+      "overlap_area_m2": 0.03925505739332413,
+      "overlap_ratio": 0.8119680640665804
+    },
+    {
+      "a": {
+        "node_index": 279,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 333,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_63",
+        "material_name": "Mat3d66-10466134-7-64613"
+      },
+      "overlay": "333:0",
+      "plane_distance_m": 0.0020195808257739145,
+      "overlap_area_m2": 0.039254927981024715,
+      "overlap_ratio": 0.8119653872483487
+    },
+    {
+      "a": {
+        "node_index": 279,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "MI_烤漆_白色_展台"
+      },
+      "b": {
+        "node_index": 274,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "Mat3d66-10466134-7-64613"
+      },
+      "overlay": "279:0",
+      "plane_distance_m": 0.0020229054766360832,
+      "overlap_area_m2": 0.03925408013788742,
+      "overlap_ratio": 0.8119478501054296
+    },
+    {
+      "a": {
+        "node_index": 352,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_80",
+        "material_name": "MI_不锈钢_拉丝_黑色"
+      },
+      "b": {
+        "node_index": 355,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_85",
+        "material_name": "Mat3d66-10466134-6-63178"
+      },
+      "overlay": "355:0",
+      "plane_distance_m": 0.002181483377764526,
+      "overlap_area_m2": 1.088644750045002,
+      "overlap_ratio": 0.800473532772623
+    },
+    {
+      "a": {
+        "node_index": 327,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_57",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 315,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_45",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "overlay": "327:0",
+      "plane_distance_m": 0.00011793989845543251,
+      "overlap_area_m2": 0.028938721105117266,
+      "overlap_ratio": 0.547169362180848
+    },
+    {
+      "a": {
+        "node_index": 287,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_17",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "b": {
+        "node_index": 284,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "Mat3d66-9556484-6-87561"
+      },
+      "overlay": "287:0",
+      "plane_distance_m": 0.00011793989845898523,
+      "overlap_area_m2": 0.02893872110511692,
+      "overlap_ratio": 0.547169362180848
+    },
+    {
+      "a": {
+        "node_index": 311,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_41",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 316,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_44",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "316:0",
+      "plane_distance_m": 0.0004123714142174606,
+      "overlap_area_m2": 0.0027786807893927126,
+      "overlap_ratio": 0.5158788733865975
+    },
+    {
+      "a": {
+        "node_index": 306,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_34",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 298,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_26",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "306:0",
+      "plane_distance_m": 0.0004123714141925916,
+      "overlap_area_m2": 0.0027786807893923618,
+      "overlap_ratio": 0.5158788733865975
+    },
+    {
+      "a": {
+        "node_index": 386,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_114",
+        "material_name": "Mat3d66-9729673-6-66345"
+      },
+      "b": {
+        "node_index": 396,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_124",
+        "material_name": "Mat3d66-9729673-3-67431"
+      },
+      "overlay": "396:0",
+      "plane_distance_m": 0.0009278018408522826,
+      "overlap_area_m2": 0.002297294087637785,
+      "overlap_ratio": 0.500215781800147
+    },
+    {
+      "a": {
+        "node_index": 178,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_42",
+        "material_name": "Material__2097631176"
+      },
+      "b": {
+        "node_index": 137,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Material__2097631176"
+      },
+      "overlay": "178:0",
+      "plane_distance_m": 0.000004033191157049032,
+      "overlap_area_m2": 0.022895663720551643,
+      "overlap_ratio": 0.4998951667775378
+    },
+    {
+      "a": {
+        "node_index": 289,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_19",
+        "material_name": "Mat3d66-9556484-5-82530"
+      },
+      "b": {
+        "node_index": 298,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_26",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "298:0",
+      "plane_distance_m": 0.0014501591930577429,
+      "overlap_area_m2": 0.009593777231009818,
+      "overlap_ratio": 0.48500547393631516
+    },
+    {
+      "a": {
+        "node_index": 329,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_59",
+        "material_name": "Mat3d66-9556484-5-82530"
+      },
+      "b": {
+        "node_index": 316,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_44",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "overlay": "329:0",
+      "plane_distance_m": 0.0014496237809841217,
+      "overlap_area_m2": 0.009593777231009818,
+      "overlap_ratio": 0.48500547393631516
+    },
+    {
+      "a": {
+        "node_index": 404,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_132",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 402,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_130",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "404:0",
+      "plane_distance_m": 0.002825694480012686,
+      "overlap_area_m2": 0.010183191291388467,
+      "overlap_ratio": 0.3580339717311506
+    },
+    {
+      "a": {
+        "node_index": 339,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_69",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "b": {
+        "node_index": 347,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_77",
+        "material_name": "Mat3d66-10466134-5-13315"
+      },
+      "overlay": "347:0",
+      "plane_distance_m": 0.0028175685242608495,
+      "overlap_area_m2": 0.010184097065204366,
+      "overlap_ratio": 0.3580304924912932
+    },
+    {
+      "a": {
+        "node_index": 181,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_47",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 182,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_46",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "182:0",
+      "plane_distance_m": 0.0000071570187440833655,
+      "overlap_area_m2": 0.05782072110302769,
+      "overlap_ratio": 0.18183954898992086
+    },
+    {
+      "a": {
+        "node_index": 143,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "Material__2097631034"
+      },
+      "b": {
+        "node_index": 144,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_8",
+        "material_name": "Material__2097631034"
+      },
+      "overlay": "144:0",
+      "plane_distance_m": 0.000007256180507050902,
+      "overlap_area_m2": 0.057820342796263975,
+      "overlap_ratio": 0.18183835925845468
+    },
+    {
+      "a": {
+        "node_index": 293,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_23",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 289,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_19",
+        "material_name": "Mat3d66-9556484-5-82530"
+      },
+      "overlay": "293:0",
+      "plane_distance_m": 0.000317026960388489,
+      "overlap_area_m2": 0.0011152011461087437,
+      "overlap_ratio": 0.1551943746086296
+    },
+    {
+      "a": {
+        "node_index": 321,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_51",
+        "material_name": "Mat3d66-9556484-4-65059"
+      },
+      "b": {
+        "node_index": 329,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_59",
+        "material_name": "Mat3d66-9556484-5-82530"
+      },
+      "overlay": "329:0",
+      "plane_distance_m": 0.00031689474536555906,
+      "overlap_area_m2": 0.0011152011461087437,
+      "overlap_ratio": 0.1551943746086296
+    }
+  ]
+}

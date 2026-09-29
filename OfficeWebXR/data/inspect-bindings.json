@@ -1,0 +1,628 @@
+{
+  "bindings": [
+    {
+      "nodeName": "02_班椅_独立办公室",
+      "catalogId": 2
+    },
+    {
+      "nodeName": "PDF_03_班前椅_独立办公室",
+      "catalogId": 3
+    },
+    {
+      "nodeName": "PDF_04_文件柜_独立办公室",
+      "catalogId": 4
+    },
+    {
+      "nodeName": "05_沙发_独立办公室",
+      "catalogId": 5
+    },
+    {
+      "nodeName": "PDF_06_茶几_独立办公室",
+      "catalogId": 6
+    },
+    {
+      "nodeName": "PDF_07_会议桌_大会议室",
+      "catalogId": 7
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室2",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_13_会议椅_小会议室_黄色",
+      "catalogId": 13
+    },
+    {
+      "nodeName": "14_接待沙发_接待室",
+      "catalogId": 14
+    },
+    {
+      "nodeName": "14_接待沙发_接待室2",
+      "catalogId": 14
+    },
+    {
+      "nodeName": "PDF_15_沙发墩_接待室",
+      "catalogId": 15
+    },
+    {
+      "nodeName": "PDF_15_沙发墩_接待室",
+      "catalogId": 15
+    },
+    {
+      "nodeName": "PDF_17_茶几_接待室_兼接待茶几",
+      "catalogId": 17
+    },
+    {
+      "nodeName": "PDF_17_茶几_接待室_兼接待茶几",
+      "catalogId": 17
+    },
+    {
+      "nodeName": "PDF_18_会议桌_接待室",
+      "catalogId": 7
+    },
+    {
+      "nodeName": "PDF_19_吧台_接待室_6000",
+      "catalogId": 19
+    },
+    {
+      "nodeName": "20_吧椅_接待室及员工区",
+      "catalogId": 20
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_27_吧台_员工区_4500",
+      "catalogId": 27
+    },
+    {
+      "nodeName": "PDF_32_吧椅_打印茶水区_黄色",
+      "catalogId": 32
+    },
+    {
+      "nodeName": "PDF_32_吧椅_打印茶水区_黄色",
+      "catalogId": 32
+    },
+    {
+      "nodeName": "PDF_32_吧椅_打印茶水区_黄色",
+      "catalogId": 32
+    },
+    {
+      "nodeName": "PDF_33_吧椅_打印茶水区_橙红色",
+      "catalogId": 33
+    },
+    {
+      "nodeName": "PDF_33_吧椅_打印茶水区_橙红色",
+      "catalogId": 33
+    },
+    {
+      "nodeName": "38_接待沙发、单人沙发_接待区2",
+      "catalogId": 38
+    },
+    {
+      "nodeName": "PDF_39_单人沙发_接待区_白色",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_39_单人沙发_接待区_白色",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_40_单人沙发_接待区_灰色",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "20_吧椅_接待室及员工区2",
+      "catalogId": 20
+    },
+    {
+      "nodeName": "20_吧椅_接待室及员工区3",
+      "catalogId": 20
+    },
+    {
+      "nodeName": "20_吧椅_接待室及员工区4",
+      "catalogId": 20
+    },
+    {
+      "nodeName": "20_吧椅_接待室及员工区5",
+      "catalogId": 20
+    },
+    {
+      "nodeName": "PDF_40_单人沙发_接待区_灰色2",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_40_单人沙发_接待区_灰色3",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室2",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室3",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室4",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室5",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室6",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室7",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室8",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室9",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室10",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室11",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "38_接待沙发、单人沙发_接待区3",
+      "catalogId": 38
+    },
+    {
+      "nodeName": "PDF_17_茶几_接待室_兼接待茶几2",
+      "catalogId": 17
+    },
+    {
+      "nodeName": "PDF_40_单人沙发_接待区_灰色4",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_39_单人沙发_接待区_白色2",
+      "catalogId": 39
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室12",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室13",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室14",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_11_会议椅_中会议室及接待室15",
+      "catalogId": 11
+    },
+    {
+      "nodeName": "PDF_32_吧椅_打印茶水区_黄色2",
+      "catalogId": 32
+    },
+    {
+      "nodeName": "PDF_28_休闲桌_休息区",
+      "catalogId": 28
+    },
+    {
+      "nodeName": "PDF_28_休闲桌_休息区2",
+      "catalogId": 28
+    },
+    {
+      "nodeName": "PDF_29_休闲椅_休息区_绿色",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_30_休闲椅_休息区_灰色",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_29_休闲椅_休息区_绿色2",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_29_休闲椅_休息区_绿色3",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_29_休闲椅_休息区_绿色4",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_30_休闲椅_休息区_灰色2",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_30_休闲椅_休息区_灰色3",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_30_休闲椅_休息区_灰色4",
+      "catalogId": 16
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区2",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区3",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽2",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽3",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽4",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽5",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽6",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽7",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽8",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽9",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽10",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽11",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区4",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区5",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区6",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区7",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区8",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_26_文件高柜_员工区9",
+      "catalogId": 26
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽12",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_24_桌边柜_员工区_含花槽13",
+      "catalogId": 24
+    },
+    {
+      "nodeName": "PDF_01_经理桌_独立办公室",
+      "catalogId": 1
+    },
+    {
+      "nodeName": "SM_Pothos_Potted",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted2",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted3",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted4",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted5",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted6",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted7",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted8",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted9",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted10",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted11",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "SM_Pothos_Potted12",
+      "catalogId": 103
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室2",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "PDF_13_会议椅_小会议室_黄色2",
+      "catalogId": 13
+    },
+    {
+      "nodeName": "PDF_13_会议椅_小会议室_黄色4",
+      "catalogId": 13
+    },
+    {
+      "nodeName": "PDF_13_会议椅_小会议室_黄色5",
+      "catalogId": 13
+    },
+    {
+      "nodeName": "PDF_13_会议椅_小会议室_黄色7",
+      "catalogId": 13
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室2",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室3",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室4",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室5",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室6",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室7",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室8",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室9",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室10",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室11",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室12",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室13",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室14",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室15",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室16",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室17",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室18",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室3",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室4",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室5",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室6",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室7",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室8",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室9",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室10",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室11",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室12",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "08_椅子（带写字板）_大会议室13",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室19",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室20",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室21",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室22",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室23",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室24",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室25",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室26",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室27",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_08_椅子（带写字板）_大会议室28",
+      "catalogId": 8
+    },
+    {
+      "nodeName": "PDF_17_茶几_接待室_兼接待茶几3",
+      "catalogId": 17
+    },
+    {
+      "nodeName": "38_接待沙发、单人沙发_接待区4",
+      "catalogId": 38
+    },
+    {
+      "nodeName": "38_接待沙发、单人沙发_接待区5",
+      "catalogId": 38
+    },
+    {
+      "nodeName": "SM_MERGED_StaticMeshActor_电话亭",
+      "catalogId": 102
+    },
+    {
+      "nodeName": "SM_MERGED_StaticMeshActor_电话亭2",
+      "catalogId": 102
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室5",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室6",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室7",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "PDF_10_中会议桌_中会议室8",
+      "catalogId": 10
+    },
+    {
+      "nodeName": "newline_lyrapro_interactive_display",
+      "catalogId": 101
+    },
+    {
+      "nodeName": "Fridge_Top_Housing",
+      "catalogId": 104
+    },
+    {
+      "nodeName": "Upper_Printer_Door",
+      "catalogId": 105
+    },
+    {
+      "nodeName": "SM_CultureWall",
+      "catalogId": 106
+    }
+  ]
+}

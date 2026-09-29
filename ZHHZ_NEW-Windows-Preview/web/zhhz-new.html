@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHHZ_NEW · 烘焙场景预览</title>
+    <link rel="stylesheet" href="zhhz-new.css">
+  </head>
+  <body>
+    <canvas id="scene" aria-label="ZHHZ_NEW 烘焙场景"></canvas>
+
+    <header class="topbar" aria-hidden="true">
+      <div class="brand">
+        <span class="brand-mark">Z</span>
+        <div>
+          <h1>ZHHZ_NEW</h1>
+          <p id="status">正在建立网页渲染器</p>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-green">运行时灯 0</span>
+        <span class="badge">UE 烘焙光照</span>
+        <span class="badge" id="twin-status">Twin 连接中</span>
+        <span class="badge" id="fps">-- FPS</span>
+      </div>
+    </header>
+
+    <aside class="twin-panel" id="twin-panel" aria-label="OntoTwin 运行时抽屉">
+      <div class="twin-panel-head">
+        <div>
+          <p class="eyebrow">OntoTwin</p>
+          <h2>漫游控制</h2>
+        </div>
+        <span class="live-dot" aria-hidden="true"></span>
+      </div>
+      <section class="ue-runtime-controls" id="ue-runtime-controls" aria-label="漫游控制">
+        <nav class="ue-control-tabs" aria-label="功能页签">
+          <button type="button" class="ue-control-tab" data-runtime-tab="home">主页</button>
+          <span class="ue-nav-separator" aria-hidden="true"></span>
+          <button type="button" class="ue-control-tab is-active" data-runtime-tab="roaming">漫游</button>
+          <span class="ue-nav-separator" aria-hidden="true"></span>
+          <button type="button" class="ue-control-tab" data-runtime-tab="space">空间</button>
+          <span class="ue-nav-separator" aria-hidden="true"></span>
+          <button type="button" class="ue-control-tab" data-runtime-tab="business">业务</button>
+          <span class="ue-nav-separator" aria-hidden="true"></span>
+          <button type="button" id="runtime-scene-edit" class="ue-control-tab ue-control-edit" title="运行时场景编辑（F10）">编辑</button>
+        </nav>
+        <div class="ue-runtime-tab-panel" data-runtime-panel="roaming">
+          <div class="ue-roaming-deck">
+            <div class="ue-session-block">
+              <div class="ue-avatar" aria-hidden="true"><span></span></div>
+              <div class="ue-session-selectors">
+                <label class="ue-select-row"><span>人物</span><select id="runtime-character-selector" aria-label="人物"></select></label>
+                <label class="ue-select-row"><span>路线</span><select id="runtime-route-selector" aria-label="路线"></select></label>
+              </div>
+            </div>
+            <div class="ue-dock-divider" aria-hidden="true"></div>
+            <div class="ue-view-block">
+              <span class="ue-section-label">视角</span>
+              <div class="ue-view-modes" role="group" aria-label="视角模式">
+                <button type="button" data-camera-mode="god" title="上帝视角"><span class="ue-icon ue-icon-global" aria-hidden="true"></span><span>全局</span></button>
+                <button type="button" data-camera-mode="near_follow" title="第三人称过肩视角"><span class="ue-icon ue-icon-shoulder" aria-hidden="true"></span><span>过肩</span></button>
+                <button type="button" data-camera-mode="first_person" title="第一人称"><span class="ue-icon ue-icon-first" aria-hidden="true"></span><span>第一</span></button>
+                <button type="button" id="runtime-crosshair" aria-pressed="false" title="第一人称准星（默认关闭）"><span class="ue-icon ue-icon-crosshair" aria-hidden="true"></span><span>准星</span></button>
+              </div>
+            </div>
+            <div class="ue-dock-divider" aria-hidden="true"></div>
+            <div class="ue-action-block">
+              <span class="ue-section-label">快捷操作</span>
+              <div class="ue-route-actions">
+                <button type="button" id="runtime-cycle-skin" title="切换皮肤"><span class="ue-icon ue-icon-skin" aria-hidden="true"></span><span>换肤</span></button>
+                <button type="button" id="runtime-resume-route" title="返回线路"><span class="ue-icon ue-icon-return" aria-hidden="true"></span><span>返回</span></button>
+                <button type="button" id="runtime-restart-route" title="从头开始"><span class="ue-icon ue-icon-replay" aria-hidden="true"></span><span>重播</span></button>
+                <button type="button" id="runtime-reload-character" title="重载人物"><span class="ue-icon ue-icon-reload" aria-hidden="true"></span><span>重载</span></button>
+              </div>
+            </div>
+          </div>
+          <p class="ue-route-state" id="runtime-route-state">线路准备中</p>
+          <div class="ue-roaming-unavailable" aria-live="polite"><strong>F7&nbsp;&nbsp;开启漫游</strong></div>
+        </div>
+        <div class="ue-runtime-tab-panel" data-runtime-panel="space" hidden>
+          <div class="ue-space-panel">
+            <div class="ue-inner-card"><span id="runtime-space-breadcrumb">全部空间</span></div>
+            <div class="ue-space-columns" id="runtime-space-columns" aria-label="空间层级"></div>
+            <div class="ue-space-footer"><span>选择节点展开下一级</span><button type="button" id="runtime-enter-space">进入空间</button></div>
+          </div>
+        </div>
+        <div class="ue-runtime-tab-panel" data-runtime-panel="business" hidden>
+          <div class="ue-business-panel">
+            <div class="ue-business-scope"><strong>作用范围</strong><button type="button" id="runtime-scope-all">全部空间</button><button type="button" id="runtime-scope-current">当前空间</button><small id="runtime-business-scope">当前：全部空间</small></div>
+            <div class="ue-business-list"><strong>业务视图</strong><span>选择业务进入对应页面</span><div id="runtime-business-rows"></div></div>
+          </div>
+        </div>
+        <div class="ue-runtime-tab-panel" data-runtime-panel="home" hidden>
+          <div class="ue-home-panel"><strong>主页</strong><span>选择空间、业务或漫游进入对应功能</span></div>
+        </div>
+      </section>
+      <div class="twin-summary">
+        <div><strong id="twin-count">--</strong><span>业务实例</span></div>
+        <div><strong id="twin-parts">--</strong><span>渲染子件</span></div>
+        <div><strong id="twin-types">--</strong><span>对象类型</span></div>
+      </div>
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="twin-search" type="search" placeholder="搜索名称、类型或实例 ID">
+      </label>
+      <div class="twin-list" id="twin-list" aria-label="Twin 实例列表"></div>
+      <section class="twin-detail" id="twin-detail" hidden>
+        <div class="detail-title"><strong id="detail-name">--</strong><button id="detail-close" type="button">×</button></div>
+        <p id="detail-path">--</p>
+        <dl>
+          <div><dt>实例 ID</dt><dd id="detail-id">--</dd></div>
+          <div><dt>类型</dt><dd id="detail-type">--</dd></div>
+          <div><dt>状态</dt><dd id="detail-state">--</dd></div>
+          <div><dt>动画</dt><dd id="detail-animation">--</dd></div>
+        </dl>
+        <div class="detail-actions">
+          <button id="detail-focus" type="button">定位实例</button>
+          <button id="detail-edit" type="button">编辑位置</button>
+        </div>
+      </section>
+      <div class="minimap-shell">
+        <div><strong>实时平面图</strong><span id="twin-source">读取中</span></div>
+        <canvas id="minimap" width="280" height="112"></canvas>
+      </div>
+    </aside>
+
+    <aside class="panel" id="panel" aria-hidden="true">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">第五阶段 · 光照收口</p>
+          <h2>静态真值运行时</h2>
+        </div>
+        <button id="toggle-panel" type="button" aria-label="收起信息面板">×</button>
+      </div>
+
+      <div class="progress-shell" aria-label="加载进度">
+        <div id="progress-bar"></div>
+      </div>
+      <p class="progress-copy" id="progress-copy">准备读取 772.77 MiB 静态包</p>
+
+      <dl class="metrics">
+        <div><dt>建筑节点</dt><dd id="nodes">--</dd></div>
+        <div><dt>渲染网格</dt><dd id="meshes">--</dd></div>
+        <div><dt>Lightmap 绑定</dt><dd id="bindings">--</dd></div>
+        <div><dt>已驻留光照图集</dt><dd id="lightmaps">0 / 189</dd></div>
+        <div><dt>反射来源</dt><dd id="reflection">等待加载</dd></div>
+        <div><dt>Draw Call</dt><dd id="draw-calls">--</dd></div>
+        <div><dt>三角形</dt><dd id="triangles">--</dd></div>
+        <div><dt>纹理显存估算</dt><dd id="texture-memory">--</dd></div>
+        <div><dt>GPU 计时</dt><dd id="gpu-time">不可用</dd></div>
+      </dl>
+
+      <div class="actions">
+        <button id="startup-view" type="button">UE 启动机位</button>
+        <button id="overview" type="button">全场概览</button>
+        <button id="more-lightmaps" type="button" disabled>扩大高清光照范围</button>
+      </div>
+
+      <div class="note">
+        <strong>静态优先边界</strong>
+        <p>0 运行时灯、0 Lumen、0 光追。Windows 预览默认全量驻留 189 组烘焙光照，避免区块边界闪变；Xinchuang 测试时再切换为受控流式模式。</p>
+      </div>
+    </aside>
+
+    <button id="show-panel" class="show-panel" type="button" hidden>显示信息</button>
+
+    <div class="help" aria-hidden="true">
+      <button id="roam-toggle" type="button">进入人物漫游</button>
+      <span id="control-help">左键旋转 · 右键平移 · 滚轮缩放</span>
+    </div>
+
+    <div class="ue-runtime-hud" id="ue-runtime-hud">
+      <div class="ue-crosshair" id="ue-crosshair" aria-hidden="true">
+        <i class="corner top-left"></i><i class="corner top-right"></i>
+        <i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+        <i class="tick tick-top"></i><i class="tick tick-right"></i>
+        <i class="tick tick-bottom"></i><i class="tick tick-left"></i>
+        <i class="center-dot"></i>
+      </div>
+      <div class="ue-roaming-status"><i></i><span id="ue-roaming-status-text">漫游人物   ·   第一人称   ·   自由漫游</span></div>
+      <div class="ue-shortcuts" id="ue-shortcuts"><span><kbd>WASD</kbd> 移动</span><span><kbd>Shift</kbd> 加速</span><span><kbd>V</kbd> 视角</span><span><kbd>P</kbd> 暂停/继续路线</span><span><kbd>R</kbd> 返回线路</span><span><kbd>F7</kbd> 退出漫游</span><span><kbd>Tab</kbd> 控制</span></div>
+      <button class="ue-dock-handle" id="ue-dock-handle" type="button" aria-expanded="false" aria-label="展开控制面板"><span class="ue-drawer-icon" aria-hidden="true"></span></button>
+      <button class="ue-minimap-toggle" id="ue-minimap-toggle" type="button" aria-expanded="true" aria-label="收起小地图">⌖</button>
+      <section class="ue-minimap" id="ue-minimap" hidden>
+        <canvas id="runtime-minimap" width="320" height="240" aria-label="小地图，单击预览，双击传送"></canvas>
+        <div class="ue-minimap-actions">
+          <button type="button" id="runtime-minimap-undo" hidden>返回原位置</button>
+        </div>
+        <p class="ue-minimap-status" id="runtime-minimap-status" hidden aria-live="polite"></p>
+      </section>
+      <section class="ue-narration" id="ue-narration" hidden aria-live="polite">
+        <div class="ue-narration-head"><span>路线解说</span><button type="button" id="ue-narration-skip">跳过</button></div>
+        <p id="ue-narration-text"></p>
+      </section>
+      <section class="twin-world-detail" id="twin-world-detail" hidden aria-live="polite" aria-label="Twin 实例介绍">
+        <header class="twin-world-detail-head">
+          <div><span class="twin-world-detail-kicker">Twin 实例</span><strong id="world-detail-name">--</strong></div>
+          <button id="world-detail-close" type="button" aria-label="关闭实例介绍">×</button>
+        </header>
+        <p class="twin-world-detail-type" id="world-detail-type">--</p>
+        <p class="twin-world-detail-copy" id="world-detail-copy">暂无详细介绍</p>
+        <dl class="twin-world-detail-meta">
+          <div><dt>实例</dt><dd id="world-detail-id">--</dd></div>
+          <div><dt>位置</dt><dd id="world-detail-path">--</dd></div>
+        </dl>
+        <div class="twin-world-detail-actions">
+          <button id="world-detail-focus" type="button">定位</button>
+          <button id="world-detail-editor" type="button">编辑</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="ue-runtime-editor" id="runtime-editor" hidden aria-label="运行时编辑器">
+      <div class="ue-runtime-editor-card">
+        <header class="ue-editor-header">
+          <strong>运行时编辑器</strong>
+          <span id="runtime-editor-state">编辑中</span>
+          <button type="button" id="runtime-editor-undo" title="撤销上一步（Ctrl+Z）">撤销</button>
+          <button type="button" id="runtime-editor-redo" title="重做（Ctrl+Y）">重做</button>
+          <button type="button" id="runtime-editor-close" title="退出编辑器">×</button>
+        </header>
+        <div class="ue-editor-tabs" role="tablist" aria-label="编辑模式">
+          <button type="button" class="is-active" data-editor-tab="scene">场景编辑</button>
+          <button type="button" data-editor-tab="business">业务编辑</button>
+        </div>
+        <div class="ue-editor-content" id="runtime-editor-scene" data-editor-panel="scene">
+          <p class="ue-editor-caption">选中对象</p>
+          <dl class="ue-editor-identity">
+            <div><dt>实例名称</dt><dd id="runtime-editor-name">未选择实例</dd></div>
+            <div><dt>类型名称</dt><dd id="runtime-editor-type">-</dd></div>
+            <div><dt>实例 ID</dt><dd id="runtime-editor-id">-</dd></div>
+          </dl>
+          <button type="button" class="ue-editor-remove" id="runtime-editor-remove">从场景移除</button>
+          <div class="ue-editor-gizmo-tools" role="group" aria-label="Gizmo 模式">
+            <button type="button" class="is-active" id="runtime-editor-translate">移动 Gizmo</button>
+            <button type="button" id="runtime-editor-rotate">旋转 Gizmo</button>
+            <span>Shift 多选 · 拖拽轴/平面</span>
+          </div>
+          <dl class="ue-editor-transform">
+            <div><dt>X</dt><dd id="runtime-editor-x">-</dd><dt>Y</dt><dd id="runtime-editor-y">-</dd></div>
+            <div><dt>Z</dt><dd id="runtime-editor-z">-</dd><dt>偏航</dt><dd id="runtime-editor-yaw">-</dd></div>
+          </dl>
+          <div class="ue-editor-toggles">
+            <label><input type="checkbox" id="runtime-editor-wall-snap">靠墙吸附</label>
+            <label><input type="checkbox" id="runtime-editor-grid-snap">网格吸附</label>
+          </div>
+          <p class="ue-editor-pending" id="runtime-editor-pending">待保存修改（0）</p>
+        </div>
+        <div class="ue-editor-content" id="runtime-editor-business" data-editor-panel="business" hidden>
+          <p class="ue-editor-caption">业务编辑</p>
+          <p id="runtime-editor-business-selection">请先在场景中选择对象</p>
+          <select id="runtime-editor-business-selector" aria-label="业务归属"></select>
+          <div class="ue-editor-create-business"><input id="runtime-editor-business-name" type="text" placeholder="新建业务名称"><button type="button" id="runtime-editor-business-create">创建</button></div>
+        </div>
+        <footer class="ue-editor-footer">
+          <button type="button" id="runtime-editor-cancel">取消全部修改</button>
+          <button type="button" class="is-primary" id="runtime-editor-save">保存全部修改</button>
+        </footer>
+        <p class="ue-editor-status" id="runtime-editor-status" aria-live="polite">选择实例后可用方向键移动</p>
+      </div>
+    </section>
+
+    <div class="loading" id="loading">
+      <div class="loading-card">
+        <h2>正在准备数据模型</h2>
+        <p id="loading-detail">正在连接 OntoTwin 并等待当前项目的模型数据。</p>
+        <div class="loading-progress"><div id="loading-progress-bar"></div></div>
+        <p class="loading-percent" id="loading-percent">正在等待模型数据…</p>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/node_modules/three/build/three.module.js",
+          "three/": "/node_modules/three/",
+          "three/addons/": "/node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="zhhz-new.js?build=20260904-fullhd60-v71-screen-uv"></script>
+  </body>
+</html>

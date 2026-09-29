@@ -1,0 +1,290 @@
+{
+  "schema": "zhhz.windows.full-high.verification.v1",
+  "generated_at": "2026-09-03T05:28:28.673Z",
+  "package_root": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\final_once_ZHHZ_NEW_20260902-201622\\07_package\\ZHHZ_NEW-Windows-Preview",
+  "status": "PASS",
+  "check_count": 40,
+  "pass_count": 40,
+  "fail_count": 0,
+  "checks": [
+    {
+      "name": "required:web/zhhz-new.html",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:web/zhhz-new.css",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:web/zhhz-new.js",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:web/zhhz-twin-runtime.js",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:web/server.mjs",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:web/node_modules/three/package.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/architecture.gltf",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/architecture.bin",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/lightmap-bindings.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/reflection-captures.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/twin-chunks/twin-chunks.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/twin-coplanar-fixes/summary.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:data/narration-assets.json",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:启动ZHHZ_NEW.cmd",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:启动ZHHZ_NEW.ps1",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "required:README-Windows-预览.md",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "twin-high-chunks",
+      "status": "PASS",
+      "actual": 20,
+      "expected": 20
+    },
+    {
+      "name": "twin-high-instances",
+      "status": "PASS",
+      "actual": 507,
+      "expected": 507
+    },
+    {
+      "name": "twin-high-source-primitives",
+      "status": "PASS",
+      "actual": 18215,
+      "expected": 18215
+    },
+    {
+      "name": "twin-high-files",
+      "status": "PASS",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "renderpeople-idle-walk",
+      "status": "PASS",
+      "actual": {
+        "characters": 6,
+        "animations_each": 2,
+        "clips": [
+          "Idle",
+          "Walk"
+        ]
+      },
+      "expected": {
+        "characters": 6,
+        "animations_each": 2,
+        "clips": [
+          "Idle",
+          "Walk"
+        ]
+      }
+    },
+    {
+      "name": "full-lightmap-bindings",
+      "status": "PASS",
+      "actual": 12012,
+      "expected": 12012
+    },
+    {
+      "name": "full-lightmap-atlases",
+      "status": "PASS",
+      "actual": {
+        "pages": 12,
+        "source_pages": 189,
+        "lossless": true
+      },
+      "expected": {
+        "pages": 12,
+        "source_pages": 189,
+        "lossless": true
+      }
+    },
+    {
+      "name": "full-lightmap-superatlas-files",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "no-exported-dynamic-lights",
+      "status": "PASS",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "local-narration-assets",
+      "status": "PASS",
+      "actual": {
+        "assets": 21,
+        "failures": 0
+      },
+      "expected": {
+        "assets": 21,
+        "failures": 0
+      }
+    },
+    {
+      "name": "runtime-full-detail",
+      "status": "PASS",
+      "actual": "all",
+      "expected": "all"
+    },
+    {
+      "name": "runtime-no-hlod-loader",
+      "status": "PASS",
+      "actual": "removed",
+      "expected": "removed"
+    },
+    {
+      "name": "runtime-no-low-proxy",
+      "status": "PASS",
+      "actual": "removed",
+      "expected": "removed"
+    },
+    {
+      "name": "package-no-low-detail-assets",
+      "status": "PASS",
+      "actual": "removed",
+      "expected": "removed"
+    },
+    {
+      "name": "runtime-character-catalog-is-packaged",
+      "status": "PASS",
+      "actual": {
+        "characters": 6,
+        "legacyFallbackOptions": "filtered"
+      },
+      "expected": {
+        "characters": 6,
+        "legacyFallbackOptions": "filtered"
+      }
+    },
+    {
+      "name": "runtime-hlod-resident-zero",
+      "status": "PASS",
+      "actual": "0",
+      "expected": "0"
+    },
+    {
+      "name": "runtime-no-lumen-raytrace",
+      "status": "PASS",
+      "actual": "absent",
+      "expected": "absent"
+    },
+    {
+      "name": "runtime-two-way-high-retry",
+      "status": "PASS",
+      "actual": "2 workers / 3 retries",
+      "expected": "2 workers / 3 retries"
+    },
+    {
+      "name": "runtime-architecture-retry",
+      "status": "PASS",
+      "actual": "3 retries",
+      "expected": "3 retries"
+    },
+    {
+      "name": "runtime-spatial-batch",
+      "status": "PASS",
+      "actual": "enabled",
+      "expected": "enabled"
+    },
+    {
+      "name": "runtime-local-narration-first",
+      "status": "PASS",
+      "actual": "local-first/backend-fallback",
+      "expected": "local-first/backend-fallback"
+    },
+    {
+      "name": "entry-v59",
+      "status": "PASS",
+      "actual": "v59",
+      "expected": "v59"
+    },
+    {
+      "name": "root-web-core-sync",
+      "status": "PASS",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "sha256-manifest",
+      "status": "PASS",
+      "actual": {
+        "files": 2363,
+        "failures": 0
+      },
+      "expected": {
+        "failures": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "gltfUp": "y",
+  "units": "cm",
+  "alignWorldToXrOrigin": true,
+  "playerStart": {
+    "x": 2500.0,
+    "y": -1150.0,
+    "z": 4485.0
+  },
+  "capsuleRadius": 34,
+  "capsuleHalfHeight": 92,
+    "eyeHeightFromFloor": 172,
+  "walkSpeed": 220,
+  "snapTurnDegrees": 45,
+  "laserMaxDistance": 1200,
+  "map": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo"
+}

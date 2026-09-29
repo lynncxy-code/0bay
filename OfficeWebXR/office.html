@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>办公室 WebXR</title>
+    <link rel="stylesheet" href="./office.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./node_modules/three/build/three.module.js",
+          "three/addons/": "./node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="scene" aria-label="办公室 WebXR 场景"></canvas>
+    <header class="hud">
+      <div>
+        <h1>办公室 WebXR</h1>
+        <p id="status">正在启动</p>
+      </div>
+      <div class="hud-meta">
+        <span id="fps">-- FPS</span>
+        <span id="stats">--</span>
+      </div>
+    </header>
+    <p id="hint">点击画面锁定鼠标。WASD 走，Q/E 转身，T 瞄准瞬移，左键查看，右键 / B 关面板。数字人语音不在网页里，请用 Unreal 的 VR Preview，按住左手 Y 说话。</p>
+    <pre id="pad-debug" hidden></pre>
+    <button id="enter-vr" type="button" hidden>进入 VR</button>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

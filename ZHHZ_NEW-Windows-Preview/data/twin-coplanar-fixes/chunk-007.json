@@ -1,0 +1,283 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-007.gltf",
+  "generated_at": "2026-08-31T19:19:09.060Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 522,
+  "scanned_primitives": 468,
+  "scanned_triangles": 162172,
+  "sampled_triangles": 162172,
+  "plane_group_count": 3082,
+  "conflict_pair_count": 10,
+  "offset_target_count": 6,
+  "max_layer_rank": 2,
+  "targets": [
+    {
+      "key": "7:0",
+      "node_index": 7,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Obj3d66-17935187-2-781",
+      "material_index": 2,
+      "material_name": "MI_玻璃_白色",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "8:0",
+      "node_index": 8,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_2",
+      "mesh_name": "Obj3d66-17935187-12-626",
+      "material_index": 3,
+      "material_name": "MI_金属烤漆_黑色_2_门框",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "10:0",
+      "node_index": 10,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_4",
+      "mesh_name": "Obj3d66-17935187-12-627",
+      "material_index": 3,
+      "material_name": "MI_金属烤漆_黑色_2_门框",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "434:0",
+      "node_index": 434,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_0",
+      "mesh_name": "Rectangle2133400976",
+      "material_index": 1,
+      "material_name": "MI_烤漆_白色_地面",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "435:0",
+      "node_index": 435,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_3",
+      "mesh_name": "Line2144964278",
+      "material_index": 1,
+      "material_name": "MI_烤漆_白色_地面",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "478:0",
+      "node_index": 478,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_0",
+      "mesh_name": "Rectangle2133396245",
+      "material_index": 18,
+      "material_name": "MI_涂料_艺术漆_灰色_浅_墙面",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    }
+  ],
+  "conflicts": [
+    {
+      "a": {
+        "node_index": 478,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_涂料_艺术漆_灰色_浅_墙面"
+      },
+      "b": {
+        "node_index": 433,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "overlay": "478:0",
+      "plane_distance_m": 0.0000031158852848989227,
+      "overlap_area_m2": 0.5196132659912094,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 10,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "MI_金属烤漆_黑色_2_门框"
+      },
+      "overlay": "10:0",
+      "plane_distance_m": 0.004111533108583032,
+      "overlap_area_m2": 0.48971998800830674,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 8,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "MI_金属烤漆_黑色_2_门框"
+      },
+      "overlay": "8:0",
+      "plane_distance_m": 0.004041412487596929,
+      "overlap_area_m2": 0.48971937437088175,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 6,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_玻璃_白色"
+      },
+      "overlay": "7:0",
+      "plane_distance_m": 0.000014977063992560602,
+      "overlap_area_m2": 2.604609537639793,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 5,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_玻璃_白色"
+      },
+      "overlay": "7:0",
+      "plane_distance_m": 0.000005977017275782259,
+      "overlap_area_m2": 2.604610224604635,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 434,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "b": {
+        "node_index": 435,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "overlay": "435:0",
+      "plane_distance_m": 0.001234610577377282,
+      "overlap_area_m2": 1.2000146221736583,
+      "overlap_ratio": 0.9999999714431859
+    },
+    {
+      "a": {
+        "node_index": 478,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_涂料_艺术漆_灰色_浅_墙面"
+      },
+      "b": {
+        "node_index": 477,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_涂料_艺术漆_灰色_浅_墙面"
+      },
+      "overlay": "478:0",
+      "plane_distance_m": 0.000013092612299203665,
+      "overlap_area_m2": 6.399999098878891,
+      "overlap_ratio": 0.9999934354773965
+    },
+    {
+      "a": {
+        "node_index": 433,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "b": {
+        "node_index": 434,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_烤漆_白色_地面"
+      },
+      "overlay": "434:0",
+      "plane_distance_m": 0.000061099734879555,
+      "overlap_area_m2": 0.5999908822732078,
+      "overlap_ratio": 0.9999875966615472
+    },
+    {
+      "a": {
+        "node_index": 6,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 8,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_2",
+        "material_name": "MI_金属烤漆_黑色_2_门框"
+      },
+      "overlay": "8:0",
+      "plane_distance_m": 0.004026435423604369,
+      "overlap_area_m2": 0.469724413965193,
+      "overlap_ratio": 0.9591705751250392
+    },
+    {
+      "a": {
+        "node_index": 5,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "MI_玻璃_白色"
+      },
+      "b": {
+        "node_index": 10,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_4",
+        "material_name": "MI_金属烤漆_黑色_2_门框"
+      },
+      "overlay": "10:0",
+      "plane_distance_m": 0.004117510125858814,
+      "overlap_area_m2": 0.4697238062296971,
+      "overlap_ratio": 0.9591681322626964
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-005.gltf",
+  "generated_at": "2026-08-31T19:19:07.733Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 316,
+  "scanned_primitives": 307,
+  "scanned_triangles": 2706884,
+  "sampled_triangles": 2631490,
+  "plane_group_count": 278,
+  "conflict_pair_count": 8,
+  "offset_target_count": 3,
+  "max_layer_rank": 2,
+  "targets": [
+    {
+      "key": "19:0",
+      "node_index": 19,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_15",
+      "mesh_name": "Obj3d66-14950725-203-512",
+      "material_index": 7,
+      "material_name": "MI_布料_蓝色_桌面",
+      "layer_priority": 0,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    },
+    {
+      "key": "20:0",
+      "node_index": 20,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_14",
+      "mesh_name": "Obj3d66-14950725-152-306",
+      "material_index": 5,
+      "material_name": "Mat3d66-14950725-2-47596",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    },
+    {
+      "key": "21:0",
+      "node_index": 21,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_17",
+      "mesh_name": "Obj3d66-14950725-196-21",
+      "material_index": 5,
+      "material_name": "Mat3d66-14950725-2-47596",
+      "layer_priority": 0,
+      "layer_rank": 2,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -4
+    }
+  ],
+  "conflicts": [
+    {
+      "a": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "b": {
+        "node_index": 18,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_12",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0002823492000487704,
+      "overlap_area_m2": 0.005193682005447286,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 9,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_5",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0009136584021659511,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 13,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_9",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.000913658402892481,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 21,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_17",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "21:0",
+      "plane_distance_m": 0.0009136584033877515,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 7,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_3",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0009136584036066875,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 17,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_13",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0009136584038149653,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 20,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_14",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "20:0",
+      "plane_distance_m": 0.0009136584043364371,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    },
+    {
+      "a": {
+        "node_index": 16,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_10",
+        "material_name": "Mat3d66-14950725-2-47596"
+      },
+      "b": {
+        "node_index": 19,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_15",
+        "material_name": "MI_布料_蓝色_桌面"
+      },
+      "overlay": "19:0",
+      "plane_distance_m": 0.0009136584050443153,
+      "overlap_area_m2": 0.060900191371104244,
+      "overlap_ratio": 1
+    }
+  ]
+}

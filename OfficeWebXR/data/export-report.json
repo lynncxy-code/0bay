@@ -1,0 +1,11 @@
+{
+  "catalogItems": 44,
+  "bindings": 152,
+  "preparedMeshes": 142,
+  "naniteBlockers": 0,
+  "architectureGlb": true,
+  "collisionGlb": true,
+  "notes": [
+    "Lightmap PNGs are not copied automatically. Bake in a static-lighting session, then put PNGs in OfficeWebXR/data/lightmaps/."
+  ]
+}

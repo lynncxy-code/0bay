@@ -1,0 +1,5633 @@
+{
+	"schema": "zhhz.built-reflection-captures.v1",
+	"status": "PASS",
+	"source_project": "E:/ZHHZ_NEW/ZHHZ_NEW.uproject",
+	"source_map": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto",
+	"engine_version": "5.6.1-44394996+++UE5+Release-5.6",
+	"exporter": "ZHHZWebExporter 0.2.0",
+	"storage": "RGBA16F little-endian, mip-major then ECubeFace px/nx/py/ny/pz/nz",
+	"capture_contract": "Exact prefiltered FullHDRCapturedData from built ReflectionCapture MapBuildData; no recapture and no Lumen runtime dependency",
+	"receiver_policy": "Use authored sphere influence radius and spatially blend supporting captures; use the exported UE mip chain for roughness",
+	"capture_count": 18,
+	"failed_capture_count": 0,
+	"runtime_local_lights_exported": false,
+	"source_assets_saved": false,
+	"captures": [
+		{
+			"stable_capture_key": "41696D0F-47EC-13B3-FC50-1281238A18BF:NewReflectionComponent",
+			"actor_guid": "41696D0F-47EC-13B3-FC50-1281238A18BF",
+			"actor_label": "StaticBake_Reflection_L1_X1_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_0",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_0.NewReflectionComponent",
+			"map_build_data_id": "149C8898-4D5C-3205-E5C0-E9961A1497D7",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, -2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, -2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.3955078125,
+			"relative_path": "reflections/capture_00_StaticBake_Reflection_L1_X1_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "297B82A9575468C2CBD5B79A9569E9CD285F87DC4F38F0F7E7443E3482488966",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "1B32C674-40C0-760B-82EB-6CBF46D63560:NewReflectionComponent",
+			"actor_guid": "1B32C674-40C0-760B-82EB-6CBF46D63560",
+			"actor_label": "StaticBake_Reflection_L1_X1_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_1",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_1.NewReflectionComponent",
+			"map_build_data_id": "C6FAAA98-4D0E-7602-E8F5-7F8643D2DC6E",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, 0, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, 0, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.364013671875,
+			"relative_path": "reflections/capture_01_StaticBake_Reflection_L1_X1_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "148B89F70DF83EB2205BA2149749A37B02F73A16422C83F2CFC351DB37C3C231",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "6AE18466-4862-EF7A-F9B8-57B42C653B8C:NewReflectionComponent",
+			"actor_guid": "6AE18466-4862-EF7A-F9B8-57B42C653B8C",
+			"actor_label": "StaticBake_Reflection_L2_X1_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_10",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_10.NewReflectionComponent",
+			"map_build_data_id": "DFA9CFDA-4957-49CF-0C0F-3D943ADDF0D9",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, 0, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, 0, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.68408203125,
+			"relative_path": "reflections/capture_02_StaticBake_Reflection_L2_X1_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "76B342C8EF05F686056A1E633846F3C6E65BC80907DFBB1AF22FC33B0624E4D3",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "B2F83082-48EF-E201-3E4A-17A45B8BF854:NewReflectionComponent",
+			"actor_guid": "B2F83082-48EF-E201-3E4A-17A45B8BF854",
+			"actor_label": "StaticBake_Reflection_L2_X1_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_11",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_11.NewReflectionComponent",
+			"map_build_data_id": "50A267DE-433C-3E65-E5E4-C7AE2739C3AE",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, 2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, 2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.65478515625,
+			"relative_path": "reflections/capture_03_StaticBake_Reflection_L2_X1_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "C183795547E2B7E8F6A5393BBBD25F44B06753F4A6E6AB698B485661561AE34E",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "63E1B740-4ADD-3A20-7E65-0F9AD894D75D:NewReflectionComponent",
+			"actor_guid": "63E1B740-4ADD-3A20-7E65-0F9AD894D75D",
+			"actor_label": "StaticBake_Reflection_L2_X2_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_12",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_12.NewReflectionComponent",
+			"map_build_data_id": "BD4BF551-4EB7-9146-6555-1B9AC46D6E79",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, -2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, -2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.6923828125,
+			"relative_path": "reflections/capture_04_StaticBake_Reflection_L2_X2_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "D74A742519856A63A4057EAE1AB5B9D51C98011CD0E5F8BB972FB15193C8D8C2",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "2DC57B67-4AC5-3A74-43AA-BEA828D94C3E:NewReflectionComponent",
+			"actor_guid": "2DC57B67-4AC5-3A74-43AA-BEA828D94C3E",
+			"actor_label": "StaticBake_Reflection_L2_X2_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_13",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_13.NewReflectionComponent",
+			"map_build_data_id": "58BCB411-4040-385A-C171-B4837EE781D6",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, 0, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, 0, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.662109375,
+			"relative_path": "reflections/capture_05_StaticBake_Reflection_L2_X2_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "4B06BFC3105D27B64C867CC58E0F7D03905D4C2692CF7390EAFA7FE36EC3E497",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "E694F748-49A0-8D1D-7D61-B18EA9A12B06:NewReflectionComponent",
+			"actor_guid": "E694F748-49A0-8D1D-7D61-B18EA9A12B06",
+			"actor_label": "StaticBake_Reflection_L2_X2_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_14",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_14.NewReflectionComponent",
+			"map_build_data_id": "69135CA2-4313-82DF-3880-BCBA1BA0061B",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, 2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, 2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.66796875,
+			"relative_path": "reflections/capture_06_StaticBake_Reflection_L2_X2_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "F638210FD3E5B739B151FAE1D22A3DE9F39147635077D1E2A6B4DCF2ECC5E3AE",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "8C0585E4-4A95-EF2C-4EE9-1C9216F3C7AC:NewReflectionComponent",
+			"actor_guid": "8C0585E4-4A95-EF2C-4EE9-1C9216F3C7AC",
+			"actor_label": "StaticBake_Reflection_L2_X3_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_15",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_15.NewReflectionComponent",
+			"map_build_data_id": "D74266FF-4988-3603-BD5A-23980A81CC51",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, -2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, -2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.9248046875,
+			"relative_path": "reflections/capture_07_StaticBake_Reflection_L2_X3_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "0DE40DD483AE1FC5EB9B75C8D2D90DA31AE8B6B59BA06BEBC42DDFB0486B1D10",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "BAA74A65-453B-9EF3-57EA-C5962A20AEC9:NewReflectionComponent",
+			"actor_guid": "BAA74A65-453B-9EF3-57EA-C5962A20AEC9",
+			"actor_label": "StaticBake_Reflection_L2_X3_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_16",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_16.NewReflectionComponent",
+			"map_build_data_id": "12DCD266-4F5D-95DF-F140-7781EE336F84",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, 0, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, 0, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.9267578125,
+			"relative_path": "reflections/capture_08_StaticBake_Reflection_L2_X3_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "3C4CEB36BACF931DEB128B77FFAAF29E7E4D3BF79698F31DF900C0B4AABAA775",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "F3F8A09A-4474-40DB-ED58-408B09AFECF4:NewReflectionComponent",
+			"actor_guid": "F3F8A09A-4474-40DB-ED58-408B09AFECF4",
+			"actor_label": "StaticBake_Reflection_L2_X3_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_17",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_17.NewReflectionComponent",
+			"map_build_data_id": "43C29C7D-4716-1DD3-CEB5-78BB97F7688A",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, 2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, 2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.86669921875,
+			"relative_path": "reflections/capture_09_StaticBake_Reflection_L2_X3_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "618E698DB71F2F57D10AFD6DA128B3602FEF4E30986C5746BC6CF62BC31BAB7C",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "FA8212BF-4303-A400-D714-8DB9BE527FE0:NewReflectionComponent",
+			"actor_guid": "FA8212BF-4303-A400-D714-8DB9BE527FE0",
+			"actor_label": "StaticBake_Reflection_L1_X1_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_2",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_2.NewReflectionComponent",
+			"map_build_data_id": "7EEEB96B-4B83-242E-201C-02A37A0CF0B2",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, 2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, 2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.471923828125,
+			"relative_path": "reflections/capture_10_StaticBake_Reflection_L1_X1_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "539FCB3773E5156A15E3758E34184CEEC8376DACFA47D1F03F37D3593E88D0BF",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "57952A8A-4474-112B-3A20-F9888BC93E26:NewReflectionComponent",
+			"actor_guid": "57952A8A-4474-112B-3A20-F9888BC93E26",
+			"actor_label": "StaticBake_Reflection_L1_X2_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_3",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_3.NewReflectionComponent",
+			"map_build_data_id": "9C96E1B8-42FE-34C5-B693-278A22417E76",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, -2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, -2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.301025390625,
+			"relative_path": "reflections/capture_11_StaticBake_Reflection_L1_X2_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "BC35364F570AF682ACD0456A8EA164E44E144FD80982918C3B2215991E72E9F0",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "416C7429-4DDE-24FA-3D1D-2D82F62A7467:NewReflectionComponent",
+			"actor_guid": "416C7429-4DDE-24FA-3D1D-2D82F62A7467",
+			"actor_label": "StaticBake_Reflection_L1_X2_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_4",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_4.NewReflectionComponent",
+			"map_build_data_id": "C78A011A-4465-FECF-D878-63AA056310B7",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, 0, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, 0, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.414306640625,
+			"relative_path": "reflections/capture_12_StaticBake_Reflection_L1_X2_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "B872E1E4F62C28D174AD2FC2951773D00B79985DF4F14F46A18EA90C9631D5F5",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "7ADE0DF2-41FA-DB43-9125-28B11D53958E:NewReflectionComponent",
+			"actor_guid": "7ADE0DF2-41FA-DB43-9125-28B11D53958E",
+			"actor_label": "StaticBake_Reflection_L1_X2_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_5",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_5.NewReflectionComponent",
+			"map_build_data_id": "91328982-48C9-60F0-8925-72991D27B229",
+			"shape": "sphere",
+			"actor_location_cm": [ 0, 2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 0, 2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.30908203125,
+			"relative_path": "reflections/capture_13_StaticBake_Reflection_L1_X2_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "59C7366F8C0B7554ACEF8180300C621F609EFA148C73292BFB815BE0AA1BEDBE",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "6EDE63B0-4121-3A37-0FB9-AAB9681FC61B:NewReflectionComponent",
+			"actor_guid": "6EDE63B0-4121-3A37-0FB9-AAB9681FC61B",
+			"actor_label": "StaticBake_Reflection_L1_X3_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_6",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_6.NewReflectionComponent",
+			"map_build_data_id": "10467F64-4204-0521-6BB6-618986C86588",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, -2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, -2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.404296875,
+			"relative_path": "reflections/capture_14_StaticBake_Reflection_L1_X3_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "6D196D8199E8F1D87D38538984CDD0DEBE88B9F8BCCBE9070B936E6A7462237B",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "E3E358B8-4EB7-2EEC-F6E6-0F922BB4940B:NewReflectionComponent",
+			"actor_guid": "E3E358B8-4EB7-2EEC-F6E6-0F922BB4940B",
+			"actor_label": "StaticBake_Reflection_L1_X3_Y2",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_7",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_7.NewReflectionComponent",
+			"map_build_data_id": "7255DA96-4FFA-4556-38A3-B9BBBE71B9CD",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, 0, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, 0, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.4521484375,
+			"relative_path": "reflections/capture_15_StaticBake_Reflection_L1_X3_Y2.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "C5E1427EF3B0701550B9053704F0EB9FE97DD4F42A27FBD21BB447169991285E",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "3FF5F82B-4F09-F065-1CCA-FAA3357509A6:NewReflectionComponent",
+			"actor_guid": "3FF5F82B-4F09-F065-1CCA-FAA3357509A6",
+			"actor_label": "StaticBake_Reflection_L1_X3_Y3",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_8",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_8.NewReflectionComponent",
+			"map_build_data_id": "98DF8C1D-46F8-3613-4434-968B335072A9",
+			"shape": "sphere",
+			"actor_location_cm": [ 3500, 2500, 350 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ 3500, 2500, 350 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.29443359375,
+			"relative_path": "reflections/capture_16_StaticBake_Reflection_L1_X3_Y3.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "1613246B089EBE107E5D38AE22C90A9BA1C4742C628CCEEF3781F3ABC6FDF64E",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"stable_capture_key": "CF5FFE12-421E-18D2-D8F1-DFB61E7BD9A0:NewReflectionComponent",
+			"actor_guid": "CF5FFE12-421E-18D2-D8F1-DFB61E7BD9A0",
+			"actor_label": "StaticBake_Reflection_L2_X1_Y1",
+			"actor_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_9",
+			"level_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel",
+			"component_path": "/Game/AVIC_Show/Art/Maps/L_AVIC_SHOW_Main_onto.L_AVIC_SHOW_Main_onto:PersistentLevel.SphereReflectionCapture_9.NewReflectionComponent",
+			"map_build_data_id": "FE7A18A7-4C5B-A07E-C294-FA83E353A378",
+			"shape": "sphere",
+			"actor_location_cm": [ -3500, -2500, 1050 ],
+			"capture_offset_cm": [ 0, 0, 0 ],
+			"capture_position_cm": [ -3500, -2500, 1050 ],
+			"influence_radius_cm": 2600,
+			"brightness": 1,
+			"reflection_source_type": "CapturedScene",
+			"cubemap_size": 128,
+			"mip_count": 8,
+			"average_brightness": 0.6884765625,
+			"relative_path": "reflections/capture_17_StaticBake_Reflection_L2_X1_Y1.rgba16f.cubemips",
+			"bytes": 1048560,
+			"sha256": "3B7C15A22D716B25EB3F6676E3AD472D8254F8D17AD7F4FB1DD0BACE322A609E",
+			"mips": [
+				{
+					"mip": 0,
+					"size": 128,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 0,
+							"byte_length": 131072
+						},
+						{
+							"face": "nx",
+							"byte_offset": 131072,
+							"byte_length": 131072
+						},
+						{
+							"face": "py",
+							"byte_offset": 262144,
+							"byte_length": 131072
+						},
+						{
+							"face": "ny",
+							"byte_offset": 393216,
+							"byte_length": 131072
+						},
+						{
+							"face": "pz",
+							"byte_offset": 524288,
+							"byte_length": 131072
+						},
+						{
+							"face": "nz",
+							"byte_offset": 655360,
+							"byte_length": 131072
+						}
+					]
+				},
+				{
+					"mip": 1,
+					"size": 64,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 786432,
+							"byte_length": 32768
+						},
+						{
+							"face": "nx",
+							"byte_offset": 819200,
+							"byte_length": 32768
+						},
+						{
+							"face": "py",
+							"byte_offset": 851968,
+							"byte_length": 32768
+						},
+						{
+							"face": "ny",
+							"byte_offset": 884736,
+							"byte_length": 32768
+						},
+						{
+							"face": "pz",
+							"byte_offset": 917504,
+							"byte_length": 32768
+						},
+						{
+							"face": "nz",
+							"byte_offset": 950272,
+							"byte_length": 32768
+						}
+					]
+				},
+				{
+					"mip": 2,
+					"size": 32,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 983040,
+							"byte_length": 8192
+						},
+						{
+							"face": "nx",
+							"byte_offset": 991232,
+							"byte_length": 8192
+						},
+						{
+							"face": "py",
+							"byte_offset": 999424,
+							"byte_length": 8192
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1007616,
+							"byte_length": 8192
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1015808,
+							"byte_length": 8192
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1024000,
+							"byte_length": 8192
+						}
+					]
+				},
+				{
+					"mip": 3,
+					"size": 16,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1032192,
+							"byte_length": 2048
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1034240,
+							"byte_length": 2048
+						},
+						{
+							"face": "py",
+							"byte_offset": 1036288,
+							"byte_length": 2048
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1038336,
+							"byte_length": 2048
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1040384,
+							"byte_length": 2048
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1042432,
+							"byte_length": 2048
+						}
+					]
+				},
+				{
+					"mip": 4,
+					"size": 8,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1044480,
+							"byte_length": 512
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1044992,
+							"byte_length": 512
+						},
+						{
+							"face": "py",
+							"byte_offset": 1045504,
+							"byte_length": 512
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1046016,
+							"byte_length": 512
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1046528,
+							"byte_length": 512
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1047040,
+							"byte_length": 512
+						}
+					]
+				},
+				{
+					"mip": 5,
+					"size": 4,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1047552,
+							"byte_length": 128
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1047680,
+							"byte_length": 128
+						},
+						{
+							"face": "py",
+							"byte_offset": 1047808,
+							"byte_length": 128
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1047936,
+							"byte_length": 128
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048064,
+							"byte_length": 128
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048192,
+							"byte_length": 128
+						}
+					]
+				},
+				{
+					"mip": 6,
+					"size": 2,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048320,
+							"byte_length": 32
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048352,
+							"byte_length": 32
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048384,
+							"byte_length": 32
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048416,
+							"byte_length": 32
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048448,
+							"byte_length": 32
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048480,
+							"byte_length": 32
+						}
+					]
+				},
+				{
+					"mip": 7,
+					"size": 1,
+					"faces": [
+						{
+							"face": "px",
+							"byte_offset": 1048512,
+							"byte_length": 8
+						},
+						{
+							"face": "nx",
+							"byte_offset": 1048520,
+							"byte_length": 8
+						},
+						{
+							"face": "py",
+							"byte_offset": 1048528,
+							"byte_length": 8
+						},
+						{
+							"face": "ny",
+							"byte_offset": 1048536,
+							"byte_length": 8
+						},
+						{
+							"face": "pz",
+							"byte_offset": 1048544,
+							"byte_length": 8
+						},
+						{
+							"face": "nz",
+							"byte_offset": 1048552,
+							"byte_length": 8
+						}
+					]
+				}
+			]
+		}
+	]
+}

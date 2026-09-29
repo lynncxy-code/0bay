@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "ue_import_test": "Not tested by this standalone validator; consult separate UE import report",
+  "asset_tests": [
+    {
+      "file": "Haiju_North_Buildings.glb",
+      "bytes": 5479584,
+      "triangles": 74518,
+      "mesh_objects": 152,
+      "embedded_images": 4,
+      "bounds_m": [
+        [
+          -1171.4560546875,
+          0.0,
+          -1668.6419677734375
+        ],
+        [
+          1130.0,
+          40.0,
+          255.61599731445312
+        ]
+      ],
+      "extents_m": [
+        2301.4560546875,
+        40.0,
+        1924.2579650878906
+      ],
+      "checks": "passed: GLB header, length, embedded textures, finite/indexed geometry, meter dimensions, Y-up vertical"
+    },
+    {
+      "file": "Haiju_North_Environment.glb",
+      "bytes": 9380116,
+      "triangles": 146977,
+      "mesh_objects": 158,
+      "embedded_images": 4,
+      "bounds_m": [
+        [
+          -1177.4560546875,
+          -0.019999999552965164,
+          -1674.6419677734375
+        ],
+        [
+          1136.0,
+          40.0,
+          261.6159973144531
+        ]
+      ],
+      "extents_m": [
+        2313.4560546875,
+        40.019999999552965,
+        1936.2579650878906
+      ],
+      "checks": "passed: GLB header, length, embedded textures, finite/indexed geometry, meter dimensions, Y-up vertical"
+    }
+  ],
+  "known_limits": [
+    "Not watertight/collision mesh; building undersides omitted",
+    "Prediction heights not surveyed; facade/floor patterns illustrative",
+    "Roads flattened; no bridge elevations/terrain survey",
+    "Office/world alignment is outside this standalone validator"
+  ]
+}

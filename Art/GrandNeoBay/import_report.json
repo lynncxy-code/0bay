@@ -1,0 +1,355 @@
+{
+  "status": "complete",
+  "source": "D:\\0bay\\OfficeShell\\Art\\GrandNeoBay\\Source\\GrandNeoBay.glb",
+  "destination": "/Game/GrandNeoBay",
+  "assets": [
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Aluminum_fins.GNB___Aluminum_fins",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Aluminum_fins.Aluminum_fins"
+      ],
+      "bounds_cm": [
+        [
+          -3293.0,
+          -3333.5,
+          -6.0
+        ],
+        [
+          3293.0,
+          3560.746337890625,
+          5930.75
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Artificial_turf.GNB___Artificial_turf",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Artificial_turf.Artificial_turf"
+      ],
+      "bounds_cm": [
+        [
+          -922.5000610351562,
+          -1785.0,
+          528.5
+        ],
+        [
+          922.5000610351562,
+          3170.0,
+          2414.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Bronze_entrance.GNB___Bronze_entrance",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Bronze_entrance.Bronze_entrance"
+      ],
+      "bounds_cm": [
+        [
+          -1006.0000610351562,
+          -3280.0,
+          0.0
+        ],
+        [
+          1006.0000610351562,
+          3500.0,
+          1916.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Concrete.GNB___Concrete",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Concrete.Concrete"
+      ],
+      "bounds_cm": [
+        [
+          -3097.0,
+          -3304.0,
+          -18.0
+        ],
+        [
+          3097.0,
+          3520.0,
+          6101.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Dark_seals.GNB___Dark_seals",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Dark_seals.Dark_seals"
+      ],
+      "bounds_cm": [
+        [
+          -3097.0,
+          -3301.5,
+          0.0
+        ],
+        [
+          3097.0,
+          3528.5,
+          5975.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_00.GNB___Facade_glass_00",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_00.Facade_glass_00"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_01.GNB___Facade_glass_01",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_01.Facade_glass_01"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_02.GNB___Facade_glass_02",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_02.Facade_glass_02"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_03.GNB___Facade_glass_03",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_03.Facade_glass_03"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_04.GNB___Facade_glass_04",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_04.Facade_glass_04"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_05.GNB___Facade_glass_05",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_glass_05.Facade_glass_05"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          4.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5685.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_lettering_decal.GNB___Facade_lettering_decal",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Facade_lettering_decal.Facade_lettering_decal"
+      ],
+      "bounds_cm": [
+        [
+          -3205.0,
+          1300.0,
+          5200.0
+        ],
+        [
+          3205.0,
+          2800.0,
+          5668.75
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Ivory_equipment_enclosure.GNB___Ivory_equipment_enclosure",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Ivory_equipment_enclosure.Ivory_equipment_enclosure"
+      ],
+      "bounds_cm": [
+        [
+          -1745.0001220703125,
+          -650.0,
+          5760.0
+        ],
+        [
+          1745.0001220703125,
+          1850.0,
+          6145.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Logo_blue.GNB___Logo_blue",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Logo_blue.Logo_blue"
+      ],
+      "bounds_cm": [
+        [
+          -3225.0,
+          959.1145629882812,
+          5544.33056640625
+        ],
+        [
+          3225.0,
+          3140.88525390625,
+          5660.46044921875
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Logo_red.GNB___Logo_red",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Logo_red.Logo_red"
+      ],
+      "bounds_cm": [
+        [
+          -3225.0,
+          839.511474609375,
+          5239.53955078125
+        ],
+        [
+          3225.0,
+          3260.488525390625,
+          5639.4306640625
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Roof_membrane.GNB___Roof_membrane",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Roof_membrane.Roof_membrane"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          1418.0
+        ],
+        [
+          3086.0,
+          3520.0,
+          5760.0
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Spandrel_glass.GNB___Spandrel_glass",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Spandrel_glass.Spandrel_glass"
+      ],
+      "bounds_cm": [
+        [
+          -3086.0,
+          -3293.0,
+          405.0000305175781
+        ],
+        [
+          3086.0,
+          3520.0,
+          5757.5
+        ]
+      ]
+    },
+    {
+      "path": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Stone_cladding.GNB___Stone_cladding",
+      "materials": [
+        "/Game/GrandNeoBay/GrandNeoBay/Materials/Stone_cladding.Stone_cladding"
+      ],
+      "bounds_cm": [
+        [
+          -3170.5,
+          -1707.5001220703125,
+          0.0
+        ],
+        [
+          3170.5,
+          1707.5001220703125,
+          5760.0
+        ]
+      ]
+    }
+  ],
+  "blueprint": "/Game/GrandNeoBay/BP_GrandNeoBay.BP_GrandNeoBay",
+  "mesh_count": 18,
+  "texture_count": 16,
+  "material_count": 18,
+  "bounds_cm": [
+    [
+      -3293.0,
+      -3333.5,
+      -18.0
+    ],
+    [
+      3293.0,
+      3560.746337890625,
+      6145.0
+    ]
+  ],
+  "dimensions_cm": [
+    6586.0,
+    6894.246337890625,
+    6163.0
+  ],
+  "scale": "GLB metres converted to UE centimetres",
+  "collision": "None (external visual model)",
+  "existing_levels_modified": false
+}

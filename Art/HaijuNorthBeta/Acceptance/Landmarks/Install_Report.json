@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "backup": "D:\\0bay\\OfficeShell\\Saved\\HaijuNorthBeta\\LandmarkBackup_20260923_105226",
+  "changed_batches": [
+    "HaijuNorthBeta_087_Buildings_0_0_11",
+    "HaijuNorthBeta_093_Buildings_0_0_4",
+    "HaijuNorthBeta_078_Buildings_0_-1_11",
+    "HaijuNorthBeta_084_Buildings_0_-1_4",
+    "HaijuNorthBeta_076_Buildings_0_-1_0",
+    "HaijuNorthBeta_077_Buildings_0_-1_1",
+    "HaijuNorthBeta_081_Buildings_0_-1_14",
+    "HaijuNorthBeta_079_Buildings_0_-1_12",
+    "HaijuNorthBeta_080_Buildings_0_-1_13",
+    "HaijuNorthBeta_090_Buildings_0_0_14",
+    "HaijuNorthBeta_088_Buildings_0_0_12",
+    "HaijuNorthBeta_089_Buildings_0_0_13"
+  ],
+  "new_mesh_actors": 48,
+  "total_pick_shapes": 1676,
+  "original_materials_reused": true,
+  "sublevel": "/Game/HaijuNorthBeta/Maps/L_RefinedLandmarks"
+}

@@ -1,0 +1,11 @@
+{
+  "surface_z_cm": 1.0,
+  "actor_z_cm": 3.0,
+  "local_mesh_z_cm": -2.0,
+  "modified_actors": [
+    "HaijuNorthBeta_152_Ground_7"
+  ],
+  "other_transforms_preserved": true,
+  "backup": "D:\\0bay\\OfficeShell\\Saved\\HaijuNorthBeta\\GroundBackup_20260922_173346",
+  "scope": "Existing entire Ground_7 mesh; roads and buildings unchanged"
+}

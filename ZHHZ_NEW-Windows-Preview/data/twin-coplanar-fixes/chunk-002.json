@@ -1,0 +1,23 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-002.gltf",
+  "generated_at": "2026-08-31T19:19:03.175Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 19,
+  "scanned_primitives": 14,
+  "scanned_triangles": 680014,
+  "sampled_triangles": 372435,
+  "plane_group_count": 0,
+  "conflict_pair_count": 0,
+  "offset_target_count": 0,
+  "max_layer_rank": 0,
+  "targets": [],
+  "conflicts": []
+}

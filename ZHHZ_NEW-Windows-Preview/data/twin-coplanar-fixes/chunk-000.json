@@ -1,0 +1,56 @@
+{
+  "schema": "zhhz_coplanar_triangle_fix_v2",
+  "source_gltf": "C:\\Users\\ADMIN\\Desktop\\X300-UE-Web-AI-Handoff-20260831\\runs\\ue_super_steward_ZHHZ_NEW_step5_step6_final_20260901T015929+0800\\02_export\\twin-chunks\\chunk-000.gltf",
+  "generated_at": "2026-08-31T19:19:02.513Z",
+  "thresholds": {
+    "normal_quantum": 0.0025,
+    "distance_quantum_m": 0.002,
+    "max_plane_distance_m": 0.0045,
+    "min_patch_area_m2": 0.002,
+    "min_overlap_area_m2": 0.001,
+    "min_overlap_ratio": 0.12
+  },
+  "scanned_nodes": 13,
+  "scanned_primitives": 3,
+  "scanned_triangles": 48204,
+  "sampled_triangles": 48204,
+  "plane_group_count": 20,
+  "conflict_pair_count": 1,
+  "offset_target_count": 1,
+  "max_layer_rank": 1,
+  "targets": [
+    {
+      "key": "11:0",
+      "node_index": 11,
+      "primitive_index": 0,
+      "actor_label": "TwinRenderPart_1",
+      "mesh_name": "Shape1622260053",
+      "material_index": 2,
+      "material_name": "蓝汪汪",
+      "layer_priority": 1,
+      "layer_rank": 1,
+      "polygon_offset_factor": -1,
+      "polygon_offset_units": -2
+    }
+  ],
+  "conflicts": [
+    {
+      "a": {
+        "node_index": 12,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_0",
+        "material_name": "MI_金属_沙银_扶手"
+      },
+      "b": {
+        "node_index": 11,
+        "primitive_index": 0,
+        "actor_label": "TwinRenderPart_1",
+        "material_name": "蓝汪汪"
+      },
+      "overlay": "11:0",
+      "plane_distance_m": 0.0007812502001058874,
+      "overlap_area_m2": 4.307808173625042,
+      "overlap_ratio": 0.9999999991333385
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "version": "landmarks_v1",
+  "remove_generic_keys": [
+    "osm219751253CHN",
+    "clsm13TChCHN",
+    "clsm14aplCHN",
+    "osm1207394279CHN",
+    "osm1207394280CHN",
+    "osm1207394281CHN",
+    "osm1207394283CHN",
+    "osm1207394297CHN",
+    "osm1207394298CHN",
+    "osm1207394299CHN"
+  ],
+  "new_shape_keys": [
+    "osm219751253CHN",
+    "osm1207394279CHN",
+    "osm1207394280CHN",
+    "osm1207394281CHN",
+    "osm1207394283CHN",
+    "osm1207394297CHN",
+    "osm1207394298CHN",
+    "osm1207394299CHN"
+  ],
+  "remove_pick_keys": [
+    "osm219751253CHN",
+    "clsm13TChCHN",
+    "clsm14aplCHN",
+    "osm1207394279CHN",
+    "osm1207394280CHN",
+    "osm1207394281CHN",
+    "osm1207394283CHN",
+    "osm1207394297CHN",
+    "osm1207394298CHN",
+    "osm1207394299CHN"
+  ],
+  "coordinates": "source ENU meters; GLB X east,Y up,-Z north; same placement as original exterior",
+  "stadium": {
+    "height_m": 29.341,
+    "height_source": "https://news.sjtu.edu.cn/jdyw/20180405/8896.html",
+    "campus_center": [
+      151.62689982389028,
+      156.0205631034061
+    ],
+    "radii_m": [
+      60.088673520842256,
+      59.23954850822838
+    ],
+    "annexes": "combined into stadium pick shape; SE entrance orientation inferred from source footprints"
+  },
+  "science": {
+    "osm1207394279CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 39.1
+    },
+    "osm1207394280CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 39.1
+    },
+    "osm1207394281CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 14.1
+    },
+    "osm1207394283CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 22.200000000000003
+    },
+    "osm1207394297CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 22.200000000000003
+    },
+    "osm1207394298CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 19.5
+    },
+    "osm1207394299CHN": {
+      "footprint_source": "existing GBA/OSM ring",
+      "reference_estimated_top_m": 19.5
+    }
+  },
+  "limits": [
+    "Original reference-guided exterior reconstruction, not surveyed/BIM",
+    "Science tower/eave heights inferred from supplied photos; existing generic prediction replaced explicitly",
+    "No photo textures copied; brick hue/roof/details modeled approximately",
+    "Do not hide a whole 500m source batch without its filtered replacement"
+  ],
+  "affected_batch_prefixes": [
+    "Buildings_0_-1_",
+    "Buildings_0_0_"
+  ],
+  "triangles": 26844,
+  "mesh_objects": 48,
+  "batch_replacements": [
+    {
+      "old_mesh_name": "Buildings_0_0_11",
+      "replacement_mesh_name": "Buildings_0_0_11",
+      "triangles": 1278
+    },
+    {
+      "old_mesh_name": "Buildings_0_0_4",
+      "replacement_mesh_name": "Buildings_0_0_4",
+      "triangles": 149
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_11",
+      "replacement_mesh_name": "Buildings_0_-1_11",
+      "triangles": 3034
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_4",
+      "replacement_mesh_name": "Buildings_0_-1_4",
+      "triangles": 91
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_0",
+      "replacement_mesh_name": "Buildings_0_-1_0",
+      "triangles": 122
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_1",
+      "replacement_mesh_name": "Buildings_0_-1_1",
+      "triangles": 36
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_14",
+      "replacement_mesh_name": "Buildings_0_-1_14",
+      "triangles": 36
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_12",
+      "replacement_mesh_name": "Buildings_0_-1_12",
+      "triangles": 1036
+    },
+    {
+      "old_mesh_name": "Buildings_0_-1_13",
+      "replacement_mesh_name": "Buildings_0_-1_13",
+      "triangles": 2072
+    },
+    {
+      "old_mesh_name": "Buildings_0_0_14",
+      "replacement_mesh_name": null,
+      "triangles": 0,
+      "reason": "all geometry belonged to the explicitly removed landmarks"
+    },
+    {
+      "old_mesh_name": "Buildings_0_0_12",
+      "replacement_mesh_name": null,
+      "triangles": 0,
+      "reason": "all geometry belonged to the explicitly removed landmarks"
+    },
+    {
+      "old_mesh_name": "Buildings_0_0_13",
+      "replacement_mesh_name": null,
+      "triangles": 0,
+      "reason": "all geometry belonged to the explicitly removed landmarks"
+    }
+  ],
+  "background_source": "original builder with explicit key exclusion; all other algorithms and material parameters unchanged",
+  "pick_aliases": {
+    "clsm13TChCHN": "osm219751253CHN",
+    "clsm14aplCHN": "osm219751253CHN"
+  },
+  "expected_total_pick_shapes_after": 1676
+}

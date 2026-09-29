@@ -1,0 +1,29 @@
+{
+	"passed": false,
+	"checks": [
+		"PASS: Building BP is loaded",
+		"PASS: CAD floor proxy and outline are loaded",
+		"FAIL: Floor datum is Z=4320 cm",
+		"PASS: F9 entry path opens preview without a visible prompt",
+		"PASS: Overview claims preview input",
+		"PASS: Preview UI has a rendered widget tree",
+		"PASS: Overview camera blend completes",
+		"PASS: Preview preserves possession",
+		"PASS: Floor proxy is ray-pickable",
+		"PASS: UIOnly pointer event selects the 3D floor with correct DPI coordinates",
+		"PASS: Selection reaches full drawer offset",
+		"PASS: Only proxy moves by configured offset",
+		"PASS: Dismissal retracts drawer",
+		"PASS: Floor can be selected again without the removed overview panel",
+		"PASS: Preview pauses the existing pawn without relocating it",
+		"PASS: Enter card button starts return transition",
+		"PASS: Entry releases preview input",
+		"PASS: Entry restores original office camera",
+		"PASS: Entry preserves original pawn",
+		"PASS: Office pawn component ticks are restored",
+		"PASS: Floor proxy is hidden in office",
+		"PASS: F9 entry path works again after returning",
+		"PASS: Escape return path works without a selected floor",
+		"PASS: Repeated open/back is reversible"
+	]
+}

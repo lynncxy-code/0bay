@@ -1,0 +1,112 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v4.5.0",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2038266,
+      "max": [
+        -45.45840835571289,
+        3.149266004562378,
+        0.549566924571991
+      ],
+      "min": [
+        -45.548091888427734,
+        1.1015223264694214,
+        -1.4406086206436157
+      ],
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2038266,
+      "bufferView": 0,
+      "byteOffset": 12
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 2040042,
+      "bufferView": 1,
+      "byteOffset": 0
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 48918384,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 48918384,
+      "byteLength": 8160168,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "chunk-002.bin",
+      "byteLength": 57078552
+    }
+  ],
+  "materials": [
+    {
+      "name": "3d66-VRayMtl-25231757-030",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.822785735,
+          0.822785735,
+          0.822785735,
+          1
+        ],
+        "roughnessFactor": 0.898039281,
+        "metallicFactor": 0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "ue_2CADC591-42B4-61CC-C9E3-E8828912962F_batch_0",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 2
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "ue_2CADC591-42B4-61CC-C9E3-E8828912962F",
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "ue_2CADC591-42B4-61CC-C9E3-E8828912962F_batch_0",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "name": "L_AVIC_SHOW_Main_onto_chunk-002",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0
+}

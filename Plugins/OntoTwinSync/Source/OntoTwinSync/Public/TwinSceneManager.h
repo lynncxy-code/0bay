@@ -93,6 +93,9 @@ protected:
     virtual void Tick(float DeltaTime) override;
 
 public:
+    /** Office VR keeps the HMD pawn; skip OntoTwin backend overlay and god camera. */
+    bool ShouldYieldToHostVR() const;
+
     // ═══════════════════════════════════════════════════════════════════════
     // 编辑器可配置属性
     // ═══════════════════════════════════════════════════════════════════════

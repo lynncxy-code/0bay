@@ -1,0 +1,21 @@
+{
+  "actor_location_cm": [
+    3275.0,
+    -3080.0,
+    70.0
+  ],
+  "floor_offset_cm": [
+    0.0,
+    0.0,
+    3840.0
+  ],
+  "actual_floor_root_world_cm": [
+    3275.0,
+    -3080.0,
+    3910.0
+  ],
+  "legacy_test_expected_floor_z_cm": 4320,
+  "main_building_map_sha256": "e8ea6b254aeaaff3a01c96bc70c0e3cc2c2cd99f2fddce4e7b8ce14e6e8f211e",
+  "baseline_backup_sha256": "e8ea6b254aeaaff3a01c96bc70c0e3cc2c2cd99f2fddce4e7b8ce14e6e8f211e",
+  "main_building_map_unchanged_in_this_task": true
+}

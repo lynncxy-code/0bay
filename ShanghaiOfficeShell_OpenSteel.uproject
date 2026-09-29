@@ -5,16 +5,59 @@
   "Description": "Shanghai CAD office shell - white open steel ceiling at 3 metres",
   "Modules": [{"Name":"OfficeHost","Type":"Runtime","LoadingPhase":"Default"}],
   "Plugins": [
-    {"Name":"OntoTwinSync","Enabled":true},
-    {"Name":"OntoTwinIndustrialBehavior","Enabled":true},
-    {"Name":"OntoTwinCharacterPack_Core","Enabled":true},
-    {"Name":"glTFRuntime","Enabled":true},
+    {"Name":"ProceduralMeshComponent","Enabled":true},
+    {"Name":"OntoTwinSync","Enabled":false},
+    {"Name":"OntoTwinIndustrialBehavior","Enabled":false},
+    {"Name":"OntoTwinCharacterPack_Core","Enabled":false},
+    {
+      "Name": "glTFRuntime",
+      "Enabled": true,
+      "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/d2ed3709933d4608a3a8dd746cbc045d"
+    },
     {
       "Name": "PythonScriptPlugin",
       "Enabled": true
     },
     {
       "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    },
+    {
+      "Name": "GLTFExporter",
+      "Enabled": true
+    },
+    {
+      "Name": "HDRIBackdrop",
+      "Enabled": true
+    },
+    {
+      "Name": "DatasmithImporter",
+      "Enabled": true
+    },
+    {
+      "Name": "DatasmithCADImporter",
+      "Enabled": true,
+      "SupportedTargetPlatforms": [
+        "Win64",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "OpenXR",
+      "Enabled": true,
+      "SupportedTargetPlatforms": [
+        "Win64",
+        "Linux",
+        "LinuxArm64",
+        "Android"
+      ]
+    },
+    {
+      "Name": "XRVisualization",
+      "Enabled": false
+    },
+    {
+      "Name": "WebUI",
       "Enabled": true
     }
   ]

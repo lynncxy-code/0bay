@@ -1,0 +1,92 @@
+{
+  "source": "Art/HaijuNorthBeta/Source/Haiju_North_Environment.glb",
+  "source_sha256": "E508EEAFFB71299F43E3B03C4B7156CA1A4E10D5AC46EAEC5C453227F088CFB8",
+  "import": {
+    "static_meshes": 158,
+    "material_instances": 15,
+    "textures": 4,
+    "content_size_mb": 13.64,
+    "ground_material": "Ground_light_blue",
+    "ground_base_color_factor": [
+      0.34,
+      0.52,
+      0.68,
+      1.0
+    ]
+  },
+  "placement": {
+    "location_cm": [
+      14485.456288654983,
+      -5394.3765929212095,
+      0.0
+    ],
+    "yaw_deg": 20.9,
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "sublevel": "/Game/HaijuNorthBeta/Maps/L_HaijuNorthBeta_Exterior",
+    "streaming": "LevelStreamingAlwaysLoaded",
+    "ground_actor_z_cm": 3,
+    "ground_surface_z_cm": 1
+  },
+  "alignment": {
+    "method": "visual best fit against the Office satellite Landscape using building footprints, roads and the stadium control",
+    "meters_per_pixel": 3.5228446530220996,
+    "stadium_control_residual_pixels": 10.77,
+    "estimated_control_residual_m": 37.94,
+    "survey_grade": false
+  },
+  "regression": {
+    "existing_actors_checked": 352,
+    "existing_transform_or_class_changes": 0,
+    "background_actor_count": 158,
+    "background_collision": false,
+    "background_overlap_events": false,
+    "background_affects_navigation": false,
+    "background_casts_shadows": false,
+    "background_affects_distance_field_lighting": false,
+    "runtime_interaction_checks_passed": 24
+  },
+  "campus": {
+    "radius_m": 500,
+    "center_source_m": [
+      -96.47232348610945,
+      -61.612967162457394
+    ],
+    "style": "Illustrative modeled landscape; no satellite texture",
+    "pickable_buildings": 1678,
+    "ground_meshes": 13,
+    "detail_counts": {
+      "parking_bays": 192,
+      "pocket_plazas": 66,
+      "garden_islands": 83,
+      "new_trees": 290,
+      "benches": 63,
+      "lights": 63
+    },
+    "vertices": 51258,
+    "source_geometry_unchanged": true,
+    "sublevel": "/Game/HaijuNorthBeta/Maps/L_Campus500_Details",
+    "runtime_checks_passed": 12,
+    "satellite_textures_used": false,
+    "existing_landscape_retained_beneath_and_outside_modeled_area": true
+  },
+  "landmarks": {
+    "sublevel": "/Game/HaijuNorthBeta/Maps/L_RefinedLandmarks",
+    "new_meshes": 48,
+    "source_triangles": 26844,
+    "remainder_triangles": 7854,
+    "changed_batches": 12,
+    "unrelated_background_mesh_actors_unchanged": 146,
+    "non_target_pick_shapes_unchanged": 1668,
+    "total_pick_shapes": 1676,
+    "runtime_checks_passed": 27,
+    "campus_regression_checks_passed": 12,
+    "floor_regression_interaction_checks_passed": 23,
+    "floor_legacy_datum_check_passed": false,
+    "floor_datum_context": "Acceptance/Landmarks/Floor_Datum_Context.json",
+    "report": "Acceptance/Landmarks/ACCEPTANCE.md"
+  }
+}

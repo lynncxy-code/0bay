@@ -1,0 +1,851 @@
+[
+  {
+    "catalogId": 0,
+    "displayName": "办公室 VR 操作说明",
+    "category": "系统",
+    "room": "公司大门 / 出生点",
+    "dimensions": "-",
+    "material": "-",
+    "assetId": "OFC-HELP",
+    "systemName": "VR 交互",
+    "maintenanceCycle": "-",
+    "nextMaintenance": "-",
+    "description": "左摇杆或 WASD 行走。右摇杆左右或 Q/E 转身。右摇杆下推对准地面后松开瞬移。右手扳机或鼠标左键查看属性。B / 鼠标右键关闭面板。",
+    "matchKeys": [
+      "HelpPlaque",
+      "操作说明"
+    ]
+  },
+  {
+    "catalogId": 1,
+    "displayName": "经理桌",
+    "category": "桌台",
+    "room": "独立办公室",
+    "dimensions": "1800 × 1800 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-001",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "01_经理桌_独立办公室",
+      "经理桌",
+      "PDF_01"
+    ]
+  },
+  {
+    "catalogId": 2,
+    "displayName": "班椅",
+    "category": "座椅",
+    "room": "独立办公室",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-002",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "02_班椅_独立办公室",
+      "班椅",
+      "PDF_02"
+    ]
+  },
+  {
+    "catalogId": 3,
+    "displayName": "班前椅",
+    "category": "座椅",
+    "room": "独立办公室",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-003",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "03_班前椅_独立办公室",
+      "班前椅",
+      "PDF_03"
+    ]
+  },
+  {
+    "catalogId": 4,
+    "displayName": "文件柜",
+    "category": "储物",
+    "room": "独立办公室",
+    "dimensions": "4500 × 420 × 3100 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-004",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "04_文件柜_独立办公室",
+      "文件柜",
+      "PDF_04"
+    ]
+  },
+  {
+    "catalogId": 5,
+    "displayName": "沙发",
+    "category": "座椅",
+    "room": "独立办公室",
+    "dimensions": "2130 × 860 × 820 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-005",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "05_沙发_独立办公室",
+      "沙发",
+      "PDF_05"
+    ]
+  },
+  {
+    "catalogId": 6,
+    "displayName": "茶几",
+    "category": "桌台",
+    "room": "独立办公室",
+    "dimensions": "1200 × 600 × 430 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-006",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "06_茶几_独立办公室",
+      "茶几",
+      "PDF_06"
+    ]
+  },
+  {
+    "catalogId": 7,
+    "displayName": "会议桌",
+    "category": "桌台",
+    "room": "大会议室",
+    "dimensions": "7000 × 2000 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-007",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "07_会议桌_大会议室",
+      "会议桌",
+      "PDF_07"
+    ]
+  },
+  {
+    "catalogId": 8,
+    "displayName": "椅子（带写字板）",
+    "category": "座椅",
+    "room": "大会议室",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-008",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "08_椅子（带写字板）_大会议室",
+      "椅子（带写字板）",
+      "PDF_08"
+    ]
+  },
+  {
+    "catalogId": 9,
+    "displayName": "会议椅",
+    "category": "座椅",
+    "room": "大会议室",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-009",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "09_会议椅_大会议室",
+      "会议椅",
+      "PDF_09"
+    ]
+  },
+  {
+    "catalogId": 10,
+    "displayName": "中会议桌",
+    "category": "桌台",
+    "room": "中会议室",
+    "dimensions": "2200 × 1000 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-010",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "10_中会议桌_中会议室",
+      "中会议桌",
+      "PDF_10"
+    ]
+  },
+  {
+    "catalogId": 11,
+    "displayName": "会议椅",
+    "category": "座椅",
+    "room": "中会议室及接待室",
+    "dimensions": "500 × 660 × 820 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-011",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "11_会议椅_中会议室及接待室",
+      "会议椅",
+      "PDF_11"
+    ]
+  },
+  {
+    "catalogId": 12,
+    "displayName": "中会议桌",
+    "category": "桌台",
+    "room": "小会议室",
+    "dimensions": "1600 × 800 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-012",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "12_中会议桌_小会议室",
+      "中会议桌",
+      "PDF_12"
+    ]
+  },
+  {
+    "catalogId": 13,
+    "displayName": "会议椅",
+    "category": "座椅",
+    "room": "小会议室_黄色",
+    "dimensions": "560 × 530 × 800 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-013",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "13_会议椅_小会议室_黄色",
+      "会议椅",
+      "PDF_13"
+    ]
+  },
+  {
+    "catalogId": 14,
+    "displayName": "接待沙发",
+    "category": "座椅",
+    "room": "接待室",
+    "dimensions": "2000 × 700 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-014",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "14_接待沙发_接待室",
+      "接待沙发",
+      "PDF_14"
+    ]
+  },
+  {
+    "catalogId": 15,
+    "displayName": "沙发墩",
+    "category": "座椅",
+    "room": "接待室",
+    "dimensions": "500 × 500 × 470 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-015",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "15_沙发墩_接待室",
+      "沙发墩",
+      "PDF_15"
+    ]
+  },
+  {
+    "catalogId": 16,
+    "displayName": "休闲椅",
+    "category": "座椅",
+    "room": "接待室",
+    "dimensions": "700 × 640 × 770 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-016",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "16_休闲椅_接待室",
+      "休闲椅",
+      "PDF_16"
+    ]
+  },
+  {
+    "catalogId": 17,
+    "displayName": "茶几",
+    "category": "桌台",
+    "room": "接待室_兼接待茶几",
+    "dimensions": "800 × 800 × 380 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-017",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "17_茶几_接待室_兼接待茶几",
+      "茶几",
+      "PDF_17"
+    ]
+  },
+  {
+    "catalogId": 18,
+    "displayName": "会议桌",
+    "category": "桌台",
+    "room": "接待室",
+    "dimensions": "3200 × 1200 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-018",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "18_会议桌_接待室",
+      "会议桌",
+      "PDF_18"
+    ]
+  },
+  {
+    "catalogId": 19,
+    "displayName": "吧台",
+    "category": "桌台",
+    "room": "接待室_6000",
+    "dimensions": "6000 × 500 × 1100 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-019",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "19_吧台_接待室_6000",
+      "吧台",
+      "PDF_19"
+    ]
+  },
+  {
+    "catalogId": 20,
+    "displayName": "吧椅",
+    "category": "座椅",
+    "room": "接待室及员工区",
+    "dimensions": "440 × 400 × 820 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-020",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "20_吧椅_接待室及员工区",
+      "吧椅",
+      "PDF_20"
+    ]
+  },
+  {
+    "catalogId": 21,
+    "displayName": "升降员工桌",
+    "category": "桌台",
+    "room": "员工区",
+    "dimensions": "1800 × 800 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-021",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "21_升降员工桌_员工区",
+      "升降员工桌",
+      "PDF_21"
+    ]
+  },
+  {
+    "catalogId": 22,
+    "displayName": "员工椅",
+    "category": "座椅",
+    "room": "员工区",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-022",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "22_员工椅_员工区",
+      "员工椅",
+      "PDF_22"
+    ]
+  },
+  {
+    "catalogId": 23,
+    "displayName": "活动柜",
+    "category": "储物",
+    "room": "员工区",
+    "dimensions": "390 × 520 × 600 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-023",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "23_活动柜_员工区",
+      "活动柜",
+      "PDF_23"
+    ]
+  },
+  {
+    "catalogId": 24,
+    "displayName": "桌边柜",
+    "category": "桌台",
+    "room": "员工区_含花槽",
+    "dimensions": "900 × 400 × 1250 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-024",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "24_桌边柜_员工区_含花槽",
+      "桌边柜",
+      "PDF_24"
+    ]
+  },
+  {
+    "catalogId": 25,
+    "displayName": "窗边柜（不含花槽）",
+    "category": "储物",
+    "room": "员工区",
+    "dimensions": "900 × 400 × 1090 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-025",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "25_窗边柜（不含花槽）_员工区",
+      "窗边柜（不含花槽）",
+      "PDF_25"
+    ]
+  },
+  {
+    "catalogId": 26,
+    "displayName": "文件高柜",
+    "category": "储物",
+    "room": "员工区",
+    "dimensions": "900 × 400 × 1850 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-026",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "26_文件高柜_员工区",
+      "文件高柜",
+      "PDF_26"
+    ]
+  },
+  {
+    "catalogId": 27,
+    "displayName": "吧台",
+    "category": "桌台",
+    "room": "员工区_4500",
+    "dimensions": "4500 × 500 × 1100 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-027",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "27_吧台_员工区_4500",
+      "吧台",
+      "PDF_27"
+    ]
+  },
+  {
+    "catalogId": 28,
+    "displayName": "休闲桌",
+    "category": "桌台",
+    "room": "休息区",
+    "dimensions": "680 × 680 × 450 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-028",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "28_休闲桌_休息区",
+      "休闲桌",
+      "PDF_28"
+    ]
+  },
+  {
+    "catalogId": 29,
+    "displayName": "休闲椅",
+    "category": "座椅",
+    "room": "休息区_绿色",
+    "dimensions": "560 × 530 × 800 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-029",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "29_休闲椅_休息区_绿色",
+      "休闲椅",
+      "PDF_29"
+    ]
+  },
+  {
+    "catalogId": 30,
+    "displayName": "休闲椅",
+    "category": "座椅",
+    "room": "休息区_灰色",
+    "dimensions": "560 × 530 × 800 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-030",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "30_休闲椅_休息区_灰色",
+      "休闲椅",
+      "PDF_30"
+    ]
+  },
+  {
+    "catalogId": 31,
+    "displayName": "吧台",
+    "category": "桌台",
+    "room": "打印茶水区_2800",
+    "dimensions": "2800 × 700 × 1100 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-031",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "31_吧台_打印茶水区_2800",
+      "吧台",
+      "PDF_31"
+    ]
+  },
+  {
+    "catalogId": 32,
+    "displayName": "吧椅",
+    "category": "座椅",
+    "room": "打印茶水区_黄色",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-032",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "32_吧椅_打印茶水区_黄色",
+      "吧椅",
+      "PDF_32"
+    ]
+  },
+  {
+    "catalogId": 33,
+    "displayName": "吧椅",
+    "category": "座椅",
+    "room": "打印茶水区_橙红色",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-033",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "33_吧椅_打印茶水区_橙红色",
+      "吧椅",
+      "PDF_33"
+    ]
+  },
+  {
+    "catalogId": 34,
+    "displayName": "双人电话亭（含桌子椅子）",
+    "category": "座椅",
+    "room": "打印茶水区",
+    "dimensions": "1600 × 1280 × 2280 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-034",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "34_双人电话亭（含桌子椅子）_打印茶水区",
+      "双人电话亭（含桌子椅子）",
+      "PDF_34"
+    ]
+  },
+  {
+    "catalogId": 35,
+    "displayName": "单人沙发（与门厅沙发同款）",
+    "category": "座椅",
+    "room": "电话亭内部",
+    "dimensions": "700 × 695 × 835 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-035",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "35_单人沙发（与门厅沙发同款）_电话亭内部",
+      "单人沙发（与门厅沙发同款）",
+      "PDF_35"
+    ]
+  },
+  {
+    "catalogId": 36,
+    "displayName": "圆凳",
+    "category": "座椅",
+    "room": "电话亭内部",
+    "dimensions": "450 × 450 × 420 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-036",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "36_圆凳_电话亭内部",
+      "圆凳",
+      "PDF_36"
+    ]
+  },
+  {
+    "catalogId": 37,
+    "displayName": "洽谈桌",
+    "category": "桌台",
+    "room": "电话亭内部",
+    "dimensions": "600 × 600 × 750 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-037",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "37_洽谈桌_电话亭内部",
+      "洽谈桌",
+      "PDF_37"
+    ]
+  },
+  {
+    "catalogId": 38,
+    "displayName": "接待沙发、单人沙发",
+    "category": "座椅",
+    "room": "接待区",
+    "dimensions": "3000 × 660 × 740 mm",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-038",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "38_接待沙发、单人沙发_接待区",
+      "接待沙发、单人沙发",
+      "PDF_38"
+    ]
+  },
+  {
+    "catalogId": 39,
+    "displayName": "单人沙发",
+    "category": "座椅",
+    "room": "接待区_白色",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-039",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "39_单人沙发_接待区_白色",
+      "单人沙发",
+      "PDF_39"
+    ]
+  },
+  {
+    "catalogId": 40,
+    "displayName": "单人沙发",
+    "category": "座椅",
+    "room": "接待区_灰色",
+    "dimensions": "待现场复核",
+    "material": "PDF文字配色近似；未提供色卡的颜色不作精确承诺",
+    "assetId": "OFC-040",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "依据单张照片重建的近似模型，非原厂CAD；背面及遮挡区域为推断。可用于场景布置，未核验制造精度。",
+    "matchKeys": [
+      "40_单人沙发_接待区_灰色",
+      "单人沙发",
+      "PDF_40"
+    ]
+  },
+  {
+    "catalogId": 101,
+    "displayName": "会议室电视",
+    "category": "电器",
+    "room": "接待区 / 会议室",
+    "dimensions": "约 122 × 14 × 81 cm",
+    "material": "塑料壳体 + 玻璃屏（CC0 场景资产）",
+    "assetId": "OFC-101",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "普通无支架电视，用于会议投屏示意。一期仅支持查看属性。",
+    "matchKeys": [
+      "newline_lyrapro_interactive_display",
+      "SM_TV_Plain",
+      "TV_Plain_NoStand",
+      "电视",
+      "tv-stand",
+      "PDF_101"
+    ]
+  },
+  {
+    "catalogId": 104,
+    "displayName": "冰箱",
+    "category": "电器",
+    "room": "打印茶水区",
+    "dimensions": "待现场复核",
+    "material": "金属壳体",
+    "assetId": "OFC-104",
+    "systemName": "办公电器",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "茶水区冰箱。一期仅支持查看属性。",
+    "matchKeys": [
+      "Fridge_Top_Housing",
+      "Fridge",
+      "冰箱"
+    ]
+  },
+  {
+    "catalogId": 105,
+    "displayName": "打印机",
+    "category": "电器",
+    "room": "打印茶水区",
+    "dimensions": "待现场复核",
+    "material": "塑料壳体",
+    "assetId": "OFC-105",
+    "systemName": "办公电器",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "打印设备。一期仅支持查看属性。",
+    "matchKeys": [
+      "Upper_Printer_Door",
+      "Printer",
+      "打印机"
+    ]
+  },
+  {
+    "catalogId": 106,
+    "displayName": "文化墙",
+    "category": "展示",
+    "room": "公共区域",
+    "dimensions": "墙面展板",
+    "material": "板材 + 画面",
+    "assetId": "OFC-106",
+    "systemName": "空间展示",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "企业文化展示墙。一期仅支持查看属性。",
+    "matchKeys": [
+      "SM_CultureWall",
+      "CultureWall",
+      "文化墙"
+    ]
+  },
+  {
+    "catalogId": 102,
+    "displayName": "双人电话亭",
+    "category": "隔间",
+    "room": "打印茶水区",
+    "dimensions": "约 1600 mm 宽封闭舱",
+    "material": "玻璃 + 织物 + 金属型材",
+    "assetId": "OFC-102",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "隔音通话舱。一期仅支持查看属性，不可开关门。",
+    "matchKeys": [
+      "PhoneBooth",
+      "电话亭",
+      "PB26",
+      "PDF_102"
+    ]
+  },
+  {
+    "catalogId": 103,
+    "displayName": "绿萝盆栽",
+    "category": "绿化",
+    "room": "公共区域",
+    "dimensions": "盆栽尺度",
+    "material": "植物 + 陶盆",
+    "assetId": "OFC-103",
+    "systemName": "办公家具",
+    "maintenanceCycle": "12个月（示例）",
+    "nextMaintenance": "2027-03-15（示例）",
+    "description": "场景绿化点缀。",
+    "matchKeys": [
+      "Pothos",
+      "绿萝",
+      "PDF_103"
+    ]
+  }
+]

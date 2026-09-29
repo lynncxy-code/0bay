@@ -1,0 +1,13 @@
+# Windows local D0: compose requires a sidecar secret file even when
+# Galaxybase is not enabled. Point at an unused dummy file instead of
+# passing a token path through the environment.
+secrets:
+  galaxybase_sidecar_token:
+    file: F:/Office_VR/Scripts/empty.secret
+
+services:
+  app:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      ONTO_DSH_ACTION_RECEIPT_CALLBACK_URL: http://host.docker.internal:3080/api/lingyunzhi/internal/action-receipt

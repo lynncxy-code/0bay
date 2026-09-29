@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Part_05_GNB___Facade_glass_00_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_00.GNB___Facade_glass_00",
+    "location": "<Struct 'Vector' (0x0000016566023980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_06_GNB___Facade_glass_01_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_01.GNB___Facade_glass_01",
+    "location": "<Struct 'Vector' (0x0000016566024180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_07_GNB___Facade_glass_02_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_02.GNB___Facade_glass_02",
+    "location": "<Struct 'Vector' (0x0000016566024980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_08_GNB___Facade_glass_03_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_03.GNB___Facade_glass_03",
+    "location": "<Struct 'Vector' (0x0000016566025180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_04_GNB___Dark_seals_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Dark_seals.GNB___Dark_seals",
+    "location": "<Struct 'Vector' (0x0000016566023180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_03_GNB___Concrete_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Concrete.GNB___Concrete",
+    "location": "<Struct 'Vector' (0x0000016566022980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_02_GNB___Bronze_entrance_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Bronze_entrance.GNB___Bronze_entrance",
+    "location": "<Struct 'Vector' (0x0000016566022180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_01_GNB___Artificial_turf_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Artificial_turf.GNB___Artificial_turf",
+    "location": "<Struct 'Vector' (0x0000016566021980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_00_GNB___Aluminum_fins_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Aluminum_fins.GNB___Aluminum_fins",
+    "location": "<Struct 'Vector' (0x0000016565FAC980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_09_GNB___Facade_glass_04_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_04.GNB___Facade_glass_04",
+    "location": "<Struct 'Vector' (0x0000016565FAD180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_14_GNB___Logo_red_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Logo_red.GNB___Logo_red",
+    "location": "<Struct 'Vector' (0x0000016565FAF980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_17_GNB___Stone_cladding_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Stone_cladding.GNB___Stone_cladding",
+    "location": "<Struct 'Vector' (0x0000016566021180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_16_GNB___Spandrel_glass_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Spandrel_glass.GNB___Spandrel_glass",
+    "location": "<Struct 'Vector' (0x0000016566020980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_15_GNB___Roof_membrane_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Roof_membrane.GNB___Roof_membrane",
+    "location": "<Struct 'Vector' (0x0000016566020180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_13_GNB___Logo_blue_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Logo_blue.GNB___Logo_blue",
+    "location": "<Struct 'Vector' (0x0000016565FAF180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_12_GNB___Ivory_equipment_enclosure_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Ivory_equipment_enclosure.GNB___Ivory_equipment_enclosure",
+    "location": "<Struct 'Vector' (0x0000016565FAE980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_11_GNB___Facade_lettering_decal_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_lettering_decal.GNB___Facade_lettering_decal",
+    "location": "<Struct 'Vector' (0x0000016565FAE180) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "name": "Part_10_GNB___Facade_glass_05_GEN_VARIABLE",
+    "mesh": "/Game/GrandNeoBay/GrandNeoBay/StaticMeshes/GNB___Facade_glass_05.GNB___Facade_glass_05",
+    "location": "<Struct 'Vector' (0x0000016565FAD980) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  }
+]
