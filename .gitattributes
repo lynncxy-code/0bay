@@ -4,3 +4,4 @@
 *.uptnl filter=lfs diff=lfs merge=lfs -text
 *.ufont filter=lfs diff=lfs merge=lfs -text
 *.pak filter=lfs diff=lfs merge=lfs -text
+Plugins/WebUI/Source/ThirdParty/**/*.lib filter=lfs diff=lfs merge=lfs -text

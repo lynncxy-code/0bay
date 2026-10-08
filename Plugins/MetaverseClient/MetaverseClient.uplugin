@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "0.2.0",
+	"FriendlyName": "MetaverseClient",
+	"Description": "元宇宙数据总线 Unreal 消费端:WebSocket 实时驱动 AGV/人流分身,支持任务包人物资产稳定随机与对象池。",
+	"Category": "Metaverse",
+	"CreatedBy": "",
+	"CanContainContent": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "MetaverseClient",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "OntoTwinSync",
+			"Enabled": true,
+			"Optional": true
+		}
+	]
+}

@@ -1,0 +1,91 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Web UI",
+  "Description": "Create web-based user interface widgets using blueprints.",
+  "Category": "Widgets",
+  "CreatedBy": "Tracer Interactive",
+  "CreatedByURL": "https://tracerinteractive.com",
+  "DocsURL": "https://cdn.tracerinteractive.com/webui/documentation.pdf",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EngineVersion": "5.6.0",
+  "CanContainContent": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "JsonLibrary",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "JsonLibraryBlueprintSupport",
+      "Type": "UncookedOnly",
+      "LoadingPhase": "PostConfigInit",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "WebBrowserUtils",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac"
+      ]
+    },
+    {
+      "Name": "WebBrowserUI",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "WebBrowserTextureUI",
+      "Type": "UncookedOnly",
+      "LoadingPhase": "PostConfigInit",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "WebUI",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "JsonLibrary",
+      "Enabled": false
+    },
+    {
+      "Name": "WebBrowserWidget",
+      "Enabled": false
+    },
+    {
+      "Name": "WebBrowserNativeProxy",
+      "Enabled": false
+    }
+  ]
+}
