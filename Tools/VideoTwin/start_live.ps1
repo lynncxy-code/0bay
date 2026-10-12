@@ -1,13 +1,17 @@
 # Start the camera -> HLS converter (MediaMTX) for the video twin.
 #
-#   powershell -ExecutionPolicy Bypass -File Tools\VideoTwin\start_live.ps1
+#   powershell -ExecutionPolicy Bypass -File start_live.ps1
+#
+# Works from any folder: it uses the mediamtx.videotwin.yml next to it, and mediamtx.exe next to it
+# (the deployed kit) or, on the development machine, the copy under the project's Saved folder.
 #
 # The camera password is taken from the environment variable OFFICE_CAM_PASSWORD and handed to MediaMTX
-# through its own environment overrides (MTX_PATHS_<NAME>_SOURCE). It is never written to a file.
-# Set it once per user:   [Environment]::SetEnvironmentVariable('OFFICE_CAM_PASSWORD', '<password>', 'User')
+# through its own environment overrides (MTX_PATHS_<NAME>_SOURCE). It is never written to a file and does
+# not appear on the process command line. Set it once per user:
+#   [Environment]::SetEnvironmentVariable('OFFICE_CAM_PASSWORD', '<password>', 'User')
 #
 # HLS is served on 127.0.0.1:8888 only. The footage shows identifiable people; Unreal runs on this same
-# machine, so nothing needs to listen on the network. Pass -Listen <ip>:8888 if Unreal runs elsewhere.
+# machine, so nothing needs to listen on the network. Pass -Listen <ip>:8888 only if Unreal runs elsewhere.
 #
 # Pure ASCII on purpose: Windows PowerShell 5.1 reads .ps1 files as the system ANSI code page.
 
@@ -18,23 +22,30 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-$project = (Resolve-Path (Join-Path $here '..\..')).Path
-$run = Join-Path $project 'Saved\VideoTwinMVP\live'
-New-Item -ItemType Directory -Force $run | Out-Null
+$template = Join-Path $here 'mediamtx.videotwin.yml'
+if (-not (Test-Path $template)) { throw "mediamtx.videotwin.yml is missing next to this script ($here)." }
 
+$run = $here
 if (-not $Exe) {
-    foreach ($c in @((Join-Path $run 'mediamtx.exe'), (Join-Path $project 'Saved\VideoTwinMVP\live_test\mediamtx.exe'))) {
-        if (Test-Path $c) { $Exe = $c; break }
+    if (Test-Path (Join-Path $here 'mediamtx.exe')) {
+        $Exe = Join-Path $here 'mediamtx.exe'
+    } else {
+        # development layout: <project>\Tools\VideoTwin\start_live.ps1, exe kept out of git under Saved
+        $project = Split-Path -Parent (Split-Path -Parent $here)
+        foreach ($c in @((Join-Path $project 'Saved\VideoTwinMVP\live\mediamtx.exe'), (Join-Path $project 'Saved\VideoTwinMVP\live_test\mediamtx.exe'))) {
+            if (Test-Path $c) { $Exe = $c; $run = Join-Path $project 'Saved\VideoTwinMVP\live'; break }
+        }
     }
 }
-if (-not $Exe -or -not (Test-Path $Exe)) { throw "mediamtx.exe not found. Put it in $run or pass -Exe <path>." }
+if (-not $Exe -or -not (Test-Path $Exe)) { throw "mediamtx.exe not found. Put it next to this script or pass -Exe <path>." }
+New-Item -ItemType Directory -Force $run | Out-Null
 
 $camPwd = [Environment]::GetEnvironmentVariable('OFFICE_CAM_PASSWORD', 'Process')
 if (-not $camPwd) { $camPwd = [Environment]::GetEnvironmentVariable('OFFICE_CAM_PASSWORD', 'User') }
+if (-not $camPwd) { $camPwd = [Environment]::GetEnvironmentVariable('OFFICE_CAM_PASSWORD', 'Machine') }
 if (-not $camPwd) { throw "OFFICE_CAM_PASSWORD is not set. See the comment at the top of this script." }
 
 # One override per camera path found in the template: the address comes from the file, the password from the environment.
-$template = Join-Path $here 'mediamtx.videotwin.yml'
 $name = $null
 $count = 0
 foreach ($line in Get-Content $template) {
@@ -51,8 +62,8 @@ if ($count -eq 0) { throw "No camera paths with a source were found in $template
 [Environment]::SetEnvironmentVariable('MTX_LOGDESTINATIONS', 'file', 'Process')
 [Environment]::SetEnvironmentVariable('MTX_LOGFILE', (Join-Path $run 'mediamtx.log'), 'Process')
 
-# Replace an earlier instance started by this script (matched by this template's path, nothing else).
-Get-CimInstance Win32_Process -Filter "Name='mediamtx.exe'" | Where-Object { $_.CommandLine -like "*mediamtx.videotwin.yml*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
+# Replace an earlier instance started from this same template (matched by its path, nothing else).
+Get-CimInstance Win32_Process -Filter "Name='mediamtx.exe'" | Where-Object { $_.CommandLine -like "*$template*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
 
 Write-Output ("video twin live: {0} camera(s), HLS on {1}, log {2}" -f $count, $Listen, (Join-Path $run 'mediamtx.log'))
 Set-Location $run

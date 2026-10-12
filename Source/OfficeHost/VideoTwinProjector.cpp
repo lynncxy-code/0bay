@@ -55,12 +55,24 @@ FTransform AVideoTwinProjector::GetProjectionTransform() const
     if (bMeasuredCalibration) return FTransform(MeasuredRotation * RotationOffset.Quaternion(), MeasuredPosition + PositionOffset);
     return FTransform(T.GetRotation() * RotationOffset.Quaternion(), T.GetLocation() + PositionOffset);
 }
+/** Where calibration.json lives.
+ *  Content/VideoTwin is staged into a packaged build as loose files (DefaultGame.ini, DirectoriesToAlwaysStageAsNonUFS),
+ *  so the file exists at runtime and can still be edited on site without repackaging.
+ *  Tools/VideoTwin is the old location; it is not part of a packaged build and is kept only as a fallback. */
+static FString VideoTwinCalibrationPath()
+{
+    const FString Staged = FPaths::ProjectContentDir() / TEXT("VideoTwin/calibration.json");
+    if (FPaths::FileExists(Staged)) return Staged;
+    const FString Legacy = FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json");
+    if (FPaths::FileExists(Legacy)) return Legacy;
+    return Staged;
+}
 void AVideoTwinProjector::GetEnabledCameraIds(TArray<FString>& OutIds)
 {
     OutIds.Reset();
     if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoCalib"))) return;
     FString Text; TSharedPtr<FJsonObject> Root;
-    if (!FFileHelper::LoadFileToString(Text, *(FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json")))) return;
+    if (!FFileHelper::LoadFileToString(Text, *VideoTwinCalibrationPath())) return;
     if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text), Root) || !Root.IsValid()) return;
     const TArray<TSharedPtr<FJsonValue>>* List = nullptr;
     if (!Root->TryGetArrayField(TEXT("enabled_cameras"), List)) return;
@@ -71,7 +83,7 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     bMeasuredCalibration = false;
     // -VideoTwinNoCalib keeps the old hand-placed pose so the two can be compared side by side.
     if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoCalib"))) return false;
-    const FString Path = FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json");
+    const FString Path = VideoTwinCalibrationPath();
     FString Text;
     if (!FFileHelper::LoadFileToString(Text, *Path)) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: no calibration file at %s"),*Path); return false; }
     TSharedPtr<FJsonObject> Root;
@@ -541,13 +553,18 @@ void AVideoTwinRuntimeFeature::BeginPlay()
 }
 AVideoTwinProjector* AVideoTwinRuntimeFeature::SpawnProjectorFor(const FString& Id)
 {
-    const FString Label = FString::Printf(TEXT("OntoTwin_Camera_%s"), *Id);
     ACameraActor* Cam = nullptr;
+#if WITH_EDITOR
+    // Actor labels are an editor concept: GetActorLabel does not exist in a packaged build. The level's
+    // hand-placed camera is therefore only looked up here. A packaged build does not need it: with a measured
+    // calibration the projector knows its own pose and a view camera is spawned below.
+    const FString Label = FString::Printf(TEXT("OntoTwin_Camera_%s"), *Id);
     for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
     {
         const bool bLegacy17 = Id == TEXT("17") && (It->GetActorLabel().Equals(Camera17Label, ESearchCase::IgnoreCase) || It->GetName().Contains(TEXT("CameraActor_1")));
         if (It->GetActorLabel().Equals(Label, ESearchCase::IgnoreCase) || bLegacy17) { Cam = *It; break; }
     }
+#endif
     const FTransform At = Cam ? FTransform(Cam->GetActorRotation(), Cam->GetActorLocation()) : FTransform::Identity;
     // Deferred, so the camera id and assets are in place before the projector's BeginPlay reads the calibration.
     AVideoTwinProjector* P = GetWorld()->SpawnActorDeferred<AVideoTwinProjector>(AVideoTwinProjector::StaticClass(), At);
@@ -583,7 +600,9 @@ AVideoTwinProjector* AVideoTwinRuntimeFeature::SpawnProjectorFor(const FString& 
         P->Destroy();
         return nullptr;
     }
+#if WITH_EDITOR
     P->SetActorLabel(FString::Printf(TEXT("VideoTwin_Runtime_Projector_%s"), *Id));
+#endif
     const FTransform Pose = P->GetProjectionTransform();
     if (!Cam) Cam = GetWorld()->SpawnActor<ACameraActor>(Pose.GetLocation(), Pose.GetRotation().Rotator());
     if (P->bMeasuredCalibration && Cam)
@@ -598,7 +617,12 @@ AVideoTwinProjector* AVideoTwinRuntimeFeature::SpawnProjectorFor(const FString& 
     P->RefreshDepth();
     Projectors.Add(P);
     ViewCameras.Add(Cam);
-    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime: camera %s ready (measured=%d, recording=%d)"),*Id,P->bMeasuredCalibration?1:0,FPaths::FileExists(Movie)?1:0);
+    if (!P->ProjectionMaterial || !P->ReferenceTexture)
+    {
+        // In a packaged build this means /Game/VideoTwinMVP was not cooked (see DirectoriesToAlwaysCook in DefaultGame.ini).
+        UE_LOG(LogTemp,Error,TEXT("VideoTwin runtime: camera %s has no projection material or reference texture; nothing will be projected. Was /Game/VideoTwinMVP cooked?"),*Id);
+    }
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime: camera %s ready (measured=%d, recording=%d, material=%d, calibration=%s)"),*Id,P->bMeasuredCalibration?1:0,FPaths::FileExists(Movie)?1:0,P->ProjectionMaterial?1:0,*VideoTwinCalibrationPath());
     return P;
 }
 void AVideoTwinRuntimeFeature::BindRuntimeInput()
