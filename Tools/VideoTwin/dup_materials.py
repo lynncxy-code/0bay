@@ -5,7 +5,7 @@ import unreal
 # needs its own parent material. The copies are identical; only the asset identity differs.
 SRC = '/Game/VideoTwinMVP/M_VideoProjection'
 made, kept = [], []
-for cam in ['18', '21', '23', '24']:
+for cam in ['18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']:
     dst = '%s_%s' % (SRC, cam)
     if unreal.EditorAssetLibrary.does_asset_exist(dst):
         kept.append(dst)

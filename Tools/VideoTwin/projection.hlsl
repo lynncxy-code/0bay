@@ -25,6 +25,10 @@ mask *= lerp(1.0, visible, Options.w);
 if (Display.z > 0.5 && uv.x < 0.35 && uv.y < 0.14) mask = 0;
 if (Display.x > 0.5 && ScreenUV.x > 0.5) mask = 0;
 float3 video = Texture2DSampleLevel(VideoTex, VideoTexSampler, saturate(uv), 0).rgb;
+// This material runs after tonemapping, where scene colour is already display-encoded, but the sampler
+// returns linear values. Written as-is the picture came out a gamma step too dark (measured: source
+// mid-grey 154 shown as 84). Encode to sRGB so the video shows at its own brightness.
+video = lerp(video * 12.92, 1.055 * pow(max(video, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, video));
 if (Display.y > 0.5)
 {
     float3 coverage = lerp(float3(1,0.08,0.02),float3(0.03,0.9,0.35),visible);

@@ -67,3 +67,9 @@ paths:
     source: rtsp://admin:CHANGE_ME@192.168.229.9:554/LiveMedia/ch1/Media1?src=onvif
   cam18:
     source: rtsp://admin:CHANGE_ME@192.168.229.3:554/LiveMedia/ch1/Media1?src=onvif
+  cam21:
+    source: rtsp://admin:CHANGE_ME@192.168.229.6:554/LiveMedia/ch1/Media1?src=onvif
+  cam23:
+    source: rtsp://admin:CHANGE_ME@192.168.229.8:554/LiveMedia/ch1/Media1?src=onvif
+  cam19:
+    source: rtsp://admin:CHANGE_ME@192.168.229.4:554/LiveMedia/ch1/Media1?src=onvif

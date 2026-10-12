@@ -524,6 +524,9 @@ void AVideoTwinRuntimeFeature::LoadMockAssets()
 void AVideoTwinRuntimeFeature::BeginPlay()
 {
     Super::BeginPlay();
+    // -VideoTwinStartOff: start with fusion off, so the test run captures the bare model from every camera pose.
+    // Those pictures are what a camera's calibration is checked against.
+    if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinStartOff"))) bStartEnabled = false;
     TArray<FString> Ids;
     AVideoTwinProjector::GetEnabledCameraIds(Ids);
     if (Ids.Num() == 0) Ids.Add(TEXT("17"));     // no list in the calibration file: the original single-camera behaviour

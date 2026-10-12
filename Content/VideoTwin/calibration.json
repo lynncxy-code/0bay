@@ -130,18 +130,19 @@
         1440
       ],
       "receiver_min": [
-        1100.0,
-        -2500.0,
+        1400.0,
+        -1440.0,
         4315.0
       ],
       "receiver_max": [
-        2850.0,
-        -1440.0,
+        1850.0,
+        -820.0,
         4740.0
       ],
       "max_distance_cm": 1600,
       "priority": 502,
-      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned."
+      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
+      "stream_url": "http://127.0.0.1:8888/cam21/index.m3u8"
     },
     "23": {
       "verified": true,
@@ -176,18 +177,19 @@
         1440
       ],
       "receiver_min": [
-        1700.0,
-        -2500.0,
+        1850.0,
+        -1440.0,
         4315.0
       ],
       "receiver_max": [
         2850.0,
-        -1440.0,
+        -820.0,
         4740.0
       ],
       "max_distance_cm": 1300,
       "priority": 503,
-      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned."
+      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
+      "stream_url": "http://127.0.0.1:8888/cam23/index.m3u8"
     },
     "24": {
       "verified": true,
@@ -235,15 +237,440 @@
       "priority": 500,
       "receiver_note": "Workstation strip only, same idea as camera 17. In the level the desk row starts at X about 315..340 and the planter cabinet in front of it occupies X about 200..290, so X min 300 sits between them. The tall cabinets on the right stand at Y about -1000..-1130 (excluded by Y max -1150); the glass wall on the left is at Y -1595. Known mismatch: in the footage the real counter (round holes) sits at X about 324..470 and the real desks start near X 490, roughly 1.5 m further in than the model has them. So the counter's image lands on the near end of the virtual desk. Either the model's furniture is placed differently from reality here, or camera 24's position is off; not resolved.",
       "stream_url": "http://127.0.0.1:8888/cam24/index.m3u8"
+    },
+    "19": {
+      "verified": false,
+      "position_cm": [
+        890.7,
+        -1034.2,
+        4617.4
+      ],
+      "forward": [
+        0.74027,
+        0.580738,
+        -0.338738
+      ],
+      "up": [
+        0.266514,
+        0.209079,
+        0.940881
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture. Compared with the model view on 2026-10-12: same room, lettered wall and doorway in about the right place, error estimated 0.5 to 1 m. Enabled on that basis.",
+      "receiver_min": [
+        950.0,
+        -1090.0,
+        4315.0
+      ],
+      "receiver_max": [
+        1560.0,
+        -470.0,
+        4740.0
+      ],
+      "max_distance_cm": 1100,
+      "priority": 480,
+      "stream_url": "http://127.0.0.1:8888/cam19/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera."
+    },
+    "20": {
+      "verified": false,
+      "position_cm": [
+        3693.1,
+        -1695.6,
+        4617.4
+      ],
+      "forward": [
+        -0.694175,
+        0.188603,
+        -0.694658
+      ],
+      "up": [
+        -0.670357,
+        0.182132,
+        0.71934
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        2314,
+        -2338,
+        4315.0
+      ],
+      "receiver_max": [
+        3914,
+        -738,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 481,
+      "stream_url": "http://127.0.0.1:8888/cam20/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Server room. From the prior pose the model view is inside a wall, so nothing lines up."
+    },
+    "22": {
+      "verified": false,
+      "position_cm": [
+        2848.6,
+        -964.4,
+        4617.4
+      ],
+      "forward": [
+        0.607525,
+        -0.304226,
+        -0.73373
+      ],
+      "up": [
+        0.656068,
+        -0.328534,
+        0.679441
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        2585,
+        -2033,
+        4315.0
+      ],
+      "receiver_max": [
+        4185,
+        -433,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 482,
+      "stream_url": "http://127.0.0.1:8888/cam22/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Lounge. The model has neither the carpet inlay nor this furniture layout; pose cannot be confirmed."
+    },
+    "25": {
+      "verified": false,
+      "position_cm": [
+        4023.8,
+        -1291.1,
+        4617.4
+      ],
+      "forward": [
+        -0.352332,
+        0.64089,
+        -0.681998
+      ],
+      "up": [
+        -0.328555,
+        0.59764,
+        0.731354
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        2935,
+        -1565,
+        4315.0
+      ],
+      "receiver_max": [
+        4535,
+        35,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 483,
+      "stream_url": "http://127.0.0.1:8888/cam25/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Lobby. The model shows bare floor where the picture has the inlay and sofas; pose cannot be confirmed."
+    },
+    "26": {
+      "verified": false,
+      "position_cm": [
+        4980.4,
+        -1902.8,
+        4617.4
+      ],
+      "forward": [
+        0.801809,
+        0.544909,
+        -0.245307
+      ],
+      "up": [
+        0.202889,
+        0.137883,
+        0.969445
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        4677,
+        -2366,
+        4315.0
+      ],
+      "receiver_max": [
+        6277,
+        -766,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 484,
+      "stream_url": "http://127.0.0.1:8888/cam26/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Camera is mounted rolled and half the picture is a ceiling track. Model view shows a different scene."
+    },
+    "27": {
+      "verified": false,
+      "position_cm": [
+        4927.8,
+        -1902.5,
+        4617.4
+      ],
+      "forward": [
+        -0.746197,
+        0.475051,
+        -0.466387
+      ],
+      "up": [
+        -0.393425,
+        0.250466,
+        0.884581
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        3622,
+        -2380,
+        4315.0
+      ],
+      "receiver_max": [
+        5222,
+        -780,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 485,
+      "stream_url": "http://127.0.0.1:8888/cam27/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Camera is mounted strongly rolled; the prior pose assumes it is level. Model view does not match."
+    },
+    "28": {
+      "verified": false,
+      "position_cm": [
+        5055.1,
+        -170.8,
+        4617.4
+      ],
+      "forward": [
+        0.687749,
+        -0.568956,
+        -0.450878
+      ],
+      "up": [
+        0.347407,
+        -0.2874,
+        0.892586
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        4717,
+        -1353,
+        4315.0
+      ],
+      "receiver_max": [
+        6317,
+        247,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 486,
+      "stream_url": "http://127.0.0.1:8888/cam28/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Roughly matches (wall about 1 m off), but its whole floor area lies inside camera 18's region and 18 is measured."
+    },
+    "29": {
+      "verified": false,
+      "position_cm": [
+        926.0,
+        -1919.8,
+        4617.4
+      ],
+      "forward": [
+        0.838313,
+        0.386716,
+        -0.384295
+      ],
+      "up": [
+        0.348956,
+        0.160974,
+        0.92321
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        671,
+        -2468,
+        4315.0
+      ],
+      "receiver_max": [
+        2271,
+        -868,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 487,
+      "stream_url": "http://127.0.0.1:8888/cam29/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "Roughly matches, but it looks at the same desks as camera 17 from the other side and 17 is measured."
+    },
+    "30": {
+      "verified": false,
+      "position_cm": [
+        6537.8,
+        -1168.7,
+        4617.4
+      ],
+      "forward": [
+        -0.889474,
+        -0.299341,
+        -0.345298
+      ],
+      "up": [
+        -0.327263,
+        -0.110136,
+        0.938493
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39984,
+      "k2": 0.16012,
+      "division_K": -0.44822,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ],
+      "calibration_note": "PRIOR ONLY: position and orientation come from where the camera was placed in the scene model, the lens is the assumed 77.5 degrees, the height is the assumed 297.4 cm. Expected ground error about 1 m. Not confirmed against the picture.",
+      "receiver_min": [
+        5169,
+        -2160,
+        4315.0
+      ],
+      "receiver_max": [
+        6769,
+        -560,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 488,
+      "stream_url": "http://127.0.0.1:8888/cam30/index.m3u8",
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "disabled_reason": "A ceiling track fills the lower half of the picture. What remains does not match the model view."
     }
   },
   "_height_warning": "Only camera 17's height (297.4 cm) was confirmed by an external check. 18/21/23/24 are set to the same 297.4 cm on the assumption that identical domes on the same ceiling hang at the same height. That is an assumption, not a measurement; before it they carried the 305 cm scene default, which was not a measurement either.",
   "enabled_cameras": [
     "17",
     "24",
-    "18"
+    "18",
+    "21",
+    "23",
+    "19"
   ],
-  "_enabled_note": "Projectors are created for these ids, in this order (the first one is what the X key shows first). Each needs Content/Movies/Camera<id>_Real.mp4; without it the camera shows a still placeholder. Where receiver boxes overlap, the camera with the higher 'priority' is drawn last and wins.",
-  "_disabled_note": "21 and 23 are calibrated but not enabled. Both face the pantry bar and lounge, which are meant to stay virtual, and only graze the workstation strip at a shallow angle with a much darker exposure. Enabled, they added a torn dark band on the floor and made the area covered by camera 17 look worse. Add them back to enabled_cameras to compare.",
+  "_enabled_note": "17, 24, 18, 21, 23 are measured against their pictures. 19 is the only prior-only camera that both matches the model and covers an area no measured camera covers.",
+  "_disabled_note": "20, 22, 25-30 are kept here with their prior poses but switched off; each has a disabled_reason. To switch one on it needs a measured pose first, then a receiver box.",
   "_stream_note": "Each enabled camera has a \"stream_url\": the live HLS stream from the local MediaMTX converter (Tools/VideoTwin/start_live.ps1, config mediamtx.videotwin.yml, scheduled task VideoTwinLive). If the stream cannot be opened, or gives no picture within 12 s, the projector falls back to Content/Movies/Camera<id>_Real.mp4 and the status reads 'LIVE UNAVAILABLE, RECORDED LOOP'. Remove the line to always use the recording. Measured delay for this route: 4.0-4.7 s behind live (1 s segments). rtsp:// opened directly by WmfMedia also works (5.2 s). \"stream_live_offset\" has no effect on HLS. Do NOT enable WmfMedia's LowLatency setting."
 }
