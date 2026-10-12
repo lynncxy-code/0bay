@@ -269,7 +269,14 @@ void AVideoTwinDemoController::ShowOrbitView()
     if (!Projector || !Observer) return;
     const FTransform P = Projector->GetProjectionTransform();
     const FVector Target = P.GetLocation()+P.GetRotation().GetForwardVector()*650;
-    const FVector Position = P.GetLocation()+P.GetRotation().GetRightVector()*180+FVector(0,0,15);
+    FVector Position = P.GetLocation()+P.GetRotation().GetRightVector()*180+FVector(0,0,15);
+    if (Projector->bMeasuredCalibration)
+    {
+        // The real camera sits in a corner (facade about 1.7 m to its right, glass partition behind it),
+        // so stepping sideways leaves the building. Step into the room instead: forward along the floor and to the left.
+        const FVector FlatForward = P.GetRotation().GetForwardVector().GetSafeNormal2D();
+        Position = P.GetLocation()+FlatForward*300-P.GetRotation().GetRightVector()*250+FVector(0,0,-25);
+    }
     Observer->SetActorLocationAndRotation(Position,(Target-Position).Rotation());
     Observer->GetCameraComponent()->SetFieldOfView(90);
 }
