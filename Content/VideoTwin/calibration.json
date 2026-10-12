@@ -142,7 +142,8 @@
       "max_distance_cm": 1600,
       "priority": 502,
       "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
-      "stream_url": "http://127.0.0.1:8888/cam21/index.m3u8"
+      "stream_url": "http://127.0.0.1:8888/cam21/index.m3u8",
+      "disabled_reason": "Measured and correctly placed, but switched off on 2026-10-12 after review: in the pantry strip the model furniture (bar table, stools, planters, counter) is not where the real furniture is, so the video lands on the wrong shapes and smears. Needs the model corrected there, or that furniture hidden, before it is usable."
     },
     "23": {
       "verified": true,
@@ -189,7 +190,8 @@
       "max_distance_cm": 1300,
       "priority": 503,
       "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
-      "stream_url": "http://127.0.0.1:8888/cam23/index.m3u8"
+      "stream_url": "http://127.0.0.1:8888/cam23/index.m3u8",
+      "disabled_reason": "Measured and correctly placed, but switched off on 2026-10-12 after review: in the pantry strip the model furniture (bar table, stools, planters, counter) is not where the real furniture is, so the video lands on the wrong shapes and smears. Needs the model corrected there, or that furniture hidden, before it is usable."
     },
     "24": {
       "verified": true,
@@ -666,11 +668,9 @@
     "17",
     "24",
     "18",
-    "21",
-    "23",
     "19"
   ],
-  "_enabled_note": "17, 24, 18, 21, 23 are measured against their pictures. 19 is the only prior-only camera that both matches the model and covers an area no measured camera covers.",
-  "_disabled_note": "20, 22, 25-30 are kept here with their prior poses but switched off; each has a disabled_reason. To switch one on it needs a measured pose first, then a receiver box.",
+  "_enabled_note": "17, 24, 18 are measured against their pictures. 19 is prior-only: it matches the model and covers an area no measured camera covers.",
+  "_disabled_note": "21 and 23 are measured but off (model furniture mismatch, see their disabled_reason). 20, 22, 25-30 are prior-only and off; each has a disabled_reason.",
   "_stream_note": "Each enabled camera has a \"stream_url\": the live HLS stream from the local MediaMTX converter (Tools/VideoTwin/start_live.ps1, config mediamtx.videotwin.yml, scheduled task VideoTwinLive). If the stream cannot be opened, or gives no picture within 12 s, the projector falls back to Content/Movies/Camera<id>_Real.mp4 and the status reads 'LIVE UNAVAILABLE, RECORDED LOOP'. Remove the line to always use the recording. Measured delay for this route: 4.0-4.7 s behind live (1 s segments). rtsp:// opened directly by WmfMedia also works (5.2 s). \"stream_live_offset\" has no effect on HLS. Do NOT enable WmfMedia's LowLatency setting."
 }
