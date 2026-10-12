@@ -7,6 +7,7 @@
 #include "MeshDescription.h"
 #endif
 #include "GrandNeoBayWidget.h"
+#include "VideoTwinProjector.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/ChildActorComponent.h"
@@ -73,6 +74,14 @@ void AGrandNeoBayExperience::OnConstruction(const FTransform& Transform)
 void AGrandNeoBayExperience::BeginPlay()
 {
     Super::BeginPlay();
+    // The original Office_Demo remains the runtime entry point. Spawn the video
+    // fusion service here so the existing GameMode, pawn, WebUI and roaming
+    // camera stay intact. The isolated VideoTwinMVP map has its own controller
+    // and therefore does not create a second service.
+    if (GetWorld() && !GetWorld()->GetMapName().Contains(TEXT("VideoTwinMVP")))
+    {
+        VideoTwinRuntime = GetWorld()->SpawnActor<AVideoTwinRuntimeFeature>();
+    }
     BeginSeconds = FPlatformTime::Seconds();
     bSelfTest = FParse::Param(FCommandLine::Get(), TEXT("GNBTest"));
     bCampusTest = FParse::Param(FCommandLine::Get(), TEXT("CampusTest"));

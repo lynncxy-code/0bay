@@ -1,0 +1,439 @@
+#include "VideoTwinProjector.h"
+#include "Camera/CameraActor.h"
+#include "Camera/CameraComponent.h"
+#include "Components/SceneCaptureComponent2D.h"
+#include "Components/PostProcessComponent.h"
+#include "Engine/TextureRenderTarget2D.h"
+#include "Engine/Texture2D.h"
+#include "Engine/World.h"
+#include "Engine/Canvas.h"
+#include "Engine/Engine.h"
+#include "EngineUtils.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "MediaPlayer.h"
+#include "MediaTexture.h"
+#include "MediaSource.h"
+#include "Misc/CommandLine.h"
+#include "Misc/FileHelper.h"
+#include "Misc/Paths.h"
+#include "HAL/FileManager.h"
+#include "UnrealClient.h"
+#include "Blueprint/UserWidget.h"
+#include "Blueprint/WidgetTree.h"
+#include "Components/TextBlock.h"
+#include "Styling/CoreStyle.h"
+#include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
+#include "Misc/PackageName.h"
+
+AVideoTwinProjector::AVideoTwinProjector()
+{
+    PrimaryActorTick.bCanEverTick = true;
+    RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+    DepthCapture = CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("ProjectorDepth"));
+    DepthCapture->SetupAttachment(RootComponent);
+    DepthCapture->CaptureSource = SCS_SceneDepth;
+    DepthCapture->bCaptureEveryFrame = false;
+    DepthCapture->bCaptureOnMovement = false;
+    DepthCapture->bAlwaysPersistRenderingState = true;
+    ProjectionPostProcess = CreateDefaultSubobject<UPostProcessComponent>(TEXT("VideoFusion"));
+    ProjectionPostProcess->SetupAttachment(RootComponent);
+    ProjectionPostProcess->bUnbound = true;
+    ProjectionPostProcess->Priority = 500;
+}
+
+FTransform AVideoTwinProjector::GetProjectionTransform() const
+{
+    const UCameraComponent* Cam = SourceCamera ? SourceCamera->GetCameraComponent() : nullptr;
+    const FTransform T = Cam ? Cam->GetComponentTransform() : GetActorTransform();
+    return FTransform(T.GetRotation() * RotationOffset.Quaternion(), T.GetLocation() + PositionOffset);
+}
+float AVideoTwinProjector::GetProjectionFov() const
+{
+    return FMath::Clamp((SourceCamera ? SourceCamera->GetCameraComponent()->FieldOfView : 90.f) + FovOffset, 20.f, 150.f);
+}
+float AVideoTwinProjector::GetProjectionAspect() const
+{
+    return SourceCamera ? FMath::Max(0.1f, SourceCamera->GetCameraComponent()->AspectRatio) : 16.f/9.f;
+}
+void AVideoTwinProjector::InitializeResources()
+{
+    if (ProjectionMID || !ProjectionMaterial || !ReferenceTexture || IsRunningCommandlet()) return;
+    DepthTarget = NewObject<UTextureRenderTarget2D>(this);
+    DepthTarget->RenderTargetFormat = RTF_R32f;
+    DepthTarget->ClearColor = FLinearColor(1000000,0,0,0);
+    DepthTarget->Filter = TF_Nearest;
+    DepthTarget->InitAutoFormat(1920,1080);
+    DepthTarget->UpdateResourceImmediate(true);
+    DepthCapture->TextureTarget = DepthTarget;
+    DepthCapture->HiddenActors.Add(this);
+    if (SourceCamera) DepthCapture->HiddenActors.Add(SourceCamera);
+    ProjectionMID = UMaterialInstanceDynamic::Create(ProjectionMaterial, this);
+    ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"), ReferenceTexture);
+    ProjectionMID->SetTextureParameterValue(TEXT("ProjectorDepthTex"), DepthTarget);
+    ProjectionPostProcess->AddOrUpdateBlendable(ProjectionMID,1.f);
+    bDepthDirty = true;
+}
+void AVideoTwinProjector::BeginPlay()
+{
+    Super::BeginPlay();
+    InitializeResources();
+    OpenVideo();
+}
+void AVideoTwinProjector::OpenVideo()
+{
+    bVideoReady = false;
+    OpenAge = 0;
+    if (!MediaSource) { Status = TEXT("REFERENCE | no media source"); return; }
+    if (!Player)
+    {
+        Player = NewObject<UMediaPlayer>(this);
+        Player->PlayOnOpen = true;
+        Player->OnMediaOpened.AddDynamic(this,&AVideoTwinProjector::MediaOpened);
+        Player->OnMediaOpenFailed.AddDynamic(this,&AVideoTwinProjector::MediaFailed);
+        VideoTexture = NewObject<UMediaTexture>(this);
+        VideoTexture->NewStyleOutput = true;
+        VideoTexture->AutoClear = false;
+        VideoTexture->SetMediaPlayer(Player);
+        VideoTexture->UpdateResource();
+    }
+    Player->SetLooping(bMockSource);
+    Status = TEXT("OPENING | reference fallback");
+    if (!Player->OpenSource(MediaSource)) MediaFailed(TEXT(""));
+}
+void AVideoTwinProjector::MediaOpened(FString Url)
+{
+    Status = bMockSource ? TEXT("MOCK VIDEO | opening first frame") : TEXT("VIDEO | opening first frame");
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s media opened"),*CameraId);
+}
+void AVideoTwinProjector::MediaFailed(FString Url)
+{
+    bVideoReady = false;
+    Status = TEXT("MEDIA FAILED | reference fallback");
+    UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s media failed; using reference image"),*CameraId);
+}
+void AVideoTwinProjector::TogglePlayback()
+{
+    if (!Player || !bVideoReady) return;
+    if (Player->IsPlaying()) Player->Pause(); else Player->Play();
+}
+UTexture* AVideoTwinProjector::GetDisplayTexture() const
+{
+    return bVideoReady && VideoTexture ? static_cast<UTexture*>(VideoTexture.Get()) : static_cast<UTexture*>(ReferenceTexture.Get());
+}
+void AVideoTwinProjector::ResetCalibration()
+{
+    PositionOffset = FVector::ZeroVector;
+    RotationOffset = FRotator::ZeroRotator;
+    FovOffset = 0;
+    PrincipalPoint = FVector2D(0.5,0.5);
+    RadialDistortion = FVector2D::ZeroVector;
+    RefreshDepth();
+}
+void AVideoTwinProjector::RefreshDepth() { bDepthDirty = true; }
+void AVideoTwinProjector::UpdateProjection()
+{
+    if (!ProjectionMID) return;
+    const FTransform Pose = GetProjectionTransform();
+    const float Fov = GetProjectionFov();
+    if (!Pose.Equals(LastPose,0.001) || !FMath::IsNearlyEqual(Fov,LastFov) || !PrincipalPoint.Equals(LastPrincipal)) bDepthDirty = true;
+    const FQuat Q = Pose.GetRotation();
+    auto V = [this](FName Name, FVector Value) { ProjectionMID->SetVectorParameterValue(Name,FLinearColor(Value.X,Value.Y,Value.Z,0)); };
+    V(TEXT("ProjectorPosition"),Pose.GetLocation());
+    V(TEXT("ProjectorForward"),Q.GetForwardVector());
+    V(TEXT("ProjectorRight"),Q.GetRightVector());
+    V(TEXT("ProjectorUp"),Q.GetUpVector());
+    V(TEXT("ReceiverMin"),ReceiverMin); V(TEXT("ReceiverMax"),ReceiverMax);
+    ProjectionMID->SetVectorParameterValue(TEXT("Lens"),FLinearColor(FMath::Tan(FMath::DegreesToRadians(Fov*.5f)),GetProjectionAspect(),PrincipalPoint.X,PrincipalPoint.Y));
+    ProjectionMID->SetVectorParameterValue(TEXT("Distortion"),FLinearColor(RadialDistortion.X,RadialDistortion.Y,0,0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled?Opacity:0,DepthToleranceCm,MaxDistanceCm,bUseOcclusion&&bDepthReady?1:0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Display"),FLinearColor(bSplitView?1:0,bDepthDebug?1:0,bMaskTimestamp?1:0,0));
+    ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"),GetDisplayTexture());
+    if (bDepthDirty)
+    {
+        DepthCapture->SetWorldTransform(Pose);
+        DepthCapture->FOVAngle = Fov;
+        // UE perspective projection: +X forward, +Y right, +Z up, reversed Z.
+        const float X = 1.f/FMath::Tan(FMath::DegreesToRadians(Fov*.5f));
+        DepthCapture->bUseCustomProjectionMatrix = true;
+        DepthCapture->CustomProjectionMatrix = FMatrix(FPlane(X,0,0,0), FPlane(0,X*GetProjectionAspect(),0,0),
+            FPlane(2*PrincipalPoint.X-1,1-2*PrincipalPoint.Y,0,1), FPlane(0,0,1,0));
+        DepthCapture->CaptureScene();
+        bDepthReady = true;
+        bDepthDirty = false;
+        DepthAge = 0;
+        LastPose = Pose; LastFov = Fov; LastPrincipal = PrincipalPoint;
+    }
+}
+void AVideoTwinProjector::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    InitializeResources();
+    DepthAge += DeltaSeconds;
+    // The mock office is static; update at 2 Hz for doors/chairs moved in the demo.
+    if (bEnabled && DepthAge > .5f) bDepthDirty = true;
+    if (Player)
+    {
+        OpenAge += DeltaSeconds;
+        if (Player->HasError()) MediaFailed(TEXT(""));
+        if (!bVideoReady && Player->IsReady() && VideoTexture && VideoTexture->GetWidth()>16 && Player->GetTime().GetTotalSeconds()>.05)
+            bVideoReady = true;
+        if (bVideoReady) Status = (bMockSource?TEXT("MOCK VIDEO | "):TEXT("VIDEO | ")) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
+        else if (OpenAge>10 && Status.StartsWith(TEXT("OPENING"))) Status = TEXT("OPEN TIMEOUT | reference fallback");
+    }
+    UpdateProjection();
+}
+void AVideoTwinProjector::EndPlay(const EEndPlayReason::Type Reason)
+{
+    if (Player) { Player->OnMediaOpened.RemoveAll(this); Player->OnMediaOpenFailed.RemoveAll(this); Player->Close(); }
+    if (ProjectionMID) ProjectionPostProcess->Settings.RemoveBlendable(ProjectionMID);
+    Super::EndPlay(Reason);
+}
+
+AVideoTwinDemoGameMode::AVideoTwinDemoGameMode()
+{
+    PlayerControllerClass = AVideoTwinDemoController::StaticClass();
+    HUDClass = AVideoTwinDemoHUD::StaticClass();
+    DefaultPawnClass = nullptr;
+}
+void AVideoTwinDemoController::BeginPlay()
+{
+    Super::BeginPlay();
+    for (TActorIterator<AVideoTwinProjector> It(GetWorld()); It; ++It) { Projector = *It; break; }
+    Observer = GetWorld()->SpawnActor<ACameraActor>();
+    Observer->GetCameraComponent()->bConstrainAspectRatio = false;
+    Observer->GetCameraComponent()->PostProcessSettings.bOverride_AutoExposureMethod = true;
+    Observer->GetCameraComponent()->PostProcessSettings.AutoExposureMethod = AEM_Manual;
+    Observer->GetCameraComponent()->PostProcessSettings.bOverride_AutoExposureApplyPhysicalCameraExposure = true;
+    Observer->GetCameraComponent()->PostProcessSettings.AutoExposureApplyPhysicalCameraExposure = false;
+    bShowMouseCursor = true;
+    bAutoManageActiveCameraTarget = false;
+    SetInputMode(FInputModeGameOnly());
+    SetViewTarget(Observer);
+    ConsoleCommand(TEXT("r.Shadow.Virtual.NonNanite.IncludeInCoarsePages 0"),false);
+    ConsoleCommand(TEXT("r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel 32"),false);
+    ShowSourceView();
+    bAutomatedTest = FParse::Param(FCommandLine::Get(),TEXT("VideoTwinTest"));
+}
+void AVideoTwinDemoController::ShowSourceView()
+{
+    if (!Projector || !Observer) return;
+    Observer->SetActorTransform(Projector->GetProjectionTransform());
+    Observer->GetCameraComponent()->SetFieldOfView(Projector->GetProjectionFov());
+}
+void AVideoTwinDemoController::ShowOrbitView()
+{
+    if (!Projector || !Observer) return;
+    const FTransform P = Projector->GetProjectionTransform();
+    const FVector Target = P.GetLocation()+P.GetRotation().GetForwardVector()*650;
+    const FVector Position = P.GetLocation()+P.GetRotation().GetRightVector()*180+FVector(0,0,15);
+    Observer->SetActorLocationAndRotation(Position,(Target-Position).Rotation());
+    Observer->GetCameraComponent()->SetFieldOfView(90);
+}
+void AVideoTwinDemoController::PlayerTick(float DeltaSeconds)
+{
+    Super::PlayerTick(DeltaSeconds);
+    Elapsed += DeltaSeconds;
+    if (!Projector || !Observer) return;
+    if (WasInputKeyJustPressed(EKeys::One)) Projector->bEnabled = !Projector->bEnabled;
+    if (WasInputKeyJustPressed(EKeys::Two)) ShowSourceView();
+    if (WasInputKeyJustPressed(EKeys::Three)) ShowOrbitView();
+    if (WasInputKeyJustPressed(EKeys::Four)) Projector->bSplitView = !Projector->bSplitView;
+    if (WasInputKeyJustPressed(EKeys::Five)) Projector->bDepthDebug = !Projector->bDepthDebug;
+    if (WasInputKeyJustPressed(EKeys::SpaceBar)) Projector->TogglePlayback();
+    if (WasInputKeyJustPressed(EKeys::R)) Projector->ResetCalibration();
+    if (WasInputKeyJustPressed(EKeys::O)) Projector->bUseOcclusion = !Projector->bUseOcclusion;
+    if (WasInputKeyJustPressed(EKeys::PageUp)) Projector->FovOffset += .5f;
+    if (WasInputKeyJustPressed(EKeys::PageDown)) Projector->FovOffset -= .5f;
+    if (WasInputKeyJustPressed(EKeys::Left)) Projector->RotationOffset.Yaw -= .25f;
+    if (WasInputKeyJustPressed(EKeys::Right)) Projector->RotationOffset.Yaw += .25f;
+    if (WasInputKeyJustPressed(EKeys::Up)) Projector->RotationOffset.Pitch += .25f;
+    if (WasInputKeyJustPressed(EKeys::Down)) Projector->RotationOffset.Pitch -= .25f;
+    if (IsInputKeyDown(EKeys::RightMouseButton))
+    {
+        float X,Y; GetInputMouseDelta(X,Y);
+        FRotator R = Observer->GetActorRotation(); R.Yaw += X*.16f; R.Pitch = FMath::Clamp(R.Pitch+Y*.16f,-89.f,89.f);
+        Observer->SetActorRotation(R);
+    }
+    FVector Move = FVector::ZeroVector;
+    if (IsInputKeyDown(EKeys::W)) Move += Observer->GetActorForwardVector();
+    if (IsInputKeyDown(EKeys::S)) Move -= Observer->GetActorForwardVector();
+    if (IsInputKeyDown(EKeys::D)) Move += Observer->GetActorRightVector();
+    if (IsInputKeyDown(EKeys::A)) Move -= Observer->GetActorRightVector();
+    if (IsInputKeyDown(EKeys::E)) Move.Z += 1;
+    if (IsInputKeyDown(EKeys::Q)) Move.Z -= 1;
+    Observer->AddActorWorldOffset(Move.GetClampedToMaxSize(1)*DeltaSeconds*(IsInputKeyDown(EKeys::LeftShift)?700:200));
+    if (bAutomatedTest) RunAcceptance();
+}
+void AVideoTwinDemoController::RunAcceptance()
+{
+    const FString Dir = FPaths::ProjectSavedDir()/TEXT("VideoTwinMVP");
+    IFileManager::Get().MakeDirectory(*Dir,true);
+    auto Shot = [&](const TCHAR* Name) { FScreenshotRequest::RequestScreenshot(Dir/Name,true,false); };
+    if (TestStep==0 && Elapsed>12) { ShowSourceView(); Shot(TEXT("01_source.png")); ++TestStep; }
+    else if (TestStep==1 && Elapsed>15) { Projector->bEnabled=false; ++TestStep; }
+    else if (TestStep==2 && Elapsed>17) { Shot(TEXT("02_model.png")); ++TestStep; }
+    else if (TestStep==3 && Elapsed>19) { Projector->bEnabled=true; ShowOrbitView(); ++TestStep; }
+    else if (TestStep==4 && Elapsed>22) { Shot(TEXT("03_orbit.png")); ++TestStep; }
+    else if (TestStep==5 && Elapsed>24) { Projector->bSplitView=true; ++TestStep; }
+    else if (TestStep==6 && Elapsed>26) { Shot(TEXT("04_comparison.png")); ++TestStep; }
+    else if (TestStep==7 && Elapsed>28)
+    {
+        Projector->bSplitView=false;
+        const bool Ready=Projector->GetPlayer()&&Projector->GetPlayer()->IsPlaying()&&Projector->GetDisplayTexture()!=Projector->ReferenceTexture;
+        const FString Result=FString::Printf(TEXT("{\"media_playing\":%s,\"depth_ready\":%s,\"camera_id\":\"%s\",\"elapsed_seconds\":%.2f,\"status\":\"%s\"}"),Ready?TEXT("true"):TEXT("false"),Projector->bDepthReady?TEXT("true"):TEXT("false"),*Projector->CameraId,Elapsed,*Projector->Status);
+        FFileHelper::SaveStringToFile(Result,*(Dir/TEXT("runtime_acceptance.json")));
+        UE_LOG(LogTemp,Display,TEXT("VIDEOTWIN_ACCEPTANCE %s"),*Result);
+        ++TestStep;
+    }
+}
+void AVideoTwinDemoHUD::DrawHUD()
+{
+    Super::DrawHUD();
+    const AVideoTwinDemoController* PC=Cast<AVideoTwinDemoController>(GetOwningPlayerController());
+    AVideoTwinProjector* P=PC?PC->GetProjector():nullptr;
+    if (!P || !Canvas) return;
+    const float W=Canvas->SizeX, H=Canvas->SizeY;
+    DrawRect(FLinearColor(.015,.022,.035,.94),0,0,W,82);
+    DrawText(TEXT("OFFICE / VIDEO TWIN"),FLinearColor(.1,.9,.8),22,13,nullptr,1.45);
+    DrawText(TEXT("CAM 17  /  SINGLE-SOURCE MVP"),FLinearColor::White,22,42,nullptr,1.05);
+    DrawText(P->Status,FLinearColor(1,.75,.2),W-390,15,nullptr,1.05);
+    DrawText(TEXT("14 camera poses | 1 mock feed | lens uncalibrated"),FLinearColor(.65,.73,.8),W-390,43,nullptr,.85);
+    DrawRect(FLinearColor(.015,.022,.035,.94),0,H-102,W,102);
+    DrawText(TEXT("[1] Fusion   [2] Camera 17   [3] Offset view   [4] Compare   [5] Coverage   [Space] Pause   [O] Occlusion"),FLinearColor::White,22,H-90,nullptr,1);
+    DrawText(TEXT("Move: WASD + Q/E   |   Look: hold RMB   |   Shift: fast   |   Lens: PgUp/PgDn   |   Aim: arrows   |   R: reset"),FLinearColor(.65,.73,.8),22,H-63,nullptr,.92);
+    DrawText(FString::Printf(TEXT("Fusion %s | FOV %.1f | yaw offset %.2f | pitch offset %.2f | depth %s | mock = supplied still + test marker"),P->bEnabled?TEXT("ON"):TEXT("OFF"),P->GetProjectionFov(),P->RotationOffset.Yaw,P->RotationOffset.Pitch,P->bUseOcclusion?TEXT("ON"):TEXT("OFF")),FLinearColor(.1,.9,.8),22,H-36,nullptr,.9);
+    const float PW=230, PH=PW*9/16;
+    DrawRect(FLinearColor(.01,.02,.03,.9),W-PW-24,102,PW+8,PH+29);
+    if (P->GetDisplayTexture()) DrawTexture(P->GetDisplayTexture(),W-PW-20,106,PW,PH,0,0,1,1);
+    DrawText(TEXT("CAM 17 / MOCK SOURCE"),FLinearColor(.1,.9,.8),W-PW-17,PH+110,nullptr,.8);
+}
+
+void UVideoTwinRuntimeWidget::NativeOnInitialized()
+{
+    Super::NativeOnInitialized();
+    Text = WidgetTree->ConstructWidget<UTextBlock>(UTextBlock::StaticClass(), TEXT("VideoTwinRuntimeStatus"));
+    Text->SetColorAndOpacity(FLinearColor(.1f,.95f,.85f,1.f));
+    Text->SetFont(FCoreStyle::GetDefaultFontStyle(TEXT("Bold"), 14));
+    Text->SetShadowOffset(FVector2D(1,1));
+    Text->SetShadowColorAndOpacity(FLinearColor(0,0,0,.8f));
+    Text->SetText(FText::FromString(TEXT("VIDEO TWIN  |  Z/X/C 控制摄像头17")));
+    WidgetTree->RootWidget = Text;
+    SetPositionInViewport(FVector2D(24, 94), false);
+    SetDesiredSizeInViewport(FVector2D(620, 80));
+}
+void UVideoTwinRuntimeWidget::NativeTick(const FGeometry& Geometry, float DeltaSeconds)
+{
+    Super::NativeTick(Geometry, DeltaSeconds);
+    if (!Text || !Feature) return;
+    const AVideoTwinProjector* P = Feature->GetProjector();
+    FString Line = TEXT("VIDEO TWIN  |  Z 融合  X 摄像头17视角  C 返回原视角");
+    if (P)
+    {
+        Line += FString::Printf(TEXT("\n摄像头17  %s  |  %s  |  深度遮挡 %s"),
+            P->bEnabled ? TEXT("融合开启") : TEXT("融合关闭"), *P->Status,
+            P->bUseOcclusion ? TEXT("开启") : TEXT("关闭"));
+    }
+    Text->SetText(FText::FromString(Line));
+}
+
+AVideoTwinRuntimeFeature::AVideoTwinRuntimeFeature()
+{
+    PrimaryActorTick.bCanEverTick = true;
+    PrimaryActorTick.TickGroup = TG_PostUpdateWork;
+    RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RuntimeVideoTwinRoot"));
+}
+void AVideoTwinRuntimeFeature::LoadMockAssets()
+{
+    if (!Projector) return;
+    Projector->ReferenceTexture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/T_Camera17_Reference.T_Camera17_Reference")));
+    Projector->MediaSource = Cast<UMediaSource>(StaticLoadObject(UMediaSource::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/MS_Camera17_Mock.MS_Camera17_Mock")));
+    Projector->ProjectionMaterial = Cast<UMaterialInterface>(StaticLoadObject(UMaterialInterface::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/M_VideoProjection.M_VideoProjection")));
+}
+void AVideoTwinRuntimeFeature::BeginPlay()
+{
+    Super::BeginPlay();
+    for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
+    {
+        if (It->GetActorLabel().Equals(Camera17Label, ESearchCase::IgnoreCase) || It->GetName().Contains(TEXT("CameraActor_1"))) { Camera17 = *It; break; }
+    }
+    if (!Camera17)
+    {
+        UE_LOG(LogTemp,Warning,TEXT("VideoTwin runtime: authored camera 17 was not found"));
+        return;
+    }
+    Projector = GetWorld()->SpawnActor<AVideoTwinProjector>(Camera17->GetActorLocation(), Camera17->GetActorRotation());
+    Projector->CameraId = TEXT("17");
+    Projector->SourceCamera = Camera17;
+    Projector->bMockSource = true;
+    Projector->bEnabled = bStartEnabled;
+    Projector->SetActorLabel(TEXT("VideoTwin_Runtime_Projector_17"));
+    LoadMockAssets();
+    // SpawnActor may run the projector's BeginPlay before these assets are assigned.
+    // Explicitly open the source after wiring the runtime assets so the original map
+    // follows the same path as the standalone acceptance map.
+    Projector->OpenVideo();
+    Projector->RefreshDepth();
+    if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
+    {
+        Controller = PC;
+        Widget = CreateWidget<UVideoTwinRuntimeWidget>(PC);
+        if (Widget)
+        {
+            Widget->SetFeature(this);
+            Widget->AddToViewport(12000);
+        }
+        BindRuntimeInput();
+    }
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime feature ready: camera 17 (Z/X/C; original controls remain unchanged)"));
+}
+void AVideoTwinRuntimeFeature::BindRuntimeInput()
+{
+    if (!Controller.IsValid()) return;
+    EnableInput(Controller.Get());
+}
+void AVideoTwinRuntimeFeature::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    if (!Controller.IsValid()) return;
+    // Poll the controller's edge state instead of binding repeated key-down events.
+    // This makes one physical press produce one action even when the key is held.
+    if (Controller->WasInputKeyJustPressed(EKeys::Z)) ToggleCamera17Fusion();
+    if (Controller->WasInputKeyJustPressed(EKeys::X)) EnterCamera17View();
+    if (Controller->WasInputKeyJustPressed(EKeys::C)) ExitCamera17View();
+}
+void AVideoTwinRuntimeFeature::HandleToggle() { ToggleCamera17Fusion(); }
+void AVideoTwinRuntimeFeature::HandleEnterView() { EnterCamera17View(); }
+void AVideoTwinRuntimeFeature::HandleExitView() { ExitCamera17View(); }
+void AVideoTwinRuntimeFeature::ToggleCamera17Fusion()
+{
+    if (Projector)
+    {
+        Projector->bEnabled = !Projector->bEnabled;
+        Projector->RefreshDepth();
+        UE_LOG(LogTemp, Display, TEXT("VideoTwin camera 17 fusion %s"), Projector->bEnabled ? TEXT("enabled") : TEXT("disabled"));
+    }
+}
+bool AVideoTwinRuntimeFeature::IsCamera17FusionEnabled() const { return Projector && Projector->bEnabled; }
+void AVideoTwinRuntimeFeature::EnterCamera17View()
+{
+    if (!Projector || !Camera17 || !Controller.IsValid()) return;
+    if (!bInCamera17View) SavedViewTarget = Controller->GetViewTarget();
+    bInCamera17View = true;
+    Controller->SetViewTargetWithBlend(Camera17, .35f, VTBlend_Cubic);
+    UE_LOG(LogTemp, Display, TEXT("VideoTwin entered camera 17 view"));
+}
+void AVideoTwinRuntimeFeature::ExitCamera17View()
+{
+    if (!Controller.IsValid()) return;
+    bInCamera17View = false;
+    if (SavedViewTarget.IsValid()) Controller->SetViewTargetWithBlend(SavedViewTarget.Get(), .35f, VTBlend_Cubic);
+    UE_LOG(LogTemp, Display, TEXT("VideoTwin returned to original view"));
+}
+void AVideoTwinRuntimeFeature::EndPlay(const EEndPlayReason::Type Reason)
+{
+    ExitCamera17View();
+    if (Widget) Widget->RemoveFromParent();
+    if (Projector) Projector->Destroy();
+    Super::EndPlay(Reason);
+}

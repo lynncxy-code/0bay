@@ -1,0 +1,254 @@
+[
+  {
+    "camera_id": "17",
+    "actor_label": "OntoTwin_Camera_17",
+    "position_cm": [
+      2406.449803775772,
+      -1797.2797395923546,
+      4673.42066593523
+    ],
+    "rotation_deg": [
+      -25.999900119209318,
+      154.3137769742716,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": "/Game/VideoTwinMVP/MS_Camera17_Mock.MS_Camera17_Mock",
+    "status": "mock"
+  },
+  {
+    "camera_id": "18",
+    "actor_label": "OntoTwin_Camera_18",
+    "position_cm": [
+      5561.7838195336735,
+      -763.3294763955063,
+      4569.533926136605
+    ],
+    "rotation_deg": [
+      -17.600000262260444,
+      147.0000021904707,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "19",
+    "actor_label": "OntoTwin_Camera_19",
+    "position_cm": [
+      890.6450114439177,
+      -1034.1534701466308,
+      4615.0
+    ],
+    "rotation_deg": [
+      -19.800000295042988,
+      38.11368937790393,
+      1.6902007099662377e-15
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "20",
+    "actor_label": "OntoTwin_Camera_20",
+    "position_cm": [
+      3693.04,
+      -1695.56,
+      4615.0
+    ],
+    "rotation_deg": [
+      -43.999900132417665,
+      164.80000245571136,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "21",
+    "actor_label": "OntoTwin_Camera_21",
+    "position_cm": [
+      1058.8784724256586,
+      -1156.3627722934339,
+      4680.142268142837
+    ],
+    "rotation_deg": [
+      -28.799899905920046,
+      -4.199994698166851,
+      -2.268435026286724e-16
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "22",
+    "actor_label": "OntoTwin_Camera_22",
+    "position_cm": [
+      2788.6783924722176,
+      -982.7542842948938,
+      4596.492863826533
+    ],
+    "rotation_deg": [
+      -47.1999001801014,
+      -26.599995031952854,
+      -2.3405617804425162e-15
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "23",
+    "actor_label": "OntoTwin_Camera_23",
+    "position_cm": [
+      1669.46,
+      -1058.4217166024955,
+      4615.0
+    ],
+    "rotation_deg": [
+      -17.600000262260426,
+      -19.800000295042977,
+      4.170931894253225e-16
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "24",
+    "actor_label": "OntoTwin_Camera_24",
+    "position_cm": [
+      77.83,
+      -1565.1837119893066,
+      4615.0
+    ],
+    "rotation_deg": [
+      -21.800000324845325,
+      34.00000050663951,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "25",
+    "actor_label": "OntoTwin_Camera_25",
+    "position_cm": [
+      4003.0292244644793,
+      -1465.5010575614865,
+      4881.840281102033
+    ],
+    "rotation_deg": [
+      -43.00000064074994,
+      118.80000177025795,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "26",
+    "actor_label": "OntoTwin_Camera_26",
+    "position_cm": [
+      4980.359552733566,
+      -1902.8467335062069,
+      4615.0
+    ],
+    "rotation_deg": [
+      -14.20000021159649,
+      34.20000050961973,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "27",
+    "actor_label": "OntoTwin_Camera_27",
+    "position_cm": [
+      4980.254252505106,
+      -1818.2277083884899,
+      4615.0
+    ],
+    "rotation_deg": [
+      -27.80000041425229,
+      147.51837694644928,
+      1.797774755903148e-15
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "28",
+    "actor_label": "OntoTwin_Camera_28",
+    "position_cm": [
+      5055.07,
+      -170.7706441186826,
+      4622.694840303536
+    ],
+    "rotation_deg": [
+      -26.80000039935112,
+      -39.600000590086005,
+      0.0
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "29",
+    "actor_label": "OntoTwin_Camera_29",
+    "position_cm": [
+      844.0544199773839,
+      -1949.59826389671,
+      4655.267401526589
+    ],
+    "rotation_deg": [
+      -22.60000033676624,
+      24.764192372560505,
+      8.612758584906249e-16
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  },
+  {
+    "camera_id": "30",
+    "actor_label": "OntoTwin_Camera_30",
+    "position_cm": [
+      6364.815928150171,
+      -1143.8837245262223,
+      4688.973457622909
+    ],
+    "rotation_deg": [
+      -20.20000030100345,
+      -161.40000240504742,
+      4.2362524420521387e-16
+    ],
+    "horizontal_fov": 90.0,
+    "aspect": 1.7777780294418335,
+    "source_asset": null,
+    "status": "not_configured"
+  }
+]

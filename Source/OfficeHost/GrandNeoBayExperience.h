@@ -11,6 +11,7 @@ class UStaticMeshComponent;
 class UMaterialInstanceDynamic;
 class UGrandNeoBayWidget;
 class ACampusInteraction;
+class AVideoTwinRuntimeFeature;
 
 /** Optional building presentation. The office actors and the existing roaming system stay in place. */
 UCLASS(Blueprintable)
@@ -36,6 +37,9 @@ public:
     TObjectPtr<UStaticMeshComponent> FloorOutline;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="GrandNeoBay")
     TObjectPtr<UCameraComponent> OverviewCamera;
+    /** Runtime video-twin feature, spawned additively in the authored Office_Demo map. */
+    UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="GrandNeoBay|Video Twin")
+    TObjectPtr<AVideoTwinRuntimeFeature> VideoTwinRuntime;
 
     /** In building-local centimetres; the floor follows the placed building actor. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GrandNeoBay|Floor", meta=(MakeEditWidget=true))
