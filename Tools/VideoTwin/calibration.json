@@ -1,0 +1,172 @@
+{
+  "_about": "Measured camera calibration for the video twin projector. Source: video-projection /ue/projectors (vanishing points, confirmed by reprojection, cm-level). UE left-handed world, centimetres.",
+  "_axes": "forward/up are unit vectors in UE world space; build the rotation with MakeFromXZ(forward, up). Do not convert through Euler angles.",
+  "_distortion": "The lens follows a division model: scale = 2/(1+sqrt(1-4*K*r^2)), r in tan units. k1/k2 are a least-squares fit of that curve to the shader's existing 1+k1*r^2+k2*r^4 form; fit error is given per camera in source pixels. Replace with the exact model when the material is next rebuilt.",
+  "cameras": {
+    "17": {
+      "verified": true,
+      "position_cm": [
+        2576.4,
+        -1921.1,
+        4625.0
+      ],
+      "forward": [
+        -0.876503,
+        0.328552,
+        -0.351846
+      ],
+      "up": [
+        -0.327081,
+        0.129823,
+        0.936036
+      ],
+      "horizontal_fov_deg": 78.559,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.37626,
+      "k2": 0.14325,
+      "fit_max_error_px": 4.39,
+      "division_K": -0.42017,
+      "lambda": -0.3699999999999998,
+      "focal_px": 1565.0,
+      "image_size": [
+        2560,
+        1440
+      ]
+    },
+    "18": {
+      "verified": true,
+      "position_cm": [
+        5701.1,
+        -890.4,
+        4625.0
+      ],
+      "forward": [
+        -0.861926,
+        0.349805,
+        -0.367041
+      ],
+      "up": [
+        -0.321431,
+        0.182874,
+        0.929107
+      ],
+      "horizontal_fov_deg": 76.113,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.41067,
+      "k2": 0.17065,
+      "fit_max_error_px": 4.39,
+      "division_K": -0.45859,
+      "lambda": -0.3699999999999998,
+      "focal_px": 1635.0,
+      "image_size": [
+        2560,
+        1440
+      ]
+    },
+    "21": {
+      "verified": true,
+      "position_cm": [
+        1042.9,
+        -1139.2,
+        4625.0
+      ],
+      "forward": [
+        0.848016,
+        -0.14706,
+        -0.509158
+      ],
+      "up": [
+        0.499233,
+        -0.100762,
+        0.860589
+      ],
+      "horizontal_fov_deg": 77.495,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.39082,
+      "k2": 0.15456,
+      "fit_max_error_px": 4.39,
+      "division_K": -0.43643,
+      "lambda": -0.3699999999999998,
+      "focal_px": 1595.0,
+      "image_size": [
+        2560,
+        1440
+      ]
+    },
+    "23": {
+      "verified": true,
+      "position_cm": [
+        1669.5,
+        -1058.4,
+        4625.0
+      ],
+      "forward": [
+        0.858221,
+        -0.326629,
+        -0.395943
+      ],
+      "up": [
+        0.369072,
+        -0.143398,
+        0.918272
+      ],
+      "horizontal_fov_deg": 76.972,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.37017,
+      "k2": 0.14317,
+      "fit_max_error_px": 3.74,
+      "division_K": -0.40862,
+      "lambda": -0.33999999999999975,
+      "focal_px": 1610.0,
+      "image_size": [
+        2560,
+        1440
+      ]
+    },
+    "24": {
+      "verified": true,
+      "position_cm": [
+        77.9,
+        -1565.2,
+        4625.0
+      ],
+      "forward": [
+        0.781268,
+        0.450016,
+        -0.432558
+      ],
+      "up": [
+        0.402418,
+        0.166612,
+        0.900167
+      ],
+      "horizontal_fov_deg": 78.201,
+      "principal_point": [
+        0.5,
+        0.5
+      ],
+      "k1": -0.37222,
+      "k2": 0.14166,
+      "fit_max_error_px": 4.17,
+      "division_K": -0.41405,
+      "lambda": -0.35999999999999976,
+      "focal_px": 1575.0,
+      "image_size": [
+        2560,
+        1440
+      ]
+    }
+  }
+}

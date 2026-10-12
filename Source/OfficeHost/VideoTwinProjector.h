@@ -53,6 +53,14 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FVector2D RadialDistortion = FVector2D::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") bool bMaskTimestamp = true;
 
+    /** Measured calibration (Tools/VideoTwin/calibration.json). When loaded it replaces the hand-placed
+     *  camera pose and the assumed 90 degree lens; the offsets above still apply on top for fine tuning. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") bool bMeasuredCalibration = false;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") FVector MeasuredPosition = FVector::ZeroVector;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") FQuat MeasuredRotation = FQuat::Identity;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") float MeasuredHorizontalFov = 0.f;
+    UFUNCTION(BlueprintCallable, Category="Video Twin") bool LoadMeasuredCalibration();
+
     UFUNCTION(BlueprintCallable, CallInEditor, Category="Video Twin") void RefreshDepth();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void OpenVideo();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void TogglePlayback();

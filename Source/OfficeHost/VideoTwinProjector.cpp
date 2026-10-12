@@ -25,6 +25,9 @@
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Misc/PackageName.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
 
 AVideoTwinProjector::AVideoTwinProjector()
 {
@@ -46,10 +49,48 @@ FTransform AVideoTwinProjector::GetProjectionTransform() const
 {
     const UCameraComponent* Cam = SourceCamera ? SourceCamera->GetCameraComponent() : nullptr;
     const FTransform T = Cam ? Cam->GetComponentTransform() : GetActorTransform();
+    // A measured pose wins over the camera that was placed by hand in the level.
+    if (bMeasuredCalibration) return FTransform(MeasuredRotation * RotationOffset.Quaternion(), MeasuredPosition + PositionOffset);
     return FTransform(T.GetRotation() * RotationOffset.Quaternion(), T.GetLocation() + PositionOffset);
+}
+bool AVideoTwinProjector::LoadMeasuredCalibration()
+{
+    bMeasuredCalibration = false;
+    // -VideoTwinNoCalib keeps the old hand-placed pose so the two can be compared side by side.
+    if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoCalib"))) return false;
+    const FString Path = FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json");
+    FString Text;
+    if (!FFileHelper::LoadFileToString(Text, *Path)) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: no calibration file at %s"),*Path); return false; }
+    TSharedPtr<FJsonObject> Root;
+    if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text), Root) || !Root.IsValid()) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: calibration file is not valid JSON")); return false; }
+    const TSharedPtr<FJsonObject>* Cams = nullptr; const TSharedPtr<FJsonObject>* Cam = nullptr;
+    if (!Root->TryGetObjectField(TEXT("cameras"), Cams) || !(*Cams)->TryGetObjectField(CameraId, Cam)) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: camera %s is not in the calibration file"),*CameraId); return false; }
+    auto Vec = [&](const TCHAR* Name, FVector& Out)
+    {
+        const TArray<TSharedPtr<FJsonValue>>* A = nullptr;
+        if (!(*Cam)->TryGetArrayField(Name, A) || A->Num() != 3) return false;
+        Out = FVector((*A)[0]->AsNumber(), (*A)[1]->AsNumber(), (*A)[2]->AsNumber());
+        return true;
+    };
+    FVector Pos, Fwd, Up; double Fov = 0;
+    if (!Vec(TEXT("position_cm"), Pos) || !Vec(TEXT("forward"), Fwd) || !Vec(TEXT("up"), Up) || !(*Cam)->TryGetNumberField(TEXT("horizontal_fov_deg"), Fov)) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: camera %s calibration is incomplete"),*CameraId); return false; }
+    // Built from the axes directly. Going through Euler angles would invite a sign mistake on roll.
+    MeasuredRotation = FRotationMatrix::MakeFromXZ(Fwd, Up).ToQuat();
+    MeasuredPosition = Pos;
+    MeasuredHorizontalFov = float(Fov);
+    const TArray<TSharedPtr<FJsonValue>>* PP = nullptr;
+    if ((*Cam)->TryGetArrayField(TEXT("principal_point"), PP) && PP->Num() == 2) PrincipalPoint = FVector2D((*PP)[0]->AsNumber(), (*PP)[1]->AsNumber());
+    double K1 = 0, K2 = 0;
+    (*Cam)->TryGetNumberField(TEXT("k1"), K1); (*Cam)->TryGetNumberField(TEXT("k2"), K2);
+    RadialDistortion = FVector2D(K1, K2);
+    bMeasuredCalibration = true;
+    bDepthDirty = true;
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s measured calibration: pos=(%.1f,%.1f,%.1f) rot=%s hfov=%.2f k=(%.4f,%.4f)"),*CameraId,Pos.X,Pos.Y,Pos.Z,*MeasuredRotation.Rotator().ToCompactString(),MeasuredHorizontalFov,K1,K2);
+    return true;
 }
 float AVideoTwinProjector::GetProjectionFov() const
 {
+    if (bMeasuredCalibration) return FMath::Clamp(MeasuredHorizontalFov + FovOffset, 20.f, 150.f);
     return FMath::Clamp((SourceCamera ? SourceCamera->GetCameraComponent()->FieldOfView : 90.f) + FovOffset, 20.f, 150.f);
 }
 float AVideoTwinProjector::GetProjectionAspect() const
@@ -77,6 +118,7 @@ void AVideoTwinProjector::InitializeResources()
 void AVideoTwinProjector::BeginPlay()
 {
     Super::BeginPlay();
+    LoadMeasuredCalibration();
     InitializeResources();
     OpenVideo();
 }
@@ -128,6 +170,7 @@ void AVideoTwinProjector::ResetCalibration()
     FovOffset = 0;
     PrincipalPoint = FVector2D(0.5,0.5);
     RadialDistortion = FVector2D::ZeroVector;
+    LoadMeasuredCalibration();
     RefreshDepth();
 }
 void AVideoTwinProjector::RefreshDepth() { bDepthDirty = true; }
