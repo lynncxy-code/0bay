@@ -39,14 +39,14 @@
       "receiver_min": [
         -100.0,
         -2500.0,
-        4355.0
+        4315.0
       ],
       "receiver_max": [
         2850.0,
         -1440.0,
         4740.0
       ],
-      "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Z: floor is at 4320, lower bound is 35 cm above it so the floor stays virtual. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets (Y about -1100) and the lounge (Y -620..-920) stay virtual; only the workstation area (Y < -1440, out to the facade) shows video. Use -1150 instead to bring the planter cabinets back into the video while still excluding the pantry."
+      "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair."
     },
     "18": {
       "verified": true,
