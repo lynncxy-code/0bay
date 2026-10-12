@@ -65,6 +65,10 @@ public:
     UFUNCTION(BlueprintCallable, Category="Video Twin") bool LoadMeasuredCalibration();
     /** Diagnostics: write the projector depth map as a grayscale PNG (near = bright) and log a few samples. */
     void DumpDepth(const FString& PngPath);
+    /** Camera ids listed under "enabled_cameras" in calibration.json, in that order. Empty when there is no file. */
+    static void GetEnabledCameraIds(TArray<FString>& OutIds);
+    /** Seconds between depth re-captures. One projector can afford 0.5 s; several at once should not. */
+    float DepthRefreshSeconds = .5f;
 
     UFUNCTION(BlueprintCallable, CallInEditor, Category="Video Twin") void RefreshDepth();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void OpenVideo();
@@ -166,6 +170,9 @@ public:
     UFUNCTION(BlueprintCallable, Category="Video Twin|Runtime") void ExitCamera17View();
     UFUNCTION(BlueprintPure, Category="Video Twin|Runtime") bool IsCamera17FusionEnabled() const;
     UFUNCTION(BlueprintPure, Category="Video Twin|Runtime") AVideoTwinProjector* GetProjector() const { return Projector; }
+    /** All projectors, one per enabled camera. Entry 0 is the same object GetProjector() returns. */
+    const TArray<TObjectPtr<AVideoTwinProjector>>& GetProjectors() const { return Projectors; }
+    int32 GetViewIndex() const { return ViewIndex; }
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") FString Camera17Label = TEXT("OntoTwin_Camera_17");
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") bool bStartEnabled = true;
 private:
@@ -175,6 +182,13 @@ private:
     TWeakObjectPtr<APlayerController> Controller;
     TWeakObjectPtr<AActor> SavedViewTarget;
     bool bInCamera17View = false;
+    /** One projector per enabled camera; Projector / Camera17 above mirror entry 0 for existing callers. */
+    UPROPERTY(Transient) TArray<TObjectPtr<AVideoTwinProjector>> Projectors;
+    /** View camera for each projector (the level's own camera actor when it exists, otherwise spawned). */
+    UPROPERTY(Transient) TArray<TObjectPtr<ACameraActor>> ViewCameras;
+    int32 ViewIndex = -1;
+    int32 TestCam = 1;
+    AVideoTwinProjector* SpawnProjectorFor(const FString& Id);
     /** -VideoTwinTest: unattended screenshots of the original level, same idea as the MVP map's acceptance run. */
     UPROPERTY(Transient) TObjectPtr<ACameraActor> TestObserver;
     bool bAutomatedTest = false;

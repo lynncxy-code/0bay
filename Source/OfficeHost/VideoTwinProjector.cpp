@@ -13,6 +13,7 @@
 #include "MediaPlayer.h"
 #include "MediaTexture.h"
 #include "MediaSource.h"
+#include "FileMediaSource.h"
 #include "Misc/CommandLine.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
@@ -53,6 +54,17 @@ FTransform AVideoTwinProjector::GetProjectionTransform() const
     if (bMeasuredCalibration) return FTransform(MeasuredRotation * RotationOffset.Quaternion(), MeasuredPosition + PositionOffset);
     return FTransform(T.GetRotation() * RotationOffset.Quaternion(), T.GetLocation() + PositionOffset);
 }
+void AVideoTwinProjector::GetEnabledCameraIds(TArray<FString>& OutIds)
+{
+    OutIds.Reset();
+    if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoCalib"))) return;
+    FString Text; TSharedPtr<FJsonObject> Root;
+    if (!FFileHelper::LoadFileToString(Text, *(FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json")))) return;
+    if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text), Root) || !Root.IsValid()) return;
+    const TArray<TSharedPtr<FJsonValue>>* List = nullptr;
+    if (!Root->TryGetArrayField(TEXT("enabled_cameras"), List)) return;
+    for (const TSharedPtr<FJsonValue>& V : *List) { FString Id; if (V.IsValid() && V->TryGetString(Id) && !Id.IsEmpty()) OutIds.AddUnique(Id); }
+}
 bool AVideoTwinProjector::LoadMeasuredCalibration()
 {
     bMeasuredCalibration = false;
@@ -88,6 +100,9 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     if (Vec(TEXT("receiver_min"), Box)) ReceiverMin = Box;
     if (Vec(TEXT("receiver_max"), Box)) ReceiverMax = Box;
     if ((*Cam)->TryGetNumberField(TEXT("max_distance_cm"), Range) && Range > 10) MaxDistanceCm = float(Range);
+    // Where two cameras both see a surface the one with the higher priority is drawn last and wins.
+    double Priority = 0;
+    if ((*Cam)->TryGetNumberField(TEXT("priority"), Priority) && ProjectionPostProcess) ProjectionPostProcess->Priority = float(Priority);
     bMeasuredCalibration = true;
     bDepthDirty = true;
     UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s measured calibration: pos=(%.1f,%.1f,%.1f) rot=%s hfov=%.2f k=(%.4f,%.4f)"),*CameraId,Pos.X,Pos.Y,Pos.Z,*MeasuredRotation.Rotator().ToCompactString(),MeasuredHorizontalFov,K1,K2);
@@ -240,7 +255,7 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
     InitializeResources();
     DepthAge += DeltaSeconds;
     // The mock office is static; update at 2 Hz for doors/chairs moved in the demo.
-    if (bEnabled && DepthAge > .5f) bDepthDirty = true;
+    if (bEnabled && DepthAge > DepthRefreshSeconds) bDepthDirty = true;
     if (Player)
     {
         OpenAge += DeltaSeconds;
@@ -402,13 +417,18 @@ void UVideoTwinRuntimeWidget::NativeTick(const FGeometry& Geometry, float DeltaS
 {
     Super::NativeTick(Geometry, DeltaSeconds);
     if (!Text || !Feature) return;
-    const AVideoTwinProjector* P = Feature->GetProjector();
-    FString Line = TEXT("VIDEO TWIN  |  Z 融合  X 摄像头17视角  C 返回原视角");
-    if (P)
+    const TArray<TObjectPtr<AVideoTwinProjector>>& All = Feature->GetProjectors();
+    FString Line = TEXT("VIDEO TWIN  |  Z 融合开关  X 切换摄像头视角  C 返回原视角");
+    if (All.Num() > 0 && All[0])
     {
-        Line += FString::Printf(TEXT("\n摄像头17  %s  |  %s  |  深度遮挡 %s"),
-            P->bEnabled ? TEXT("融合开启") : TEXT("融合关闭"), *P->Status,
-            P->bUseOcclusion ? TEXT("开启") : TEXT("关闭"));
+        FString Cams;
+        for (int32 i = 0; i < All.Num(); ++i)
+        {
+            if (!All[i]) continue;
+            const bool bPlaying = All[i]->Status.Contains(TEXT("PLAYING"));
+            Cams += FString::Printf(TEXT("%s%s%s%s"), i ? TEXT("  ") : TEXT(""), i == Feature->GetViewIndex() ? TEXT(">") : TEXT(""), *All[i]->CameraId, bPlaying ? TEXT("") : TEXT("(无画面)"));
+        }
+        Line += FString::Printf(TEXT("\n%d 路  %s  |  %s"), All.Num(), All[0]->bEnabled ? TEXT("融合开启") : TEXT("融合关闭"), *Cams);
     }
     Text->SetText(FText::FromString(Line));
 }
@@ -429,39 +449,19 @@ void AVideoTwinRuntimeFeature::LoadMockAssets()
 void AVideoTwinRuntimeFeature::BeginPlay()
 {
     Super::BeginPlay();
-    for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
+    TArray<FString> Ids;
+    AVideoTwinProjector::GetEnabledCameraIds(Ids);
+    if (Ids.Num() == 0) Ids.Add(TEXT("17"));     // no list in the calibration file: the original single-camera behaviour
+    for (const FString& Id : Ids) SpawnProjectorFor(Id);
+    if (Projectors.Num() == 0)
     {
-        if (It->GetActorLabel().Equals(Camera17Label, ESearchCase::IgnoreCase) || It->GetName().Contains(TEXT("CameraActor_1"))) { Camera17 = *It; break; }
-    }
-    if (!Camera17)
-    {
-        UE_LOG(LogTemp,Warning,TEXT("VideoTwin runtime: authored camera 17 was not found"));
+        UE_LOG(LogTemp,Warning,TEXT("VideoTwin runtime: no camera could be set up"));
         return;
     }
-    Projector = GetWorld()->SpawnActor<AVideoTwinProjector>(Camera17->GetActorLocation(), Camera17->GetActorRotation());
-    Projector->CameraId = TEXT("17");
-    Projector->SourceCamera = Camera17;
-    Projector->bMockSource = true;
-    Projector->bEnabled = bStartEnabled;
-    Projector->SetActorLabel(TEXT("VideoTwin_Runtime_Projector_17"));
-    LoadMockAssets();
-    // SpawnActor may run the projector's BeginPlay before these assets are assigned.
-    // Explicitly open the source after wiring the runtime assets so the original map
-    // follows the same path as the standalone acceptance map.
-    Projector->OpenVideo();
-    if (Projector->bMeasuredCalibration)
-    {
-        // The level's camera 17 was placed by hand, about two metres from where the real camera is.
-        // Move it to the measured pose for this session (the saved map is not modified) so that the
-        // X view, the camera gizmo and the projection all agree.
-        const FTransform Pose = Projector->GetProjectionTransform();
-        if (USceneComponent* CamRoot = Camera17->GetRootComponent()) CamRoot->SetMobility(EComponentMobility::Movable);
-        Camera17->SetActorLocationAndRotation(Pose.GetLocation(), Pose.GetRotation());
-        Camera17->GetCameraComponent()->SetFieldOfView(Projector->GetProjectionFov());
-        Camera17->GetCameraComponent()->SetConstraintAspectRatio(false);
-        UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime: level camera 17 moved to the measured pose for this session"));
-    }
-    Projector->RefreshDepth();
+    Projector = Projectors[0];
+    Camera17 = ViewCameras[0];
+    // Each projector re-renders a full-resolution depth view. Fine for one; spread it out for several.
+    if (Projectors.Num() > 1) for (AVideoTwinProjector* P : Projectors) P->DepthRefreshSeconds = 3.f;
     bAutomatedTest = FParse::Param(FCommandLine::Get(), TEXT("VideoTwinTest"));
     if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
     {
@@ -474,7 +474,69 @@ void AVideoTwinRuntimeFeature::BeginPlay()
         }
         BindRuntimeInput();
     }
-    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime feature ready: camera 17 (Z/X/C; original controls remain unchanged)"));
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime feature ready: %d camera(s) (Z/X/C; original controls remain unchanged)"),Projectors.Num());
+}
+AVideoTwinProjector* AVideoTwinRuntimeFeature::SpawnProjectorFor(const FString& Id)
+{
+    const FString Label = FString::Printf(TEXT("OntoTwin_Camera_%s"), *Id);
+    ACameraActor* Cam = nullptr;
+    for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
+    {
+        const bool bLegacy17 = Id == TEXT("17") && (It->GetActorLabel().Equals(Camera17Label, ESearchCase::IgnoreCase) || It->GetName().Contains(TEXT("CameraActor_1")));
+        if (It->GetActorLabel().Equals(Label, ESearchCase::IgnoreCase) || bLegacy17) { Cam = *It; break; }
+    }
+    const FTransform At = Cam ? FTransform(Cam->GetActorRotation(), Cam->GetActorLocation()) : FTransform::Identity;
+    // Deferred, so the camera id and assets are in place before the projector's BeginPlay reads the calibration.
+    AVideoTwinProjector* P = GetWorld()->SpawnActorDeferred<AVideoTwinProjector>(AVideoTwinProjector::StaticClass(), At);
+    if (!P) return nullptr;
+    P->CameraId = Id;
+    P->SourceCamera = Cam;
+    P->bMockSource = true;
+    P->bEnabled = bStartEnabled;
+    P->ReferenceTexture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/T_Camera17_Reference.T_Camera17_Reference")));
+    // Each camera needs its OWN parent material. Post-process instances that share a parent are blended into a
+    // single pass (their parameters are lerped), so with one shared material only the highest-priority camera
+    // was ever drawn. M_VideoProjection_<id> are plain copies made by Tools/VideoTwin/dup_materials.py.
+    const FString OwnMaterial = FString::Printf(TEXT("/Game/VideoTwinMVP/M_VideoProjection_%s.M_VideoProjection_%s"), *Id, *Id);
+    P->ProjectionMaterial = Cast<UMaterialInterface>(StaticLoadObject(UMaterialInterface::StaticClass(), nullptr, *OwnMaterial, nullptr, LOAD_NoWarn | LOAD_Quiet));
+    if (!P->ProjectionMaterial) P->ProjectionMaterial = Cast<UMaterialInterface>(StaticLoadObject(UMaterialInterface::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/M_VideoProjection.M_VideoProjection")));
+    // A recording named Camera<id>_Real.mp4 wins. It is looked up by file name so that footage of real people
+    // never has to become a tracked asset. Camera 17 falls back to the original still-image mock.
+    const FString Movie = FPaths::ConvertRelativePathToFull(FPaths::ProjectContentDir() / FString::Printf(TEXT("Movies/Camera%s_Real.mp4"), *Id));
+    if (FPaths::FileExists(Movie))
+    {
+        UFileMediaSource* Source = NewObject<UFileMediaSource>(P);
+        Source->SetFilePath(Movie);
+        P->MediaSource = Source;
+    }
+    else if (Id == TEXT("17"))
+    {
+        P->MediaSource = Cast<UMediaSource>(StaticLoadObject(UMediaSource::StaticClass(), nullptr, TEXT("/Game/VideoTwinMVP/MS_Camera17_Mock.MS_Camera17_Mock")));
+    }
+    P->FinishSpawning(At);
+    if (!P->bMeasuredCalibration && !Cam)
+    {
+        UE_LOG(LogTemp,Warning,TEXT("VideoTwin runtime: camera %s has neither a calibration nor a level camera; skipped"),*Id);
+        P->Destroy();
+        return nullptr;
+    }
+    P->SetActorLabel(FString::Printf(TEXT("VideoTwin_Runtime_Projector_%s"), *Id));
+    const FTransform Pose = P->GetProjectionTransform();
+    if (!Cam) Cam = GetWorld()->SpawnActor<ACameraActor>(Pose.GetLocation(), Pose.GetRotation().Rotator());
+    if (P->bMeasuredCalibration && Cam)
+    {
+        // The level's cameras were placed by hand. Move this one to the measured pose for the session
+        // (the saved map is not modified) so the X view, the camera gizmo and the projection agree.
+        if (USceneComponent* CamRoot = Cam->GetRootComponent()) CamRoot->SetMobility(EComponentMobility::Movable);
+        Cam->SetActorLocationAndRotation(Pose.GetLocation(), Pose.GetRotation());
+        Cam->GetCameraComponent()->SetFieldOfView(P->GetProjectionFov());
+        Cam->GetCameraComponent()->SetConstraintAspectRatio(false);
+    }
+    P->RefreshDepth();
+    Projectors.Add(P);
+    ViewCameras.Add(Cam);
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime: camera %s ready (measured=%d, recording=%d)"),*Id,P->bMeasuredCalibration?1:0,FPaths::FileExists(Movie)?1:0);
+    return P;
 }
 void AVideoTwinRuntimeFeature::BindRuntimeInput()
 {
@@ -529,9 +591,36 @@ void AVideoTwinRuntimeFeature::RunAcceptance(float DeltaSeconds)
     {
         const bool Ready=Projector->GetPlayer()&&Projector->GetPlayer()->IsPlaying()&&Projector->GetDisplayTexture()!=Projector->ReferenceTexture;
         const FString Result=FString::Printf(TEXT("{\"map\":\"%s\",\"media_playing\":%s,\"depth_ready\":%s,\"measured_calibration\":%s,\"status\":\"%s\"}"),*GetWorld()->GetMapName(),Ready?TEXT("true"):TEXT("false"),Projector->bDepthReady?TEXT("true"):TEXT("false"),Projector->bMeasuredCalibration?TEXT("true"):TEXT("false"),*Projector->Status);
-        FFileHelper::SaveStringToFile(Result,*(Dir/TEXT("main_acceptance.json")));
         UE_LOG(LogTemp,Display,TEXT("VIDEOTWIN_MAIN_ACCEPTANCE %s"),*Result);
-        ++TestStep;
+        TestStep = 100; TestElapsed = 0; TestCam = 1;
+    }
+    else if (TestStep >= 100 && TestStep < 200)
+    {
+        // Remaining cameras: its own view, then the same oblique view used for camera 17.
+        if (TestCam >= Projectors.Num())
+        {
+            FString Report;
+            for (AVideoTwinProjector* P : Projectors) Report += FString::Printf(TEXT("%s{\"id\":\"%s\",\"measured\":%s,\"status\":\"%s\"}"),Report.IsEmpty()?TEXT(""):TEXT(","),*P->CameraId,P->bMeasuredCalibration?TEXT("true"):TEXT("false"),*P->Status);
+            const FString Result=FString::Printf(TEXT("{\"map\":\"%s\",\"cameras\":[%s]}"),*GetWorld()->GetMapName(),*Report);
+            FFileHelper::SaveStringToFile(Result,*(Dir/TEXT("main_acceptance.json")));
+            UE_LOG(LogTemp,Display,TEXT("VIDEOTWIN_MAIN_ACCEPTANCE_ALL %s"),*Result);
+            TestStep = 200;
+            return;
+        }
+        AVideoTwinProjector* P = Projectors[TestCam];
+        const FString Id = P->CameraId;
+        if (TestStep==100) { if (ViewCameras[TestCam]) Controller->SetViewTarget(ViewCameras[TestCam]); TestElapsed = 0; TestStep = 101; }
+        else if (TestStep==101 && TestElapsed>3) { Shot(*FString::Printf(TEXT("main_cam%s_view.png"),*Id)); TestStep = 102; }
+        else if (TestStep==102 && TestElapsed>5)
+        {
+            const FTransform T = P->GetProjectionTransform();
+            const FVector Target = T.GetLocation()+T.GetRotation().GetForwardVector()*650;
+            const FVector Position = T.GetLocation()+T.GetRotation().GetForwardVector().GetSafeNormal2D()*300-T.GetRotation().GetRightVector()*250+FVector(0,0,-25);
+            if (TestObserver) { TestObserver->SetActorLocationAndRotation(Position,(Target-Position).Rotation()); Controller->SetViewTarget(TestObserver); }
+            TestStep = 103;
+        }
+        else if (TestStep==103 && TestElapsed>8) { Shot(*FString::Printf(TEXT("main_cam%s_oblique.png"),*Id)); TestStep = 104; }
+        else if (TestStep==104 && TestElapsed>9) { ++TestCam; TestStep = 100; }
     }
 }
 void AVideoTwinRuntimeFeature::HandleToggle() { ToggleCamera17Fusion(); }
@@ -541,24 +630,27 @@ void AVideoTwinRuntimeFeature::ToggleCamera17Fusion()
 {
     if (Projector)
     {
-        Projector->bEnabled = !Projector->bEnabled;
-        Projector->RefreshDepth();
-        UE_LOG(LogTemp, Display, TEXT("VideoTwin camera 17 fusion %s"), Projector->bEnabled ? TEXT("enabled") : TEXT("disabled"));
+        const bool bOn = !Projector->bEnabled;
+        for (AVideoTwinProjector* P : Projectors) if (P) { P->bEnabled = bOn; P->RefreshDepth(); }
+        UE_LOG(LogTemp, Display, TEXT("VideoTwin fusion %s for %d camera(s)"), bOn ? TEXT("enabled") : TEXT("disabled"), Projectors.Num());
     }
 }
 bool AVideoTwinRuntimeFeature::IsCamera17FusionEnabled() const { return Projector && Projector->bEnabled; }
 void AVideoTwinRuntimeFeature::EnterCamera17View()
 {
-    if (!Projector || !Camera17 || !Controller.IsValid()) return;
+    if (Projectors.Num() == 0 || !Controller.IsValid()) return;
     if (!bInCamera17View) SavedViewTarget = Controller->GetViewTarget();
     bInCamera17View = true;
-    Controller->SetViewTargetWithBlend(Camera17, .35f, VTBlend_Cubic);
-    UE_LOG(LogTemp, Display, TEXT("VideoTwin entered camera 17 view"));
+    // First press shows the first camera; pressing again steps through the rest.
+    ViewIndex = (ViewIndex + 1) % Projectors.Num();
+    if (ViewCameras[ViewIndex]) Controller->SetViewTargetWithBlend(ViewCameras[ViewIndex], .35f, VTBlend_Cubic);
+    UE_LOG(LogTemp, Display, TEXT("VideoTwin entered camera %s view"), *Projectors[ViewIndex]->CameraId);
 }
 void AVideoTwinRuntimeFeature::ExitCamera17View()
 {
     if (!Controller.IsValid()) return;
     bInCamera17View = false;
+    ViewIndex = -1;
     if (SavedViewTarget.IsValid()) Controller->SetViewTargetWithBlend(SavedViewTarget.Get(), .35f, VTBlend_Cubic);
     UE_LOG(LogTemp, Display, TEXT("VideoTwin returned to original view"));
 }
@@ -566,6 +658,8 @@ void AVideoTwinRuntimeFeature::EndPlay(const EEndPlayReason::Type Reason)
 {
     ExitCamera17View();
     if (Widget) Widget->RemoveFromParent();
-    if (Projector) Projector->Destroy();
+    for (AVideoTwinProjector* P : Projectors) if (P) P->Destroy();
+    Projectors.Reset();
+    Projector = nullptr;
     Super::EndPlay(Reason);
 }

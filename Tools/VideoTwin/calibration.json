@@ -46,14 +46,15 @@
         -1440.0,
         4740.0
       ],
-      "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair."
+      "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
+      "priority": 510
     },
     "18": {
       "verified": true,
       "position_cm": [
         5701.1,
         -890.4,
-        4625.0
+        4617.4
       ],
       "forward": [
         -0.861926,
@@ -79,14 +80,27 @@
       "image_size": [
         2560,
         1440
-      ]
+      ],
+      "receiver_min": [
+        4000.0,
+        -2500.0,
+        4315.0
+      ],
+      "receiver_max": [
+        5750.0,
+        300.0,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 501,
+      "receiver_note": "A block in front of the camera: corridor and glass doors, no workstations. The level has two sofas here that the real footage does not show."
     },
     "21": {
       "verified": true,
       "position_cm": [
         1042.9,
         -1139.2,
-        4625.0
+        4617.4
       ],
       "forward": [
         0.848016,
@@ -112,14 +126,27 @@
       "image_size": [
         2560,
         1440
-      ]
+      ],
+      "receiver_min": [
+        1100.0,
+        -2500.0,
+        4315.0
+      ],
+      "receiver_max": [
+        2850.0,
+        -1440.0,
+        4740.0
+      ],
+      "max_distance_cm": 1600,
+      "priority": 502,
+      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned."
     },
     "23": {
       "verified": true,
       "position_cm": [
         1669.5,
         -1058.4,
-        4625.0
+        4617.4
       ],
       "forward": [
         0.858221,
@@ -145,14 +172,27 @@
       "image_size": [
         2560,
         1440
-      ]
+      ],
+      "receiver_min": [
+        1700.0,
+        -2500.0,
+        4315.0
+      ],
+      "receiver_max": [
+        2850.0,
+        -1440.0,
+        4740.0
+      ],
+      "max_distance_cm": 1300,
+      "priority": 503,
+      "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned."
     },
     "24": {
       "verified": true,
       "position_cm": [
         77.9,
         -1565.2,
-        4625.0
+        4617.4
       ],
       "forward": [
         0.781268,
@@ -178,8 +218,28 @@
       "image_size": [
         2560,
         1440
-      ]
+      ],
+      "receiver_min": [
+        -100.0,
+        -2500.0,
+        4315.0
+      ],
+      "receiver_max": [
+        1500.0,
+        300.0,
+        4740.0
+      ],
+      "max_distance_cm": 1500,
+      "priority": 500,
+      "receiver_note": "A block in front of the camera: workstations at the west end. Looked right on first try; not tuned further."
     }
   },
-  "_height_warning": "Cameras 18/21/23/24 still carry the 305 cm scene default (Z 4625.0), which is NOT a measurement. Expect the same ceiling problem when they are enabled in a level that has the ceiling; each needs its own height."
+  "_height_warning": "Only camera 17's height (297.4 cm) was confirmed by an external check. 18/21/23/24 are set to the same 297.4 cm on the assumption that identical domes on the same ceiling hang at the same height. That is an assumption, not a measurement; before it they carried the 305 cm scene default, which was not a measurement either.",
+  "enabled_cameras": [
+    "17",
+    "24",
+    "18"
+  ],
+  "_enabled_note": "Projectors are created for these ids, in this order (the first one is what the X key shows first). Each needs Content/Movies/Camera<id>_Real.mp4; without it the camera shows a still placeholder. Where receiver boxes overlap, the camera with the higher 'priority' is drawn last and wins.",
+  "_disabled_note": "21 and 23 are calibrated but not enabled. Both face the pantry bar and lounge, which are meant to stay virtual, and only graze the workstation strip at a shallow angle with a much darker exposure. Enabled, they added a torn dark band on the floor and made the area covered by camera 17 look worse. Add them back to enabled_cameras to compare."
 }
