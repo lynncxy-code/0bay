@@ -102,6 +102,10 @@ private:
     UPROPERTY(Transient) TObjectPtr<UMediaPlayer> Player;
     UPROPERTY(Transient) TObjectPtr<UMediaTexture> VideoTexture;
     bool bVideoReady = false;
+    /** The local recording, remembered when a live stream is tried first so there is something to fall back to. */
+    UPROPERTY(Transient) TObjectPtr<UMediaSource> RecordedSource;
+    bool bLiveFailed = false;
+    bool FallBackToRecording(const TCHAR* Why);
     bool bDepthDirty = true;
     float DepthAge = 0;
     float OpenAge = 0;

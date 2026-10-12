@@ -154,8 +154,9 @@ void AVideoTwinProjector::OpenVideo()
 {
     bVideoReady = false;
     OpenAge = 0;
-    if (!StreamUrl.IsEmpty())
+    if (!StreamUrl.IsEmpty() && !bLiveFailed)
     {
+        RecordedSource = MediaSource;
         // A live address wins over the recording. The rest of the chain (player, texture, projection) is the same.
         UStreamMediaSource* Live = NewObject<UStreamMediaSource>(this);
         Live->StreamUrl = StreamUrl;
@@ -185,7 +186,7 @@ void AVideoTwinProjector::OpenVideo()
         VideoTexture->UpdateResource();
     }
     Player->SetLooping(bMockSource);
-    if (!StreamUrl.IsEmpty())
+    if (!StreamUrl.IsEmpty() && !bLiveFailed)
     {
         // Two stock players exist. Electra handles HLS/DASH/files; only the Media Foundation one registers rtsp://.
         FName Wanted = NAME_None;
@@ -201,8 +202,27 @@ void AVideoTwinProjector::MediaOpened(FString Url)
     Status = bMockSource ? TEXT("RECORDED LOOP | opening first frame") : TEXT("VIDEO | opening first frame");
     UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s media opened (player=%s)"),*CameraId,Player?*Player->GetPlayerName().ToString():TEXT("?"));
 }
+bool AVideoTwinProjector::FallBackToRecording(const TCHAR* Why)
+{
+    // A camera that cannot be reached must not leave a frozen placeholder on screen: play the recording instead
+    // and say so in the status. Tried once per session; pressing Play again retries the live stream.
+    if (StreamUrl.IsEmpty() || bLiveFailed || !RecordedSource || !Player) return false;
+    bLiveFailed = true;
+    UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s live stream unavailable (%s): %s -- falling back to the recording"),*CameraId,Why,*StreamUrl);
+    MediaSource = RecordedSource;
+    bMockSource = true;
+    bVideoReady = false;
+    OpenAge = 0;
+    Player->Close();
+    Player->SetDesiredPlayerName(NAME_None);
+    Player->SetLooping(true);
+    Status = TEXT("OPENING | reference fallback");
+    if (!Player->OpenSource(MediaSource)) { Status = TEXT("MEDIA FAILED | reference fallback"); }
+    return true;
+}
 void AVideoTwinProjector::MediaFailed(FString Url)
 {
+    if (FallBackToRecording(TEXT("open failed"))) return;
     bVideoReady = false;
     Status = TEXT("MEDIA FAILED | reference fallback");
     UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s media failed (player=%s, url=%s); using reference image"),*CameraId,Player?*Player->GetPlayerName().ToString():TEXT("?"),*StreamUrl);
@@ -295,7 +315,8 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
         if (Player->HasError()) MediaFailed(TEXT(""));
         if (!bVideoReady && Player->IsReady() && VideoTexture && VideoTexture->GetWidth()>16 && Player->GetTime().GetTotalSeconds()>.05)
             bVideoReady = true;
-        if (bVideoReady) Status = (bMockSource?TEXT("RECORDED LOOP | "):(StreamUrl.IsEmpty()?TEXT("VIDEO | "):TEXT("LIVE STREAM | "))) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
+        if (!bVideoReady && OpenAge > 12.f && FallBackToRecording(TEXT("no picture after 12 s"))) { UpdateProjection(); return; }
+        if (bVideoReady) Status = (bLiveFailed?TEXT("LIVE UNAVAILABLE, RECORDED LOOP | "):(bMockSource?TEXT("RECORDED LOOP | "):(StreamUrl.IsEmpty()?TEXT("VIDEO | "):TEXT("LIVE STREAM | ")))) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
         else if (OpenAge>10 && Status.StartsWith(TEXT("OPENING"))) Status = TEXT("OPEN TIMEOUT | reference fallback");
     }
     UpdateProjection();
@@ -458,8 +479,17 @@ void UVideoTwinRuntimeWidget::NativeTick(const FGeometry& Geometry, float DeltaS
         for (int32 i = 0; i < All.Num(); ++i)
         {
             if (!All[i]) continue;
-            const bool bPlaying = All[i]->Status.Contains(TEXT("PLAYING"));
-            Cams += FString::Printf(TEXT("%s%s%s%s"), i ? TEXT("  ") : TEXT(""), i == Feature->GetViewIndex() ? TEXT(">") : TEXT(""), *All[i]->CameraId, bPlaying ? TEXT("") : TEXT("(无画面)"));
+            // Say what is actually on screen. A looping recording looks alive, so "it moves" must never be
+            // mistaken for "it is live".
+            const FString& S = All[i]->Status;
+            const TCHAR* What = TEXT("(无画面)");
+            if (S.Contains(TEXT("PLAYING")) || S.Contains(TEXT("PAUSED")))
+            {
+                if (S.StartsWith(TEXT("LIVE STREAM"))) What = TEXT("实时");
+                else if (S.StartsWith(TEXT("LIVE UNAVAILABLE"))) What = TEXT("录像(实时连不上)");
+                else What = TEXT("录像");
+            }
+            Cams += FString::Printf(TEXT("%s%s%s %s"), i ? TEXT("   ") : TEXT(""), i == Feature->GetViewIndex() ? TEXT(">") : TEXT(""), *All[i]->CameraId, What);
         }
         Line += FString::Printf(TEXT("\n%d 路  %s  |  %s"), All.Num(), All[0]->bEnabled ? TEXT("融合开启") : TEXT("融合关闭"), *Cams);
     }

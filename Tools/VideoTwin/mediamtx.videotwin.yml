@@ -40,8 +40,11 @@ rtmp: no
 webrtc: no
 srt: no
 
-rtsp: yes
-rtspAddress: 127.0.0.1:8554        # only used if something publishes to this server; cameras are pulled, see paths
+# Everything except HLS is switched off. MediaMTX 1.21 otherwise also listens on every interface with an RTSP
+# server (TCP 8554, UDP 8000/8001) and MoQ (8892/8893), which would put the footage on the local network.
+# Cameras are pulled as a client (see paths), which does not need the RTSP server.
+rtsp: no
+moq: no
 
 hls: yes
 hlsAddress: :8888                  # footage shows identifiable people: prefer <this machine's LAN IP>:8888 over all interfaces
