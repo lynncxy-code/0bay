@@ -43,6 +43,10 @@ public:
     /** Media player to use for StreamUrl ("stream_player" in calibration.json). Empty picks automatically:
      *  WmfMedia for rtsp:// (Electra has no RTSP support), the engine's default for everything else. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamPlayer;
+    /** Seconds behind the live edge, passed to Electra as ElectraLivePresentationOffset ("stream_live_offset" in
+     *  calibration.json). DASH ONLY: the engine reads it in ManifestBuilderDASH.cpp and nowhere in the HLS code.
+     *  Measured on HLS with 0.5 / 1.0 / 2.0 s and with it unset: 4.0 to 4.7 s every time, no effect. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") float StreamLiveOffset = -1.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") TObjectPtr<UMaterialInterface> ProjectionMaterial;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") bool bEnabled = true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0",ClampMax="1")) float Opacity = 1.f;

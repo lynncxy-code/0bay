@@ -105,6 +105,8 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
     FString Url;
     if (!FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoStream")) && (*Cam)->TryGetStringField(TEXT("stream_url"), Url)) StreamUrl = Url;
+    double LiveOffset = -1;
+    if ((*Cam)->TryGetNumberField(TEXT("stream_live_offset"), LiveOffset)) StreamLiveOffset = float(LiveOffset);
     FString PlayerName;
     if ((*Cam)->TryGetStringField(TEXT("stream_player"), PlayerName)) StreamPlayer = PlayerName;
     double Priority = 0;
@@ -157,6 +159,14 @@ void AVideoTwinProjector::OpenVideo()
         // A live address wins over the recording. The rest of the chain (player, texture, projection) is the same.
         UStreamMediaSource* Live = NewObject<UStreamMediaSource>(this);
         Live->StreamUrl = StreamUrl;
+        // -VideoTwinLiveOffset=<seconds> overrides the file, for sweeping the value without editing it.
+        float CmdOffset = -1.f;
+        if (FParse::Value(FCommandLine::Get(), TEXT("VideoTwinLiveOffset="), CmdOffset)) StreamLiveOffset = CmdOffset;
+        if (StreamLiveOffset >= 0.f)
+        {
+            Live->SetMediaOptionDouble(FName(TEXT("ElectraLivePresentationOffset")), double(StreamLiveOffset));
+            UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s live offset %.2f s"),*CameraId,StreamLiveOffset);
+        }
         MediaSource = Live;
         bMockSource = false;
         UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s opening live stream %s"),*CameraId,*StreamUrl);

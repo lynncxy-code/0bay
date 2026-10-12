@@ -19,6 +19,14 @@
 #     fmp4          1 s       7      0           6.0 s      <- chosen; 0 hitches again over 5.5 min
 #     lowLatency    1 s       7      0           6.4 s      (Electra does not use the partial segments)
 #
+# Delay re-measured later with a wall clock burned into the source and Unreal's own clock on screen
+# (direct reading, replaces the log-derived figures above; 25 fps source):
+#     fmp4, 1 s segments, keyframe every 1 s      4.0 - 4.7 s     0 hitches
+#     fmp4, 0.5 s segments, keyframe every 0.5 s  3.8 s           0 hitches over 3 min
+#     fmp4, 0.2 s segments                        does not play
+# Electra's ElectraLivePresentationOffset option does nothing for HLS (DASH only), measured and read in source.
+# So about 3.8 s is the floor for this route, and it needs the camera's I-frame interval set to 0.5 s.
+#
 # The container matters more than the segment length: mpegts hitches, fmp4 does not.
 # Electra plays three target durations behind the newest segment, so 1 s segments keep the delay lowest.
 # NOT measured: a real camera as source, the 2560x1440 25 fps main stream, several cameras at once.
