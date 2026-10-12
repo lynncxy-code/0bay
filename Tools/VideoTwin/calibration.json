@@ -241,5 +241,6 @@
     "18"
   ],
   "_enabled_note": "Projectors are created for these ids, in this order (the first one is what the X key shows first). Each needs Content/Movies/Camera<id>_Real.mp4; without it the camera shows a still placeholder. Where receiver boxes overlap, the camera with the higher 'priority' is drawn last and wins.",
-  "_disabled_note": "21 and 23 are calibrated but not enabled. Both face the pantry bar and lounge, which are meant to stay virtual, and only graze the workstation strip at a shallow angle with a much darker exposure. Enabled, they added a torn dark band on the floor and made the area covered by camera 17 look worse. Add them back to enabled_cameras to compare."
+  "_disabled_note": "21 and 23 are calibrated but not enabled. Both face the pantry bar and lounge, which are meant to stay virtual, and only graze the workstation strip at a shallow angle with a much darker exposure. Enabled, they added a torn dark band on the floor and made the area covered by camera 17 look worse. Add them back to enabled_cameras to compare.",
+  "_stream_note": "Optional per camera: \"stream_url\": \"http://<host>:8888/<path>/index.m3u8\". When present the projector plays that live stream instead of Content/Movies/Camera<id>_Real.mp4. Tested with MediaMTX 1.21 (RTSP in, HLS mpegts out, 1 s segments): plays, but the player rebuffers to the live edge about every 20 s (a ~0.25 s hitch); not tuned yet. Not set on any camera at the moment, so everything plays the local recordings."
 }

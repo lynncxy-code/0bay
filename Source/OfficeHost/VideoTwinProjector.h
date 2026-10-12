@@ -37,6 +37,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") TObjectPtr<UMediaSource> MediaSource;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") TObjectPtr<UTexture2D> ReferenceTexture;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") bool bMockSource = true;
+    /** Live stream address (for example an HLS playlist). When set it replaces the local recording.
+     *  Normally filled from "stream_url" in calibration.json. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamUrl;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") TObjectPtr<UMaterialInterface> ProjectionMaterial;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") bool bEnabled = true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0",ClampMax="1")) float Opacity = 1.f;

@@ -14,6 +14,7 @@
 #include "MediaTexture.h"
 #include "MediaSource.h"
 #include "FileMediaSource.h"
+#include "StreamMediaSource.h"
 #include "Misc/CommandLine.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
@@ -101,6 +102,9 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     if (Vec(TEXT("receiver_max"), Box)) ReceiverMax = Box;
     if ((*Cam)->TryGetNumberField(TEXT("max_distance_cm"), Range) && Range > 10) MaxDistanceCm = float(Range);
     // Where two cameras both see a surface the one with the higher priority is drawn last and wins.
+    // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
+    FString Url;
+    if (!FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoStream")) && (*Cam)->TryGetStringField(TEXT("stream_url"), Url)) StreamUrl = Url;
     double Priority = 0;
     if ((*Cam)->TryGetNumberField(TEXT("priority"), Priority) && ProjectionPostProcess) ProjectionPostProcess->Priority = float(Priority);
     bMeasuredCalibration = true;
@@ -146,6 +150,15 @@ void AVideoTwinProjector::OpenVideo()
 {
     bVideoReady = false;
     OpenAge = 0;
+    if (!StreamUrl.IsEmpty())
+    {
+        // A live address wins over the recording. The rest of the chain (player, texture, projection) is the same.
+        UStreamMediaSource* Live = NewObject<UStreamMediaSource>(this);
+        Live->StreamUrl = StreamUrl;
+        MediaSource = Live;
+        bMockSource = false;
+        UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s opening live stream %s"),*CameraId,*StreamUrl);
+    }
     if (!MediaSource) { Status = TEXT("REFERENCE | no media source"); return; }
     if (!Player)
     {
@@ -262,7 +275,7 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
         if (Player->HasError()) MediaFailed(TEXT(""));
         if (!bVideoReady && Player->IsReady() && VideoTexture && VideoTexture->GetWidth()>16 && Player->GetTime().GetTotalSeconds()>.05)
             bVideoReady = true;
-        if (bVideoReady) Status = (bMockSource?TEXT("RECORDED LOOP | "):TEXT("VIDEO | ")) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
+        if (bVideoReady) Status = (bMockSource?TEXT("RECORDED LOOP | "):(StreamUrl.IsEmpty()?TEXT("VIDEO | "):TEXT("LIVE STREAM | "))) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
         else if (OpenAge>10 && Status.StartsWith(TEXT("OPENING"))) Status = TEXT("OPEN TIMEOUT | reference fallback");
     }
     UpdateProjection();
