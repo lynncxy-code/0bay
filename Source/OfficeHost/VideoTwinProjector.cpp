@@ -105,6 +105,8 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
     FString Url;
     if (!FParse::Param(FCommandLine::Get(), TEXT("VideoTwinNoStream")) && (*Cam)->TryGetStringField(TEXT("stream_url"), Url)) StreamUrl = Url;
+    FString PlayerName;
+    if ((*Cam)->TryGetStringField(TEXT("stream_player"), PlayerName)) StreamPlayer = PlayerName;
     double Priority = 0;
     if ((*Cam)->TryGetNumberField(TEXT("priority"), Priority) && ProjectionPostProcess) ProjectionPostProcess->Priority = float(Priority);
     bMeasuredCalibration = true;
@@ -173,19 +175,27 @@ void AVideoTwinProjector::OpenVideo()
         VideoTexture->UpdateResource();
     }
     Player->SetLooping(bMockSource);
+    if (!StreamUrl.IsEmpty())
+    {
+        // Two stock players exist. Electra handles HLS/DASH/files; only the Media Foundation one registers rtsp://.
+        FName Wanted = NAME_None;
+        if (!StreamPlayer.IsEmpty()) Wanted = FName(*StreamPlayer);
+        else if (StreamUrl.StartsWith(TEXT("rtsp"), ESearchCase::IgnoreCase)) Wanted = FName(TEXT("WmfMedia"));
+        Player->SetDesiredPlayerName(Wanted);
+    }
     Status = TEXT("OPENING | reference fallback");
     if (!Player->OpenSource(MediaSource)) MediaFailed(TEXT(""));
 }
 void AVideoTwinProjector::MediaOpened(FString Url)
 {
     Status = bMockSource ? TEXT("RECORDED LOOP | opening first frame") : TEXT("VIDEO | opening first frame");
-    UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s media opened"),*CameraId);
+    UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s media opened (player=%s)"),*CameraId,Player?*Player->GetPlayerName().ToString():TEXT("?"));
 }
 void AVideoTwinProjector::MediaFailed(FString Url)
 {
     bVideoReady = false;
     Status = TEXT("MEDIA FAILED | reference fallback");
-    UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s media failed; using reference image"),*CameraId);
+    UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s media failed (player=%s, url=%s); using reference image"),*CameraId,Player?*Player->GetPlayerName().ToString():TEXT("?"),*StreamUrl);
 }
 void AVideoTwinProjector::TogglePlayback()
 {
@@ -571,6 +581,13 @@ void AVideoTwinRuntimeFeature::RunAcceptance(float DeltaSeconds)
 {
     if (!Projector || !Controller.IsValid()) return;
     TestElapsed += DeltaSeconds;
+    if (GEngine)
+    {
+        // Wall clock of this machine, drawn into every frame. When the video source burns in its own wall clock,
+        // one screenshot shows both and their difference is the end-to-end delay.
+        const FDateTime Now = FDateTime::UtcNow();
+        GEngine->AddOnScreenDebugMessage(9001, 0.f, FColor::Cyan, FString::Printf(TEXT("UE CLOCK  %02d:%02d.%03d"), Now.GetMinute(), Now.GetSecond(), Now.GetMillisecond()), true, FVector2D(3.f, 3.f));
+    }
     const FString Dir = FPaths::ProjectSavedDir()/TEXT("VideoTwinMVP");
     IFileManager::Get().MakeDirectory(*Dir,true);
     auto Shot = [&](const TCHAR* Name) { FScreenshotRequest::RequestScreenshot(Dir/Name,true,false); };

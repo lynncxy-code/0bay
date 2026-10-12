@@ -40,6 +40,9 @@ public:
     /** Live stream address (for example an HLS playlist). When set it replaces the local recording.
      *  Normally filled from "stream_url" in calibration.json. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamUrl;
+    /** Media player to use for StreamUrl ("stream_player" in calibration.json). Empty picks automatically:
+     *  WmfMedia for rtsp:// (Electra has no RTSP support), the engine's default for everything else. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamPlayer;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") TObjectPtr<UMaterialInterface> ProjectionMaterial;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") bool bEnabled = true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0",ClampMax="1")) float Opacity = 1.f;
