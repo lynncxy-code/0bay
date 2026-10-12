@@ -35,7 +35,18 @@
         2560,
         1440
       ],
-      "height_note": "Z 4617.4 = floor 4320 + 297.4 cm, the height confirmed by the external check in September. The batch calibration used the scene-wide default of 305 cm, which puts the camera above the 3 m ceiling: the depth capture then sees the ceiling 3.4 cm below it and rejects everything."
+      "height_note": "Z 4617.4 = floor 4320 + 297.4 cm, the height confirmed by the external check in September. The batch calibration used the scene-wide default of 305 cm, which puts the camera above the 3 m ceiling: the depth capture then sees the ceiling 3.4 cm below it and rejects everything.",
+      "receiver_min": [
+        -100.0,
+        -2500.0,
+        4355.0
+      ],
+      "receiver_max": [
+        2850.0,
+        300.0,
+        4740.0
+      ],
+      "receiver_note": "World-space box that may receive video. Floor is at Z 4320; the lower bound is 35 cm above it so the floor stays as modelled. People and chairs have no matching geometry, so their pixels used to land on the floor behind them as long smears."
     },
     "18": {
       "verified": true,

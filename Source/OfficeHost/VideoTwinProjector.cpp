@@ -83,6 +83,11 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     double K1 = 0, K2 = 0;
     (*Cam)->TryGetNumberField(TEXT("k1"), K1); (*Cam)->TryGetNumberField(TEXT("k2"), K2);
     RadialDistortion = FVector2D(K1, K2);
+    // Optional per-camera receiver box and range, so the projected area can be tuned without rebuilding.
+    FVector Box; double Range = 0;
+    if (Vec(TEXT("receiver_min"), Box)) ReceiverMin = Box;
+    if (Vec(TEXT("receiver_max"), Box)) ReceiverMax = Box;
+    if ((*Cam)->TryGetNumberField(TEXT("max_distance_cm"), Range) && Range > 10) MaxDistanceCm = float(Range);
     bMeasuredCalibration = true;
     bDepthDirty = true;
     UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s measured calibration: pos=(%.1f,%.1f,%.1f) rot=%s hfov=%.2f k=(%.4f,%.4f)"),*CameraId,Pos.X,Pos.Y,Pos.Z,*MeasuredRotation.Rotator().ToCompactString(),MeasuredHorizontalFov,K1,K2);
@@ -145,7 +150,7 @@ void AVideoTwinProjector::OpenVideo()
 }
 void AVideoTwinProjector::MediaOpened(FString Url)
 {
-    Status = bMockSource ? TEXT("MOCK VIDEO | opening first frame") : TEXT("VIDEO | opening first frame");
+    Status = bMockSource ? TEXT("RECORDED LOOP | opening first frame") : TEXT("VIDEO | opening first frame");
     UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s media opened"),*CameraId);
 }
 void AVideoTwinProjector::MediaFailed(FString Url)
@@ -242,7 +247,7 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
         if (Player->HasError()) MediaFailed(TEXT(""));
         if (!bVideoReady && Player->IsReady() && VideoTexture && VideoTexture->GetWidth()>16 && Player->GetTime().GetTotalSeconds()>.05)
             bVideoReady = true;
-        if (bVideoReady) Status = (bMockSource?TEXT("MOCK VIDEO | "):TEXT("VIDEO | ")) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
+        if (bVideoReady) Status = (bMockSource?TEXT("RECORDED LOOP | "):TEXT("VIDEO | ")) + FString(Player->IsPlaying()?TEXT("PLAYING"):TEXT("PAUSED"));
         else if (OpenAge>10 && Status.StartsWith(TEXT("OPENING"))) Status = TEXT("OPEN TIMEOUT | reference fallback");
     }
     UpdateProjection();
@@ -377,7 +382,7 @@ void AVideoTwinDemoHUD::DrawHUD()
     const float PW=230, PH=PW*9/16;
     DrawRect(FLinearColor(.01,.02,.03,.9),W-PW-24,102,PW+8,PH+29);
     if (P->GetDisplayTexture()) DrawTexture(P->GetDisplayTexture(),W-PW-20,106,PW,PH,0,0,1,1);
-    DrawText(TEXT("CAM 17 / MOCK SOURCE"),FLinearColor(.1,.9,.8),W-PW-17,PH+110,nullptr,.8);
+    DrawText(TEXT("CAM 17 / RECORDED LOOP"),FLinearColor(.1,.9,.8),W-PW-17,PH+110,nullptr,.8);
 }
 
 void UVideoTwinRuntimeWidget::NativeOnInitialized()
