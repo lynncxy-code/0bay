@@ -1,0 +1,58 @@
+# MediaMTX configuration for the video twin: camera RTSP in, HLS out for Unreal.
+#
+# Unreal's stock player (Electra) cannot open RTSP. This converts each camera to HLS, which it can.
+# Then give the camera a line in calibration.json:
+#     "stream_url": "http://<this machine>:8888/cam17/index.m3u8"
+#
+# Run:  mediamtx.exe mediamtx.videotwin.yml      (tested with MediaMTX 1.21.0)
+#
+# ---- the three HLS settings below were measured, do not change them casually ----
+# Counted "Rebuffering jumps to the live edge" in Unreal's log over about two minutes of playback
+# (UE 5.6, looped 1280x720 10 fps H.264 source, GOP 1 s):
+#
+#     variant      segment  kept   hitches     delay behind live
+#     mpegts        1 s       5      5           4.3 s      <- about one hitch every 20 s
+#     mpegts        1 s      10      3
+#     mpegts        2 s       7      1
+#     mpegts        4 s       7      0
+#     fmp4          2 s       7      0
+#     fmp4          1 s       7      0           6.0 s      <- chosen; 0 hitches again over 5.5 min
+#     lowLatency    1 s       7      0           6.4 s      (Electra does not use the partial segments)
+#
+# The container matters more than the segment length: mpegts hitches, fmp4 does not.
+# Electra plays three target durations behind the newest segment, so 1 s segments keep the delay lowest.
+# NOT measured: a real camera as source, the 2560x1440 25 fps main stream, several cameras at once.
+
+logLevel: info
+api: no
+metrics: no
+pprof: no
+playback: no
+rtmp: no
+webrtc: no
+srt: no
+
+rtsp: yes
+rtspAddress: 127.0.0.1:8554        # only used if something publishes to this server; cameras are pulled, see paths
+
+hls: yes
+hlsAddress: :8888                  # footage shows identifiable people: prefer <this machine's LAN IP>:8888 over all interfaces
+hlsAlwaysRemux: yes                # keep producing segments even with no viewer, so Unreal starts immediately
+hlsVariant: fmp4
+hlsSegmentDuration: 1s
+hlsSegmentCount: 7
+hlsAllowOrigins: ['*']
+
+# One path per camera. Camera address = 192.168.229.(channel - 15), confirmed for all 14 by image correlation.
+# Put the real password in place of CHANGE_ME on the machine that runs this; never commit it.
+pathDefaults:
+  rtspTransport: tcp               # UDP loses packets and the picture breaks up
+  sourceOnDemand: no
+
+paths:
+  cam17:
+    source: rtsp://admin:CHANGE_ME@192.168.229.2:554/LiveMedia/ch1/Media1?src=onvif
+  cam24:
+    source: rtsp://admin:CHANGE_ME@192.168.229.9:554/LiveMedia/ch1/Media1?src=onvif
+  cam18:
+    source: rtsp://admin:CHANGE_ME@192.168.229.3:554/LiveMedia/ch1/Media1?src=onvif
