@@ -8,7 +8,7 @@
       "position_cm": [
         2576.4,
         -1921.1,
-        4625.0
+        4617.4
       ],
       "forward": [
         -0.876503,
@@ -34,7 +34,8 @@
       "image_size": [
         2560,
         1440
-      ]
+      ],
+      "height_note": "Z 4617.4 = floor 4320 + 297.4 cm, the height confirmed by the external check in September. The batch calibration used the scene-wide default of 305 cm, which puts the camera above the 3 m ceiling: the depth capture then sees the ceiling 3.4 cm below it and rejects everything."
     },
     "18": {
       "verified": true,
@@ -168,5 +169,6 @@
         1440
       ]
     }
-  }
+  },
+  "_height_warning": "Cameras 18/21/23/24 still carry the 305 cm scene default (Z 4625.0), which is NOT a measurement. Expect the same ceiling problem when they are enabled in a level that has the ceiling; each needs its own height."
 }

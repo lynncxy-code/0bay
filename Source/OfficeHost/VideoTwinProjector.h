@@ -42,6 +42,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0",ClampMax="1")) float Opacity = 1.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") bool bUseOcclusion = true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0.1")) float DepthToleranceCm = 6.f;
+    /** Depth capture ignores anything nearer than this. The level has a dome housing modelled right where the
+     *  real camera is; with the old 1 cm near plane the capture saw the inside of its own housing and rejected everything. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="1")) float DepthNearCm = 40.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FVector ReceiverMin = FVector(-100,-2500,4315);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FVector ReceiverMax = FVector(2850,300,4740);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="10")) float MaxDistanceCm = 3000.f;
@@ -60,6 +63,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") FQuat MeasuredRotation = FQuat::Identity;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Video Twin|Calibration") float MeasuredHorizontalFov = 0.f;
     UFUNCTION(BlueprintCallable, Category="Video Twin") bool LoadMeasuredCalibration();
+    /** Diagnostics: write the projector depth map as a grayscale PNG (near = bright) and log a few samples. */
+    void DumpDepth(const FString& PngPath);
 
     UFUNCTION(BlueprintCallable, CallInEditor, Category="Video Twin") void RefreshDepth();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void OpenVideo();
@@ -170,6 +175,12 @@ private:
     TWeakObjectPtr<APlayerController> Controller;
     TWeakObjectPtr<AActor> SavedViewTarget;
     bool bInCamera17View = false;
+    /** -VideoTwinTest: unattended screenshots of the original level, same idea as the MVP map's acceptance run. */
+    UPROPERTY(Transient) TObjectPtr<ACameraActor> TestObserver;
+    bool bAutomatedTest = false;
+    float TestElapsed = 0.f;
+    int32 TestStep = 0;
+    void RunAcceptance(float DeltaSeconds);
     void BindRuntimeInput();
     void LoadMockAssets();
     void HandleToggle();

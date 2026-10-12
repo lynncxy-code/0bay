@@ -174,6 +174,27 @@ void AVideoTwinProjector::ResetCalibration()
     RefreshDepth();
 }
 void AVideoTwinProjector::RefreshDepth() { bDepthDirty = true; }
+void AVideoTwinProjector::DumpDepth(const FString& PngPath)
+{
+    if (!DepthTarget) return;
+    FTextureRenderTargetResource* Res = DepthTarget->GameThread_GetRenderTargetResource();
+    TArray<FLinearColor> Px;
+    if (!Res || !Res->ReadLinearColorPixels(Px)) { UE_LOG(LogTemp,Warning,TEXT("VTDIAG depth readback failed")); return; }
+    const int32 W = DepthTarget->SizeX, H = DepthTarget->SizeY;
+    TArray<FColor> Out; Out.SetNumUninitialized(W*H);
+    float MinD = 1e9f, MaxD = 0; int32 Cleared = 0;
+    for (int32 i=0;i<W*H;++i)
+    {
+        const float D = Px[i].R;
+        if (D > 100000) { ++Cleared; Out[i] = FColor(0,0,90,255); continue; }
+        MinD = FMath::Min(MinD,D); MaxD = FMath::Max(MaxD,D);
+        const uint8 G = uint8(FMath::Clamp(255.f*(1.f-D/2000.f),0.f,255.f));
+        Out[i] = FColor(G,G,G,255);
+    }
+    FFileHelper::CreateBitmap(*PngPath, W, H, Out.GetData());
+    auto S = [&](float U, float V) { return Px[FMath::Clamp(int32(V*H),0,H-1)*W + FMath::Clamp(int32(U*W),0,W-1)].R; };
+    UE_LOG(LogTemp,Display,TEXT("VTDIAG depth %dx%d min=%.1f max=%.1f cleared=%.1f%% centre=%.1f (0.25,0.7)=%.1f (0.75,0.7)=%.1f (0.5,0.1)=%.1f (0.5,0.9)=%.1f"),W,H,MinD,MaxD,100.f*Cleared/(W*H),S(.5f,.5f),S(.25f,.7f),S(.75f,.7f),S(.5f,.1f),S(.5f,.9f));
+}
 void AVideoTwinProjector::UpdateProjection()
 {
     if (!ProjectionMID) return;
@@ -200,7 +221,7 @@ void AVideoTwinProjector::UpdateProjection()
         const float X = 1.f/FMath::Tan(FMath::DegreesToRadians(Fov*.5f));
         DepthCapture->bUseCustomProjectionMatrix = true;
         DepthCapture->CustomProjectionMatrix = FMatrix(FPlane(X,0,0,0), FPlane(0,X*GetProjectionAspect(),0,0),
-            FPlane(2*PrincipalPoint.X-1,1-2*PrincipalPoint.Y,0,1), FPlane(0,0,1,0));
+            FPlane(2*PrincipalPoint.X-1,1-2*PrincipalPoint.Y,0,1), FPlane(0,0,FMath::Max(1.f,DepthNearCm),0));
         DepthCapture->CaptureScene();
         bDepthReady = true;
         bDepthDirty = false;
@@ -423,7 +444,20 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     // Explicitly open the source after wiring the runtime assets so the original map
     // follows the same path as the standalone acceptance map.
     Projector->OpenVideo();
+    if (Projector->bMeasuredCalibration)
+    {
+        // The level's camera 17 was placed by hand, about two metres from where the real camera is.
+        // Move it to the measured pose for this session (the saved map is not modified) so that the
+        // X view, the camera gizmo and the projection all agree.
+        const FTransform Pose = Projector->GetProjectionTransform();
+        if (USceneComponent* CamRoot = Camera17->GetRootComponent()) CamRoot->SetMobility(EComponentMobility::Movable);
+        Camera17->SetActorLocationAndRotation(Pose.GetLocation(), Pose.GetRotation());
+        Camera17->GetCameraComponent()->SetFieldOfView(Projector->GetProjectionFov());
+        Camera17->GetCameraComponent()->SetConstraintAspectRatio(false);
+        UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime: level camera 17 moved to the measured pose for this session"));
+    }
     Projector->RefreshDepth();
+    bAutomatedTest = FParse::Param(FCommandLine::Get(), TEXT("VideoTwinTest"));
     if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
     {
         Controller = PC;
@@ -451,6 +485,49 @@ void AVideoTwinRuntimeFeature::Tick(float DeltaSeconds)
     if (Controller->WasInputKeyJustPressed(EKeys::Z)) ToggleCamera17Fusion();
     if (Controller->WasInputKeyJustPressed(EKeys::X)) EnterCamera17View();
     if (Controller->WasInputKeyJustPressed(EKeys::C)) ExitCamera17View();
+    if (bAutomatedTest) RunAcceptance(DeltaSeconds);
+}
+void AVideoTwinRuntimeFeature::RunAcceptance(float DeltaSeconds)
+{
+    if (!Projector || !Controller.IsValid()) return;
+    TestElapsed += DeltaSeconds;
+    const FString Dir = FPaths::ProjectSavedDir()/TEXT("VideoTwinMVP");
+    IFileManager::Get().MakeDirectory(*Dir,true);
+    auto Shot = [&](const TCHAR* Name) { FScreenshotRequest::RequestScreenshot(Dir/Name,true,false); };
+    if (TestStep==0 && TestElapsed>14) { Shot(TEXT("main_01_default.png")); ++TestStep; }
+    else if (TestStep==1 && TestElapsed>16) { EnterCamera17View(); ++TestStep; }
+    else if (TestStep==2 && TestElapsed>19) { Shot(TEXT("main_02_cam17.png")); ++TestStep; }
+    else if (TestStep==3 && TestElapsed>21) { Projector->bEnabled=false; ++TestStep; }
+    else if (TestStep==4 && TestElapsed>23) { Shot(TEXT("main_03_cam17_model.png")); ++TestStep; }
+    else if (TestStep==5 && TestElapsed>25) { Projector->bEnabled=true; Projector->bUseOcclusion=false; ++TestStep; }
+    else if (TestStep==6 && TestElapsed>27) { Shot(TEXT("main_05_cam17_no_occlusion.png")); ++TestStep; }
+    else if (TestStep==7 && TestElapsed>29) { Projector->bUseOcclusion=true; Projector->bDepthDebug=true; ++TestStep; }
+    else if (TestStep==8 && TestElapsed>31) { Shot(TEXT("main_06_cam17_coverage.png")); Projector->DumpDepth(Dir/TEXT("main_depth")); ++TestStep; }
+    else if (TestStep==9 && TestElapsed>33)
+    {
+        Projector->bDepthDebug=false;
+        // Same oblique view as the MVP map: into the room, forward and to the left of the camera.
+        const FTransform P = Projector->GetProjectionTransform();
+        const FVector Target = P.GetLocation()+P.GetRotation().GetForwardVector()*650;
+        const FVector Position = P.GetLocation()+P.GetRotation().GetForwardVector().GetSafeNormal2D()*300-P.GetRotation().GetRightVector()*250+FVector(0,0,-25);
+        if (!TestObserver) TestObserver = GetWorld()->SpawnActor<ACameraActor>(Position,(Target-Position).Rotation());
+        if (TestObserver)
+        {
+            TestObserver->GetCameraComponent()->SetFieldOfView(90);
+            TestObserver->GetCameraComponent()->SetConstraintAspectRatio(false);
+            Controller->SetViewTarget(TestObserver);
+        }
+        ++TestStep;
+    }
+    else if (TestStep==10 && TestElapsed>36) { Shot(TEXT("main_04_oblique.png")); ++TestStep; }
+    else if (TestStep==11 && TestElapsed>38)
+    {
+        const bool Ready=Projector->GetPlayer()&&Projector->GetPlayer()->IsPlaying()&&Projector->GetDisplayTexture()!=Projector->ReferenceTexture;
+        const FString Result=FString::Printf(TEXT("{\"map\":\"%s\",\"media_playing\":%s,\"depth_ready\":%s,\"measured_calibration\":%s,\"status\":\"%s\"}"),*GetWorld()->GetMapName(),Ready?TEXT("true"):TEXT("false"),Projector->bDepthReady?TEXT("true"):TEXT("false"),Projector->bMeasuredCalibration?TEXT("true"):TEXT("false"),*Projector->Status);
+        FFileHelper::SaveStringToFile(Result,*(Dir/TEXT("main_acceptance.json")));
+        UE_LOG(LogTemp,Display,TEXT("VIDEOTWIN_MAIN_ACCEPTANCE %s"),*Result);
+        ++TestStep;
+    }
 }
 void AVideoTwinRuntimeFeature::HandleToggle() { ToggleCamera17Fusion(); }
 void AVideoTwinRuntimeFeature::HandleEnterView() { EnterCamera17View(); }
