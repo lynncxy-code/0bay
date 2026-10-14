@@ -95,6 +95,10 @@ public:
     float DepthCaptureStagger = 0.f;
     /** In a camera view that camera's own projection must win over overlapping ones; see SetViewFocus. */
     void SetViewFocus(bool bFocused);
+    /** Set while this camera's own view is shown. Seen from the camera itself the projected picture is the camera
+     *  picture whatever surface it lands on, so occlusion and the back-face test are dropped: the video shows whole
+     *  inside the receiver box instead of being cut along every model chair and cabinet that differs from the room. */
+    bool bViewFocused = false;
 
     UFUNCTION(BlueprintCallable, CallInEditor, Category="Video Twin") void RefreshDepth();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void OpenVideo();

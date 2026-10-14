@@ -285,6 +285,7 @@ void AVideoTwinProjector::SetViewFocus(bool bFocused)
     // Post-process priority decides which projection is drawn last where two overlap. In a camera's own view its
     // projection is the only one that lines up with the picture, so it must win there.
     if (ProjectionPostProcess) ProjectionPostProcess->Priority = BasePriority + (bFocused ? 10000.f : 0.f);
+    bViewFocused = bFocused;
 }
 void AVideoTwinProjector::TryReturnToLive(float DeltaSeconds)
 {
@@ -351,7 +352,7 @@ void AVideoTwinProjector::UpdateProjection()
     V(TEXT("ReceiverMin"),ReceiverMin); V(TEXT("ReceiverMax"),ReceiverMax);
     ProjectionMID->SetVectorParameterValue(TEXT("Lens"),FLinearColor(FMath::Tan(FMath::DegreesToRadians(Fov*.5f)),GetProjectionAspect(),PrincipalPoint.X,PrincipalPoint.Y));
     ProjectionMID->SetVectorParameterValue(TEXT("Distortion"),FLinearColor(RadialDistortion.X,RadialDistortion.Y,0,0));
-    ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled&&!bMutedByView?Opacity:0,DepthToleranceCm,MaxDistanceCm,bUseOcclusion&&bDepthReady?1:0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled&&!bMutedByView?Opacity:0,DepthToleranceCm,MaxDistanceCm,bViewFocused?2:(bUseOcclusion&&bDepthReady?1:0)));
     ProjectionMID->SetVectorParameterValue(TEXT("Display"),FLinearColor(bSplitView?1:0,bDepthDebug?1:0,bMaskTimestamp?1:0,ReceiverFeatherCm));
     ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"),GetDisplayTexture());
     if (bDepthDirty)

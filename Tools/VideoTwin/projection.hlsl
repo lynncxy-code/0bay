@@ -48,9 +48,15 @@ if (gnLen > 1e-6 && max(length(dpx), length(dpy)) < 0.03 * eyeDist)
     facing = dot(gn, normalize(ProjectorPosition - WorldPos));
 }
 float facingMask = smoothstep(-0.02, 0.02, facing);
+// Options.w: 0 = no occlusion, 1 = occlusion, 2 = this camera's own view. From the camera itself the projected
+// picture is the camera picture on whatever surface it lands, so neither test is needed there: the video shows
+// whole inside the receiver box and only the box edge decides where it ends.
+float ownView = Options.w > 1.5 ? 1.0 : 0.0;
+float useOcclusion = (Options.w > 0.5 && Options.w < 1.5) ? 1.0 : 0.0;
+facingMask = lerp(facingMask, 1.0, ownView);
 float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 float mask = inFrustum * inBounds * border * facingMask * smoothstep(0.0, 0.012, edge);
-mask *= lerp(1.0, visible, Options.w);
+mask *= lerp(1.0, visible, useOcclusion);
 if (Display.z > 0.5 && uv.x < 0.35 && uv.y < 0.14) mask = 0;
 if (Display.x > 0.5 && ScreenUV.x > 0.5) mask = 0;
 float3 video = Texture2DSampleLevel(VideoTex, VideoTexSampler, saturate(uv), 0).rgb;
