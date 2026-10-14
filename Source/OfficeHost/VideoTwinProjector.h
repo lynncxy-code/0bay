@@ -231,6 +231,15 @@ private:
     bool bViewOnlyOwn = true;
     /** Give the viewed camera's projection the top priority and, with bViewOnlyOwn, mute the others. */
     void ApplyViewFocus();
+    /** "local_light_shadows" in calibration.json (default false): whether point/spot/rect lights cast shadows.
+     *  Measured on site (RTX 3080 Ti, 1600x900): the office's local lights casting shadows took the frame from 22 ms
+     *  to 40 ms and the draw calls from 1545 to 7720, with or without the video; Lumen and resolution hardly mattered. */
+    bool bLocalLightShadows = false;
+    /** Turn shadow casting off on every local light now in the world; run a few times after start for streamed-in lights. */
+    void ApplyLocalLightShadows();
+    TArray<float> LightPassTimes = { 0.f, 5.f, 20.f };
+    int32 NextLightPass = 0;
+    float FeatureAge = 0.f;
     int32 TestCam = 1;
     AVideoTwinProjector* SpawnProjectorFor(const FString& Id);
     /** -VideoTwinTest: unattended screenshots of the original level, same idea as the MVP map's acceptance run. */

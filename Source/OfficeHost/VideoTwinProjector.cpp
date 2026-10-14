@@ -31,6 +31,7 @@
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "HttpModule.h"
+#include "Components/LocalLightComponent.h"
 #include "Interfaces/IHttpRequest.h"
 #include "Interfaces/IHttpResponse.h"
 
@@ -593,6 +594,7 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     // In a camera's own view only that camera's video is shown: the other projections are seen from the wrong
     // place there and only smear. "camera_view_only_own": false in calibration.json brings them back.
     bViewOnlyOwn = AVideoTwinProjector::GetCalibrationRootBool(TEXT("camera_view_only_own"), true);
+    bLocalLightShadows = AVideoTwinProjector::GetCalibrationRootBool(TEXT("local_light_shadows"), false);
     TArray<FString> Ids;
     AVideoTwinProjector::GetEnabledCameraIds(Ids);
     if (Ids.Num() == 0) Ids.Add(TEXT("17"));     // no list in the calibration file: the original single-camera behaviour
@@ -699,9 +701,27 @@ void AVideoTwinRuntimeFeature::BindRuntimeInput()
     if (!Controller.IsValid()) return;
     EnableInput(Controller.Get());
 }
+void AVideoTwinRuntimeFeature::ApplyLocalLightShadows()
+{
+    if (bLocalLightShadows) return;
+    int32 Total = 0, Switched = 0;
+    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+    {
+        TInlineComponentArray<ULocalLightComponent*> Lights(*It);
+        for (ULocalLightComponent* L : Lights)
+        {
+            ++Total;
+            if (L && L->CastShadows) { L->SetCastShadows(false); ++Switched; }
+        }
+    }
+    if (Switched > 0) UE_LOG(LogTemp,Display,TEXT("VideoTwin: shadows off on %d of %d local lights (local_light_shadows=false)"),Switched,Total);
+}
 void AVideoTwinRuntimeFeature::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    // A few passes after start, so lights in levels that stream in later are caught too.
+    FeatureAge += DeltaSeconds;
+    if (NextLightPass < LightPassTimes.Num() && FeatureAge >= LightPassTimes[NextLightPass]) { ApplyLocalLightShadows(); ++NextLightPass; }
     if (!Controller.IsValid()) return;
     // Poll the controller's edge state instead of binding repeated key-down events.
     // This makes one physical press produce one action even when the key is held.
