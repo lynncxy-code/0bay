@@ -244,6 +244,17 @@ private:
     TArray<float> LightPassTimes = { 0.f, 5.f, 20.f };
     int32 NextLightPass = 0;
     float FeatureAge = 0.f;
+    /** "show_status" in calibration.json (default false): the top-left status line (cameras, live/recorded, fusion).
+     *  Off on site at the user's request; switch it on for diagnosis. */
+    bool bShowStatus = false;
+    /** Where the player stood and looked a few seconds after start; C returns there (see ResetToStart). */
+    bool bStartPoseSaved = false;
+    FVector StartPawnLocation = FVector::ZeroVector;
+    FRotator StartPawnRotation = FRotator::ZeroRotator;
+    FRotator StartControlRotation = FRotator::ZeroRotator;
+    /** At least one opening pose has been recorded (bStartPoseSaved = it is frozen). */
+    bool bHaveStartPose = false;
+    void ResetToStart();
     int32 TestCam = 1;
     AVideoTwinProjector* SpawnProjectorFor(const FString& Id);
     /** -VideoTwinTest: unattended screenshots of the original level, same idea as the MVP map's acceptance run. */

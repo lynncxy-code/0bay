@@ -613,7 +613,8 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
     {
         Controller = PC;
-        Widget = CreateWidget<UVideoTwinRuntimeWidget>(PC);
+        bShowStatus = AVideoTwinProjector::GetCalibrationRootBool(TEXT("show_status"), false);
+        if (bShowStatus) Widget = CreateWidget<UVideoTwinRuntimeWidget>(PC);
         if (Widget)
         {
             Widget->SetFeature(this);
@@ -724,11 +725,39 @@ void AVideoTwinRuntimeFeature::Tick(float DeltaSeconds)
     FeatureAge += DeltaSeconds;
     if (NextLightPass < LightPassTimes.Num() && FeatureAge >= LightPassTimes[NextLightPass]) { ApplyLocalLightShadows(); ++NextLightPass; }
     if (!Controller.IsValid()) return;
+    // The opening pose for C: followed every frame until somebody first does something (walks, turns, presses X),
+    // then frozen -- so it is the view the scene settled on by itself, after its default route. Waiting for the
+    // pose to stand still for a few seconds worked in the editor but not in the packaged build, where the opening
+    // view never held perfectly still and the pose was only taken after the first walk.
+    if (!bStartPoseSaved)
+        if (APawn* Pawn = Controller->GetPawn())
+        {
+            float MouseX = 0.f, MouseY = 0.f;
+            Controller->GetInputMouseDelta(MouseX, MouseY);
+            static const FKey Moves[] = { EKeys::W, EKeys::A, EKeys::S, EKeys::D, EKeys::Q, EKeys::E, EKeys::Up, EKeys::Down,
+                                          EKeys::Left, EKeys::Right, EKeys::SpaceBar, EKeys::RightMouseButton, EKeys::LeftMouseButton, EKeys::X };
+            bool bUserActed = FMath::Abs(MouseX) + FMath::Abs(MouseY) > 0.f;
+            for (const FKey& K : Moves) bUserActed = bUserActed || Controller->IsInputKeyDown(K);
+            if (bUserActed && FeatureAge > 3.f)
+            {
+                bStartPoseSaved = true;
+                UE_LOG(LogTemp, Display, TEXT("VideoTwin opening position frozen for C at first input (after %.0f s)"), FeatureAge);
+            }
+            else
+            {
+                StartPawnLocation = Pawn->GetActorLocation();
+                StartPawnRotation = Pawn->GetActorRotation();
+                StartControlRotation = Controller->GetControlRotation();
+                bHaveStartPose = true;
+            }
+        }
     // Poll the controller's edge state instead of binding repeated key-down events.
     // This makes one physical press produce one action even when the key is held.
     if (Controller->WasInputKeyJustPressed(EKeys::Z)) ToggleCamera17Fusion();
     if (Controller->WasInputKeyJustPressed(EKeys::X)) EnterCamera17View();
-    if (Controller->WasInputKeyJustPressed(EKeys::C)) ExitCamera17View();
+    // C = reset: leave a camera view if in one, and go back to where the session started. It used to only leave a
+    // camera view, so in free roam it did nothing and looked broken.
+    if (Controller->WasInputKeyJustPressed(EKeys::C)) { ExitCamera17View(); ResetToStart(); }
     if (bAutomatedTest) RunAcceptance(DeltaSeconds);
 }
 void AVideoTwinRuntimeFeature::RunAcceptance(float DeltaSeconds)
@@ -841,6 +870,16 @@ void AVideoTwinRuntimeFeature::ExitCamera17View()
     ApplyViewFocus();
     if (SavedViewTarget.IsValid()) Controller->SetViewTargetWithBlend(SavedViewTarget.Get(), .35f, VTBlend_Cubic);
     UE_LOG(LogTemp, Display, TEXT("VideoTwin returned to original view"));
+}
+void AVideoTwinRuntimeFeature::ResetToStart()
+{
+    if (!bHaveStartPose || !Controller.IsValid()) return;
+    if (APawn* Pawn = Controller->GetPawn())
+    {
+        Pawn->SetActorLocationAndRotation(StartPawnLocation, StartPawnRotation, false, nullptr, ETeleportType::TeleportPhysics);
+        Controller->SetControlRotation(StartControlRotation);
+        UE_LOG(LogTemp, Display, TEXT("VideoTwin reset to the opening position"));
+    }
 }
 void AVideoTwinRuntimeFeature::ApplyViewFocus()
 {
