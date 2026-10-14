@@ -30,6 +30,9 @@
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
+#include "HttpModule.h"
+#include "Interfaces/IHttpRequest.h"
+#include "Interfaces/IHttpResponse.h"
 
 AVideoTwinProjector::AVideoTwinProjector()
 {
@@ -41,6 +44,12 @@ AVideoTwinProjector::AVideoTwinProjector()
     DepthCapture->bCaptureEveryFrame = false;
     DepthCapture->bCaptureOnMovement = false;
     DepthCapture->bAlwaysPersistRenderingState = true;
+    // Depth only. None of the lighting the main view needs, so the few captures that do happen stay cheap.
+    FEngineShowFlags& Flags = DepthCapture->ShowFlags;
+    Flags.SetLumenGlobalIllumination(false); Flags.SetLumenReflections(false); Flags.SetGlobalIllumination(false);
+    Flags.SetDynamicShadows(false); Flags.SetAmbientOcclusion(false); Flags.SetScreenSpaceReflections(false);
+    Flags.SetPostProcessing(false); Flags.SetFog(false); Flags.SetVolumetricFog(false); Flags.SetAtmosphere(false);
+    Flags.SetBloom(false); Flags.SetMotionBlur(false); Flags.SetParticles(false);
     ProjectionPostProcess = CreateDefaultSubobject<UPostProcessComponent>(TEXT("VideoFusion"));
     ProjectionPostProcess->SetupAttachment(RootComponent);
     ProjectionPostProcess->bUnbound = true;
@@ -66,6 +75,14 @@ static FString VideoTwinCalibrationPath()
     const FString Legacy = FPaths::ProjectDir() / TEXT("Tools/VideoTwin/calibration.json");
     if (FPaths::FileExists(Legacy)) return Legacy;
     return Staged;
+}
+bool AVideoTwinProjector::GetCalibrationRootBool(const TCHAR* Field, bool bDefault)
+{
+    FString Text; TSharedPtr<FJsonObject> Root; bool bValue = bDefault;
+    if (!FFileHelper::LoadFileToString(Text, *VideoTwinCalibrationPath())) return bDefault;
+    if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text), Root) || !Root.IsValid()) return bDefault;
+    Root->TryGetBoolField(Field, bValue);
+    return bValue;
 }
 void AVideoTwinProjector::GetEnabledCameraIds(TArray<FString>& OutIds)
 {
@@ -113,6 +130,8 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     if (Vec(TEXT("receiver_min"), Box)) ReceiverMin = Box;
     if (Vec(TEXT("receiver_max"), Box)) ReceiverMax = Box;
     if ((*Cam)->TryGetNumberField(TEXT("max_distance_cm"), Range) && Range > 10) MaxDistanceCm = float(Range);
+    double Feather = -1;
+    if ((*Cam)->TryGetNumberField(TEXT("receiver_feather_cm"), Feather) && Feather >= 0) ReceiverFeatherCm = float(Feather);
     // Where two cameras both see a surface the one with the higher priority is drawn last and wins.
     // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
     FString Url;
@@ -122,7 +141,8 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     FString PlayerName;
     if ((*Cam)->TryGetStringField(TEXT("stream_player"), PlayerName)) StreamPlayer = PlayerName;
     double Priority = 0;
-    if ((*Cam)->TryGetNumberField(TEXT("priority"), Priority) && ProjectionPostProcess) ProjectionPostProcess->Priority = float(Priority);
+    if ((*Cam)->TryGetNumberField(TEXT("priority"), Priority)) BasePriority = float(Priority);
+    if (ProjectionPostProcess) ProjectionPostProcess->Priority = BasePriority;
     bMeasuredCalibration = true;
     bDepthDirty = true;
     UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s measured calibration: pos=(%.1f,%.1f,%.1f) rot=%s hfov=%.2f k=(%.4f,%.4f)"),*CameraId,Pos.X,Pos.Y,Pos.Z,*MeasuredRotation.Rotator().ToCompactString(),MeasuredHorizontalFov,K1,K2);
@@ -259,6 +279,41 @@ void AVideoTwinProjector::ResetCalibration()
     RefreshDepth();
 }
 void AVideoTwinProjector::RefreshDepth() { bDepthDirty = true; }
+void AVideoTwinProjector::SetViewFocus(bool bFocused)
+{
+    // Post-process priority decides which projection is drawn last where two overlap. In a camera's own view its
+    // projection is the only one that lines up with the picture, so it must win there.
+    if (ProjectionPostProcess) ProjectionPostProcess->Priority = BasePriority + (bFocused ? 10000.f : 0.f);
+}
+void AVideoTwinProjector::TryReturnToLive(float DeltaSeconds)
+{
+    if (!bLiveFailed || StreamUrl.IsEmpty() || bLiveProbeInFlight || !Player) return;
+    // Only an http(s) playlist can be checked cheaply without disturbing the recording that is playing meanwhile.
+    if (!StreamUrl.StartsWith(TEXT("http"), ESearchCase::IgnoreCase)) return;
+    LiveRetryAge += DeltaSeconds;
+    if (LiveRetryAge < 15.f) return;
+    LiveRetryAge = 0;
+    bLiveProbeInFlight = true;
+    TWeakObjectPtr<AVideoTwinProjector> Self(this);
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> Req = FHttpModule::Get().CreateRequest();
+    Req->SetURL(StreamUrl);
+    Req->SetVerb(TEXT("GET"));
+    Req->SetTimeout(5.f);
+    Req->OnProcessRequestComplete().BindLambda([Self](FHttpRequestPtr, FHttpResponsePtr Response, bool bConnected)
+    {
+        AVideoTwinProjector* P = Self.Get();
+        if (!P) return;
+        P->bLiveProbeInFlight = false;
+        if (!bConnected || !Response.IsValid() || Response->GetResponseCode() != 200 || !Response->GetContentAsString().StartsWith(TEXT("#EXTM3U"))) return;
+        if (!P->bLiveFailed || !P->Player) return;
+        UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s live stream answers again; leaving the recording"),*P->CameraId);
+        P->bLiveFailed = false;
+        P->MediaSource = P->RecordedSource;
+        P->Player->Close();
+        P->OpenVideo();
+    });
+    Req->ProcessRequest();
+}
 void AVideoTwinProjector::DumpDepth(const FString& PngPath)
 {
     if (!DepthTarget) return;
@@ -295,8 +350,8 @@ void AVideoTwinProjector::UpdateProjection()
     V(TEXT("ReceiverMin"),ReceiverMin); V(TEXT("ReceiverMax"),ReceiverMax);
     ProjectionMID->SetVectorParameterValue(TEXT("Lens"),FLinearColor(FMath::Tan(FMath::DegreesToRadians(Fov*.5f)),GetProjectionAspect(),PrincipalPoint.X,PrincipalPoint.Y));
     ProjectionMID->SetVectorParameterValue(TEXT("Distortion"),FLinearColor(RadialDistortion.X,RadialDistortion.Y,0,0));
-    ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled?Opacity:0,DepthToleranceCm,MaxDistanceCm,bUseOcclusion&&bDepthReady?1:0));
-    ProjectionMID->SetVectorParameterValue(TEXT("Display"),FLinearColor(bSplitView?1:0,bDepthDebug?1:0,bMaskTimestamp?1:0,0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled&&!bMutedByView?Opacity:0,DepthToleranceCm,MaxDistanceCm,bUseOcclusion&&bDepthReady?1:0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Display"),FLinearColor(bSplitView?1:0,bDepthDebug?1:0,bMaskTimestamp?1:0,ReceiverFeatherCm));
     ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"),GetDisplayTexture());
     if (bDepthDirty)
     {
@@ -319,8 +374,15 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     InitializeResources();
     DepthAge += DeltaSeconds;
-    // The mock office is static; update at 2 Hz for doors/chairs moved in the demo.
-    if (bEnabled && DepthAge > DepthRefreshSeconds) bDepthDirty = true;
+    PlayAge += DeltaSeconds;
+    if (bEnabled && DepthRefreshSeconds > 0.f && DepthAge > DepthRefreshSeconds) bDepthDirty = true;
+    // A few scheduled re-captures after start, for geometry that streams in late. Staggered per projector.
+    if (NextDepthCapture < DepthCaptureTimes.Num() && PlayAge >= DepthCaptureTimes[NextDepthCapture] + DepthCaptureStagger)
+    {
+        bDepthDirty = true;
+        ++NextDepthCapture;
+    }
+    TryReturnToLive(DeltaSeconds);
     if (Player)
     {
         OpenAge += DeltaSeconds;
@@ -527,6 +589,10 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     // -VideoTwinStartOff: start with fusion off, so the test run captures the bare model from every camera pose.
     // Those pictures are what a camera's calibration is checked against.
     if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinStartOff"))) bStartEnabled = false;
+    if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinStartOn"))) bStartEnabled = true;
+    // In a camera's own view only that camera's video is shown: the other projections are seen from the wrong
+    // place there and only smear. "camera_view_only_own": false in calibration.json brings them back.
+    bViewOnlyOwn = AVideoTwinProjector::GetCalibrationRootBool(TEXT("camera_view_only_own"), true);
     TArray<FString> Ids;
     AVideoTwinProjector::GetEnabledCameraIds(Ids);
     if (Ids.Num() == 0) Ids.Add(TEXT("17"));     // no list in the calibration file: the original single-camera behaviour
@@ -538,8 +604,8 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     }
     Projector = Projectors[0];
     Camera17 = ViewCameras[0];
-    // Each projector re-renders a full-resolution depth view. Fine for one; spread it out for several.
-    if (Projectors.Num() > 1) for (AVideoTwinProjector* P : Projectors) P->DepthRefreshSeconds = 3.f;
+    // Each depth capture is a full-scene render; never let two projectors do it in the same frame.
+    for (int32 i = 0; i < Projectors.Num(); ++i) if (Projectors[i]) Projectors[i]->DepthCaptureStagger = .2f * i;
     bAutomatedTest = FParse::Param(FCommandLine::Get(), TEXT("VideoTwinTest"));
     if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
     {
@@ -728,7 +794,9 @@ void AVideoTwinRuntimeFeature::ToggleCamera17Fusion()
     if (Projector)
     {
         const bool bOn = !Projector->bEnabled;
-        for (AVideoTwinProjector* P : Projectors) if (P) { P->bEnabled = bOn; P->RefreshDepth(); }
+        // The depth maps stay valid while fusion is off (the scene does not move), so no re-capture here:
+        // it used to re-render all of them in the same frame on every press.
+        for (AVideoTwinProjector* P : Projectors) if (P) P->bEnabled = bOn;
         UE_LOG(LogTemp, Display, TEXT("VideoTwin fusion %s for %d camera(s)"), bOn ? TEXT("enabled") : TEXT("disabled"), Projectors.Num());
     }
 }
@@ -741,6 +809,7 @@ void AVideoTwinRuntimeFeature::EnterCamera17View()
     // First press shows the first camera; pressing again steps through the rest.
     ViewIndex = (ViewIndex + 1) % Projectors.Num();
     if (ViewCameras[ViewIndex]) Controller->SetViewTargetWithBlend(ViewCameras[ViewIndex], .35f, VTBlend_Cubic);
+    ApplyViewFocus();
     UE_LOG(LogTemp, Display, TEXT("VideoTwin entered camera %s view"), *Projectors[ViewIndex]->CameraId);
 }
 void AVideoTwinRuntimeFeature::ExitCamera17View()
@@ -748,8 +817,19 @@ void AVideoTwinRuntimeFeature::ExitCamera17View()
     if (!Controller.IsValid()) return;
     bInCamera17View = false;
     ViewIndex = -1;
+    ApplyViewFocus();
     if (SavedViewTarget.IsValid()) Controller->SetViewTargetWithBlend(SavedViewTarget.Get(), .35f, VTBlend_Cubic);
     UE_LOG(LogTemp, Display, TEXT("VideoTwin returned to original view"));
+}
+void AVideoTwinRuntimeFeature::ApplyViewFocus()
+{
+    for (int32 i = 0; i < Projectors.Num(); ++i)
+    {
+        AVideoTwinProjector* P = Projectors[i];
+        if (!P) continue;
+        P->SetViewFocus(i == ViewIndex);
+        P->bMutedByView = bViewOnlyOwn && ViewIndex >= 0 && i != ViewIndex;
+    }
 }
 void AVideoTwinRuntimeFeature::EndPlay(const EEndPlayReason::Type Reason)
 {

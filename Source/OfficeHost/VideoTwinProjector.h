@@ -58,6 +58,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FVector ReceiverMin = FVector(-100,-2500,4315);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FVector ReceiverMax = FVector(2850,300,4740);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="10")) float MaxDistanceCm = 3000.f;
+    /** Width of the soft border inside the receiver box, in cm (X/Y sides only: the box's floor and ceiling stay hard).
+     *  "receiver_feather_cm" in calibration.json. 0 = the old hard edge. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0")) float ReceiverFeatherCm = 12.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FVector PositionOffset = FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FRotator RotationOffset = FRotator::ZeroRotator;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") float FovOffset = 0.f;
@@ -77,8 +80,21 @@ public:
     void DumpDepth(const FString& PngPath);
     /** Camera ids listed under "enabled_cameras" in calibration.json, in that order. Empty when there is no file. */
     static void GetEnabledCameraIds(TArray<FString>& OutIds);
-    /** Seconds between depth re-captures. One projector can afford 0.5 s; several at once should not. */
-    float DepthRefreshSeconds = .5f;
+    /** A top-level true/false switch in calibration.json; bDefault when the file or the field is missing. */
+    static bool GetCalibrationRootBool(const TCHAR* Field, bool bDefault);
+    /** Set while another camera's view is shown and only that camera's own video should be visible. */
+    bool bMutedByView = false;
+    /** Seconds between periodic depth re-captures; 0 = never. The office is static and the real people are not in
+     *  the model, so re-capturing on a timer only cost a full-scene render per projector every few seconds -- on site
+     *  four of them landed in the same frame every 3 s and the picture stuttered. Depth is captured a few times after
+     *  start (see DepthCaptureTimes, to catch late streaming) and whenever the pose changes. */
+    float DepthRefreshSeconds = 0.f;
+    /** Seconds after BeginPlay at which the depth is captured again regardless, so geometry that streams in late
+     *  still occludes. Shifted by DepthCaptureStagger so several projectors never capture in the same frame. */
+    TArray<float> DepthCaptureTimes = { 1.f, 6.f, 20.f };
+    float DepthCaptureStagger = 0.f;
+    /** In a camera view that camera's own projection must win over overlapping ones; see SetViewFocus. */
+    void SetViewFocus(bool bFocused);
 
     UFUNCTION(BlueprintCallable, CallInEditor, Category="Video Twin") void RefreshDepth();
     UFUNCTION(BlueprintCallable, Category="Video Twin") void OpenVideo();
@@ -106,8 +122,17 @@ private:
     UPROPERTY(Transient) TObjectPtr<UMediaSource> RecordedSource;
     bool bLiveFailed = false;
     bool FallBackToRecording(const TCHAR* Why);
+    /** While on the recording because the live stream failed: poll the stream address now and then and go back
+     *  to live once it answers (the converter restarting used to leave every camera on its recording until UE restarted). */
+    void TryReturnToLive(float DeltaSeconds);
+    float LiveRetryAge = 0;
+    bool bLiveProbeInFlight = false;
     bool bDepthDirty = true;
     float DepthAge = 0;
+    float PlayAge = 0;
+    int32 NextDepthCapture = 0;
+    /** Post-process priority from calibration.json; SetViewFocus adds to it while this camera's view is shown. */
+    float BasePriority = 500.f;
     float OpenAge = 0;
     FTransform LastPose;
     float LastFov = 0;
@@ -188,7 +213,8 @@ public:
     const TArray<TObjectPtr<AVideoTwinProjector>>& GetProjectors() const { return Projectors; }
     int32 GetViewIndex() const { return ViewIndex; }
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") FString Camera17Label = TEXT("OntoTwin_Camera_17");
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") bool bStartEnabled = true;
+    /** Fusion starts off; Z turns it on. -VideoTwinStartOn overrides (the old -VideoTwinStartOff is still accepted). */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") bool bStartEnabled = false;
 private:
     UPROPERTY(Transient) TObjectPtr<AVideoTwinProjector> Projector;
     UPROPERTY(Transient) TObjectPtr<UVideoTwinRuntimeWidget> Widget;
@@ -201,6 +227,10 @@ private:
     /** View camera for each projector (the level's own camera actor when it exists, otherwise spawned). */
     UPROPERTY(Transient) TArray<TObjectPtr<ACameraActor>> ViewCameras;
     int32 ViewIndex = -1;
+    /** "camera_view_only_own" in calibration.json (default true): in a camera's view hide the other projections. */
+    bool bViewOnlyOwn = true;
+    /** Give the viewed camera's projection the top priority and, with bViewOnlyOwn, mute the others. */
+    void ApplyViewFocus();
     int32 TestCam = 1;
     AVideoTwinProjector* SpawnProjectorFor(const FString& Id);
     /** -VideoTwinTest: unattended screenshots of the original level, same idea as the MVP map's acceptance run. */

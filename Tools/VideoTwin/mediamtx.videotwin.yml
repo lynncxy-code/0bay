@@ -47,7 +47,7 @@ rtsp: no
 moq: no
 
 hls: yes
-hlsAddress: :8888                  # footage shows identifiable people: prefer <this machine's LAN IP>:8888 over all interfaces
+hlsAddress: 127.0.0.1:8888          # local Unreal runtime only
 hlsAlwaysRemux: yes                # keep producing segments even with no viewer, so Unreal starts immediately
 hlsVariant: fmp4
 hlsSegmentDuration: 1s
@@ -62,14 +62,14 @@ pathDefaults:
 
 paths:
   cam17:
-    source: rtsp://admin:CHANGE_ME@192.168.229.2:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.2:554/LiveMedia/ch1/Media2?src=onvif
   cam24:
-    source: rtsp://admin:CHANGE_ME@192.168.229.9:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.9:554/LiveMedia/ch1/Media2?src=onvif
   cam18:
-    source: rtsp://admin:CHANGE_ME@192.168.229.3:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.3:554/LiveMedia/ch1/Media2?src=onvif
   cam21:
-    source: rtsp://admin:CHANGE_ME@192.168.229.6:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.6:554/LiveMedia/ch1/Media2?src=onvif
   cam23:
-    source: rtsp://admin:CHANGE_ME@192.168.229.8:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.8:554/LiveMedia/ch1/Media2?src=onvif
   cam19:
-    source: rtsp://admin:CHANGE_ME@192.168.229.4:554/LiveMedia/ch1/Media1?src=onvif
+    source: rtsp://admin:CHANGE_ME@192.168.229.4:554/LiveMedia/ch1/Media2?src=onvif

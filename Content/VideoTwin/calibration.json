@@ -37,18 +37,20 @@
       ],
       "height_note": "Z 4617.4 = floor 4320 + 297.4 cm, the height confirmed by the external check in September. The batch calibration used the scene-wide default of 305 cm, which puts the camera above the 3 m ceiling: the depth capture then sees the ceiling 3.4 cm below it and rejects everything.",
       "receiver_min": [
-        -100.0,
+        700.0,
         -2500.0,
         4315.0
       ],
       "receiver_max": [
         2850.0,
-        -1440.0,
+        -1250.0,
         4740.0
       ],
       "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
       "priority": 510,
-      "stream_url": "http://127.0.0.1:8888/cam17/index.m3u8"
+      "stream_url": "http://127.0.0.1:8888/cam17/index.m3u8",
+      "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
+      "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it."
     },
     "18": {
       "verified": true,
@@ -83,19 +85,20 @@
         1440
       ],
       "receiver_min": [
-        5015.0,
+        4950.0,
         -1500.0,
         4315.0
       ],
       "receiver_max": [
         5750.0,
-        300.0,
+        700.0,
         4740.0
       ],
       "max_distance_cm": 1500,
       "priority": 501,
       "receiver_note": "Hall floor on the camera's side of the white wall. The wall base measured X 5011 / 5005 / 5003 at three points, so it lies on X = 5005; the glass door is in that wall at Y -691..-848. X min 5015 keeps the wall, the door and everything behind them virtual; the floor, the chair and the easel (X about 5350) show video.",
-      "stream_url": "http://127.0.0.1:8888/cam18/index.m3u8"
+      "stream_url": "http://127.0.0.1:8888/cam18/index.m3u8",
+      "receiver_note_previous": "before 2026-10-14 edge pass: [5015.0, -1500.0, 4315.0]..[5750.0, 300.0, 4740.0], max_distance 1500"
     },
     "21": {
       "verified": true,
@@ -238,7 +241,8 @@
       "max_distance_cm": 1500,
       "priority": 500,
       "receiver_note": "Workstation strip only, same idea as camera 17. In the level the desk row starts at X about 315..340 and the planter cabinet in front of it occupies X about 200..290, so X min 300 sits between them. The tall cabinets on the right stand at Y about -1000..-1130 (excluded by Y max -1150); the glass wall on the left is at Y -1595. Known mismatch: in the footage the real counter (round holes) sits at X about 324..470 and the real desks start near X 490, roughly 1.5 m further in than the model has them. So the counter's image lands on the near end of the virtual desk. Either the model's furniture is placed differently from reality here, or camera 24's position is off; not resolved.",
-      "stream_url": "http://127.0.0.1:8888/cam24/index.m3u8"
+      "stream_url": "http://127.0.0.1:8888/cam24/index.m3u8",
+      "receiver_note_edge": "kept Y upper bound -1150 on 2026-10-14: anything from -1100 to -980 takes in the tall cabinet row, which the model places on top of the real far-side seats; its face then shows in camera 17 as a floating grey block. Height caps were tried and rejected (they cut standing people). Fixing it needs the cabinets moved in the scene."
     },
     "19": {
       "verified": false,
@@ -277,14 +281,15 @@
         4315.0
       ],
       "receiver_max": [
-        1560.0,
-        -470.0,
+        2000.0,
+        -420.0,
         4740.0
       ],
-      "max_distance_cm": 1100,
+      "max_distance_cm": 1500,
       "priority": 480,
       "stream_url": "http://127.0.0.1:8888/cam19/index.m3u8",
-      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera."
+      "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
+      "receiver_note_previous": "before 2026-10-14 edge pass: [950.0, -1090.0, 4315.0]..[1560.0, -470.0, 4740.0], max_distance 1100"
     },
     "20": {
       "verified": false,
@@ -670,7 +675,10 @@
     "18",
     "19"
   ],
+  "camera_view_only_own": true,
+  "_camera_view_note": "In a camera view (X) only that camera's own video is shown; the other projections are seen from the wrong place there and only smear. false shows them all. Per camera, receiver_feather_cm (default 12) softens the four sides of its receiver box; 0 = hard edge.",
   "_enabled_note": "17, 24, 18 are measured against their pictures. 19 is prior-only: it matches the model and covers an area no measured camera covers.",
   "_disabled_note": "21 and 23 are measured but off (model furniture mismatch, see their disabled_reason). 20, 22, 25-30 are prior-only and off; each has a disabled_reason.",
-  "_stream_note": "Each enabled camera has a \"stream_url\": the live HLS stream from the local MediaMTX converter (Tools/VideoTwin/start_live.ps1, config mediamtx.videotwin.yml, scheduled task VideoTwinLive). If the stream cannot be opened, or gives no picture within 12 s, the projector falls back to Content/Movies/Camera<id>_Real.mp4 and the status reads 'LIVE UNAVAILABLE, RECORDED LOOP'. Remove the line to always use the recording. Measured delay for this route: 4.0-4.7 s behind live (1 s segments). rtsp:// opened directly by WmfMedia also works (5.2 s). \"stream_live_offset\" has no effect on HLS. Do NOT enable WmfMedia's LowLatency setting."
+  "_stream_note": "Each enabled camera has a \"stream_url\": the live HLS stream from the local MediaMTX converter (Tools/VideoTwin/start_live.ps1, config mediamtx.videotwin.yml, scheduled task VideoTwinLive). If the stream cannot be opened, or gives no picture within 12 s, the projector falls back to Content/Movies/Camera<id>_Real.mp4 and the status reads 'LIVE UNAVAILABLE, RECORDED LOOP'. Remove the line to always use the recording. Measured delay for this route: 4.0-4.7 s behind live (1 s segments). rtsp:// opened directly by WmfMedia also works (5.2 s). \"stream_live_offset\" has no effect on HLS. Do NOT enable WmfMedia's LowLatency setting.",
+  "_receiver_edges": "2026-10-14 on site: box sides moved onto real dividing lines (wall bases, cabinet faces, aisle edges) seen in each camera picture, so no desk, chair or person is cut in half by a box side."
 }

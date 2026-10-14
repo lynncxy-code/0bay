@@ -9,7 +9,7 @@
 #   2. registers a scheduled task "VideoTwinLive" that starts the converter at logon;
 #   3. starts it now and reports whether each camera could be reached.
 #
-# Remove again with:  schtasks /Delete /TN VideoTwinLive /F
+# Remove again with:  Unregister-ScheduledTask -TaskName VideoTwinLive -Confirm:$false
 #
 # Pure ASCII on purpose: Windows PowerShell 5.1 reads .ps1 files as the system ANSI code page.
 
@@ -30,9 +30,15 @@ if (-not [Environment]::GetEnvironmentVariable('OFFICE_CAM_PASSWORD', 'User')) {
 }
 
 $tn = "VideoTwinLive"
-$action = "powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$here\start_live.ps1`""
-schtasks /Create /TN $tn /TR $action /SC ONLOGON /RU $env:USERNAME /IT /F | Out-Null
-schtasks /Run /TN $tn | Out-Null
+# Register-ScheduledTask, not schtasks /TR: schtasks mangles the quoting when the kit path contains spaces
+# (seen on site under "D:\BaiduNetdiskDownload\New folder\..."), and the task then never starts.
+$act = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$here\start_live.ps1`"" -WorkingDirectory $here
+$trg = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$prn = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive
+# No time limit (the default stops a task after 72 hours) and no battery rules: the converter runs for the whole session.
+$set = New-ScheduledTaskSettingsSet -ExecutionTimeLimit ([TimeSpan]::Zero) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew
+Register-ScheduledTask -TaskName $tn -Action $act -Trigger $trg -Principal $prn -Settings $set -Force | Out-Null
+Start-ScheduledTask -TaskName $tn
 Write-Output "Scheduled task '$tn' registered (runs at logon) and started. Waiting for the cameras ..."
 Start-Sleep -Seconds 16
 
