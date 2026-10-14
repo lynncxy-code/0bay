@@ -1,7 +1,7 @@
 """Rebuild the node graph of the projection material and of every per-camera copy, in place.
 
-Same graph build_assets.py makes, plus the WorldNormal input projection.hlsl needs since 2026-10-15
-(GBuffer normal, for rejecting surfaces that face away from the projector). Only these materials are
+Same graph build_assets.py makes, plus the CameraPos input projection.hlsl needs since 2026-10-15
+(to turn its geometric normal towards the viewer before rejecting surfaces that face away from the projector). Only these materials are
 touched: no map, texture or other asset is created or saved.
 
 Run with the editor closed:
@@ -41,9 +41,7 @@ def rebuild(path):
     scene = node(u.MaterialExpressionSceneTexture)
     scene.set_editor_property('scene_texture_id', u.SceneTextureId.PPI_POST_PROCESS_INPUT0)
     inputs['SceneColor'] = (scene, 'Color')
-    normal = node(u.MaterialExpressionSceneTexture)
-    normal.set_editor_property('scene_texture_id', u.SceneTextureId.PPI_WORLD_NORMAL)
-    inputs['WorldNormal'] = (normal, 'Color')
+    inputs['CameraPos'] = (node(u.MaterialExpressionCameraPositionWS), '')
     inputs['ScreenUV'] = (node(u.MaterialExpressionScreenPosition), 'ViewportUV')
     for name, t in [('VideoTex', tex), ('ProjectorDepthTex', depth)]:
         n = node(u.MaterialExpressionTextureObjectParameter)

@@ -28,8 +28,26 @@ float visible = storedDepth > 1 ? 1.0 - smoothstep(storedDepth + tolerance, stor
 // A surface that faces away from the projector, or that it only grazes, never takes its video. On a back face
 // the picture is not what the camera saw (the end of a cabinet the camera looks past showed up as a floating
 // grey block from the opposite camera); on a grazing face a few source pixels get stretched into long streaks.
-float facing = dot(normalize(WorldNormal.xyz), normalize(ProjectorPosition - WorldPos));
-float facingMask = smoothstep(0.05, 0.20, facing);
+// The normal is the geometric one, from the reconstructed positions of neighbouring pixels. The GBuffer normal
+// carries the carpet and fabric normal maps: with it the test flipped pixel by pixel and peppered the floor
+// with black specks. Turned towards the viewer (every visible surface faces the viewer); across a depth edge
+// the neighbours belong to different surfaces, so the test is skipped there instead of guessing. The threshold
+// only catches back faces and near-tangent grazing: some materials offset pixel depth, which roughens the
+// reconstructed normal, and a 0.06 cut-off still dotted the far floor (which the camera sees at 6+ degrees).
+float3 dpx = ddx(WorldPos);
+float3 dpy = ddy(WorldPos);
+float3 toEye = CameraPos - WorldPos;
+float eyeDist = max(length(toEye), 1.0);
+float3 gn = cross(dpx, dpy);
+float gnLen = length(gn);
+float facing = 1.0;
+if (gnLen > 1e-6 && max(length(dpx), length(dpy)) < 0.03 * eyeDist)
+{
+    gn /= gnLen;
+    gn *= dot(gn, toEye) >= 0 ? 1.0 : -1.0;
+    facing = dot(gn, normalize(ProjectorPosition - WorldPos));
+}
+float facingMask = smoothstep(-0.02, 0.02, facing);
 float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 float mask = inFrustum * inBounds * border * facingMask * smoothstep(0.0, 0.012, edge);
 mask *= lerp(1.0, visible, Options.w);
@@ -45,4 +63,7 @@ if (Display.y > 0.5)
     float3 coverage = lerp(float3(1,0.08,0.02),float3(0.03,0.9,0.35),visible * facingMask);
     return lerp(SceneColor.rgb, coverage, inFrustum * inBounds * 0.7 * Options.x);
 }
-return lerp(SceneColor.rgb, video, saturate(mask * Options.x));
+float blend = saturate(mask * Options.x);
+// Never let a bad value reach the screen as a black or white pixel.
+if (!(blend >= 0.0)) blend = 0.0;
+return lerp(SceneColor.rgb, video, blend);
