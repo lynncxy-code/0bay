@@ -148,7 +148,7 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
             const TSharedPtr<FJsonObject>* EO = nullptr;
             const TArray<TSharedPtr<FJsonValue>>* Mn = nullptr; const TArray<TSharedPtr<FJsonValue>>* Mx = nullptr;
             if (!E.IsValid() || !E->TryGetObject(EO) || !(*EO)->TryGetArrayField(TEXT("min"), Mn) || !(*EO)->TryGetArrayField(TEXT("max"), Mx) || Mn->Num() != 3 || Mx->Num() != 3) continue;
-            if (ExcludeBoxes.Num() == 6) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: more than 6 exclude_boxes; the rest are ignored")); break; }
+            if (ExcludeBoxes.Num() == 12) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: more than 12 exclude_boxes; the rest are ignored")); break; }
             ExcludeBoxes.Add(FBox(FVector((*Mn)[0]->AsNumber(), (*Mn)[1]->AsNumber(), (*Mn)[2]->AsNumber()), FVector((*Mx)[0]->AsNumber(), (*Mx)[1]->AsNumber(), (*Mx)[2]->AsNumber())));
         }
     }
@@ -202,7 +202,7 @@ void AVideoTwinProjector::InitializeResources()
 void AVideoTwinProjector::ApplyExcludeBoxes()
 {
     if (!ProjectionMID) return;
-    for (int32 i = 0; i < 6; ++i)
+    for (int32 i = 0; i < 12; ++i)
     {
         // Unused slots inside-out: no position is ever >= +1e9 and <= -1e9 at once.
         const FVector Mn = ExcludeBoxes.IsValidIndex(i) ? ExcludeBoxes[i].Min : FVector(1e9);

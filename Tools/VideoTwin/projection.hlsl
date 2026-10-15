@@ -59,8 +59,8 @@ float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 // A box edge cuts through whatever stands on it; a line drawn along real edges in the picture does not.
 // Cameras without a mask get a white texture.
 float userMask = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0).r;
-// Furniture that stays the model whatever camera looks at it ("exclude_boxes" in calibration.json, up to 6 world
-// boxes; unused ones are set inside-out so nothing is ever in them). 2026-10-16: the planter cabinets with their pots.
+// Furniture that stays the model whatever camera looks at it ("exclude_boxes" in calibration.json, up to 12 world
+// boxes; unused ones are set inside-out so nothing is ever in them). 2026-10-16: the planter cabinets and their plants.
 float excluded = 0.0;
 excluded = max(excluded, (all(WorldPos >= ExcludeMin0) && all(WorldPos <= ExcludeMax0)) ? 1.0 : 0.0);
 excluded = max(excluded, (all(WorldPos >= ExcludeMin1) && all(WorldPos <= ExcludeMax1)) ? 1.0 : 0.0);
@@ -68,6 +68,12 @@ excluded = max(excluded, (all(WorldPos >= ExcludeMin2) && all(WorldPos <= Exclud
 excluded = max(excluded, (all(WorldPos >= ExcludeMin3) && all(WorldPos <= ExcludeMax3)) ? 1.0 : 0.0);
 excluded = max(excluded, (all(WorldPos >= ExcludeMin4) && all(WorldPos <= ExcludeMax4)) ? 1.0 : 0.0);
 excluded = max(excluded, (all(WorldPos >= ExcludeMin5) && all(WorldPos <= ExcludeMax5)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin6) && all(WorldPos <= ExcludeMax6)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin7) && all(WorldPos <= ExcludeMax7)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin8) && all(WorldPos <= ExcludeMax8)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin9) && all(WorldPos <= ExcludeMax9)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin10) && all(WorldPos <= ExcludeMax10)) ? 1.0 : 0.0);
+excluded = max(excluded, (all(WorldPos >= ExcludeMin11) && all(WorldPos <= ExcludeMax11)) ? 1.0 : 0.0);
 userMask *= 1.0 - excluded;
 float mask = inFrustum * inBounds * border * facingMask * userMask * smoothstep(0.0, 0.012, edge);
 mask *= lerp(1.0, visible, useOcclusion);

@@ -60,7 +60,7 @@ def rebuild(path):
         'Lens': (1, 16 / 9, .5, .5), 'Distortion': (0, 0, 0, 0), 'Options': (1, 6, 3000, 0), 'Display': (0, 0, 1, 0)
     }
     # Exclusion boxes (2026-10-16), inside-out by default so nothing is excluded until the runtime sets them.
-    for i in range(6):
+    for i in range(12):
         params['ExcludeMin%d' % i] = (1e9, 1e9, 1e9, 0)
         params['ExcludeMax%d' % i] = (-1e9, -1e9, -1e9, 0)
     for name, default in params.items():

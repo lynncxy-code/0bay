@@ -5,29 +5,55 @@
   "exclude_boxes": [
     {
       "min": [
-        199.0,
+        223.0,
         -1428.0,
         4389.0
       ],
       "max": [
-        301.0,
-        -1234.0,
+        273.0,
+        -1242.0,
         4600.0
       ],
-      "what": "planter pair X 226-270 (across the row): cabinets + pots"
+      "what": "planter pair X 226-270 (across the row): cabinets from half height"
+    },
+    {
+      "min": [
+        199.0,
+        -1440.0,
+        4432.0
+      ],
+      "max": [
+        301.0,
+        -1220.0,
+        4600.0
+      ],
+      "what": "planter pair X 226-270: plants, above desk height"
+    },
+    {
+      "min": [
+        777.0,
+        -1428.0,
+        4389.0
+      ],
+      "max": [
+        827.0,
+        -1242.0,
+        4600.0
+      ],
+      "what": "planter pair X 780-824 (across the row): cabinets from half height"
     },
     {
       "min": [
         759.0,
-        -1428.0,
-        4389.0
+        -1440.0,
+        4432.0
       ],
       "max": [
         861.0,
-        -1234.0,
+        -1220.0,
         4600.0
       ],
-      "what": "planter pair X 780-824 (across the row): cabinets + pots"
+      "what": "planter pair X 780-824: plants, above desk height"
     },
     {
       "min": [
@@ -36,11 +62,24 @@
         4389.0
       ],
       "max": [
-        1261.0,
+        1248.0,
         -1383.0,
         4600.0
       ],
-      "what": "planter pair X 1065-1245: cabinet depth only (chairs stand where the pots overhang)"
+      "what": "planter pair X 1065-1245: cabinet depth, from half height"
+    },
+    {
+      "min": [
+        1055.0,
+        -1456.0,
+        4432.0
+      ],
+      "max": [
+        1268.0,
+        -1250.0,
+        4600.0
+      ],
+      "what": "planter pair X 1065-1245: plants (they reach well past the pot bounds towards the pantry), above desk height"
     },
     {
       "min": [
@@ -49,40 +88,79 @@
         4389.0
       ],
       "max": [
-        1671.0,
+        1658.0,
         -1383.0,
         4600.0
       ],
-      "what": "planter pair X 1475-1655: cabinet depth only (chairs stand where the pots overhang)"
+      "what": "planter pair X 1475-1655: cabinet depth, from half height"
+    },
+    {
+      "min": [
+        1465.0,
+        -1456.0,
+        4432.0
+      ],
+      "max": [
+        1678.0,
+        -1250.0,
+        4600.0
+      ],
+      "what": "planter pair X 1475-1655: plants (they reach well past the pot bounds towards the pantry), above desk height"
     },
     {
       "min": [
         1922.0,
-        -1456.0,
+        -1433.0,
         4389.0
       ],
       "max": [
-        2121.0,
-        -1364.0,
+        2108.0,
+        -1383.0,
         4600.0
       ],
-      "what": "planter pair X 1925-2105: cabinets + pots"
+      "what": "planter pair X 1925-2105: cabinet depth, from half height"
+    },
+    {
+      "min": [
+        1915.0,
+        -1456.0,
+        4432.0
+      ],
+      "max": [
+        2128.0,
+        -1250.0,
+        4600.0
+      ],
+      "what": "planter pair X 1925-2105: plants (they reach well past the pot bounds towards the pantry), above desk height"
     },
     {
       "min": [
         2312.0,
-        -1456.0,
+        -1433.0,
         4389.0
       ],
       "max": [
-        2511.0,
-        -1364.0,
+        2498.0,
+        -1383.0,
         4600.0
       ],
-      "what": "planter pair X 2315-2495: cabinets + pots"
+      "what": "planter pair X 2315-2495: cabinet depth, from half height"
+    },
+    {
+      "min": [
+        2305.0,
+        -1456.0,
+        4432.0
+      ],
+      "max": [
+        2518.0,
+        -1250.0,
+        4600.0
+      ],
+      "what": "planter pair X 2315-2495: plants (they reach well past the pot bounds towards the pantry), above desk height"
     }
   ],
-  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets (PDF_24, Z 4322..4456) show as the model from half height (4389) up, with their plants; the lower half takes the video. Positions from Office_Demo (Tools/VideoTwin/list_actors_in_box.py). Found by trial in camera 17's view: the pots (SM_Pothos_Potted) overhang the cabinets by ~23 cm across the row and the plants render above their bounds, so the boxes go up to 4600; for the two pairs at X 1065..1655 the overhang is where the next desk row's chairs stand, so those boxes keep to the cabinet depth (their pots then show the real plants from the video). Max 6 boxes.",
+  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets (PDF_24, Z 4322..4456) show as the model from half height (4389) up, with all their plants; the lower half takes the video. Two boxes per pair: the cabinet itself from half height, and the plants from 4432 up (just above the runtime desks SM_F11, top 4431, and chairs SM_F14, ~4421, so no desk or chair is caught). Found by trial in camera 17's view: the plants render far past their bounds, towards the pantry to about Y -1250 and above Z 4473, so the plant boxes are much larger than the pots. Desk/chair positions from the backend (instance.raw_state). Max 12 boxes (projection.hlsl ExcludeMin0..11 / ExcludeMax0..11).",
   "cameras": {
     "17": {
       "verified": true,
