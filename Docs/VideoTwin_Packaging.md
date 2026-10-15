@@ -2,6 +2,7 @@
 
 更新于 2026-10-16。分支 `feat/videotwin-onsite-1015`(在 224.7 的源码副本 `D:\BaiduNetdiskDownload\New folder\UE0bay\OfficeShell` 上,未推送)。
 `Docs/VideoTwinMVP.md` 讲的是最初的功能原型,这份讲现在的状态,以及怎么打包、怎么在目标机上跑起来。
+现场 224.7 上装在哪、开机自启、手动起停和出问题先看哪,见 [VideoTwin_Onsite_Ops.md](VideoTwin_Onsite_Ops.md)。
 
 > 标「已验证」的是实际跑过并看到结果的;标「未验证」的是按原理应当成立、但没有条件确认的。
 
@@ -272,6 +273,7 @@ Tools/VideoTwin/rebuild_projection_materials.py   着色器输入有增减时(�
 Tools/VideoTwin/dup_materials.py                  给新相机生成材质
 Tools/VideoTwin/mediamtx.videotwin.yml            转换服务配置
 Tools/VideoTwin/start_live.ps1, install_live.ps1  转换服务的启动与安装
+Tools/VideoTwin/register_autostart.ps1            登录后自动启动一键包(计划任务 OfficeTwinAutoStart),放在一键包的 VideoTwinLive 下运行
 Tools/VideoTwin/mask_from_screenshot.py          X 视角截图上的红色区域 -> 摄像头画面遮罩(--view-offset 见第七节第 3 条)
 Tools/VideoTwin/list_actors_in_box.py            列出关卡里某个框内的物体和包围盒(编辑器命令行)
 Tools/VideoTwin/find_planters_all_maps.py        在几张办公关卡里找花箱柜和绿萝
