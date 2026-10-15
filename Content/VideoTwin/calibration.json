@@ -52,7 +52,7 @@
       "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
       "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it.",
       "image_mask": "mask_17.png",
-      "image_mask_note": "2026-10-16: region painted on site in this camera's own view, turned into mask_17.png by Tools/VideoTwin/mask_from_screenshot.py. The mask now decides where the video shows. The box was opened to the floor area the masked part of the picture can reach (X -320..2480, Y -3338..-1139 on the floor, plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]."
+      "image_mask_note": "2026-10-16: region painted on site in this camera's X view. The mask decides where the video shows; the box was opened to X -400..2900, Y -3400..-1100 (floor reach of the masked rays plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]. The X view is NOT exactly the projector: measured on screen it sits about (-0.08, -0.07) of the picture off (shader uv = pinhole-model uv of the screen + that), most likely a rotation on the level camera's own camera component, which the runtime does not reset. mask_17.png v2 was made with that offset; v1 without it left the model chairs next to the planters uncovered."
     },
     "18": {
       "verified": true,

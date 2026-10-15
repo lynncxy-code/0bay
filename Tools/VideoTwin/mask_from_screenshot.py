@@ -10,8 +10,13 @@ Usage (Python 3 with numpy and opencv-python):
    calibration.json and restart. With --camera-frame it also writes mask_<id>_preview.jpg next to the screenshot:
    the camera picture, dimmed where the model will stay (it shows real people: keep it out of the repository).
 
-Why it works: the X view is a pinhole camera at the projector's calibrated pose with the same horizontal FOV, so
-every screen pixel maps to one point of the camera picture regardless of depth. The mapping below is the one in
+Why it works: the X view is a pinhole camera at the projector's calibrated position with the same horizontal FOV,
+so every screen pixel maps to one point of the camera picture regardless of depth.
+
+CAVEAT (2026-10-16): the X view is not aimed exactly like the projector. For camera 17 it was measured at
+(-0.08, -0.07) of the picture (shader uv = this mapping + that), most likely a rotation on the level camera's
+own camera component that the runtime does not reset. Pass it with --view-offset; measure it for other cameras
+first (compare one X-view frame with and without the mask, or the video in the X view against a camera frame). The mapping below is the one in
 projection.hlsl (normalised 16:9 picture, principal point, k1/k2 barrel distortion).
 
 Where the painted region touches the screenshot's edge it is carried on to the edge of the camera picture (the
@@ -50,6 +55,8 @@ def main():
     ap.add_argument('camera')
     ap.add_argument('screenshot')
     ap.add_argument('--camera-frame', help='a picture from the camera, for the preview')
+    ap.add_argument('--view-offset', nargs=2, type=float, default=[0.0, 0.0], metavar=('DU', 'DV'),
+                    help='measured offset of the X view in picture units (camera 17: -0.08 -0.07)')
     a = ap.parse_args()
     cam = json.loads((ROOT / 'Content/VideoTwin/calibration.json').read_text(encoding='utf-8'))['cameras'][a.camera]
     hfov, k1, k2 = cam['horizontal_fov_deg'], cam.get('k1', 0.0), cam.get('k2', 0.0)
@@ -60,7 +67,8 @@ def main():
     h, w = red.shape
     t = math.tan(math.radians(hfov / 2))
     u, v = np.meshgrid((np.arange(MW) + 0.5) / MW, (np.arange(MH) + 0.5) / MH)
-    qdx, qdy = (u - ppx) / (0.5 / t), (v - ppy) / (0.5 * aspect / t)
+    du, dv = a.view_offset
+    qdx, qdy = (u - du - ppx) / (0.5 / t), (v - dv - ppy) / (0.5 * aspect / t)
     qx, qy = qdx.copy(), qdy.copy()
     for _ in range(30):                     # undo the radial distortion
         r2 = qx * qx + qy * qy
