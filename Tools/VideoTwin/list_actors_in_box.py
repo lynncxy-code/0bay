@@ -10,7 +10,7 @@ from pathlib import Path
 
 MAP = '/Game/OfficeShell/Maps/Office_Demo'
 BOX_MIN = u.Vector(-400, -3400, 4300)
-BOX_MAX = u.Vector(2900, -1000, 4800)
+BOX_MAX = u.Vector(3000, 0, 4800)
 
 u.EditorLoadingAndSavingUtils.load_map(MAP)
 actors = u.get_editor_subsystem(u.EditorActorSubsystem).get_all_level_actors()

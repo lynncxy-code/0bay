@@ -5,84 +5,84 @@
   "exclude_boxes": [
     {
       "min": [
-        202.0,
-        -1425.0,
+        199.0,
+        -1428.0,
         4389.0
       ],
       "max": [
-        298.0,
-        -1237.0,
-        4476.0
+        301.0,
+        -1234.0,
+        4600.0
       ],
-      "what": "planter pair at X 226-270: upper half + pots"
+      "what": "planter pair X 226-270 (across the row): cabinets + pots"
     },
     {
       "min": [
-        762.0,
-        -1425.0,
+        759.0,
+        -1428.0,
         4389.0
       ],
       "max": [
-        858.0,
-        -1237.0,
-        4476.0
+        861.0,
+        -1234.0,
+        4600.0
       ],
-      "what": "planter pair at X 780-824: upper half + pots"
+      "what": "planter pair X 780-824 (across the row): cabinets + pots"
     },
     {
       "min": [
-        1065.0,
-        -1453.0,
+        1062.0,
+        -1433.0,
         4389.0
       ],
       "max": [
-        1258.0,
-        -1367.0,
-        4476.0
+        1261.0,
+        -1383.0,
+        4600.0
       ],
-      "what": "planter pair at X 1065-1245, row Y -1410: upper half + pots"
+      "what": "planter pair X 1065-1245: cabinet depth only (chairs stand where the pots overhang)"
     },
     {
       "min": [
-        1475.0,
-        -1453.0,
+        1472.0,
+        -1433.0,
         4389.0
       ],
       "max": [
-        1668.0,
-        -1367.0,
-        4476.0
+        1671.0,
+        -1383.0,
+        4600.0
       ],
-      "what": "planter pair at X 1475-1655, row Y -1410: upper half + pots"
+      "what": "planter pair X 1475-1655: cabinet depth only (chairs stand where the pots overhang)"
     },
     {
       "min": [
-        1925.0,
-        -1453.0,
+        1922.0,
+        -1456.0,
         4389.0
       ],
       "max": [
-        2118.0,
-        -1367.0,
-        4476.0
+        2121.0,
+        -1364.0,
+        4600.0
       ],
-      "what": "planter pair at X 1925-2105, row Y -1410: upper half + pots"
+      "what": "planter pair X 1925-2105: cabinets + pots"
     },
     {
       "min": [
-        2315.0,
-        -1453.0,
+        2312.0,
+        -1456.0,
         4389.0
       ],
       "max": [
-        2508.0,
-        -1367.0,
-        4476.0
+        2511.0,
+        -1364.0,
+        4600.0
       ],
-      "what": "planter pair at X 2315-2495, row Y -1410: upper half + pots"
+      "what": "planter pair X 2315-2495: cabinets + pots"
     }
   ],
-  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets show as the model from half height up, with their potted plants; the lower half takes the video. Cabinets PDF_24 are Z 4322..4456 (half = 4389), SM_Pothos_Potted on top reach Z 4473. Footprints are the actors' bounds (cabinet and pot together) from Office_Demo, no margin, so chairs and desks next to them are no longer caught; listed with Tools/VideoTwin/list_actors_in_box.py. The first version (whole cabinet, floor up, +5 cm) left a model chair and a desk corner showing beside the left pair. Max 6 boxes.",
+  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets (PDF_24, Z 4322..4456) show as the model from half height (4389) up, with their plants; the lower half takes the video. Positions from Office_Demo (Tools/VideoTwin/list_actors_in_box.py). Found by trial in camera 17's view: the pots (SM_Pothos_Potted) overhang the cabinets by ~23 cm across the row and the plants render above their bounds, so the boxes go up to 4600; for the two pairs at X 1065..1655 the overhang is where the next desk row's chairs stand, so those boxes keep to the cabinet depth (their pots then show the real plants from the video). Max 6 boxes.",
   "cameras": {
     "17": {
       "verified": true,
@@ -124,7 +124,7 @@
       ],
       "receiver_max": [
         2900.0,
-        -1100.0,
+        -1237.0,
         4740.0
       ],
       "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
@@ -132,8 +132,9 @@
       "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.2:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
       "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it.",
-      "image_mask": "mask_17.png",
-      "image_mask_note": "2026-10-16: region painted on site in this camera's X view. The mask decides where the video shows; the box was opened to X -400..2900, Y -3400..-1100 (floor reach of the masked rays plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]. The X view is NOT exactly the projector: measured on screen it sits about (-0.08, -0.07) of the picture off (shader uv = pinhole-model uv of the screen + that), most likely a rotation on the level camera's own camera component, which the runtime does not reset. mask_17.png v2 was made with that offset; v1 without it left the model chairs next to the planters uncovered."
+      "image_mask_note": "2026-10-16: region painted on site in this camera's X view. The mask decides where the video shows; the box was opened to X -400..2900, Y -3400..-1100 (floor reach of the masked rays plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]. The X view is NOT exactly the projector: measured on screen it sits about (-0.08, -0.07) of the picture off (shader uv = pinhole-model uv of the screen + that), most likely a rotation on the level camera's own camera component, which the runtime does not reset. mask_17.png v2 was made with that offset; v1 without it left the model chairs next to the planters uncovered.",
+      "image_mask_previous": "mask_17.png",
+      "receiver_note_1016": "2026-10-16 (3rd pass): the hand-painted mask left the far planter's plants and the end of the second desk row wrong near the planters. Now world-only: the box's Y max is the pantry side of the planter cabinets (-1237), so everything on the workstation side, desk ends included, takes the video; the planters' upper half and plants stay the model through exclude_boxes; the pantry and bar beyond stay the model. image_mask switched off (kept as image_mask_previous)."
     },
     "18": {
       "verified": true,
