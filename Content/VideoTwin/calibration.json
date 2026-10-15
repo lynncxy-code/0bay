@@ -5,84 +5,84 @@
   "exclude_boxes": [
     {
       "min": [
-        197.0,
-        -1430.0,
-        4315.0
+        202.0,
+        -1425.0,
+        4389.0
       ],
       "max": [
-        303.0,
-        -1232.0,
-        4480.0
+        298.0,
+        -1237.0,
+        4476.0
       ],
-      "what": "planter pair at X 226-270 (PDF_24 x2 + pots)"
+      "what": "planter pair at X 226-270: upper half + pots"
     },
     {
       "min": [
-        757.0,
-        -1430.0,
-        4315.0
+        762.0,
+        -1425.0,
+        4389.0
       ],
       "max": [
-        863.0,
-        -1232.0,
-        4480.0
+        858.0,
+        -1237.0,
+        4476.0
       ],
-      "what": "planter pair at X 780-824 (PDF_24 x2 + pots)"
+      "what": "planter pair at X 780-824: upper half + pots"
     },
     {
       "min": [
-        1060.0,
-        -1458.0,
-        4315.0
+        1065.0,
+        -1453.0,
+        4389.0
       ],
       "max": [
-        1263.0,
-        -1362.0,
-        4480.0
+        1258.0,
+        -1367.0,
+        4476.0
       ],
-      "what": "planter pair at X 1065-1245, row Y -1410"
+      "what": "planter pair at X 1065-1245, row Y -1410: upper half + pots"
     },
     {
       "min": [
-        1470.0,
-        -1458.0,
-        4315.0
+        1475.0,
+        -1453.0,
+        4389.0
       ],
       "max": [
-        1673.0,
-        -1362.0,
-        4480.0
+        1668.0,
+        -1367.0,
+        4476.0
       ],
-      "what": "planter pair at X 1475-1655, row Y -1410"
+      "what": "planter pair at X 1475-1655, row Y -1410: upper half + pots"
     },
     {
       "min": [
-        1920.0,
-        -1458.0,
-        4315.0
+        1925.0,
+        -1453.0,
+        4389.0
       ],
       "max": [
-        2123.0,
-        -1362.0,
-        4480.0
+        2118.0,
+        -1367.0,
+        4476.0
       ],
-      "what": "planter pair at X 1925-2105, row Y -1410"
+      "what": "planter pair at X 1925-2105, row Y -1410: upper half + pots"
     },
     {
       "min": [
-        2310.0,
-        -1458.0,
-        4315.0
+        2315.0,
+        -1453.0,
+        4389.0
       ],
       "max": [
-        2513.0,
-        -1362.0,
-        4480.0
+        2508.0,
+        -1367.0,
+        4476.0
       ],
-      "what": "planter pair at X 2315-2495, row Y -1410"
+      "what": "planter pair at X 2315-2495, row Y -1410: upper half + pots"
     }
   ],
-  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets with their potted plants stay the model for every camera. Boxes are the actors' bounds from Office_Demo (PDF_24 cabinets 134 cm high, SM_Pothos_Potted on top up to Z 4473) plus about 5 cm; listed with Tools/VideoTwin/list_actors_in_box.py. Max 6 boxes (projection.hlsl ExcludeMin0..5/ExcludeMax0..5).",
+  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets show as the model from half height up, with their potted plants; the lower half takes the video. Cabinets PDF_24 are Z 4322..4456 (half = 4389), SM_Pothos_Potted on top reach Z 4473. Footprints are the actors' bounds (cabinet and pot together) from Office_Demo, no margin, so chairs and desks next to them are no longer caught; listed with Tools/VideoTwin/list_actors_in_box.py. The first version (whole cabinet, floor up, +5 cm) left a model chair and a desk corner showing beside the left pair. Max 6 boxes.",
   "cameras": {
     "17": {
       "verified": true,
