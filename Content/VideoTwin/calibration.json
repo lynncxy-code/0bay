@@ -2,6 +2,87 @@
   "_about": "Measured camera calibration for the video twin projector. Source: video-projection /ue/projectors (vanishing points, confirmed by reprojection, cm-level). UE left-handed world, centimetres.",
   "_axes": "forward/up are unit vectors in UE world space; build the rotation with MakeFromXZ(forward, up). Do not convert through Euler angles.",
   "_distortion": "The lens follows a division model: scale = 2/(1+sqrt(1-4*K*r^2)), r in tan units. k1/k2 are a least-squares fit of that curve to the shader's existing 1+k1*r^2+k2*r^4 form; fit error is given per camera in source pixels. Replace with the exact model when the material is next rebuilt.",
+  "exclude_boxes": [
+    {
+      "min": [
+        197.0,
+        -1430.0,
+        4315.0
+      ],
+      "max": [
+        303.0,
+        -1232.0,
+        4480.0
+      ],
+      "what": "planter pair at X 226-270 (PDF_24 x2 + pots)"
+    },
+    {
+      "min": [
+        757.0,
+        -1430.0,
+        4315.0
+      ],
+      "max": [
+        863.0,
+        -1232.0,
+        4480.0
+      ],
+      "what": "planter pair at X 780-824 (PDF_24 x2 + pots)"
+    },
+    {
+      "min": [
+        1060.0,
+        -1458.0,
+        4315.0
+      ],
+      "max": [
+        1263.0,
+        -1362.0,
+        4480.0
+      ],
+      "what": "planter pair at X 1065-1245, row Y -1410"
+    },
+    {
+      "min": [
+        1470.0,
+        -1458.0,
+        4315.0
+      ],
+      "max": [
+        1673.0,
+        -1362.0,
+        4480.0
+      ],
+      "what": "planter pair at X 1475-1655, row Y -1410"
+    },
+    {
+      "min": [
+        1920.0,
+        -1458.0,
+        4315.0
+      ],
+      "max": [
+        2123.0,
+        -1362.0,
+        4480.0
+      ],
+      "what": "planter pair at X 1925-2105, row Y -1410"
+    },
+    {
+      "min": [
+        2310.0,
+        -1458.0,
+        4315.0
+      ],
+      "max": [
+        2513.0,
+        -1362.0,
+        4480.0
+      ],
+      "what": "planter pair at X 2315-2495, row Y -1410"
+    }
+  ],
+  "_exclude_boxes_note": "2026-10-16, asked on site: the planter cabinets with their potted plants stay the model for every camera. Boxes are the actors' bounds from Office_Demo (PDF_24 cabinets 134 cm high, SM_Pothos_Potted on top up to Z 4473) plus about 5 cm; listed with Tools/VideoTwin/list_actors_in_box.py. Max 6 boxes (projection.hlsl ExcludeMin0..5/ExcludeMax0..5).",
   "cameras": {
     "17": {
       "verified": true,

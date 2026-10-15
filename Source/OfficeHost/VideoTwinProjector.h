@@ -130,6 +130,9 @@ private:
     UPROPERTY(Transient) TObjectPtr<UTexture2D> MaskTexture;
     /** Load ImageMaskFile into MaskTexture and hand it to the material (white default when there is none). */
     void ApplyImageMask();
+    /** World boxes that never take video, whatever camera ("exclude_boxes" at the top of calibration.json, max 6). */
+    TArray<FBox> ExcludeBoxes;
+    void ApplyExcludeBoxes();
     UPROPERTY(Transient) TObjectPtr<UMediaPlayer> Player;
     UPROPERTY(Transient) TObjectPtr<UMediaTexture> VideoTexture;
     bool bVideoReady = false;

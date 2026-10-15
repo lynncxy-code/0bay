@@ -54,11 +54,16 @@ def rebuild(path):
         if name == 'ProjectorDepthTex':
             n.set_editor_property('sampler_type', u.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR)
         inputs[name] = (n, '')
-    for name, default in {
+    params = {
         'ProjectorPosition': (0, 0, 0, 0), 'ProjectorForward': (1, 0, 0, 0), 'ProjectorRight': (0, 1, 0, 0),
         'ProjectorUp': (0, 0, 1, 0), 'ReceiverMin': (-100, -2500, 4315, 0), 'ReceiverMax': (2850, 300, 4740, 0),
         'Lens': (1, 16 / 9, .5, .5), 'Distortion': (0, 0, 0, 0), 'Options': (1, 6, 3000, 0), 'Display': (0, 0, 1, 0)
-    }.items():
+    }
+    # Exclusion boxes (2026-10-16), inside-out by default so nothing is excluded until the runtime sets them.
+    for i in range(6):
+        params['ExcludeMin%d' % i] = (1e9, 1e9, 1e9, 0)
+        params['ExcludeMax%d' % i] = (-1e9, -1e9, -1e9, 0)
+    for name, default in params.items():
         n = node(u.MaterialExpressionVectorParameter)
         n.set_editor_property('parameter_name', name)
         n.set_editor_property('default_value', u.LinearColor(*default))

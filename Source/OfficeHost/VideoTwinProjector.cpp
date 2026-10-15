@@ -139,6 +139,20 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     FString MaskFile;
     ImageMaskFile = (*Cam)->TryGetStringField(TEXT("image_mask"), MaskFile) ? MaskFile : FString();
     ApplyImageMask();
+    ExcludeBoxes.Reset();
+    const TArray<TSharedPtr<FJsonValue>>* Excl = nullptr;
+    if (Root->TryGetArrayField(TEXT("exclude_boxes"), Excl))
+    {
+        for (const TSharedPtr<FJsonValue>& E : *Excl)
+        {
+            const TSharedPtr<FJsonObject>* EO = nullptr;
+            const TArray<TSharedPtr<FJsonValue>>* Mn = nullptr; const TArray<TSharedPtr<FJsonValue>>* Mx = nullptr;
+            if (!E.IsValid() || !E->TryGetObject(EO) || !(*EO)->TryGetArrayField(TEXT("min"), Mn) || !(*EO)->TryGetArrayField(TEXT("max"), Mx) || Mn->Num() != 3 || Mx->Num() != 3) continue;
+            if (ExcludeBoxes.Num() == 6) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: more than 6 exclude_boxes; the rest are ignored")); break; }
+            ExcludeBoxes.Add(FBox(FVector((*Mn)[0]->AsNumber(), (*Mn)[1]->AsNumber(), (*Mn)[2]->AsNumber()), FVector((*Mx)[0]->AsNumber(), (*Mx)[1]->AsNumber(), (*Mx)[2]->AsNumber())));
+        }
+    }
+    ApplyExcludeBoxes();
     // Where two cameras both see a surface the one with the higher priority is drawn last and wins.
     // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
     FString Url;
@@ -182,7 +196,20 @@ void AVideoTwinProjector::InitializeResources()
     ProjectionPostProcess->AddOrUpdateBlendable(ProjectionMID,1.f);
     // Loaded with the calibration (LoadMeasuredCalibration runs first); hand it over now that the material exists.
     if (MaskTexture) ProjectionMID->SetTextureParameterValue(TEXT("MaskTex"), MaskTexture);
+    ApplyExcludeBoxes();
     bDepthDirty = true;
+}
+void AVideoTwinProjector::ApplyExcludeBoxes()
+{
+    if (!ProjectionMID) return;
+    for (int32 i = 0; i < 6; ++i)
+    {
+        // Unused slots inside-out: no position is ever >= +1e9 and <= -1e9 at once.
+        const FVector Mn = ExcludeBoxes.IsValidIndex(i) ? ExcludeBoxes[i].Min : FVector(1e9);
+        const FVector Mx = ExcludeBoxes.IsValidIndex(i) ? ExcludeBoxes[i].Max : FVector(-1e9);
+        ProjectionMID->SetVectorParameterValue(*FString::Printf(TEXT("ExcludeMin%d"), i), FLinearColor(Mn.X, Mn.Y, Mn.Z, 0));
+        ProjectionMID->SetVectorParameterValue(*FString::Printf(TEXT("ExcludeMax%d"), i), FLinearColor(Mx.X, Mx.Y, Mx.Z, 0));
+    }
 }
 void AVideoTwinProjector::ApplyImageMask()
 {
