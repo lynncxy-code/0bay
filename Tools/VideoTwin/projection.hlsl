@@ -59,9 +59,10 @@ float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 // A box edge cuts through whatever stands on it; a line drawn along real edges in the picture does not.
 // Cameras without a mask get a white texture.
 float4 maskTexel = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0);
-// Distortion.z = 1 ("image_mask_fill"): the mask is in alpha and the colour channels hold a still patch for the cut-out
-// parts (2026-10-16: the real planter cabinets, filled from their surroundings). There the patch covers instead of the
-// model, because the model has other furniture in those places. Without it the mask is in red and cut-outs show the model.
+// Distortion.z = 1 ("image_mask_fill", 2026-10-16): the mask texture is a stretch map instead. Red = horizontal offset
+// to sample the video at, (red*255 - 128) * 2 picture pixels of 1024; alpha is the mask (normally all white). Around
+// the real planter cabinets the video on both sides is stretched over them, so neither the cabinet nor the model's
+// furniture behind it shows, and the picture stays live (a still patch looked blurred). Without it: mask in red.
 float fillMode = step(0.5, Distortion.z);
 float userMask = lerp(maskTexel.r, maskTexel.a, fillMode);
 // Furniture that stays the model whatever camera looks at it ("exclude_boxes" in calibration.json, up to 12 world
@@ -88,14 +89,14 @@ float mask = inFrustum * inBounds * border * facingMask * showMask * smoothstep(
 mask *= lerp(1.0, visible, useOcclusion);
 if (Display.z > 0.5 && uv.x < 0.35 && uv.y < 0.14) mask = 0;
 if (Display.x > 0.5 && ScreenUV.x > 0.5) mask = 0;
-float3 video = Texture2DSampleLevel(VideoTex, VideoTexSampler, saturate(uv), 0).rgb;
+float stretchEnc = maskTexel.r;
+stretchEnc = lerp(stretchEnc * 12.92, 1.055 * pow(max(stretchEnc, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, stretchEnc));
+float2 sampleUV = uv + float2(fillMode * (stretchEnc * 255.0 - 128.0) * 2.0 / 1024.0, 0.0);
+float3 video = Texture2DSampleLevel(VideoTex, VideoTexSampler, saturate(sampleUV), 0).rgb;
 // This material runs after tonemapping, where scene colour is already display-encoded, but the sampler
 // returns linear values. Written as-is the picture came out a gamma step too dark (measured: source
 // mid-grey 154 shown as 84). Encode to sRGB so the video shows at its own brightness.
 video = lerp(video * 12.92, 1.055 * pow(max(video, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, video));
-float3 fillColor = maskTexel.rgb;
-fillColor = lerp(fillColor * 12.92, 1.055 * pow(max(fillColor, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, fillColor));
-video = lerp(video, fillColor, fillMode * (1.0 - userMask));
 if (Display.y > 0.5)
 {
     float3 coverage = lerp(float3(1,0.08,0.02),float3(0.03,0.9,0.35),visible * facingMask);
