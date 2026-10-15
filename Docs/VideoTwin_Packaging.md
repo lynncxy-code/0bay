@@ -1,12 +1,13 @@
 # 视频孪生:现状、打包与部署说明
 
-更新于 2026-10-15。分支 `feat/videotwin-onsite-1015`(在 224.7 的源码副本 `D:\BaiduNetdiskDownload\New folder\UE0bay\OfficeShell` 上,未推送)。
+更新于 2026-10-16。分支 `feat/videotwin-onsite-1015`(在 224.7 的源码副本 `D:\BaiduNetdiskDownload\New folder\UE0bay\OfficeShell` 上,未推送)。
 `Docs/VideoTwinMVP.md` 讲的是最初的功能原型,这份讲现在的状态,以及怎么打包、怎么在目标机上跑起来。
 
 > 标「已验证」的是实际跑过并看到结果的;标「未验证」的是按原理应当成立、但没有条件确认的。
 
-10 月 15 日在现场(192.168.224.7,RTX 3080 Ti)解决了卡顿、平板投屏、画面抖动等一批问题,结论分散写在下面各节;
-完整的排查过程见第八节。
+10 月 15 日在现场(192.168.224.7,RTX 3080 Ti)解决了卡顿、平板投屏、画面抖动、延迟等一批问题;10 月 16 日按现场要求
+调了 17 号的显示范围(只投办公桌区块、绿植保持模型),加了遮罩和排除框两套机制、启动自动全屏。结论分散写在下面各节,
+排查过程见第八节。
 
 ## 一、现在是什么状态
 
@@ -35,6 +36,8 @@
 - 左上角状态栏(每台相机是 `实时` / `录像`、融合开关)默认**不显示**(`show_status: false`),排查时改成 `true` 再重启。
 - **视频由 UE 直接拉摄像头 RTSP**(FFmpeg,`VideoTwinRtspReader`),投影比摄像头晚约 0.1 秒;原来经转换服务转 HLS 是 3.6 秒(见第八节第 8 条)。
 - 实时流断了会自己重连:读取线程每 2 秒重试一次;断流 3 秒(首次连接 12 秒)没画面就先放录像,画面回来自动切回实时。
+- **启动后自动全屏**(`start_fullscreen`,默认开):和按 F11 走同一个切换。一键包仍以 `-windowed 1600x900` 启动,场景就绪后再切。
+  按窗口的实际状态判断,不看保存的设置(那里早被 F11 写成了全屏,而 `-windowed` 让窗口仍是窗口,第一版因此没切)。
 
 要开关某台相机、调它负责的区域、改上面这些开关,只改 `Content/VideoTwin/calibration.json`,不用重新编译,也不用重新打包(见第三节)。
 
@@ -70,6 +73,7 @@ RunUAT.bat BuildCookRun -project=<...>\ShanghaiOfficeShell_OpenSteel.uproject -n
 | 模块依赖加 `HTTP` | `Source/OfficeHost/OfficeHost.Build.cs` | 实时流自动重连的探测要用 |
 | FFmpeg 8.1(LGPL 动态库) | `Source/ThirdParty/FFmpeg`,`OfficeHost.Build.cs` | 直连摄像头要用。DLL 随包复制到 `Binaries/Win64`;缺了会退回放录像。来源和许可见该目录 README |
 | 抗锯齿三项(见下) | `Config/DefaultEngine.ini` | 投影视频抖动 |
+| 投影材质的输入:`MaskTex`(默认白图)、`ExcludeMin0..11` / `ExcludeMax0..11` | `Content/VideoTwinMVP/`,由 `Tools/VideoTwin/rebuild_projection_materials.py` 生成 | 着色器引用了这些输入,材质不重建就编译不过。**改了 `projection.hlsl` 先在编辑器命令行跑这个脚本再打包**(编辑器不必打开) |
 
 抗锯齿这三项缺一不可:
 
@@ -104,19 +108,38 @@ r.TemporalAA.Upsampling=0       关掉时间性放大,否则窗口切全屏后�
 | `camera_view_only_own` | `true` | 摄像头视角下只显示这台自己的视频,整幅显示 |
 | `local_light_shadows` | `false` | 点光、聚光、面光不投影子(太阳光照投)。**这是卡顿的根因**,见第八节第 1 条。灯光亮度没有改 |
 | `show_status` | `false` | 左上角状态栏 |
+| `start_fullscreen` | `true` | 启动后自动全屏,见第一节 |
+| `exclude_boxes` | 6 个 | 世界坐标框,框里的东西**任何相机都不投视频**、保持模型,最多 12 个。每个框可加 `"green_only": true`:框里只有模型画成植物绿的像素保持模型。现在 6 个框都是 `green_only`,罩住 6 组桌边花箱的绿植 |
 
 每台相机:
 
 - `receiver_min` / `receiver_max`:这台相机负责投视频的范围(世界坐标,厘米,地面高度是 4320)。范围以外保持虚拟模型。
   边界已沿墙根、柜面、过道边线放,保证桌椅和人不会被边界切成两半。现用:
-  17 `X 700..2850, Y -2500..-1250`;24 `X 300..1400, Y -1580..-980`;18 `X 4950..5750, Y -1500..700`;19 `X 950..2000, Y -1090..-420`。
+  17 `X 280..2560, Y -1960..-1180`(见下面「17 号的配置」);24 `X 300..1400, Y -1580..-980`;18 `X 4950..5750, Y -1500..700`;19 `X 950..2000, Y -1090..-420`。
 - `receiver_feather_cm`:范围四边的羽化宽度,默认 12,0 为硬边。
 - `priority`:两台相机范围重叠时,数值大的那台生效。
 - `stream_url`:实时流地址,现为摄像头子码流
   `rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.<通道号-15>:554/LiveMedia/ch1/Media2?src=onvif`。
   `${OFFICE_CAM_PASSWORD}` 运行时从同名环境变量填入,口令不写进文件。改回 `http://127.0.0.1:8888/cam<id>/index.m3u8` 就是旧的 HLS 路线(需要转换服务)。
 
+- `image_mask`:`Content/VideoTwin` 下的一张 PNG,画在**这台摄像头自己的画面**上(1024×576 对应整幅画面),白 = 显示视频,黑 = 显示模型。
+  可用 `Tools/VideoTwin/mask_from_screenshot.py` 从 X 视角截图上涂的红色区域生成(注意第七节第 3 条的视角偏差)。没有就是不限制。
+- `image_mask_fill`:为 `true` 时遮罩图改作「拉伸图」:红通道是横向取样偏移,把旁边的实时视频拉过来盖住某块(现在没用,见下)。
+
 位置、朝向、镜头参数(`position_cm`、`forward`、`up`、`k1`、`k2` 等)是标定结果,不要手改。
+
+### 17 号的配置(2026-10-16 现场定稿)
+
+- 视频只投在办公桌区块:框 `X 280..2560, Y -1960..-1180`。包括四排工位(从机位看由近到远在 X≈2400 / 2000 / 1550 / 1150,
+  每排三张桌,Y -1931..-1431)、吧台一侧那组工位(X 360..680)、每排靠吧台一端的桌边花箱柜。框外(远处、右侧柱子和墙、吧台和茶水间)是模型。
+- 花箱的绿植是模型(`exclude_boxes` 的 `green_only`),花箱柜体是视频里的真实柜子。
+- 不用遮罩。试过、现场否掉的做法,记下来免得再试:
+  1. 手画区域遮罩(`mask_17.png`):花箱附近边界不准,漏了绿植、露了桌端。
+  2. 世界框框住模型花箱柜:模型里运行时生成的桌、隔板、转椅和花箱柜**叠在一起**,框住柜子必然带上桌椅。
+  3. 在摄像头画面上抠掉真实柜子(`mask_17_cabinets.png`):抠掉处显示的是模型,而**模型的家具不在现实家具的位置上**,露出模型转椅和桌端。
+  4. 抠掉处贴静态补丁(按周围补色):发糊。
+  5. 抠掉处把两侧实时视频横向拉过去(`mask_17_cabinets_stretch.png`):画面变形。
+  要彻底解决只能让模型的家具摆放和现场一致(改关卡里的花箱柜、后台数据里的桌椅位置)。
 
 ## 四、目标机上装转换服务(现在只为提供口令和备用)
 
@@ -202,8 +225,10 @@ powershell -ExecutionPolicy Bypass -File install_live.ps1
 
 1. **摄像头本身的延迟**(编码 + 网络,到 224.7 收到 RTSP 为止)没量:摄像头水印只到秒,时钟也没对齐。同类设备一般 0.2~0.5 秒。
 2. **只在切到某台摄像头视角时才拉那一路流**。用户提过,要改代码,没做。
+3. **X 视角和投影仪朝向差约 7°**(17 号实测:屏幕位置换算到画面坐标后差 (-0.08, -0.07))。多半是关卡里那台相机的镜头组件自带旋转,
+   运行时只挪了相机本体。视频贴在模型上不受影响,但在 X 视角截图上画遮罩时要带 `--view-offset`,别的相机要先量。没修。
 
-## 八、2026-10-15 现场排查结论
+## 八、2026-10-15 / 16 现场排查结论
 
 每条都是实测得出的,写下来是为了下次别再走弯路。
 
@@ -228,6 +253,12 @@ powershell -ExecutionPolicy Bypass -File install_live.ps1
    UE → 投屏 0.3 秒;平板缓冲 0.15 秒。改为 UE 内 FFmpeg 直读 RTSP 后,RTSP 收到 → UE 显示 **0.10 秒**。
    代价:UE 进程里多了四路 720×576 H.265 解码(换包后 UE 进程约占 5 个核,整机 CPU 44~67%,换包前没量)。投屏编码器因此被挤,平板每 10 秒顿 1~4 次;
    把投屏 ffmpeg 设为高优先级后恢复零卡顿(`tools/ue-cast.ps1` 已固化)。
+9. **关卡里的坐标和运行时看到的东西对不上时,别靠推算,靠实测**。家具位置:关卡里的从编辑器命令行读
+   (`list_actors_in_box.py`),运行时生成的桌椅从后台库读(容器 `ontotwin-office-…-db-1`,表 `instance` 的 `raw_state`)。
+   判断某个框盖住了什么:同一视角下截「融合开 / 融合关」两张逐像素比,不同的就是视频;再用一个大框按 X、Y 二分。
+10. **绿萝渲染出来远超它的包围盒**:向吧台一侧伸到 Y≈-1250(包围盒到 -1367),高过 4473。按包围盒画的框盖不住。
+11. **桌边花箱柜和运行时桌椅在模型里重叠**:桌端到 Y -1431,柜面在 -1430;桌高 4431、转椅约 4421。所以「柜子留模型」和「桌子是视频」
+    在世界框里分不开,只能按颜色分(`green_only`)。
 
 ## 九、相关文件
 
@@ -241,6 +272,11 @@ Tools/VideoTwin/rebuild_projection_materials.py   着色器输入有增减时(�
 Tools/VideoTwin/dup_materials.py                  给新相机生成材质
 Tools/VideoTwin/mediamtx.videotwin.yml            转换服务配置
 Tools/VideoTwin/start_live.ps1, install_live.ps1  转换服务的启动与安装
+Tools/VideoTwin/mask_from_screenshot.py          X 视角截图上的红色区域 -> 摄像头画面遮罩(--view-offset 见第七节第 3 条)
+Tools/VideoTwin/list_actors_in_box.py            列出关卡里某个框内的物体和包围盒(编辑器命令行)
+Tools/VideoTwin/find_planters_all_maps.py        在几张办公关卡里找花箱柜和绿萝
+Tools/VideoTwin/inspect_mesh_materials.py        看几个家具网格的包围盒
+Content/VideoTwin/mask_17*.png                   17 号试过的遮罩(现在都没启用)
 Config/DefaultEngine.ini                          抗锯齿三项
 Config/DefaultGame.ini                            始终烘焙的目录、散文件
 ```
