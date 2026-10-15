@@ -202,7 +202,7 @@
       ],
       "receiver_max": [
         2900.0,
-        -1237.0,
+        -1100.0,
         4740.0
       ],
       "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
@@ -212,7 +212,7 @@
       "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it.",
       "image_mask_note": "2026-10-16: region painted on site in this camera's X view. The mask decides where the video shows; the box was opened to X -400..2900, Y -3400..-1100 (floor reach of the masked rays plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]. The X view is NOT exactly the projector: measured on screen it sits about (-0.08, -0.07) of the picture off (shader uv = pinhole-model uv of the screen + that), most likely a rotation on the level camera's own camera component, which the runtime does not reset. mask_17.png v2 was made with that offset; v1 without it left the model chairs next to the planters uncovered.",
       "image_mask_previous": "mask_17.png",
-      "receiver_note_1016": "2026-10-16 (3rd pass): the hand-painted mask left the far planter's plants and the end of the second desk row wrong near the planters. Now world-only: the box's Y max is the pantry side of the planter cabinets (-1237), so everything on the workstation side, desk ends included, takes the video; the planters' upper half and plants stay the model through exclude_boxes; the pantry and bar beyond stay the model. image_mask switched off (kept as image_mask_previous)."
+      "receiver_note_1016": "2026-10-16: world-only (image_mask off, kept as image_mask_previous). Box X -400..2900, Y -3400..-1100: with Y max -1237 the pantry-side ends of the desk rows 2-4 fell outside and showed the model. The planters' upper half and plants stay the model through exclude_boxes; beyond Y -1100 (bar, pantry) stays the model."
     },
     "18": {
       "verified": true,
