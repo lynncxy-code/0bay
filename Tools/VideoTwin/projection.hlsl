@@ -58,7 +58,12 @@ float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 // Hand-drawn region in the camera's own picture ("image_mask" in calibration.json, white = video, soft edge drawn in).
 // A box edge cuts through whatever stands on it; a line drawn along real edges in the picture does not.
 // Cameras without a mask get a white texture.
-float userMask = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0).r;
+float4 maskTexel = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0);
+// Distortion.z = 1 ("image_mask_fill"): the mask is in alpha and the colour channels hold a still patch for the cut-out
+// parts (2026-10-16: the real planter cabinets, filled from their surroundings). There the patch covers instead of the
+// model, because the model has other furniture in those places. Without it the mask is in red and cut-outs show the model.
+float fillMode = step(0.5, Distortion.z);
+float userMask = lerp(maskTexel.r, maskTexel.a, fillMode);
 // Furniture that stays the model whatever camera looks at it ("exclude_boxes" in calibration.json, up to 12 world
 // boxes; unused ones are set inside-out so nothing is ever in them). ExcludeMinN.w = 1 ("green_only"): inside that box
 // only pixels the model draws in plant green stay the model. 2026-10-16: the plants on the planter cabinets, which
@@ -78,8 +83,8 @@ excluded = max(excluded, ((all(WorldPos >= ExcludeMin8.xyz) && all(WorldPos <= E
 excluded = max(excluded, ((all(WorldPos >= ExcludeMin9.xyz) && all(WorldPos <= ExcludeMax9.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin9.w)));
 excluded = max(excluded, ((all(WorldPos >= ExcludeMin10.xyz) && all(WorldPos <= ExcludeMax10.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin10.w)));
 excluded = max(excluded, ((all(WorldPos >= ExcludeMin11.xyz) && all(WorldPos <= ExcludeMax11.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin11.w)));
-userMask *= 1.0 - excluded;
-float mask = inFrustum * inBounds * border * facingMask * userMask * smoothstep(0.0, 0.012, edge);
+float showMask = lerp(userMask, 1.0, fillMode) * (1.0 - excluded);
+float mask = inFrustum * inBounds * border * facingMask * showMask * smoothstep(0.0, 0.012, edge);
 mask *= lerp(1.0, visible, useOcclusion);
 if (Display.z > 0.5 && uv.x < 0.35 && uv.y < 0.14) mask = 0;
 if (Display.x > 0.5 && ScreenUV.x > 0.5) mask = 0;
@@ -88,6 +93,9 @@ float3 video = Texture2DSampleLevel(VideoTex, VideoTexSampler, saturate(uv), 0).
 // returns linear values. Written as-is the picture came out a gamma step too dark (measured: source
 // mid-grey 154 shown as 84). Encode to sRGB so the video shows at its own brightness.
 video = lerp(video * 12.92, 1.055 * pow(max(video, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, video));
+float3 fillColor = maskTexel.rgb;
+fillColor = lerp(fillColor * 12.92, 1.055 * pow(max(fillColor, 1e-5), 1.0 / 2.4) - 0.055, step(0.0031308, fillColor));
+video = lerp(video, fillColor, fillMode * (1.0 - userMask));
 if (Display.y > 0.5)
 {
     float3 coverage = lerp(float3(1,0.08,0.02),float3(0.03,0.9,0.35),visible * facingMask);

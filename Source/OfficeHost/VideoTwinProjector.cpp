@@ -140,6 +140,8 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     if ((*Cam)->TryGetNumberField(TEXT("receiver_feather_cm"), Feather) && Feather >= 0) ReceiverFeatherCm = float(Feather);
     FString MaskFile;
     ImageMaskFile = (*Cam)->TryGetStringField(TEXT("image_mask"), MaskFile) ? MaskFile : FString();
+    bImageMaskFill = false;
+    (*Cam)->TryGetBoolField(TEXT("image_mask_fill"), bImageMaskFill);
     ApplyImageMask();
     ExcludeBoxes.Reset();
     ExcludeGreenOnly.Reset();
@@ -520,7 +522,7 @@ void AVideoTwinProjector::UpdateProjection()
     V(TEXT("ProjectorUp"),Q.GetUpVector());
     V(TEXT("ReceiverMin"),ReceiverMin); V(TEXT("ReceiverMax"),ReceiverMax);
     ProjectionMID->SetVectorParameterValue(TEXT("Lens"),FLinearColor(FMath::Tan(FMath::DegreesToRadians(Fov*.5f)),GetProjectionAspect(),PrincipalPoint.X,PrincipalPoint.Y));
-    ProjectionMID->SetVectorParameterValue(TEXT("Distortion"),FLinearColor(RadialDistortion.X,RadialDistortion.Y,0,0));
+    ProjectionMID->SetVectorParameterValue(TEXT("Distortion"),FLinearColor(RadialDistortion.X,RadialDistortion.Y,bImageMaskFill?1.f:0.f,0));
     ProjectionMID->SetVectorParameterValue(TEXT("Options"),FLinearColor(bEnabled&&!bMutedByView?Opacity:0,DepthToleranceCm,MaxDistanceCm,bViewFocused?2:(bUseOcclusion&&bDepthReady?1:0)));
     ProjectionMID->SetVectorParameterValue(TEXT("Display"),FLinearColor(bSplitView?1:0,bDepthDebug?1:0,bMaskTimestamp?1:0,ReceiverFeatherCm));
     ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"),GetDisplayTexture());

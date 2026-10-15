@@ -69,6 +69,9 @@ public:
      *  white shows the video, black keeps the model, grey blends. Made by Tools/VideoTwin/mask_from_screenshot.py
      *  from a camera-view screenshot with the region painted red. Empty = no mask (the receiver box alone decides). */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FString ImageMaskFile;
+    /** "image_mask_fill": the mask PNG carries the mask in alpha and a still patch in colour; cut-out parts show the
+     *  patch instead of the model (for objects whose place in the model holds other furniture). */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") bool bImageMaskFill = false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FVector PositionOffset = FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FRotator RotationOffset = FRotator::ZeroRotator;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") float FovOffset = 0.f;
