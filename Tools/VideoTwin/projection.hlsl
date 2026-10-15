@@ -55,7 +55,11 @@ float ownView = Options.w > 1.5 ? 1.0 : 0.0;
 float useOcclusion = (Options.w > 0.5 && Options.w < 1.5) ? 1.0 : 0.0;
 facingMask = lerp(facingMask, 1.0, ownView);
 float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
-float mask = inFrustum * inBounds * border * facingMask * smoothstep(0.0, 0.012, edge);
+// Hand-drawn region in the camera's own picture ("image_mask" in calibration.json, white = video, soft edge drawn in).
+// A box edge cuts through whatever stands on it; a line drawn along real edges in the picture does not.
+// Cameras without a mask get a white texture.
+float userMask = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0).r;
+float mask = inFrustum * inBounds * border * facingMask * userMask * smoothstep(0.0, 0.012, edge);
 mask *= lerp(1.0, visible, useOcclusion);
 if (Display.z > 0.5 && uv.x < 0.35 && uv.y < 0.14) mask = 0;
 if (Display.x > 0.5 && ScreenUV.x > 0.5) mask = 0;

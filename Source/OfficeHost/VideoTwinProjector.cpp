@@ -35,6 +35,7 @@
 #include "Interfaces/IHttpRequest.h"
 #include "Interfaces/IHttpResponse.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
+#include "ImageUtils.h"
 #include "VideoTwinRtspReader.h"
 
 AVideoTwinProjector::AVideoTwinProjector()
@@ -135,6 +136,9 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     if ((*Cam)->TryGetNumberField(TEXT("max_distance_cm"), Range) && Range > 10) MaxDistanceCm = float(Range);
     double Feather = -1;
     if ((*Cam)->TryGetNumberField(TEXT("receiver_feather_cm"), Feather) && Feather >= 0) ReceiverFeatherCm = float(Feather);
+    FString MaskFile;
+    ImageMaskFile = (*Cam)->TryGetStringField(TEXT("image_mask"), MaskFile) ? MaskFile : FString();
+    ApplyImageMask();
     // Where two cameras both see a surface the one with the higher priority is drawn last and wins.
     // -VideoTwinNoStream ignores stream_url, so the recordings can be compared against the live feed.
     FString Url;
@@ -176,7 +180,31 @@ void AVideoTwinProjector::InitializeResources()
     ProjectionMID->SetTextureParameterValue(TEXT("VideoTex"), ReferenceTexture);
     ProjectionMID->SetTextureParameterValue(TEXT("ProjectorDepthTex"), DepthTarget);
     ProjectionPostProcess->AddOrUpdateBlendable(ProjectionMID,1.f);
+    // Loaded with the calibration (LoadMeasuredCalibration runs first); hand it over now that the material exists.
+    if (MaskTexture) ProjectionMID->SetTextureParameterValue(TEXT("MaskTex"), MaskTexture);
     bDepthDirty = true;
+}
+void AVideoTwinProjector::ApplyImageMask()
+{
+    MaskTexture = nullptr;
+    if (!ImageMaskFile.IsEmpty())
+    {
+        const FString Path = FPaths::GetPath(VideoTwinCalibrationPath()) / ImageMaskFile;
+        MaskTexture = FImageUtils::ImportFileAsTexture2D(Path);
+        if (MaskTexture)
+        {
+            // The PNG is written sRGB-encoded (mask_from_screenshot.py) and the material samples it as colour.
+            MaskTexture->SRGB = true;
+            MaskTexture->Filter = TF_Bilinear;
+            MaskTexture->AddressX = TA_Clamp;
+            MaskTexture->AddressY = TA_Clamp;
+            MaskTexture->UpdateResource();
+            UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s image mask %s (%dx%d)"),*CameraId,*ImageMaskFile,MaskTexture->GetSizeX(),MaskTexture->GetSizeY());
+        }
+        else UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s: image mask %s could not be read; showing the whole picture"),*CameraId,*Path);
+    }
+    // Without a mask the material's own default (a white texture) applies, so nothing needs setting.
+    if (ProjectionMID && MaskTexture) ProjectionMID->SetTextureParameterValue(TEXT("MaskTex"), MaskTexture);
 }
 void AVideoTwinProjector::BeginPlay()
 {

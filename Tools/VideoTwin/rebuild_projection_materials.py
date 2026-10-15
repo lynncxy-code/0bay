@@ -18,7 +18,9 @@ LIB = u.EditorAssetLibrary
 CODE = (ROOT / 'Tools/VideoTwin/projection.hlsl').read_text(encoding='utf-8')
 tex = u.load_asset('/Game/VideoTwinMVP/T_Camera17_Reference')
 depth = u.load_asset('/Game/VideoTwinMVP/RT_ProjectorDepth_Default')
-assert tex and depth, 'reference texture or default depth target missing'
+# Default for MaskTex (2026-10-16): white = no hand-drawn mask, the whole picture may show.
+white = u.load_asset('/Engine/EngineResources/WhiteSquareTexture')
+assert tex and depth and white, 'reference texture, default depth target or white texture missing'
 
 
 def rebuild(path):
@@ -43,10 +45,12 @@ def rebuild(path):
     inputs['SceneColor'] = (scene, 'Color')
     inputs['CameraPos'] = (node(u.MaterialExpressionCameraPositionWS), '')
     inputs['ScreenUV'] = (node(u.MaterialExpressionScreenPosition), 'ViewportUV')
-    for name, t in [('VideoTex', tex), ('ProjectorDepthTex', depth)]:
+    for name, t in [('VideoTex', tex), ('ProjectorDepthTex', depth), ('MaskTex', white)]:
         n = node(u.MaterialExpressionTextureObjectParameter)
         n.set_editor_property('parameter_name', name)
         n.set_editor_property('texture', t)
+        # MaskTex keeps the default (sRGB colour) sampler, matching its white default texture; the runtime mask
+        # texture is sRGB too and its PNG is written sRGB-encoded, so the soft edge comes out as drawn.
         if name == 'ProjectorDepthTex':
             n.set_editor_property('sampler_type', u.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR)
         inputs[name] = (n, '')

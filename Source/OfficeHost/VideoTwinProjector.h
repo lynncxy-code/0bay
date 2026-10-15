@@ -65,6 +65,10 @@ public:
     /** Width of the soft border inside the receiver box, in cm (X/Y sides only: the box's floor and ceiling stay hard).
      *  "receiver_feather_cm" in calibration.json. 0 = the old hard edge. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering", meta=(ClampMin="0")) float ReceiverFeatherCm = 12.f;
+    /** Hand-drawn region in the camera's own picture, a PNG in Content/VideoTwin ("image_mask" in calibration.json):
+     *  white shows the video, black keeps the model, grey blends. Made by Tools/VideoTwin/mask_from_screenshot.py
+     *  from a camera-view screenshot with the region painted red. Empty = no mask (the receiver box alone decides). */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Rendering") FString ImageMaskFile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FVector PositionOffset = FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") FRotator RotationOffset = FRotator::ZeroRotator;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Calibration") float FovOffset = 0.f;
@@ -123,6 +127,9 @@ private:
     UPROPERTY(VisibleAnywhere) TObjectPtr<UPostProcessComponent> ProjectionPostProcess;
     UPROPERTY(Transient) TObjectPtr<UTextureRenderTarget2D> DepthTarget;
     UPROPERTY(Transient) TObjectPtr<UMaterialInstanceDynamic> ProjectionMID;
+    UPROPERTY(Transient) TObjectPtr<UTexture2D> MaskTexture;
+    /** Load ImageMaskFile into MaskTexture and hand it to the material (white default when there is none). */
+    void ApplyImageMask();
     UPROPERTY(Transient) TObjectPtr<UMediaPlayer> Player;
     UPROPERTY(Transient) TObjectPtr<UMediaTexture> VideoTexture;
     bool bVideoReady = false;

@@ -37,20 +37,22 @@
       ],
       "height_note": "Z 4617.4 = floor 4320 + 297.4 cm, the height confirmed by the external check in September. The batch calibration used the scene-wide default of 305 cm, which puts the camera above the 3 m ceiling: the depth capture then sees the ceiling 3.4 cm below it and rejects everything.",
       "receiver_min": [
-        700.0,
-        -2500.0,
+        -400.0,
+        -3400.0,
         4315.0
       ],
       "receiver_max": [
-        2850.0,
-        -1250.0,
+        2900.0,
+        -1100.0,
         4740.0
       ],
       "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
       "priority": 510,
       "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.2:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
-      "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it."
+      "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it.",
+      "image_mask": "mask_17.png",
+      "image_mask_note": "2026-10-16: region painted on site in this camera's own view, turned into mask_17.png by Tools/VideoTwin/mask_from_screenshot.py. The mask now decides where the video shows. The box was opened to the floor area the masked part of the picture can reach (X -320..2480, Y -3338..-1139 on the floor, plus margin) so its sides no longer cut through desks and chairs. Previous box: [700, -2500, 4315]..[2850, -1250, 4740]."
     },
     "18": {
       "verified": true,
