@@ -5,84 +5,6 @@
   "exclude_boxes": [
     {
       "min": [
-        225.5,
-        -1425.5,
-        4315.0
-      ],
-      "max": [
-        269.5,
-        -1244.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 226-269: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
-        779.5,
-        -1425.5,
-        4315.0
-      ],
-      "max": [
-        824.5,
-        -1244.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 780-824: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
-        1064.5,
-        -1430.5,
-        4315.0
-      ],
-      "max": [
-        1245.5,
-        -1385.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 1065-1245: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
-        1474.5,
-        -1430.5,
-        4315.0
-      ],
-      "max": [
-        1655.5,
-        -1385.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 1475-1655: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
-        1924.5,
-        -1430.5,
-        4315.0
-      ],
-      "max": [
-        2105.5,
-        -1385.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 1925-2105: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
-        2314.5,
-        -1430.5,
-        4315.0
-      ],
-      "max": [
-        2495.5,
-        -1385.5,
-        4600.0
-      ],
-      "what": "planter cabinets X 2315-2495: whole cabinet stays the model; faces included by half a cm, desk ends (Y -1431, X 270) left out"
-    },
-    {
-      "min": [
         177.0,
         -1460.0,
         4389.0
@@ -216,11 +138,10 @@
       "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.2:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
       "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it.",
-      "image_mask_note": "2026-10-16, asked on site: the planter cabinets must not appear in the video, nothing of the model may show where they were, and no still patch (it looked blurred). image_mask_fill = stretch map: per row, the live video on both sides of each real cabinet (0.6 x its width) is stretched over it; red = horizontal sample offset. Cabinet polygons drawn on a camera frame; the map holds no picture.",
+      "image_mask_note": "2026-10-16: the real planter cabinets stay in the video (agreed on site after trying a cut-out with the model behind it, a still patch and a live stretch: the model's furniture is not where the real furniture is, and the camera cannot see behind a cabinet). No image mask. Earlier masks kept in the repo: mask_17.png (painted region), mask_17_cabinets*.png.",
       "image_mask_previous": "mask_17.png",
       "receiver_note_1016": "2026-10-16, asked on site: camera 17's video only on the desk block. The runtime desks (SM_F11, rows at X ~1160/1556/2009/2395, each three desks along Y -1841/-1681/-1521, i.e. Y -1931..-1431) and their chairs (X 997..2559) plus the desk-side planter cabinets at the row ends (Y -1430..-1386). Outside it -- far rows beyond X 1030, the column and wall on the right, the pantry side -- stays the model.",
-      "image_mask": "mask_17_cabinets_stretch.png",
-      "image_mask_fill": true
+      "image_mask_fill": false
     },
     "18": {
       "verified": true,
