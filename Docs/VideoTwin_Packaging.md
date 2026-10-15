@@ -33,7 +33,8 @@
 - 「开场位置」是场景走完默认路线后停住的那个画面:在第一次操作(移动、转视角、点鼠标、按 X)之前一直跟着更新,第一次操作时定下来。
   只等「画面静止 5 秒」在编辑器里可以,Shipping 包里开场画面从不完全静止,结果一直定不下来,按 C 没反应。
 - 左上角状态栏(每台相机是 `实时` / `录像`、融合开关)默认**不显示**(`show_status: false`),排查时改成 `true` 再重启。
-- 实时流断了以后会自己重连:每 15 秒探测一次转换服务,通了就从录像切回实时。以前要重启 UE。
+- **视频由 UE 直接拉摄像头 RTSP**(FFmpeg,`VideoTwinRtspReader`),投影比摄像头晚约 0.1 秒;原来经转换服务转 HLS 是 3.6 秒(见第八节第 8 条)。
+- 实时流断了会自己重连:读取线程每 2 秒重试一次;断流 3 秒(首次连接 12 秒)没画面就先放录像,画面回来自动切回实时。
 
 要开关某台相机、调它负责的区域、改上面这些开关,只改 `Content/VideoTwin/calibration.json`,不用重新编译,也不用重新打包(见第三节)。
 
@@ -67,6 +68,7 @@ RunUAT.bat BuildCookRun -project=<...>\ShanghaiOfficeShell_OpenSteel.uproject -n
 | `Content/VideoTwin` 作为散文件带进包 | `Config/DefaultGame.ini` | 读不到标定文件,所有相机都不投影 |
 | 代码不再依赖编辑器专有接口 | `Source/OfficeHost/VideoTwinProjector.cpp` | 游戏目标编译不过 |
 | 模块依赖加 `HTTP` | `Source/OfficeHost/OfficeHost.Build.cs` | 实时流自动重连的探测要用 |
+| FFmpeg 8.1(LGPL 动态库) | `Source/ThirdParty/FFmpeg`,`OfficeHost.Build.cs` | 直连摄像头要用。DLL 随包复制到 `Binaries/Win64`;缺了会退回放录像。来源和许可见该目录 README |
 | 抗锯齿三项(见下) | `Config/DefaultEngine.ini` | 投影视频抖动 |
 
 抗锯齿这三项缺一不可:
@@ -110,13 +112,18 @@ r.TemporalAA.Upsampling=0       关掉时间性放大,否则窗口切全屏后�
   17 `X 700..2850, Y -2500..-1250`;24 `X 300..1400, Y -1580..-980`;18 `X 4950..5750, Y -1500..700`;19 `X 950..2000, Y -1090..-420`。
 - `receiver_feather_cm`:范围四边的羽化宽度,默认 12,0 为硬边。
 - `priority`:两台相机范围重叠时,数值大的那台生效。
-- `stream_url`:实时流地址。连不上时自动改放录像,之后每 15 秒试一次能不能回到实时。
+- `stream_url`:实时流地址,现为摄像头子码流
+  `rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.<通道号-15>:554/LiveMedia/ch1/Media2?src=onvif`。
+  `${OFFICE_CAM_PASSWORD}` 运行时从同名环境变量填入,口令不写进文件。改回 `http://127.0.0.1:8888/cam<id>/index.m3u8` 就是旧的 HLS 路线(需要转换服务)。
 
 位置、朝向、镜头参数(`position_cm`、`forward`、`up`、`k1`、`k2` 等)是标定结果,不要手改。
 
-## 四、目标机上装转换服务
+## 四、目标机上装转换服务(现在只为提供口令和备用)
 
-UE 自带的播放器打不开摄像头的 RTSP,所以中间用 MediaMTX 把 RTSP 转成 HLS(延迟 4.0~4.7 秒,用模拟源测的)。
+**2026-10-15 起 UE 直接拉摄像头 RTSP,不再经过转换服务。** 但 `install_live.ps1` 仍要跑一次:它把摄像头口令存成环境变量
+`OFFICE_CAM_PASSWORD`,UE 直连要用。转换服务本身留作备用(把 `stream_url` 改回 HLS 地址时才用到),停掉不影响直连。
+
+原来的做法:UE 自带的播放器打不开摄像头的 RTSP,所以中间用 MediaMTX 把 RTSP 转成 HLS(现场实测比直连慢 3.5 秒)。
 转换服务和 UE 跑在同一台机器上。
 
 把下面四个文件放进目标机的一个文件夹(一键包里是 `VideoTwinLive\`):
@@ -193,7 +200,7 @@ powershell -ExecutionPolicy Bypass -File install_live.ps1
 
 ## 七、还没验证的事
 
-1. **真实摄像头的延迟**。4.0~4.7 秒是用模拟源测的,真实摄像头的子码流没有重新量过。
+1. **摄像头本身的延迟**(编码 + 网络,到 224.7 收到 RTSP 为止)没量:摄像头水印只到秒,时钟也没对齐。同类设备一般 0.2~0.5 秒。
 2. **只在切到某台摄像头视角时才拉那一路流**。用户提过,要改代码,没做。
 
 ## 八、2026-10-15 现场排查结论
@@ -216,6 +223,11 @@ powershell -ExecutionPolicy Bypass -File install_live.ps1
 5. **按 C 没反应**:原来 C 只负责退出摄像头视角,漫游时按下去什么都不做。现在是复位,见第一节。
 6. **背面剔除用几何法线**(屏幕空间 ddx/ddy 求的面法线)。用 GBuffer 法线时带了法线贴图的起伏,地面上出现黑点。
 7. **桌椅成棋盘格方块**:运行时生成的家具没被烘焙,见第二节表格。
+8. **视频比现实晚 5~6 秒,大头在 HLS**。同一台机器、同一时钟下录 RTSP 直读 / UE 屏幕 / 投屏,按画面动作对齐:
+   RTSP 收到 → UE 显示 3.57 秒(MediaMTX 要攒满 1 秒片段,Electra 固定落后 3 个片段,对 HLS 没有可调参数);
+   UE → 投屏 0.3 秒;平板缓冲 0.15 秒。改为 UE 内 FFmpeg 直读 RTSP 后,RTSP 收到 → UE 显示 **0.10 秒**。
+   代价:UE 进程里多了四路 720×576 H.265 解码(换包后 UE 进程约占 5 个核,整机 CPU 44~67%,换包前没量)。投屏编码器因此被挤,平板每 10 秒顿 1~4 次;
+   把投屏 ffmpeg 设为高优先级后恢复零卡顿(`tools/ue-cast.ps1` 已固化)。
 
 ## 九、相关文件
 

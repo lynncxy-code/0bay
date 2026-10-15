@@ -34,6 +34,8 @@
 #include "Components/LocalLightComponent.h"
 #include "Interfaces/IHttpRequest.h"
 #include "Interfaces/IHttpResponse.h"
+#include "GenericPlatform/GenericPlatformHttp.h"
+#include "VideoTwinRtspReader.h"
 
 AVideoTwinProjector::AVideoTwinProjector()
 {
@@ -183,10 +185,38 @@ void AVideoTwinProjector::BeginPlay()
     InitializeResources();
     OpenVideo();
 }
+bool AVideoTwinProjector::UseDirectRtsp() const
+{
+    return StreamUrl.StartsWith(TEXT("rtsp"), ESearchCase::IgnoreCase)
+        && (StreamPlayer.IsEmpty() || StreamPlayer.Equals(TEXT("ffmpeg"), ESearchCase::IgnoreCase));
+}
 void AVideoTwinProjector::OpenVideo()
 {
     bVideoReady = false;
     OpenAge = 0;
+    if (!StreamUrl.IsEmpty() && UseDirectRtsp())
+    {
+        // Direct read: no media player at all while the camera answers. The recording stays in MediaSource for
+        // PlayRecording. The password is filled in from the environment here and nowhere else.
+        bLiveDirect = true;
+        bMockSource = false;
+        if (!RecordedSource) RecordedSource = MediaSource;
+        if (!LiveReader)
+        {
+            FString Address = StreamUrl;
+            if (Address.Contains(TEXT("${OFFICE_CAM_PASSWORD}")))
+            {
+                const FString Password = FPlatformMisc::GetEnvironmentVariable(TEXT("OFFICE_CAM_PASSWORD"));
+                if (Password.IsEmpty()) UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s: stream_url needs OFFICE_CAM_PASSWORD, which is not set"),*CameraId);
+                Address.ReplaceInline(TEXT("${OFFICE_CAM_PASSWORD}"), *FGenericPlatformHttp::UrlEncode(Password));
+            }
+            LiveReader = MakeShared<FVideoTwinRtspReader>(Address, CameraId);
+            if (!LiveReader->Start()) PlayRecording(LiveReader->GetLastError());
+        }
+        Status = TEXT("OPENING LIVE (direct) | reference fallback");
+        UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s opening live stream directly: %s"),*CameraId,*FVideoTwinRtspReader::MaskUrl(StreamUrl));
+        return;
+    }
     if (!StreamUrl.IsEmpty() && !bLiveFailed)
     {
         RecordedSource = MediaSource;
@@ -203,7 +233,7 @@ void AVideoTwinProjector::OpenVideo()
         }
         MediaSource = Live;
         bMockSource = false;
-        UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s opening live stream %s"),*CameraId,*StreamUrl);
+        UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s opening live stream %s"),*CameraId,*FVideoTwinRtspReader::MaskUrl(StreamUrl));
     }
     if (!MediaSource) { Status = TEXT("REFERENCE | no media source"); return; }
     if (!Player)
@@ -253,6 +283,82 @@ bool AVideoTwinProjector::FallBackToRecording(const TCHAR* Why)
     if (!Player->OpenSource(MediaSource)) { Status = TEXT("MEDIA FAILED | reference fallback"); }
     return true;
 }
+void AVideoTwinProjector::PlayRecording(const FString& Why)
+{
+    if (bLiveFailed) return;
+    bLiveFailed = true;
+    UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s live picture unavailable (%s) -- playing the recording until it is back"),*CameraId,*Why);
+    if (!RecordedSource) { Status = TEXT("LIVE UNAVAILABLE | no recording, reference image"); return; }
+    if (!Player)
+    {
+        Player = NewObject<UMediaPlayer>(this);
+        Player->PlayOnOpen = true;
+        Player->OnMediaOpened.AddDynamic(this,&AVideoTwinProjector::MediaOpened);
+        Player->OnMediaOpenFailed.AddDynamic(this,&AVideoTwinProjector::MediaFailed);
+        VideoTexture = NewObject<UMediaTexture>(this);
+        VideoTexture->NewStyleOutput = true;
+        VideoTexture->AutoClear = false;
+        VideoTexture->SetMediaPlayer(Player);
+        VideoTexture->UpdateResource();
+    }
+    MediaSource = RecordedSource;
+    bMockSource = true;
+    bVideoReady = false;
+    OpenAge = 0;
+    Player->SetDesiredPlayerName(NAME_None);
+    Player->SetLooping(true);
+    Status = TEXT("OPENING | reference fallback");
+    if (!Player->OpenSource(MediaSource)) Status = TEXT("MEDIA FAILED | reference fallback");
+}
+void AVideoTwinProjector::TickLiveDirect(float DeltaSeconds)
+{
+    if (!LiveReader) return;
+    TArray<uint8> Pixels; int32 W = 0, H = 0;
+    if (LiveReader->TakeFrame(Pixels, W, H, LiveSeq))
+    {
+        if (!LiveTexture || LiveTexture->GetSizeX() != W || LiveTexture->GetSizeY() != H)
+        {
+            LiveTexture = UTexture2D::CreateTransient(W, H, PF_B8G8R8A8);
+            // sRGB like the media texture it replaces: the material expects linear colour when it samples.
+            LiveTexture->SRGB = true;
+            LiveTexture->Filter = TF_Bilinear;
+            LiveTexture->AddressX = TA_Clamp;
+            LiveTexture->AddressY = TA_Clamp;
+            LiveTexture->UpdateResource();
+        }
+        // The render thread copies from this buffer later; it owns it and frees it when done.
+        const int32 Bytes = Pixels.Num();
+        uint8* Data = static_cast<uint8*>(FMemory::Malloc(Bytes));
+        FMemory::Memcpy(Data, Pixels.GetData(), Bytes);
+        FUpdateTextureRegion2D* Region = new FUpdateTextureRegion2D(0, 0, 0, 0, W, H);
+        LiveTexture->UpdateTextureRegions(0, 1, Region, W * 4, 4, Data,
+            [](uint8* SrcData, const FUpdateTextureRegion2D* Regions) { FMemory::Free(SrcData); delete Regions; });
+        bLiveHasPicture = true;
+    }
+    // Fresh = a picture in the last 3 s. A stalled camera shows its last picture for those 3 s, then the recording.
+    bLiveFresh = bLiveHasPicture && LiveReader->SecondsSinceLastFrame() < 3.0;
+    if (bLiveFresh)
+    {
+        LiveWaitAge = 0;
+        if (bLiveFailed)
+        {
+            UE_LOG(LogTemp,Display,TEXT("VideoTwin camera %s live picture is back; leaving the recording"),*CameraId);
+            bLiveFailed = false;
+            if (Player) Player->Close();
+            bMockSource = false;
+        }
+        bVideoReady = true;
+        Status = FString::Printf(TEXT("LIVE STREAM (direct) | PLAYING %.0f fps"), LiveReader->GetRecentFps());
+        return;
+    }
+    // Not fresh: give a first connection 12 s, a dropped one 3 s more, then show the recording meanwhile.
+    LiveWaitAge += DeltaSeconds;
+    if (!bLiveFailed && LiveWaitAge > (bLiveHasPicture ? 0.f : 12.f))
+    {
+        const FString Error = LiveReader->GetLastError();
+        PlayRecording(Error.IsEmpty() ? FString(TEXT("no picture")) : Error);
+    }
+}
 void AVideoTwinProjector::MediaFailed(FString Url)
 {
     if (FallBackToRecording(TEXT("open failed"))) return;
@@ -267,6 +373,7 @@ void AVideoTwinProjector::TogglePlayback()
 }
 UTexture* AVideoTwinProjector::GetDisplayTexture() const
 {
+    if (bLiveDirect && bLiveFresh && LiveTexture) return LiveTexture.Get();
     return bVideoReady && VideoTexture ? static_cast<UTexture*>(VideoTexture.Get()) : static_cast<UTexture*>(ReferenceTexture.Get());
 }
 void AVideoTwinProjector::ResetCalibration()
@@ -384,7 +491,12 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
         bDepthDirty = true;
         ++NextDepthCapture;
     }
-    TryReturnToLive(DeltaSeconds);
+    if (bLiveDirect)
+    {
+        TickLiveDirect(DeltaSeconds);
+        if (!bLiveFailed) { UpdateProjection(); return; }
+    }
+    else TryReturnToLive(DeltaSeconds);
     if (Player)
     {
         OpenAge += DeltaSeconds;
@@ -400,6 +512,7 @@ void AVideoTwinProjector::Tick(float DeltaSeconds)
 void AVideoTwinProjector::EndPlay(const EEndPlayReason::Type Reason)
 {
     if (Player) { Player->OnMediaOpened.RemoveAll(this); Player->OnMediaOpenFailed.RemoveAll(this); Player->Close(); }
+    if (LiveReader) { LiveReader->Shutdown(); LiveReader.Reset(); }
     if (ProjectionMID) ProjectionPostProcess->Settings.RemoveBlendable(ProjectionMID);
     Super::EndPlay(Reason);
 }

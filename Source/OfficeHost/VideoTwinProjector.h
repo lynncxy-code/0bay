@@ -19,6 +19,7 @@ class UPostProcessComponent;
 class USceneCaptureComponent2D;
 class UTextBlock;
 class AVideoTwinRuntimeFeature;
+class FVideoTwinRtspReader;
 
 /** One calibrated source. Multiple sources use independent players and calibration. */
 UCLASS(BlueprintType)
@@ -41,7 +42,10 @@ public:
      *  Normally filled from "stream_url" in calibration.json. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamUrl;
     /** Media player to use for StreamUrl ("stream_player" in calibration.json). Empty picks automatically:
-     *  WmfMedia for rtsp:// (Electra has no RTSP support), the engine's default for everything else. */
+     *  rtsp:// is read directly with FFmpeg (VideoTwinRtspReader, about 0.1-0.2 s behind the camera instead of the
+     *  3.6 s of the HLS route); "WmfMedia" forces the Media Foundation player for rtsp:// instead; anything else goes
+     *  to the engine's default player (Electra for HLS). In the address, ${OFFICE_CAM_PASSWORD} is replaced by that
+     *  environment variable, so the camera password never has to be written into the file. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Source") FString StreamPlayer;
     /** Seconds behind the live edge, passed to Electra as ElectraLivePresentationOffset ("stream_live_offset" in
      *  calibration.json). DASH ONLY: the engine reads it in ManifestBuilderDASH.cpp and nowhere in the HLS code.
@@ -131,6 +135,19 @@ private:
     void TryReturnToLive(float DeltaSeconds);
     float LiveRetryAge = 0;
     bool bLiveProbeInFlight = false;
+    /** rtsp:// read directly (see StreamPlayer). The reader reconnects by itself; while its picture is fresh it is
+     *  shown, otherwise the recording plays (through Player) until the picture is fresh again. */
+    bool bLiveDirect = false;
+    TSharedPtr<FVideoTwinRtspReader> LiveReader;
+    UPROPERTY(Transient) TObjectPtr<UTexture2D> LiveTexture;
+    uint64 LiveSeq = 0;
+    bool bLiveHasPicture = false;
+    bool bLiveFresh = false;
+    float LiveWaitAge = 0;
+    bool UseDirectRtsp() const;
+    void TickLiveDirect(float DeltaSeconds);
+    /** Create the media player (if needed) and play the recording on it. */
+    void PlayRecording(const FString& Why);
     bool bDepthDirty = true;
     float DepthAge = 0;
     float PlayAge = 0;

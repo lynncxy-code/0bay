@@ -48,7 +48,7 @@
       ],
       "receiver_note": "World-space box that may receive video; everything outside stays as modelled. Y: upper bound -1440 stops just short of the row of planter cabinets at Y -1410, so those cabinets, the pantry bar and wall cabinets and the lounge stay virtual; only the workstation area shows video. Z: lower bound 4315 is just under the floor (4320), so inside the workstation area the floor, desk legs and chairs are all covered by video. An earlier setting of 4355 kept the floor virtual, which removed floor smears but left a hard seam through every desk and chair.",
       "priority": 510,
-      "stream_url": "http://127.0.0.1:8888/cam17/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.2:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_previous": "before 2026-10-14 edge pass: [-100.0, -2500.0, 4315.0]..[2850.0, -1440.0, 4740.0], max_distance None",
       "receiver_note_edge": "2026-10-14: Y upper bound -1440 -> -1250 so the window-side desk and whoever sits there are not cut in half; X lower bound -100 -> 700 so the far planter row (Y -1410, near camera 24) stays out of 17, which from the far end only smeared it."
     },
@@ -97,7 +97,7 @@
       "max_distance_cm": 1500,
       "priority": 501,
       "receiver_note": "Hall floor on the camera's side of the white wall. The wall base measured X 5011 / 5005 / 5003 at three points, so it lies on X = 5005; the glass door is in that wall at Y -691..-848. X min 5015 keeps the wall, the door and everything behind them virtual; the floor, the chair and the easel (X about 5350) show video.",
-      "stream_url": "http://127.0.0.1:8888/cam18/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.3:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_previous": "before 2026-10-14 edge pass: [5015.0, -1500.0, 4315.0]..[5750.0, 300.0, 4740.0], max_distance 1500"
     },
     "21": {
@@ -145,7 +145,7 @@
       "max_distance_cm": 1600,
       "priority": 502,
       "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
-      "stream_url": "http://127.0.0.1:8888/cam21/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.6:554/LiveMedia/ch1/Media2?src=onvif",
       "disabled_reason": "Measured and correctly placed, but switched off on 2026-10-12 after review: in the pantry strip the model furniture (bar table, stools, planters, counter) is not where the real furniture is, so the video lands on the wrong shapes and smears. Needs the model corrected there, or that furniture hidden, before it is usable."
     },
     "23": {
@@ -193,7 +193,7 @@
       "max_distance_cm": 1300,
       "priority": 503,
       "receiver_note": "Not enabled, see _disabled_note. Box is a first guess and was never tuned.",
-      "stream_url": "http://127.0.0.1:8888/cam23/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.8:554/LiveMedia/ch1/Media2?src=onvif",
       "disabled_reason": "Measured and correctly placed, but switched off on 2026-10-12 after review: in the pantry strip the model furniture (bar table, stools, planters, counter) is not where the real furniture is, so the video lands on the wrong shapes and smears. Needs the model corrected there, or that furniture hidden, before it is usable."
     },
     "24": {
@@ -241,7 +241,7 @@
       "max_distance_cm": 1500,
       "priority": 500,
       "receiver_note": "Workstation strip only, same idea as camera 17. In the level the desk row starts at X about 315..340 and the planter cabinet in front of it occupies X about 200..290, so X min 300 sits between them. The tall cabinets on the right stand at Y about -1000..-1130 (excluded by Y max -1150); the glass wall on the left is at Y -1595. Known mismatch: in the footage the real counter (round holes) sits at X about 324..470 and the real desks start near X 490, roughly 1.5 m further in than the model has them. So the counter's image lands on the near end of the virtual desk. Either the model's furniture is placed differently from reality here, or camera 24's position is off; not resolved.",
-      "stream_url": "http://127.0.0.1:8888/cam24/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.9:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note_edge": "2026-10-15: Y upper bound back to -980 (aisle and the face of the tall cabinets included). The floating grey block that once forced -1150 cannot come back: the projection now rejects surfaces facing away from the camera, and in camera 17's own view 24's projection is hidden anyway."
     },
     "19": {
@@ -287,7 +287,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 480,
-      "stream_url": "http://127.0.0.1:8888/cam19/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.4:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "receiver_note_previous": "before 2026-10-14 edge pass: [950.0, -1090.0, 4315.0]..[1560.0, -470.0, 4740.0], max_distance 1100"
     },
@@ -334,7 +334,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 481,
-      "stream_url": "http://127.0.0.1:8888/cam20/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.5:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Server room. From the prior pose the model view is inside a wall, so nothing lines up."
     },
@@ -381,7 +381,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 482,
-      "stream_url": "http://127.0.0.1:8888/cam22/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.7:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Lounge. The model has neither the carpet inlay nor this furniture layout; pose cannot be confirmed."
     },
@@ -428,7 +428,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 483,
-      "stream_url": "http://127.0.0.1:8888/cam25/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.10:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Lobby. The model shows bare floor where the picture has the inlay and sofas; pose cannot be confirmed."
     },
@@ -475,7 +475,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 484,
-      "stream_url": "http://127.0.0.1:8888/cam26/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.11:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Camera is mounted rolled and half the picture is a ceiling track. Model view shows a different scene."
     },
@@ -522,7 +522,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 485,
-      "stream_url": "http://127.0.0.1:8888/cam27/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.12:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Camera is mounted strongly rolled; the prior pose assumes it is level. Model view does not match."
     },
@@ -569,7 +569,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 486,
-      "stream_url": "http://127.0.0.1:8888/cam28/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.13:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Roughly matches (wall about 1 m off), but its whole floor area lies inside camera 18's region and 18 is measured."
     },
@@ -616,7 +616,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 487,
-      "stream_url": "http://127.0.0.1:8888/cam29/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.14:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "Roughly matches, but it looks at the same desks as camera 17 from the other side and 17 is measured."
     },
@@ -663,7 +663,7 @@
       ],
       "max_distance_cm": 1500,
       "priority": 488,
-      "stream_url": "http://127.0.0.1:8888/cam30/index.m3u8",
+      "stream_url": "rtsp://admin:${OFFICE_CAM_PASSWORD}@192.168.229.15:554/LiveMedia/ch1/Media2?src=onvif",
       "receiver_note": "FIRST PASS, not tuned: a block in front of the camera.",
       "disabled_reason": "A ceiling track fills the lower half of the picture. What remains does not match the model view."
     }
@@ -683,6 +683,6 @@
   "_show_status_note": "Top-left status line (camera ids, live/recorded, fusion on/off). Hidden on site at the user's request; true shows it again (useful when checking whether a camera is live).",
   "_enabled_note": "17, 24, 18 are measured against their pictures. 19 is prior-only: it matches the model and covers an area no measured camera covers.",
   "_disabled_note": "21 and 23 are measured but off (model furniture mismatch, see their disabled_reason). 20, 22, 25-30 are prior-only and off; each has a disabled_reason.",
-  "_stream_note": "Each enabled camera has a \"stream_url\": the live HLS stream from the local MediaMTX converter (Tools/VideoTwin/start_live.ps1, config mediamtx.videotwin.yml, scheduled task VideoTwinLive). If the stream cannot be opened, or gives no picture within 12 s, the projector falls back to Content/Movies/Camera<id>_Real.mp4 and the status reads 'LIVE UNAVAILABLE, RECORDED LOOP'. Remove the line to always use the recording. Measured delay for this route: 4.0-4.7 s behind live (1 s segments). rtsp:// opened directly by WmfMedia also works (5.2 s). \"stream_live_offset\" has no effect on HLS. Do NOT enable WmfMedia's LowLatency setting.",
+  "_stream_note": "2026-10-15: stream_url is the camera's RTSP sub-stream (Media2, 720x576), read directly by the runtime with FFmpeg (VideoTwinRtspReader). Measured on site: the HLS route (MediaMTX converter + Electra) put the projection 3.6 s behind the camera; read directly it is a few hundred ms. ${OFFICE_CAM_PASSWORD} is filled in from that environment variable at runtime, so the password is never in this file. If no picture arrives within 12 s, or it stops for 3 s, the recording Content/Movies/Camera<id>_Real.mp4 plays until the camera is back (the reader keeps reconnecting every 2 s). To go back to the HLS route put the old http://127.0.0.1:8888/cam<id>/index.m3u8 address back (needs the VideoTwinLive converter running).",
   "_receiver_edges": "2026-10-14 on site: box sides moved onto real dividing lines (wall bases, cabinet faces, aisle edges) seen in each camera picture, so no desk, chair or person is cut in half by a box side."
 }
