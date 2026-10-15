@@ -67,7 +67,9 @@ def rebuild(path):
         n = node(u.MaterialExpressionVectorParameter)
         n.set_editor_property('parameter_name', name)
         n.set_editor_property('default_value', u.LinearColor(*default))
-        if name in ['Lens', 'Options', 'Display', 'Distortion']:
+        # Four components reach the code only through an append (the parameter's default output is RGB).
+        # ExcludeMinN.w carries the box's green_only flag.
+        if name in ['Lens', 'Options', 'Display', 'Distortion'] or name.startswith('ExcludeMin'):
             append = node(u.MaterialExpressionAppendVector)
             assert EDIT.connect_material_expressions(n, '', append, 'A')
             assert EDIT.connect_material_expressions(n, 'A', append, 'B')

@@ -25,6 +25,8 @@
 #include "Components/TextBlock.h"
 #include "Styling/CoreStyle.h"
 #include "GameFramework/PlayerController.h"
+#include "Engine/GameViewportClient.h"
+#include "Widgets/SWindow.h"
 #include "Kismet/GameplayStatics.h"
 #include "Misc/PackageName.h"
 #include "Dom/JsonObject.h"
@@ -140,6 +142,7 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
     ImageMaskFile = (*Cam)->TryGetStringField(TEXT("image_mask"), MaskFile) ? MaskFile : FString();
     ApplyImageMask();
     ExcludeBoxes.Reset();
+    ExcludeGreenOnly.Reset();
     const TArray<TSharedPtr<FJsonValue>>* Excl = nullptr;
     if (Root->TryGetArrayField(TEXT("exclude_boxes"), Excl))
     {
@@ -150,6 +153,9 @@ bool AVideoTwinProjector::LoadMeasuredCalibration()
             if (!E.IsValid() || !E->TryGetObject(EO) || !(*EO)->TryGetArrayField(TEXT("min"), Mn) || !(*EO)->TryGetArrayField(TEXT("max"), Mx) || Mn->Num() != 3 || Mx->Num() != 3) continue;
             if (ExcludeBoxes.Num() == 12) { UE_LOG(LogTemp,Warning,TEXT("VideoTwin: more than 12 exclude_boxes; the rest are ignored")); break; }
             ExcludeBoxes.Add(FBox(FVector((*Mn)[0]->AsNumber(), (*Mn)[1]->AsNumber(), (*Mn)[2]->AsNumber()), FVector((*Mx)[0]->AsNumber(), (*Mx)[1]->AsNumber(), (*Mx)[2]->AsNumber())));
+            bool bGreen = false;
+            (*EO)->TryGetBoolField(TEXT("green_only"), bGreen);
+            ExcludeGreenOnly.Add(bGreen);
         }
     }
     ApplyExcludeBoxes();
@@ -207,7 +213,8 @@ void AVideoTwinProjector::ApplyExcludeBoxes()
         // Unused slots inside-out: no position is ever >= +1e9 and <= -1e9 at once.
         const FVector Mn = ExcludeBoxes.IsValidIndex(i) ? ExcludeBoxes[i].Min : FVector(1e9);
         const FVector Mx = ExcludeBoxes.IsValidIndex(i) ? ExcludeBoxes[i].Max : FVector(-1e9);
-        ProjectionMID->SetVectorParameterValue(*FString::Printf(TEXT("ExcludeMin%d"), i), FLinearColor(Mn.X, Mn.Y, Mn.Z, 0));
+        const float Green = ExcludeGreenOnly.IsValidIndex(i) && ExcludeGreenOnly[i] ? 1.f : 0.f;
+        ProjectionMID->SetVectorParameterValue(*FString::Printf(TEXT("ExcludeMin%d"), i), FLinearColor(Mn.X, Mn.Y, Mn.Z, Green));
         ProjectionMID->SetVectorParameterValue(*FString::Printf(TEXT("ExcludeMax%d"), i), FLinearColor(Mx.X, Mx.Y, Mx.Z, 0));
     }
 }
@@ -789,6 +796,21 @@ void AVideoTwinRuntimeFeature::BeginPlay()
             Widget->AddToViewport(12000);
         }
         BindRuntimeInput();
+    }
+    // "start_fullscreen" (default true, asked on site 2026-10-16): switch to windowed fullscreen after start, the same
+    // mode F11 toggles to. The kit launches the game -windowed 1600x900; this changes only the window, not the launcher.
+    // Not in the editor and not in the unattended test run (its screenshots assume the launch size).
+    // Decided by the window itself: the saved settings already said "windowed fullscreen" (from an earlier F11) while
+    // -windowed kept the window a window, so checking the settings skipped the switch. The toggle is the one F11 runs.
+    if (!GIsEditor && !bAutomatedTest && AVideoTwinProjector::GetCalibrationRootBool(TEXT("start_fullscreen"), true)
+        && GEngine && GEngine->GameViewport)
+    {
+        const TSharedPtr<SWindow> Window = GEngine->GameViewport->GetWindow();
+        if (Window.IsValid() && Window->GetWindowMode() == EWindowMode::Windowed)
+        {
+            GEngine->GameViewport->HandleToggleFullscreenCommand();
+            UE_LOG(LogTemp,Display,TEXT("VideoTwin: switched to fullscreen as F11 does (start_fullscreen)"));
+        }
     }
     UE_LOG(LogTemp,Display,TEXT("VideoTwin runtime feature ready: %d camera(s) (Z/X/C; original controls remain unchanged)"),Projectors.Num());
 }

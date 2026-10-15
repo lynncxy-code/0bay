@@ -132,6 +132,8 @@ private:
     void ApplyImageMask();
     /** World boxes that never take video, whatever camera ("exclude_boxes" at the top of calibration.json, max 12). */
     TArray<FBox> ExcludeBoxes;
+    /** Per box: "green_only" -- inside it only plant-green model pixels stay the model (see projection.hlsl). */
+    TArray<bool> ExcludeGreenOnly;
     void ApplyExcludeBoxes();
     UPROPERTY(Transient) TObjectPtr<UMediaPlayer> Player;
     UPROPERTY(Transient) TObjectPtr<UMediaTexture> VideoTexture;

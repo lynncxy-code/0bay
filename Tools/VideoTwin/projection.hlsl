@@ -60,20 +60,24 @@ float edge = min(min(uv.x, 1-uv.x), min(uv.y, 1-uv.y));
 // Cameras without a mask get a white texture.
 float userMask = Texture2DSampleLevel(MaskTex, MaskTexSampler, saturate(uv), 0).r;
 // Furniture that stays the model whatever camera looks at it ("exclude_boxes" in calibration.json, up to 12 world
-// boxes; unused ones are set inside-out so nothing is ever in them). 2026-10-16: the planter cabinets and their plants.
+// boxes; unused ones are set inside-out so nothing is ever in them). ExcludeMinN.w = 1 ("green_only"): inside that box
+// only pixels the model draws in plant green stay the model. 2026-10-16: the plants on the planter cabinets, which
+// overlap the runtime desks, partitions and chairs in the model -- a box alone cannot tell them apart, colour can
+// (leaves are saturated green; the partition fabric is a greyish green, desks white, chairs dark grey).
+float plantGreen = smoothstep(0.03, 0.08, SceneColor.g - max(SceneColor.r, SceneColor.b));
 float excluded = 0.0;
-excluded = max(excluded, (all(WorldPos >= ExcludeMin0) && all(WorldPos <= ExcludeMax0)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin1) && all(WorldPos <= ExcludeMax1)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin2) && all(WorldPos <= ExcludeMax2)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin3) && all(WorldPos <= ExcludeMax3)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin4) && all(WorldPos <= ExcludeMax4)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin5) && all(WorldPos <= ExcludeMax5)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin6) && all(WorldPos <= ExcludeMax6)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin7) && all(WorldPos <= ExcludeMax7)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin8) && all(WorldPos <= ExcludeMax8)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin9) && all(WorldPos <= ExcludeMax9)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin10) && all(WorldPos <= ExcludeMax10)) ? 1.0 : 0.0);
-excluded = max(excluded, (all(WorldPos >= ExcludeMin11) && all(WorldPos <= ExcludeMax11)) ? 1.0 : 0.0);
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin0.xyz) && all(WorldPos <= ExcludeMax0.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin0.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin1.xyz) && all(WorldPos <= ExcludeMax1.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin1.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin2.xyz) && all(WorldPos <= ExcludeMax2.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin2.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin3.xyz) && all(WorldPos <= ExcludeMax3.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin3.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin4.xyz) && all(WorldPos <= ExcludeMax4.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin4.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin5.xyz) && all(WorldPos <= ExcludeMax5.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin5.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin6.xyz) && all(WorldPos <= ExcludeMax6.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin6.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin7.xyz) && all(WorldPos <= ExcludeMax7.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin7.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin8.xyz) && all(WorldPos <= ExcludeMax8.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin8.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin9.xyz) && all(WorldPos <= ExcludeMax9.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin9.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin10.xyz) && all(WorldPos <= ExcludeMax10.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin10.w)));
+excluded = max(excluded, ((all(WorldPos >= ExcludeMin11.xyz) && all(WorldPos <= ExcludeMax11.xyz)) ? 1.0 : 0.0) * lerp(1.0, plantGreen, step(0.5, ExcludeMin11.w)));
 userMask *= 1.0 - excluded;
 float mask = inFrustum * inBounds * border * facingMask * userMask * smoothstep(0.0, 0.012, edge);
 mask *= lerp(1.0, visible, useOcclusion);
