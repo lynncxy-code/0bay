@@ -1,0 +1,147 @@
+diff --git a/Source/OfficeHost/VideoTwinRtspReader.cpp b/Source/OfficeHost/VideoTwinRtspReader.cpp
+index 11276c8..325b197 100644
+--- a/Source/OfficeHost/VideoTwinRtspReader.cpp
++++ b/Source/OfficeHost/VideoTwinRtspReader.cpp
+@@ -12,6 +12,8 @@ extern "C"
+ #include "libavcodec/avcodec.h"
+ #include "libavutil/avutil.h"
+ #include "libswscale/swscale.h"
++#include "libavutil/hwcontext.h"
++#include "libavutil/opt.h"
+ }
+ THIRD_PARTY_INCLUDES_END
+ 
+@@ -23,6 +25,17 @@ namespace
+         av_strerror(Code, Buf, sizeof(Buf));
+         return FString(UTF8_TO_TCHAR(Buf));
+     }
++
++    // Decoder picks the GPU surface format when it is offered; otherwise the first (software) one, so a camera the
++    // GPU decoder cannot take still decodes on the CPU.
++    AVPixelFormat PickD3D11(AVCodecContext*, const AVPixelFormat* Formats)
++    {
++        for (const AVPixelFormat* F = Formats; *F != AV_PIX_FMT_NONE; ++F)
++        {
++            if (*F == AV_PIX_FMT_D3D11) return *F;
++        }
++        return Formats[0];
++    }
+ }
+ 
+ FVideoTwinRtspReader::FVideoTwinRtspReader(const FString& InUrl, const FString& InName)
+@@ -181,6 +194,9 @@ void FVideoTwinRtspReader::ReadOnce()
+     AVPacket* Packet = av_packet_alloc();
+     AVFrame* Picture = av_frame_alloc();
+     SwsContext* Sws = nullptr;
++    AVBufferRef* HwDevice = nullptr;
++    AVFrame* Downloaded = av_frame_alloc();
++    AVFrame* Out = av_frame_alloc();
+     int32 SwsW = 0, SwsH = 0, SwsFormat = -1, SwsRange = -1;
+     TArray<uint8> Bgra;
+     int VideoStream = -1;
+@@ -194,13 +210,25 @@ void FVideoTwinRtspReader::ReadOnce()
+         if (VideoStream < 0 || !Decoder) { SetError(TEXT("no video stream / decoder")); break; }
+         Codec = avcodec_alloc_context3(Decoder);
+         if (!Codec || avcodec_parameters_to_context(Codec, Fmt->streams[VideoStream]->codecpar) < 0) { SetError(TEXT("decoder setup failed")); break; }
+-        // Slice threads only: frame threading holds back one frame per thread, which is latency we are here to remove.
++        // 2026-10-16: GPU decode (D3D11VA) for every camera. The 2560x1440 main stream on the CPU did not keep up on
++        // 224.7 next to the scene: one core per stream (the cameras send one slice per frame, so slice threads do not
++        // help) gave 7-18 frames/s against the camera's 25, the backlog put the picture 0.7 s behind; three frame
++        // threads were no better under load and held frames back. Measured outside UE with these exact settings,
++        // scene running: GPU decode + the colour conversion on 4 threads holds 25 frames/s, packet to BGRA ~20 ms.
++        // If no D3D11 device can be made the decoder falls back to slice threads on the CPU, as before.
+         Codec->flags |= AV_CODEC_FLAG_LOW_DELAY;
+         Codec->thread_type = FF_THREAD_SLICE;
+         Codec->thread_count = 2;
++        if (av_hwdevice_ctx_create(&HwDevice, AV_HWDEVICE_TYPE_D3D11VA, nullptr, nullptr, 0) >= 0)
++        {
++            Codec->hw_device_ctx = av_buffer_ref(HwDevice);
++            Codec->get_format = &PickD3D11;
++            Codec->thread_count = 1;
++        }
+         Result = avcodec_open2(Codec, Decoder, nullptr);
+         if (Result < 0) { SetError(FString::Printf(TEXT("cannot open decoder (%s)"), *AvError(Result))); break; }
+-        UE_LOG(LogTemp, Display, TEXT("VideoTwin camera %s direct stream: connected, %s %dx%d"), *Name, UTF8_TO_TCHAR(Decoder->name), Codec->width, Codec->height);
++        UE_LOG(LogTemp, Display, TEXT("VideoTwin camera %s direct stream: connected, %s %dx%d, %s decode"), *Name, UTF8_TO_TCHAR(Decoder->name),
++            Codec->width, Codec->height, HwDevice ? TEXT("GPU") : TEXT("CPU"));
+         {
+             FScopeLock L(&Lock);
+             LastError.Reset();
+@@ -212,10 +240,26 @@ void FVideoTwinRtspReader::ReadOnce()
+             IoDeadline = FPlatformTime::Seconds() + 5.0;
+             Result = av_read_frame(Fmt, Packet);
+             if (Result < 0) { if (!bStopRequested) SetError(FString::Printf(TEXT("stream ended (%s)"), *AvError(Result))); break; }
+-            if (Packet->stream_index == VideoStream && avcodec_send_packet(Codec, Packet) >= 0)
++            if (Packet->stream_index != VideoStream) { av_packet_unref(Packet); continue; }
++            // send / receive until the packet is taken. A decoder may refuse a packet (EAGAIN) until its finished frames
++            // are collected; the old code then dropped the packet without collecting, and with frame threads (2026-10-16)
++            // that can repeat for every following packet -- the picture froze. Any other send error drops this packet only.
++            bool bSent = false;
++            for (int Attempt = 0; Attempt < 8 && !bSent && !bStopRequested; ++Attempt)
+             {
++                const int SendResult = avcodec_send_packet(Codec, Packet);
++                bSent = SendResult != AVERROR(EAGAIN);
+                 while (avcodec_receive_frame(Codec, Picture) == 0)
+                 {
++                    if (Picture->format == AV_PIX_FMT_D3D11)
++                    {
++                        // GPU surface -> NV12 in memory (a few ms for 2560x1440); keep range/colourspace for the conversion.
++                        av_frame_unref(Downloaded);
++                        if (av_hwframe_transfer_data(Downloaded, Picture, 0) < 0) { av_frame_unref(Picture); continue; }
++                        av_frame_copy_props(Downloaded, Picture);
++                        av_frame_unref(Picture);
++                        av_frame_move_ref(Picture, Downloaded);
++                    }
+                     const int32 W = Picture->width, H = Picture->height;
+                     // The cameras send full-range ("pc") YUV; scaling it as video range would crush blacks and whites.
+                     const bool bFull = Picture->color_range == AVCOL_RANGE_JPEG || Picture->format == AV_PIX_FMT_YUVJ420P
+@@ -223,17 +267,34 @@ void FVideoTwinRtspReader::ReadOnce()
+                     if (!Sws || W != SwsW || H != SwsH || Picture->format != SwsFormat || int32(bFull) != SwsRange)
+                     {
+                         if (Sws) sws_freeContext(Sws);
+-                        Sws = sws_getContext(W, H, AVPixelFormat(Picture->format), W, H, AV_PIX_FMT_BGRA, SWS_BILINEAR, nullptr, nullptr, nullptr);
++                        // Four threads: on one, 2560x1440 -> BGRA alone took most of the 40 ms a frame has.
++                        Sws = sws_alloc_context();
++                        if (Sws)
++                        {
++                            av_opt_set_int(Sws, "srcw", W, 0); av_opt_set_int(Sws, "srch", H, 0); av_opt_set_int(Sws, "src_format", Picture->format, 0);
++                            av_opt_set_int(Sws, "dstw", W, 0); av_opt_set_int(Sws, "dsth", H, 0); av_opt_set_int(Sws, "dst_format", AV_PIX_FMT_BGRA, 0);
++                            av_opt_set_int(Sws, "sws_flags", SWS_BILINEAR, 0); av_opt_set_int(Sws, "threads", 4, 0);
++                            av_opt_set_int(Sws, "src_range", bFull ? 1 : 0, 0); av_opt_set_int(Sws, "dst_range", 1, 0);
++                            if (sws_init_context(Sws, nullptr, nullptr) < 0) { sws_freeContext(Sws); Sws = nullptr; }
++                        }
+                         if (!Sws) { SetError(TEXT("colour conversion setup failed")); break; }
+                         const int Space = (Picture->colorspace == AVCOL_SPC_BT709) ? SWS_CS_ITU709 : SWS_CS_ITU601;
+                         sws_setColorspaceDetails(Sws, sws_getCoefficients(Space), bFull ? 1 : 0, sws_getCoefficients(SWS_CS_DEFAULT), 1, 0, 1 << 16, 1 << 16);
+                         SwsW = W; SwsH = H; SwsFormat = Picture->format; SwsRange = int32(bFull);
+                     }
+-                    Bgra.SetNumUninitialized(W * H * 4);
+-                    uint8* Dst[4] = { Bgra.GetData(), nullptr, nullptr, nullptr };
+-                    int DstStride[4] = { W * 4, 0, 0, 0 };
+-                    sws_scale(Sws, Picture->data, Picture->linesize, 0, H, Dst, DstStride);
++                    // sws_scale_frame (the threaded path) writes into a frame buffer; copied out row by row.
++                    av_frame_unref(Out);
++                    Out->format = AV_PIX_FMT_BGRA; Out->width = W; Out->height = H; Out->color_range = AVCOL_RANGE_JPEG;
++                    if (av_frame_get_buffer(Out, 0) < 0) { av_frame_unref(Picture); continue; }
++                    const int ScaleResult = sws_scale_frame(Sws, Out, Picture);
+                     av_frame_unref(Picture);
++                    if (ScaleResult < 0 || !Out->data[0]) continue;
++                    Bgra.SetNumUninitialized(W * H * 4);
++                    for (int32 Row = 0; Row < H; ++Row)
++                    {
++                        FMemory::Memcpy(Bgra.GetData() + int64(Row) * W * 4, Out->data[0] + int64(Row) * Out->linesize[0], W * 4);
++                    }
++                    av_frame_unref(Out);
+                     const double Now = FPlatformTime::Seconds();
+                     FScopeLock L(&Lock);
+                     Swap(Frame, Bgra);
+@@ -254,6 +315,9 @@ void FVideoTwinRtspReader::ReadOnce()
+     } while (false);
+ 
+     if (Sws) sws_freeContext(Sws);
++    av_frame_free(&Out);
++    av_frame_free(&Downloaded);
++    av_buffer_unref(&HwDevice);
+     av_frame_free(&Picture);
+     av_packet_free(&Packet);
+     avcodec_free_context(&Codec);

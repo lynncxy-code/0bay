@@ -6,7 +6,7 @@
 ## 一、整体链路
 
 ```
-摄像头 192.168.229.x:554(启用的四台用主码流 2560×1440)
+摄像头 192.168.229.x:554(17 号主码流 2560×1440,其余子码流 720×576)
       │ RTSP,UE 直接拉(口令取自环境变量)
       ▼
 192.168.224.7  Windows 11 · RTX 3080 Ti · 用户 ssdgj
@@ -150,6 +150,7 @@
 2. 把 `Runtime` 改名为 `Runtime.bad-<时间>`,把要回退的 `Runtime.bak-<时间>` 改名为 `Runtime`。
 3. 启动。
 
+现在跑的是 20261016h。`Runtime.rejected-*` 是试过又退下来的包(i、j,见 VideoTwin_Packaging.md 第八节第 13 条),可以删。
 最近几个备份:`Runtime.bak-20261016-050745` 是 20261016h 之前的那一版;`Runtime.bak-20261015-094305` 是
 改成 UE 直接拉 RTSP 之前的最后一版(走 HLS,延迟约 4 秒,需要 `VideoTwinLive` 转换服务在跑)。
 备份目录现在有 20 个,每个都是整包,磁盘紧张时可以删掉旧的,至少留最近两个和 094305。
@@ -167,7 +168,7 @@
 | 平板黑屏 / 画面不动 | 场景是否在运行、是否最小化、桌面是否锁屏;`ue-cast-ctl.ps1` 状态 | `ue-cast-ctl.ps1 -Restart`;224.4 那边见它的部署手册 |
 | 平板画面动但点不动 | `ue-input` 任务状态、`ue-input.log` | 重启 `ue-input` |
 | 平板周期性卡一下 | `ue-input.log` 的 `stats` 行 | 投屏参数和卡顿排查见 VideoTwin_Packaging.md 第五节、第八节,别随便改 `ue-cast` 任务参数 |
-| 场景卡顿、帧率低 | 是否有别的程序在占 GPU(另开的 UE 编辑器、游戏、AI 客户端) | 关掉它们;场景本身的性能设置见 VideoTwin_Packaging.md |
+| 场景卡顿、帧率低 | 是否有别的程序在占 GPU(另开的 UE 编辑器、游戏、AI 客户端);`nvidia-smi` 看显存,接近 12 GB 就会卡(2026-10-16 一个另开的编辑器占了 3.7 GB) | 关掉它们;场景本身的性能设置见 VideoTwin_Packaging.md |
 | 换包后场景起不来 | 是否残留 `TracerWebHelper.exe` 锁住目录 | 结束它再换;还不行就按第四节回退 |
 
 Shipping 包不写 UE 自己的日志,场景内部的问题只能靠状态栏(`show_status`)和截图判断。
