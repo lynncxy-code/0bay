@@ -1,0 +1,68 @@
+{
+  "world": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo",
+  "actor_count": 612,
+  "managers": [
+    {
+      "name": "TwinSceneManager_0",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinSceneManager_0",
+      "folder": "None",
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=4320.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000))",
+      "properties": {
+        "backend_base_url": "http://localhost:5000",
+        "ue_project_id": "ueproj_0bay_office_opensteel_7e0ae9f7",
+        "ue_project_name": "ShanghaiOfficeShell_OpenSteel",
+        "scene_id": "",
+        "instance_class": null,
+        "enable_realtime_web_socket": true,
+        "enable_runtime_editor": true,
+        "enable_overlays": true,
+        "poll_interval": 0.5
+      }
+    }
+  ],
+  "twins": [
+    {
+      "name": "TwinSceneManager_0",
+      "label": "OntoTwin Scene Manager",
+      "class": "TwinSceneManager",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinSceneManager_0"
+    },
+    {
+      "name": "TwinRoamingSpawnAnchor_0",
+      "label": "OntoTwin Spawn",
+      "class": "TwinRoamingSpawnAnchor",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinRoamingSpawnAnchor_0"
+    },
+    {
+      "name": "TwinGodViewAnchor_0",
+      "label": "OntoTwin Startup",
+      "class": "TwinGodViewAnchor",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinGodViewAnchor_0"
+    },
+    {
+      "name": "TwinGodViewAnchor_1",
+      "label": "OntoTwin God View",
+      "class": "TwinGodViewAnchor",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinGodViewAnchor_1"
+    },
+    {
+      "name": "TwinMinimapAnchor_0",
+      "label": "OntoTwin Minimap - Office Daylight",
+      "class": "TwinMinimapAnchor",
+      "path": "/Game/OfficeShell/Maps/Office_Demo.Office_Demo:PersistentLevel.TwinMinimapAnchor_0"
+    }
+  ],
+  "apis": {
+    "EditorLevelUtils.create_new_streaming_level": "X.create_new_streaming_level(level_streaming_class, new_level_path=\"\", move_selected_actors_into_new_level=False) -> LevelStreaming\r\nCreates a new streaming level in the current world\r\n\r\nArgs:\r\n    level_streaming_class (type(Class)): The streaming class type instead to use for the level.\r\n    new_level_path (str): Optional path to the level package path format (\"e.g /Game/MyLevel\").  If empty, the user will be prompted during the save process.\r\n    move_selected_actors_into_new_level (bool): If true, move any selected actors into the new level.\r\n\r\nReturns:\r\n    LevelStreaming: Returns the newly created level, or NULL on failure",
+    "EditorLevelUtils.move_actors_to_level": "X.move_actors_to_level(actors_to_move, dest_streaming_level, warn_about_references=True, warn_about_renaming=True) -> int32\r\nMoves the specified list of actors to the specified streaming level. The new actors will be selected\r\n\r\nArgs:\r\n    actors_to_move (Array[Actor]): List of actors to move\r\n    dest_streaming_level (LevelStreaming): The destination streaming level of the current world to move the actors to\r\n    warn_about_references (bool): Whether or not to show a modal warning about referenced actors that may no longer function after being moved\r\n    warn_about_renaming (bool): \r\n\r\nReturns:\r\n    int32: The number of actors that were successfully moved to the new level",
+    "EditorLevelUtils.remove_level_from_world": "X.remove_level_from_world(level, clear_selection=True, reset_transaction_buffer=True) -> bool\r\nRemoves given level from the world. Note, this will only work for sub-levels in the main level.\n\nLevels are not saved when added to the world. They can be saved with the \"Save Map\" function\r\n\r\nArgs:\r\n    level (Level): Level asset to remove from the world.\r\n    clear_selection (bool): If true, it will clear the editor selection.\r\n    reset_transaction_buffer (bool): If true, it will reset the transaction buffer (i.e. clear undo history)\r\n\r\nReturns:\r\n    bool: True if the level was successfully removed.",
+    "EditorLevelUtils.add_level_to_world": "X.add_level_to_world(world, level_package_name, level_streaming_class) -> LevelStreaming\r\nAdds the named level package to the world.  Does nothing if the level already exists in the world.\n\nLevels are not saved when added to the world. They can be saved with the \"Save Map\" function\r\n\r\nArgs:\r\n    world (World): \r\n    level_package_name (str): The package name (\"e.g /Game/MyLevel\") of the level package to add.\r\n    level_streaming_class (type(Class)): The streaming class type to use for the level.\r\n\r\nReturns:\r\n    LevelStreaming: The new level, or NULL if the level couldn't added.",
+    "EditorActorSubsystem.duplicate_actors": "x.duplicate_actors(actors_to_duplicate, to_world=None, offset=[0.000000, 0.000000, 0.000000]) -> Array[Actor]\r\nDuplicate actors from the world editor.\r\n\r\nArgs:\r\n    actors_to_duplicate (Array[Actor]): Actors to duplicate.\r\n    to_world (World): World to place the duplicated actors in. *\r\n    offset (Vector): Translation to offset duplicated actors by.\r\n\r\nReturns:\r\n    Array[Actor]: The duplicated actors, or empty if it didn't succeed",
+    "EditorActorSubsystem.copy_actors": null,
+    "EditorActorSubsystem.paste_actors": null,
+    "LevelEditorSubsystem.is_in_play_in_editor": "x.is_in_play_in_editor() -> bool\r\nIs in Play in Editor\r\n\r\nReturns:\r\n    bool:",
+    "LevelEditorSubsystem.get_current_level": "x.get_current_level() -> Level\r\nGet the current level used by the world editor.\r\n\r\nReturns:\r\n    Level: The current level",
+    "EditorLoadingAndSavingUtils.save_map": "X.save_map(world, asset_path) -> bool\r\nSaves the specified map, returning true on success.\r\n\r\nArgs:\r\n    world (World): The world to save.\r\n    asset_path (str): The valid content directory path and name for the asset.  E.g \"/Game/MyMap\"\r\n\r\nReturns:\r\n    bool: true if the map was saved successfully.",
+    "EditorLoadingAndSavingUtils.save_dirty_packages": "X.save_dirty_packages(save_map_packages, save_content_packages) -> bool\r\nLooks at all currently loaded packages and saves them if their \"bDirty\" flag is set.\nAssume all dirty packages should be saved and check out from source control (if enabled).\r\n\r\nArgs:\r\n    save_map_packages (bool): true if map packages should be saved\r\n    save_content_packages (bool): true if we should save content packages.\r\n\r\nReturns:\r\n    bool: true on success, false on fail."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "before_meta": {
+    "actor_count": 590,
+    "source_folder": "Building",
+    "source_tags": "[]",
+    "actor_hidden": false,
+    "actor_collision": true,
+    "components": [
+      [
+        "DefaultSceneRoot",
+        "SceneComponent"
+      ],
+      [
+        "BillboardComponent_1",
+        "BillboardComponent"
+      ],
+      [
+        "Floor",
+        "StaticMeshComponent"
+      ],
+      [
+        "RoofSlab",
+        "StaticMeshComponent"
+      ],
+      [
+        "Walls",
+        "StaticMeshComponent"
+      ],
+      [
+        "Columns",
+        "StaticMeshComponent"
+      ],
+      [
+        "InteriorGlass",
+        "StaticMeshComponent"
+      ],
+      [
+        "InteriorFrames",
+        "StaticMeshComponent"
+      ],
+      [
+        "PartitionAboveCeiling",
+        "StaticMeshComponent"
+      ],
+      [
+        "ExteriorGlass",
+        "StaticMeshComponent"
+      ],
+      [
+        "FacadeSpandrel",
+        "StaticMeshComponent"
+      ],
+      [
+        "FacadeFrames",
+        "StaticMeshComponent"
+      ],
+      [
+        "DoorFrames",
+        "StaticMeshComponent"
+      ],
+      [
+        "DoorHeaders",
+        "StaticMeshComponent"
+      ],
+      [
+        "DoorLeaves",
+        "StaticMeshComponent"
+      ],
+      [
+        "DoorHardware",
+        "StaticMeshComponent"
+      ],
+      [
+        "CoreServiceDoors",
+        "StaticMeshComponent"
+      ],
+      [
+        "CorePerimeter",
+        "StaticMeshComponent"
+      ],
+      [
+        "CeilingMain",
+        "StaticMeshComponent"
+      ],
+      [
+        "CeilingPanels",
+        "StaticMeshComponent"
+      ],
+      [
+        "CeilingShadowGaps",
+        "StaticMeshComponent"
+      ],
+      [
+        "CeilingTrays",
+        "StaticMeshComponent"
+      ],
+      [
+        "CeilingCoves",
+        "StaticMeshComponent"
+      ],
+      [
+        "FeatureCeiling",
+        "StaticMeshComponent"
+      ],
+      [
+        "Skirting",
+        "StaticMeshComponent"
+      ]
+    ]
+  },
+  "after_meta": {
+    "actor_count": 612,
+    "converted_count": 23,
+    "blueprint_count": 0,
+    "classes": [
+      "StaticMeshActor"
+    ]
+  },
+  "differences": {}
+}
