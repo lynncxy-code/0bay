@@ -1,0 +1,17 @@
+{
+  "state": "local_static_editing",
+  "map": "/Game/OfficeShell/Maps/Office_Demo",
+  "static_level": "/Game/OfficeShell/Maps/L_OntoTwin_StaticEditing",
+  "control_archive": "/Game/OfficeShell/StaticEditing/Archive/L_OntoTwin_ControlBackup_20261027",
+  "control_archive_loaded": false,
+  "backup": "D:\\0bay\\OfficeShell\\Saved\\Backups\\Office_Demo_before_ontotwin_static_20261027.umap",
+  "project_id": "ds_1788856616035",
+  "ue_project_id": "ueproj_0bay_office_opensteel_7e0ae9f7",
+  "instance_count": 77,
+  "original_actor_count": 612,
+  "current_actor_count": 688,
+  "existing_scene_preserved": true,
+  "saved": true,
+  "backend_writes": 0,
+  "writeback_deferred": true
+}

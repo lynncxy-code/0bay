@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "actor_count": 77,
+  "classes": [
+    "StaticMeshActor"
+  ],
+  "groups": {
+    "办公椅": 30,
+    "办公桌": 30,
+    "摄像头": 14,
+    "外部模型": 3
+  },
+  "meshes": {
+    "/Game/Art/Furniture/PDF_22_员工椅_员工区.PDF_22_员工椅_员工区": {
+      "bounds": "(Min=(X=-36.778656,Y=-31.799660,Z=-0.008646),Max=(X=36.768116,Y=31.797421,Z=120.009384),IsValid=True)",
+      "materials": [
+        "/Game/Art/Furniture/PDF_22_员工椅_员工区/Materials/表面颜色_按PDF文字近似.表面颜色_按PDF文字近似",
+        "/Game/Art/Furniture/PDF_22_员工椅_员工区/Materials/深色底架.深色底架"
+      ],
+      "lod_count": 1
+    },
+    "/Game/Art/Furniture/F11/SM_F11.SM_F11": {
+      "bounds": "(Min=(X=-90.000000,Y=-40.000000,Z=-0.049994),Max=(X=90.000000,Y=42.500000,Z=111.000000),IsValid=True)",
+      "materials": [
+        "/Game/Art/A00_CoreAssets/MaterialLibrary/MI/MI_烤漆_白色_大展台.MI_烤漆_白色_大展台",
+        "/Game/Art/A00_CoreAssets/MaterialLibrary/MI/MI_布料_灰绿色_桌子隔板.MI_布料_灰绿色_桌子隔板",
+        "/Game/Art/A00_CoreAssets/MaterialLibrary/MI/MI_金属烤漆_黑色_4_支架.MI_金属烤漆_黑色_4_支架"
+      ],
+      "lod_count": 1
+    },
+    "/Game/OfficeShell/StaticEditing/Meshes/SM_MonitorCamera_Frozen.SM_MonitorCamera_Frozen": {
+      "bounds": "(Min=(X=-46.516712,Y=-46.488377,Z=-45.077312),Max=(X=46.516712,Y=64.272224,Z=20.751448),IsValid=True)",
+      "materials": [
+        "/Game/Art/camera/dome_security_camera/Materials/White.White",
+        "/Game/Art/camera/dome_security_camera/Materials/Chrome.Chrome",
+        "/Game/Art/camera/dome_security_camera/Materials/Black.Black",
+        "/Game/Art/camera/dome_security_camera/Materials/material.material",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_3.Mat_3",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_4.Mat_4",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_5.Mat_5",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_0.Mat_0",
+        "/Game/Art/camera/dome_security_camera/Materials/Booleano_Tubo__0.Booleano_Tubo__0",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_1.Mat_1",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_2.Mat_2",
+        "/Game/Art/camera/dome_security_camera/Materials/Mat_1_0.Mat_1_0"
+      ],
+      "lod_count": 1
+    },
+    "/Game/OfficeShell/StaticEditing/Meshes/SM_ArtStudio_338981042461347840_v1.SM_ArtStudio_338981042461347840_v1": {
+      "bounds": "(Min=(X=-18.095402,Y=-56.913712,Z=0.000000),Max=(X=13.100002,Y=56.913692,Z=150.654999),IsValid=True)",
+      "materials": [
+        "/Game/OfficeShell/StaticEditing/Materials/MI_ArtStudio_338981042461347840_0.MI_ArtStudio_338981042461347840_0"
+      ],
+      "lod_count": 1
+    }
+  },
+  "control_archive": "/Game/OfficeShell/StaticEditing/Archive/L_OntoTwin_ControlBackup_20261027"
+}

@@ -1,0 +1,81 @@
+{
+  "camera_materials": [
+    {
+      "slot": "White",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/White.White"
+    },
+    {
+      "slot": "Chrome",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Chrome.Chrome"
+    },
+    {
+      "slot": "Black",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Black.Black"
+    },
+    {
+      "slot": "material",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/material.material"
+    },
+    {
+      "slot": "Mat_3",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_3.Mat_3"
+    },
+    {
+      "slot": "Mat_4",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_4.Mat_4"
+    },
+    {
+      "slot": "Mat_5",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_5.Mat_5"
+    },
+    {
+      "slot": "Mat_0",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_0.Mat_0"
+    },
+    {
+      "slot": "Booleano_Tubo__0",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Booleano_Tubo__0.Booleano_Tubo__0"
+    },
+    {
+      "slot": "Mat_1",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_1.Mat_1"
+    },
+    {
+      "slot": "Mat_2",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_2.Mat_2"
+    },
+    {
+      "slot": "Mat_1_0",
+      "material": "/Game/Art/camera/dome_security_camera/Materials/Mat_1_0.Mat_1_0"
+    }
+  ],
+  "camera_mesh": "/Game/OfficeShell/StaticEditing/Meshes/SM_MonitorCamera_Frozen.SM_MonitorCamera_Frozen",
+  "camera_bounds": "(Min=(X=-46.516712,Y=-46.488377,Z=-45.077312),Max=(X=46.516712,Y=64.272224,Z=20.751448),IsValid=True)",
+  "remote_materials": [
+    {
+      "material": "/Game/OfficeShell/StaticEditing/Materials/MI_ArtStudio_338981042461347840_0.MI_ArtStudio_338981042461347840_0",
+      "parent": "/glTFRuntime/M_glTFRuntimeBase.M_glTFRuntimeBase",
+      "parameters": {
+        "specularFactor": 0.0,
+        "alphaCutoff": 0.0,
+        "baseColorRotation": -0.0,
+        "metallicFactor": 0.0,
+        "roughnessFactor": 1.0,
+        "bUseVertexColors": 0.0,
+        "AlphaMask": 0.0,
+        "baseColorFactor": "(R=1.000000,G=1.000000,B=1.000000,A=1.000000)",
+        "baseColorTexCoord": "(R=1.000000,G=0.000000,B=0.000000,A=0.000000)",
+        "baseColorOffset": "(R=0.000000,G=0.000000,B=0.000000,A=0.000000)",
+        "baseColorScale": "(R=1.000000,G=1.000000,B=1.000000,A=1.000000)",
+        "normalTexScale": "(R=1.000000,G=1.000000,B=1.000000,A=1.000000)",
+        "emissiveFactor": "(R=0.000000,G=0.000000,B=0.000000,A=1.000000)",
+        "baseColorTexture": "/Game/OfficeShell/StaticEditing/Textures/T_ArtStudio_338981042461347840_BaseColor.T_ArtStudio_338981042461347840_BaseColor"
+      }
+    }
+  ],
+  "remote_texture": "/Game/OfficeShell/StaticEditing/Textures/T_ArtStudio_338981042461347840_BaseColor.T_ArtStudio_338981042461347840_BaseColor",
+  "remote_source_bounds": "(Min=(X=-18.095402,Y=-56.913712,Z=0.000000),Max=(X=13.100002,Y=56.913692,Z=150.654999),IsValid=True)",
+  "remote_mesh": "/Game/OfficeShell/StaticEditing/Meshes/SM_ArtStudio_338981042461347840_v1.SM_ArtStudio_338981042461347840_v1",
+  "remote_bounds": "(Min=(X=-18.095402,Y=-56.913712,Z=0.000000),Max=(X=13.100002,Y=56.913692,Z=150.654999),IsValid=True)",
+  "status": "prepared"
+}

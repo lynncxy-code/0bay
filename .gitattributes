@@ -7,3 +7,13 @@
 Plugins/WebUI/Source/ThirdParty/**/*.lib filter=lfs diff=lfs merge=lfs -text
 Source/ThirdParty/FFmpeg/**/*.dll filter=lfs diff=lfs merge=lfs -text
 Source/ThirdParty/FFmpeg/**/*.lib filter=lfs diff=lfs merge=lfs -text
+
+# These small, frequently edited scene files are stored directly in Git so
+# scene-editing commits remain publishable when the repository LFS budget is full.
+Content/OfficeShell/Maps/Office_Demo.umap -filter -diff -merge -text
+Content/OfficeShell/Maps/L_OntoTwin_StaticEditing.umap -filter -diff -merge -text
+Content/OfficeShell/StaticEditing/Archive/L_OntoTwin_ControlBackup_20261027.umap -filter -diff -merge -text
+Content/OfficeShell/StaticEditing/Materials/MI_ArtStudio_338981042461347840_0.uasset -filter -diff -merge -text
+Content/OfficeShell/StaticEditing/Meshes/SM_ArtStudio_338981042461347840_v1.uasset -filter -diff -merge -text
+Content/OfficeShell/StaticEditing/Meshes/SM_MonitorCamera_Frozen.uasset -filter -diff -merge -text
+Content/OfficeShell/StaticEditing/Textures/T_ArtStudio_338981042461347840_BaseColor.uasset -filter -diff -merge -text

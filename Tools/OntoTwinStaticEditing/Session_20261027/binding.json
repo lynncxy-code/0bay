@@ -1,0 +1,15 @@
+{
+  "active_project_id": "ds_1788856616035",
+  "binding_state": "bound",
+  "can_write": true,
+  "is_active": true,
+  "mode": "matched",
+  "project_id": "ds_1788856616035",
+  "request": {
+    "id": "ueproj_0bay_office_opensteel_7e0ae9f7",
+    "name": "ShanghaiOfficeShell_OpenSteel"
+  },
+  "request_ue_project_id": "ueproj_0bay_office_opensteel_7e0ae9f7",
+  "request_ue_project_name": "ShanghaiOfficeShell_OpenSteel",
+  "status": "ok"
+}
