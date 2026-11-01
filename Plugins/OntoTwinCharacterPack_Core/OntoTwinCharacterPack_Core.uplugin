@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "1.1.0",
+	"FriendlyName": "OntoTwin Character Pack Core",
+	"Description": "OntoTwin 人物漫游的 Ground Staff 工人、Manny 机器人、基础皮肤与移动动画内容包。",
+	"Category": "DigitalTwin",
+	"CreatedBy": "OntoTwin",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Plugins": [
+		{
+			"Name": "OntoTwinSync",
+			"Enabled": true
+		}
+	]
+}
