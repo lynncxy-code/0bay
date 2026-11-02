@@ -1,0 +1,48 @@
+OfficeShell 美术合并验证记录（2026-11-01，本机时间）
+
+打开项目：D:\0bay\OfficeShell\ShanghaiOfficeShell_OpenSteel.uproject
+引擎：D:\UE_5.6
+分支：merge/art-assets-20261101
+默认地图：/Game/OfficeShell/Maps/Office_Demo_ArtMerged
+运行入口：Launch_Office_VideoTwin_Runtime.bat
+
+合并内容
+- 前序提交已迁入 Content/Art、Content/arts，以及项目内 OntoTwin 插件。
+- 使用美术 Office_Demoz 的主场景，另存为 Office_Demo_ArtMerged。
+- 灯光及静态编辑子关卡另存为 L_Office_Light_ArtMerged、L_OntoTwin_StaticEditing_ArtMerged。
+- cxy_ArtMerged 保存美术文化墙高度 Z=4531.900402；原 cxy 保留。
+- 迁入 OfficeShell/Meshes 中 8 个更新模型及新增玻璃6。
+- 原 Office_Demo、L_Office_Light、L_OntoTwin_StaticEditing、cxy 文件保持工作区版本。
+  注意：两套地图共享模型和材质，原地图仅供布局回退；完整美术回退需通过 Git。
+- Source、VideoTwin 资产、GrandNeoBay 和园区功能子关卡保持工作区基线。
+- BP_OfficeShell 保持工作区版本；未将转移目录所有蓝图直接覆盖。
+- 默认编辑器/游戏地图和运行启动脚本已切换为合并地图。
+- build_module.ps1 改为完整 Editor 目标构建，取消外部插件时代的 DLL 移动及 manifest 删除操作。
+
+验证
+- OfficeHostEditor Win64 Development 清理后完整构建成功（131 个构建动作）；本地插件参与编译。
+- 更新后的 build_module.ps1 构建成功（Target is up to date）。
+- 最终合并地图通过 UE Python commandlet 加载：0 errors、0 warnings（commandlet 汇总）。
+- 转移版与合并版均为 782 个 Actor，按包名归一化后无缺失、无新增。
+- 25 个功能 Actor 导出属性与工作区一致：相机、锚点、出生点、SceneCapture、园区交互、GrandNeoBayExperience 等。
+- 主 WorldSettings 与工作区导出一致（地图路径归一化后）。
+- 美术 Actor 导出差异主要为重新保存生成的 LightGuid 及 Landscape 内部材质实例；文化墙高度差已补齐。
+- D3D12 离屏 -game 冒烟测试正常退出（benchmark 退出状态 0）。
+- VideoTwin 17、24、18、19 四路均 ready，measured=1、recording=1、material=1；runtime feature ready: 4 cameras。
+- 测试使用 -VideoTwinNoStream；没有验证摄像头直播网络。文化墙补齐后再次完成地图加载验证。
+- 项目 Plugins 中只有一份 glTFRuntime.uplugin。
+- 本地 Git LFS fsck 通过；远端额度和上传尚未验证，尚未 push。
+
+仍需 UE 人工验收
+- 检查 Office_Demo_ArtMerged 的灯光、玻璃、文化墙、Landscape 和家具碰撞；重存后按需重建灯光。
+- 日志出现 VSM Non-Nanite Marking Job Queue overflow，需目视检查阴影并评估性能。
+- 用 Z/X/C 验证 VideoTwin 切换、投影与新模型遮挡关系；冒烟初始化不代表投影画面验收。
+- Level Blueprint 未进行节点级差异验证；合并主关卡来自美术版，需在编辑器中核对事件图。
+- 本地插件已编译加载，无重复插件阻塞；第三方插件业务功能与外部服务需交互验收。
+- 完整打包/cook 未执行。
+
+本机审计证据（不随 Git 提交）
+D:\0bay\artmerge_audit\workspace、transfer、merged：Actor 导出
+D:\0bay\merged_validate_final.log：最终地图加载
+D:\0bay\artmerged_runtime.log：D3D12 运行冒烟测试
+D:\0bay\OfficeShell\Saved\ArtMergeBaseline：合并过程备份
