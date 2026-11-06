@@ -332,9 +332,10 @@ void AVideoTwinProjector::MediaOpened(FString Url)
 bool AVideoTwinProjector::FallBackToRecording(const TCHAR* Why)
 {
     // A camera that cannot be reached must not leave a frozen placeholder on screen: play the recording instead
-    // and say so in the status. Tried once per session; pressing Play again retries the live stream.
+    // and say so in the log. Probe for recovery while the recording keeps playing.
     if (StreamUrl.IsEmpty() || bLiveFailed || !RecordedSource || !Player) return false;
     bLiveFailed = true;
+    LiveRetryAge = 0.f;
     UE_LOG(LogTemp,Warning,TEXT("VideoTwin camera %s live stream unavailable (%s): %s -- falling back to the recording"),*CameraId,Why,*StreamUrl);
     MediaSource = RecordedSource;
     bMockSource = true;
@@ -485,7 +486,7 @@ void AVideoTwinProjector::TryReturnToLive(float DeltaSeconds)
         P->Player->Close();
         P->OpenVideo();
     });
-    Req->ProcessRequest();
+    if (!Req->ProcessRequest()) bLiveProbeInFlight = false;
 }
 void AVideoTwinProjector::DumpDepth(const FString& PngPath)
 {
@@ -725,7 +726,7 @@ void UVideoTwinRuntimeWidget::NativeTick(const FGeometry& Geometry, float DeltaS
     Super::NativeTick(Geometry, DeltaSeconds);
     if (!Text || !Feature) return;
     const TArray<TObjectPtr<AVideoTwinProjector>>& All = Feature->GetProjectors();
-    FString Line = TEXT("VIDEO TWIN  |  Z 融合开关  X 切换摄像头视角  C 返回原视角");
+    FString Line = TEXT("VIDEO TWIN  |  X 融合开关  Z 切换摄像头视角  C 返回原视角");
     if (All.Num() > 0 && All[0])
     {
         FString Cams;
@@ -765,6 +766,8 @@ void AVideoTwinRuntimeFeature::LoadMockAssets()
 void AVideoTwinRuntimeFeature::BeginPlay()
 {
     Super::BeginPlay();
+    // Reset each play session, including maps with a serialized enabled value.
+    bStartEnabled = false;
     // -VideoTwinStartOff: start with fusion off, so the test run captures the bare model from every camera pose.
     // Those pictures are what a camera's calibration is checked against.
     if (FParse::Param(FCommandLine::Get(), TEXT("VideoTwinStartOff"))) bStartEnabled = false;
@@ -790,7 +793,7 @@ void AVideoTwinRuntimeFeature::BeginPlay()
     if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
     {
         Controller = PC;
-        bShowStatus = AVideoTwinProjector::GetCalibrationRootBool(TEXT("show_status"), false);
+        bShowStatus = FParse::Param(FCommandLine::Get(), TEXT("VideoTwinShowStatus")) || AVideoTwinProjector::GetCalibrationRootBool(TEXT("show_status"), false);
         if (bShowStatus) Widget = CreateWidget<UVideoTwinRuntimeWidget>(PC);
         if (Widget)
         {
@@ -873,7 +876,7 @@ AVideoTwinProjector* AVideoTwinRuntimeFeature::SpawnProjectorFor(const FString& 
     if (P->bMeasuredCalibration && Cam)
     {
         // The level's cameras were placed by hand. Move this one to the measured pose for the session
-        // (the saved map is not modified) so the X view, the camera gizmo and the projection agree.
+        // (the saved map is not modified) so the Z view, the camera gizmo and the projection agree.
         if (USceneComponent* CamRoot = Cam->GetRootComponent()) CamRoot->SetMobility(EComponentMobility::Movable);
         Cam->SetActorLocationAndRotation(Pose.GetLocation(), Pose.GetRotation());
         Cam->GetCameraComponent()->SetFieldOfView(P->GetProjectionFov());
@@ -945,10 +948,8 @@ void AVideoTwinRuntimeFeature::Tick(float DeltaSeconds)
         }
     // Poll the controller's edge state instead of binding repeated key-down events.
     // This makes one physical press produce one action even when the key is held.
-    if (Controller->WasInputKeyJustPressed(EKeys::Z)) ToggleCamera17Fusion();
-    if (Controller->WasInputKeyJustPressed(EKeys::X)) EnterCamera17View();
-    // C = reset: leave a camera view if in one, and go back to where the session started. It used to only leave a
-    // camera view, so in free roam it did nothing and looked broken.
+    if (Controller->WasInputKeyJustPressed(EKeys::X)) ToggleCamera17Fusion();
+    if (Controller->WasInputKeyJustPressed(EKeys::Z)) EnterCamera17View();
     if (Controller->WasInputKeyJustPressed(EKeys::C)) { ExitCamera17View(); ResetToStart(); }
     if (bAutomatedTest) RunAcceptance(DeltaSeconds);
 }

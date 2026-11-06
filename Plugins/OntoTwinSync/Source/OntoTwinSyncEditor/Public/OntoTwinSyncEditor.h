@@ -1,0 +1,16 @@
+#pragma once
+
+#include "Modules/ModuleManager.h"
+
+class FOntoTwinSyncEditorModule : public IModuleInterface
+{
+public:
+	virtual void StartupModule() override;
+	virtual void ShutdownModule() override;
+
+private:
+	void RegisterMenus();
+	void OpenMouseWorldCoordinates();
+	void OpenPluginVersion();
+	void OpenDeliveryProject();
+};

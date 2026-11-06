@@ -1,0 +1,54 @@
+OntoTwin 本地基础功能恢复（2026-11-01）
+
+入口不变
+D:\0bay\OfficeShell\ShanghaiOfficeShell_OpenSteel.uproject
+默认地图 /Game/OfficeShell/Maps/Office_Demo_ArtMerged
+运行入口 Launch_Office_VideoTwin_Runtime.bat
+需要原本的本地 OntoTwin 后端 http://localhost:5000 提供角色、路线与看板配置。
+
+恢复来源
+归档 /Game/OfficeShell/StaticEditing/Archive/L_OntoTwin_ControlBackup_20261027 中的 TwinSceneManager。
+另存为 /Game/OfficeShell/Maps/L_OntoTwin_Runtime，并作为 AlwaysLoaded 子关卡挂回美术合并主关卡。
+保留工程身份 ueproj_0bay_office_opensteel_7e0ae9f7，继续使用原已绑定数据集。
+原归档文件、原 Office_Demo 地图保持不变。
+
+操作
+F7：进入/退出漫游。
+V：切换人物/第一人称/上帝视角。
+Tab：打开或关闭操作面板；“业务”中的“监控”为当前配置的 Web 看板入口。
+WASD 移动，右键观察，Shift 加速，Space 跳跃；路线控制按界面提示操作。
+原 VideoTwin Z/X/C 操作和 F9 楼宇入口保持。
+后端当前设置为自动进入第一人称并启动路线，沿用原设置。
+
+保护美术布局
+新增 TwinSceneManager.bUseLevelGeometry 开关，仅在恢复子关卡启用。
+运行时使用现有静态模型，不启动数据库实例生成、实时空间接管、F10 场景编辑和自动资产目录发布。
+漫游和 Web 看板组件继续读取后端配置；不会为恢复功能重新绑定项目或提交模型空间信息。
+这不是恢复数据库对象编辑/回写：静态模型上的对象点击、实例浮层、业务显隐/高亮仍需后续重新映射。
+RuntimeRouteLevelAlias 设置为 /Game/OfficeShell/Maps/Office_Demo，允许重命名后的合并版复用原坐标路线。
+SM_BGS_zhengting 的默认简单碰撞挡住出生点，改为 Use Complex Collision As Simple；模型外观、材质及摆放不变。
+
+复现恢复
+Tools/OntoTwinRestoration/restore_runtime.py 通过 UE -run=pythonscript 执行。
+执行前先运行 Tools/VideoTwin/build_module.ps1 编译本地插件。
+脚本会从原归档重新生成运行子关卡、更新主关卡引用并保存大厅碰撞设置；已手工改过运行子关卡时不要直接重跑。
+
+验证入口
+开发版运行时控制台命令：OntoTwin.ValidateLevelGeometry bv.custom.mu0xsto9
+检查静态几何不变、无动态重复实例、漫游及 Dock/HUD 创建，再切换视角并打开“监控”业务看板。
+命令只用于显式验收，会改变当前会话的视角/打开面板，并将截图写入 Saved；不会保存关卡或修改业务配置。
+本机日志 D:\0bay\ontotwin_validation_final.log，截图 Saved/OntoTwinRestore_Roaming.png 和 Saved/OntoTwinRestore_Dashboard.png。
+
+已知限制
+后端未配置 project_home_activated 绑定，项目首页不会自动打开网页；使用“业务 > 监控”入口。
+仍有原场景 VSM 阴影数量/队列溢出警告；未在本次改动中调整灯光。
+当前工作仅保存到本地，未推送 GitHub；既有公开分支仍是之前的美术合并提交。
+
+本次验证结果
+完整编辑器/本地插件编译成功。
+合并地图加载成功：783 个关卡 Actor，较恢复前只增加 1 个 TwinSceneManager。
+实际运行检查：geometry=1、static_actors=707、dynamic_instances=0、roaming=1、dock=1、hud=1。
+原 6 点路线成功建立并启动；第一人称切到上帝视角成功，漫游保持 active。
+监控业务看板：ready=1、open_request=1、open=1；引擎截图确认页面已加载并显示 14 路摄像头列表。
+VideoTwin 17/24/18/19 四路初始化成功；运行测试使用录像回退，未验证摄像头直播网络。
+测试结束由 benchmark 正常退出。未执行完整打包。

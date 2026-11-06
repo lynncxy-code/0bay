@@ -39,7 +39,7 @@ public class MetaverseClient : ModuleRules
             bHasOntoTwinSync = Directory.Exists(SiblingPlugin);
         }
 
-        // 0bay references OntoTwinSync through AdditionalPluginDirectories.
+        // 0bay vendors OntoTwinSync in the project-local Plugins directory.
         if (!bHasOntoTwinSync && Target.ProjectFile != null
             && JsonObject.Read(Target.ProjectFile).TryGetObjectArrayField("Plugins", out JsonObject[] Plugins))
         {

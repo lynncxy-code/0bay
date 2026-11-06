@@ -249,7 +249,7 @@ public:
     const TArray<TObjectPtr<AVideoTwinProjector>>& GetProjectors() const { return Projectors; }
     int32 GetViewIndex() const { return ViewIndex; }
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") FString Camera17Label = TEXT("OntoTwin_Camera_17");
-    /** Fusion starts off; Z turns it on. -VideoTwinStartOn overrides (the old -VideoTwinStartOff is still accepted). */
+    /** Fusion starts off; X turns it on. -VideoTwinStartOn overrides (the old -VideoTwinStartOff is still accepted). */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Video Twin|Runtime") bool bStartEnabled = false;
 private:
     UPROPERTY(Transient) TObjectPtr<AVideoTwinProjector> Projector;

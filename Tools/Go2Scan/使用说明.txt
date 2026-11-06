@@ -1,0 +1,14 @@
+﻿Go2 扫描组合接入
+项目：ShanghaiOfficeShell_OpenSteel / Office_Demo_ArtMerged
+关卡：/Game/Robots/UnitreeGo2/Maps/L_Go2_TempoOffice
+扫描器：Go2_Scan_Devices，绑定 Go2_Tempo_OfficeRoute。
+扫描：ScanGridEffect 的 Niagara 网格及后处理材质；扫描中心跟随机器狗身体位置。
+发现高亮：ScanningSystem 的 Translucent Material Overlay，绿色高亮，到期恢复原叠加材质。
+当前参数：半径 850 cm，持续 4 秒，高亮 8 秒。默认关闭自动扫描，进入关卡不扫描，也不循环重扫。
+扫描后处理强度 0.18，保留原色、关闭整屏染色；网格亮度已降低。可在扫描器 Scan Intensity 调整。
+F6 手动扫描；F8 切换跟随相机；Esc 停止 PIE；F11 切换沉浸视口。
+设备判定为场景模型路径或 Go2ScanTarget 标签加径向距离；不是视觉识别或真实雷达。无视线遮挡过滤。
+自动支持 OfficeDevices_20261103 资源及 SM_MonitorCamera_Frozen 摄像头；其他静态模型可添加 Go2ScanTarget Actor 标签。
+排除隐藏的静态编辑副本，以运行时可见设备为准。
+验证：编译通过；runtime_validation.json 中扫描完成、发现设备、高亮应用、高亮恢复均通过。
+备份：Saved/Go2Scan/Backup_20261103_061341。

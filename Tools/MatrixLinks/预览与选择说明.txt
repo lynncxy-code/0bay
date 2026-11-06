@@ -1,0 +1,13 @@
+﻿Matrix 特效选择预览
+
+预览关卡：/Game/MatrixDeviceLinks/Preview/L_MatrixStyleGallery_v2
+01–18：原库 NS_Symbols_01–18，保留原始颜色、符号和运动方式；统一缩小用于排版。
+P01–P05：2.5 cm 细线。P06–P10：5 cm 细线。
+每行顺序：单脉冲、双脉冲、双向、间歇、数据包列。
+共 10 根独立样例线、20 个端点，不串联成设备链。脉冲样例是另做的通信动画，用于挑选节奏，不冒充原库预设。
+
+设备范围：按 OntoTwinBusiness=security 业务绑定，不按外形限定为摄像头。
+已准备 10 对安全业务设备，20 个不同设备；清单在 Saved/MatrixLinks/security_business_pairs.json。
+等待用户选择样式后，再将选中方案应用到正式办公场景。此前 L_MatrixDeviceLinks 的 9 根字符连线是旧演示，不是本次确认的最终方案。
+
+查看：打开预览关卡，模拟运行可播放全部 Niagara。原始样式文件夹 01_OriginalStyles；脉冲样例文件夹 02_ThinPulseLinks。

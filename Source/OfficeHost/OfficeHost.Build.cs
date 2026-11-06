@@ -5,8 +5,8 @@ public class OfficeHost : ModuleRules
     public OfficeHost(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "MediaAssets" });
-        PrivateDependencyModuleNames.AddRange(new string[] { "UMG", "Slate", "SlateCore", "InputCore", "Json", "ProceduralMeshComponent", "HTTP" });
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "MediaAssets", "ControlRig", "Niagara" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "UMG", "Slate", "SlateCore", "InputCore", "Json", "HTTP", "ProceduralMeshComponent", "Sockets", "Networking", "OntoTwinSync" });
         if (Target.bBuildEditor) PrivateDependencyModuleNames.Add("MeshDescription");
 
         // FFmpeg 8.1 (LGPL, shared build from BtbN/FFmpeg-Builds) reads the cameras' RTSP directly: VideoTwinRtspReader.

@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "TempoQuadruped",
+	"Description": "Tempo Quadruped Robot Plugin",
+	"Category": "Other",
+	"CreatedBy": "Tempo Simulation, LLC",
+	"CreatedByURL": "https://temposimulation.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.6.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+        "Plugins": [
+                {
+                        "Name": "Locomotor",
+                        "Enabled": true
+                }
+        ]
+}

@@ -1,0 +1,10 @@
+﻿Matrix 设备连线演示
+原始资源：/Game/RainSymbols_VFX（完整导入，18 套 Niagara）
+演示关卡：/Game/MatrixDeviceLinks/L_MatrixDeviceLinks，已加入 Office_Demo_ArtMerged，Always Loaded。
+按场景内设备抽样：随机种子 11032026，10 个去重设备，9 条最小生成树连线。
+效果：复用原始 M_Symbols 与 T_Symbols_EN-1，改为两点间绿色符号流；不是原始 Niagara 自由落雨的直接播放。
+调节 M_MatrixLinkFlow / MI_Link_00–08：FlowColor、FlowSpeed、SymbolCount。
+在关卡面板隐藏 L_MatrixDeviceLinks 可关闭整组预览；更改运行时加载需设置该子关卡流送。
+连线端点按当前设备位置生成，移动设备后需重新生成。该连线仅为视觉演示，不代表真实网络关系。
+设备清单和连线索引：Saved/MatrixLinks/installed.json。
+验证：所有原始资产加载成功，编辑器已预览符号流动画。

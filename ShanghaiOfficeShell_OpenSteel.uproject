@@ -1,70 +1,83 @@
 {
-	"FileVersion": 3,
-	"EngineAssociation": "5.6",
-	"Category": "Architecture",
-	"Description": "Shanghai CAD office shell - white open steel ceiling at 3 metres",
-	"AdditionalPluginDirectories": [
-		"D:/tmp/digital_twin_aircraft/ue_project/Plugins"
-	],
-	"Modules": [
-		{
-			"Name": "OfficeHost",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "ProceduralMeshComponent",
-			"Enabled": true
-		},
-		{
-			"Name": "OntoTwinSync",
-			"Enabled": true
-		},
-		{
-			"Name": "OntoTwinIndustrialBehavior",
-			"Enabled": true
-		},
-		{
-			"Name": "OntoTwinCharacterPack_Core",
-			"Enabled": true
-		},
-		{
-			"Name": "glTFRuntime",
-			"Enabled": true
-		},
-		{
-			"Name": "PythonScriptPlugin",
-			"Enabled": true
-		},
-		{
-			"Name": "EditorScriptingUtilities",
-			"Enabled": true
-		},
-		{
-			"Name": "HDRIBackdrop",
-			"Enabled": true
-		},
-		{
-			"Name": "DatasmithImporter",
-			"Enabled": true
-		},
-		{
-			"Name": "DatasmithCADImporter",
-			"Enabled": true,
-			"SupportedTargetPlatforms": [
-				"Win64",
-				"Linux"
-			]
-		},
-		{
-			"Name": "MetaverseClient",
-			"Enabled": true
-		},
-		{
-			"Name": "ElectraPlayer",
-			"Enabled": true
-		}
-	]
+  "FileVersion": 3,
+  "EngineAssociation": "5.6",
+  "Category": "Architecture",
+  "Description": "Shanghai CAD office shell - white open steel ceiling at 3 metres",
+  "Modules": [
+    {
+      "Name": "OfficeHost",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "ProceduralMeshComponent",
+      "Enabled": true
+    },
+    {
+      "Name": "OntoTwinSync",
+      "Enabled": true
+    },
+    {
+      "Name": "OntoTwinIndustrialBehavior",
+      "Enabled": true
+    },
+    {
+      "Name": "OntoTwinCharacterPack_Core",
+      "Enabled": true
+    },
+    {
+      "Name": "glTFRuntime",
+      "Enabled": true
+    },
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true
+    },
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    },
+    {
+      "Name": "HDRIBackdrop",
+      "Enabled": true
+    },
+    {
+      "Name": "DatasmithImporter",
+      "Enabled": true
+    },
+    {
+      "Name": "DatasmithCADImporter",
+      "Enabled": true,
+      "SupportedTargetPlatforms": [
+        "Win64",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "MetaverseClient",
+      "Enabled": true
+    },
+    {
+      "Name": "ElectraPlayer",
+      "Enabled": true
+    },
+    {
+      "Name": "TempoQuadruped",
+      "Enabled": true
+    },
+    {
+      "Name": "Locomotor",
+      "Enabled": true
+    },
+    {
+      "Name": "ControlRig",
+      "Enabled": true
+    },
+    {
+      "Name": "FullBodyIK",
+      "Enabled": true
+    }
+  ]
 }

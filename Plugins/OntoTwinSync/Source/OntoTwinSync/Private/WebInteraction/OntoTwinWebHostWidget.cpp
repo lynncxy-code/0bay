@@ -1,0 +1,281 @@
+#include "WebInteraction/OntoTwinWebHostWidget.h"
+
+#include "WebInteraction/OntoTwinWebBridge.h"
+#include "WebInteraction/OntoTwinWebInteractionComponent.h"
+
+#include "Framework/Application/SlateApplication.h"
+#include "InputCoreTypes.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
+#include "SceneInteraction/OntoTwinCameraFraming.h"
+#include "SWebInterface.h"
+#include "Styling/CoreStyle.h"
+#include "Widgets/Images/SImage.h"
+#include "Widgets/Input/SButton.h"
+#include "Widgets/Layout/SBox.h"
+#include "Widgets/SOverlay.h"
+#include "Widgets/SBoxPanel.h"
+#include "Widgets/Text/STextBlock.h"
+
+void UOntoTwinWebHostWidget::Configure(
+    UOntoTwinWebInteractionComponent* InOwner,
+    UOntoTwinWebBridge* InBridge,
+    EOntoTwinWebGlassQuality InQuality)
+{
+    OwnerComponent = InOwner;
+    BridgeObject = InBridge;
+    EffectiveQuality = InQuality;
+}
+
+TSharedRef<SWidget> UOntoTwinWebHostWidget::RebuildWidget()
+{
+    // The host must not paint or blur the full viewport. The web page owns only
+    // its local HUD surfaces; all unpainted pixels remain transparent to the UE scene.
+    SAssignNew(Browser, SWebInterface)
+        .InitialURL(TEXT("about:blank"))
+        .FrameRate(60)
+        .BackgroundColor(FColor::Transparent)
+        .OnLoadStarted(FSimpleDelegate::CreateUObject(this, &UOntoTwinWebHostWidget::HandleLoadStarted))
+        .OnLoadCompleted(FSimpleDelegate::CreateUObject(this, &UOntoTwinWebHostWidget::HandleLoadCompleted))
+        .OnLoadError(FSimpleDelegate::CreateUObject(this, &UOntoTwinWebHostWidget::HandleLoadError))
+        .OnUrlChanged(FOnTextChanged::CreateUObject(this, &UOntoTwinWebHostWidget::HandleUrlChanged))
+        .OnBeforePopup(FOnBeforePopupDelegate::CreateUObject(this, &UOntoTwinWebHostWidget::HandleBeforePopup))
+        .OnBeforeNavigation(SWebInterface::FOnBeforeBrowse::CreateUObject(this, &UOntoTwinWebHostWidget::HandleBeforeNavigation));
+
+    if (BridgeObject)
+    {
+        Browser->BindUObject(TEXT("ontotwinWebBridge"), BridgeObject, true);
+    }
+
+    return SNew(SOverlay)
+        + SOverlay::Slot()
+        [
+            SNew(SVerticalBox)
+            + SVerticalBox::Slot().AutoHeight().Padding(18.0f, 12.0f)
+            [
+                SNew(SHorizontalBox)
+                + SHorizontalBox::Slot().AutoWidth().Padding(0.0f, 0.0f, 8.0f, 0.0f)
+                [
+                    SNew(SButton)
+                    .Text(FText::FromString(TEXT("‹")))
+                    .ToolTipText(FText::FromString(TEXT("返回上一上下文")))
+                    .Visibility_Lambda([this]()
+                    {
+                        return OwnerComponent && OwnerComponent->CanGoBack()
+                            ? EVisibility::Visible
+                            : EVisibility::Collapsed;
+                    })
+                    .OnClicked_UObject(this, &UOntoTwinWebHostWidget::HandleBackClicked)
+                ]
+                + SHorizontalBox::Slot().FillWidth(1.0f).VAlign(VAlign_Center)
+                [
+                    SAssignNew(StatusText, STextBlock)
+                    .Text(FText::FromString(TEXT("准备打开页面")))
+                    .ColorAndOpacity(FSlateColor(FLinearColor(0.90f, 0.90f, 0.90f, 1.0f)))
+                ]
+                + SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center)
+                [
+                    SNew(SBox)
+                    .WidthOverride(20.0f)
+                    .HeightOverride(20.0f)
+                    [
+                        SNew(SButton)
+                        .ButtonStyle(&FCoreStyle::Get().GetWidgetStyle<FButtonStyle>(TEXT("NoBorder")))
+                        .ContentPadding(FMargin(0.0f))
+                        .HAlign(HAlign_Center)
+                        .VAlign(VAlign_Center)
+                        .ToolTipText(FText::FromString(TEXT("关闭网页")))
+                        .OnClicked_UObject(this, &UOntoTwinWebHostWidget::HandleCloseClicked)
+                        [
+                            SNew(STextBlock)
+                            .Text(FText::FromString(TEXT("×")))
+                            .Font(FCoreStyle::GetDefaultFontStyle(TEXT("Regular"), 10))
+                            .ColorAndOpacity(FSlateColor(FLinearColor(0.72f, 0.76f, 0.80f, 0.52f)))
+                        ]
+                    ]
+                ]
+            ]
+            + SVerticalBox::Slot().FillHeight(1.0f).Padding(12.0f, 0.0f, 12.0f, 12.0f)
+            [
+                Browser.ToSharedRef()
+            ]
+        ];
+}
+
+void UOntoTwinWebHostWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
+{
+    Super::NativeTick(MyGeometry, InDeltaTime);
+    if (!Browser.IsValid()) return;
+    Browser->SetVisibility(IsPointerOverInteractiveRegion()
+        ? EVisibility::Visible
+        : EVisibility::HitTestInvisible);
+}
+
+FReply UOntoTwinWebHostWidget::NativeOnPreviewKeyDown(
+    const FGeometry& InGeometry,
+    const FKeyEvent& InKeyEvent)
+{
+    const FKey Key = InKeyEvent.GetKey();
+    if (InKeyEvent.IsRepeat()
+        && (Key == EKeys::Tab || Key == EKeys::F7 || Key == EKeys::Escape))
+    {
+        // Do not let a held shortcut generate a second transition while the
+        // first request is still being consumed by the world tick.
+        return FReply::Handled();
+    }
+    if (OwnerComponent && OwnerComponent->HandleHostShortcut(Key))
+    {
+        return FReply::Handled();
+    }
+    return Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
+}
+
+bool UOntoTwinWebHostWidget::IsPointerOverInteractiveRegion() const
+{
+    // Until a page declares its hit regions it remains safely interactive as a
+    // whole. Bridge-enabled pages become pointer-transparent outside those regions.
+    if (!bBridgeReady || InteractiveRegions.Num() == 0 || !Browser.IsValid()) return true;
+    // Browser geometry is expressed in Slate desktop space. PlayerController
+    // mouse coordinates are viewport-local pixels, which are offset (and often
+    // DPI-scaled) in PIE. Mixing the two makes the visible button transparent
+    // to input and sends the click into the 3D scene behind it.
+    const FVector2D Local = Browser->GetCachedGeometry().AbsoluteToLocal(
+        FSlateApplication::Get().GetCursorPos());
+    return InteractiveRegions.ContainsByPredicate(
+        [&Local](const FSlateRect& Region)
+        {
+            return Local.X >= Region.Left && Local.X <= Region.Right
+                && Local.Y >= Region.Top && Local.Y <= Region.Bottom;
+        });
+}
+
+FSlateRect UOntoTwinWebHostWidget::GetCameraFramingRect() const
+{
+    if (!Browser.IsValid()) return FSlateRect(0, 0, 1, 1);
+    const FGeometry Viewport = UWidgetLayoutLibrary::GetViewportWidgetGeometry(GetWorld());
+    const FVector2D Size = Viewport.GetLocalSize();
+    if (Size.X <= 0 || Size.Y <= 0) return FSlateRect(0, 0, 1, 1);
+    const FGeometry& Web = Browser->GetCachedGeometry();
+    auto Normalize = [&Viewport, &Web, &Size](const FVector2D& Point)
+    {
+        return Viewport.AbsoluteToLocal(Web.LocalToAbsolute(Point)) / Size;
+    };
+    TArray<FSlateRect> Obstacles;
+    const FVector2D Origin = Normalize(FVector2D::ZeroVector);
+    // Reserve the native Back/status/Close bar, too.
+    Obstacles.Emplace(0, 0, 1, FMath::Clamp(static_cast<float>(Origin.Y), 0.f, 1.f));
+    for (const FSlateRect& Region : InteractiveRegions)
+    {
+        const FVector2D Min = Normalize(FVector2D(Region.Left, Region.Top));
+        const FVector2D Max = Normalize(FVector2D(Region.Right, Region.Bottom));
+        Obstacles.Emplace(Min.X, Min.Y, Max.X, Max.Y);
+    }
+    return OntoTwinCameraFraming::LargestClearRect(Obstacles);
+}
+
+void UOntoTwinWebHostWidget::NativeDestruct()
+{
+    if (Browser.IsValid() && BridgeObject)
+    {
+        Browser->UnbindUObject(TEXT("ontotwinWebBridge"), BridgeObject, true);
+    }
+    Browser.Reset();
+    StatusText.Reset();
+    Super::NativeDestruct();
+}
+
+void UOntoTwinWebHostWidget::Navigate(const FString& Url)
+{
+    bHasFramingRegions = false;
+    InteractiveRegions.Reset();
+    if (Browser.IsValid()) Browser->LoadURL(Url);
+}
+
+void UOntoTwinWebHostWidget::ReloadPage()
+{
+    if (Browser.IsValid()) Browser->Reload();
+}
+
+void UOntoTwinWebHostWidget::ExecuteJavascript(const FString& Script)
+{
+    if (Browser.IsValid()) Browser->ExecuteJavascript(Script);
+}
+
+FString UOntoTwinWebHostWidget::GetCurrentUrl() const
+{
+    return Browser.IsValid() ? Browser->GetUrl() : FString();
+}
+
+void UOntoTwinWebHostWidget::SetHostStatus(const FString& Status, bool bError)
+{
+    bStatusError = bError;
+    if (StatusText.IsValid())
+    {
+        StatusText->SetText(FText::FromString(Status));
+        StatusText->SetColorAndOpacity(bStatusError
+            ? FSlateColor(FLinearColor(0.95f, 0.35f, 0.3f, 1.0f))
+            : FSlateColor(FLinearColor(0.90f, 0.90f, 0.90f, 1.0f)));
+    }
+}
+
+void UOntoTwinWebHostWidget::SetBridgeReady(bool bReady)
+{
+    bBridgeReady = bReady;
+    if (!bReady) { InteractiveRegions.Reset(); bHasFramingRegions = false; }
+}
+
+void UOntoTwinWebHostWidget::SetInteractiveRegions(const TArray<FSlateRect>& Regions)
+{
+    InteractiveRegions = Regions;
+    bHasFramingRegions = true;
+}
+
+void UOntoTwinWebHostWidget::HandleLoadStarted()
+{
+    bBridgeReady = false;
+    InteractiveRegions.Reset();
+    bHasFramingRegions = false;
+    if (OwnerComponent) OwnerComponent->HandlePageLoadStarted();
+    SetHostStatus(TEXT("正在加载页面"));
+}
+
+void UOntoTwinWebHostWidget::HandleLoadCompleted()
+{
+    SetHostStatus(TEXT("页面已加载"));
+    if (OwnerComponent) OwnerComponent->HandlePageLoaded();
+}
+
+void UOntoTwinWebHostWidget::HandleLoadError()
+{
+    SetHostStatus(TEXT("页面加载失败，请返回或关闭"), true);
+    if (OwnerComponent) OwnerComponent->HandlePageLoadError();
+}
+
+void UOntoTwinWebHostWidget::HandleUrlChanged(const FText& UrlText)
+{
+    if (OwnerComponent) OwnerComponent->HandleUrlChanged(UrlText.ToString());
+}
+
+bool UOntoTwinWebHostWidget::HandleBeforePopup(FString Url, FString Frame)
+{
+    return !OwnerComponent || OwnerComponent->HandlePopupNavigation(Url);
+}
+
+bool UOntoTwinWebHostWidget::HandleBeforeNavigation(
+    const FString& Url,
+    const FWebNavigationRequest& Request)
+{
+    FString Reason;
+    return !OwnerComponent || !OwnerComponent->ValidateNavigation(Url, Reason);
+}
+
+FReply UOntoTwinWebHostWidget::HandleBackClicked()
+{
+    if (OwnerComponent) OwnerComponent->RequestBackFromHost();
+    return FReply::Handled();
+}
+
+FReply UOntoTwinWebHostWidget::HandleCloseClicked()
+{
+    if (OwnerComponent) OwnerComponent->RequestCloseFromHost();
+    return FReply::Handled();
+}

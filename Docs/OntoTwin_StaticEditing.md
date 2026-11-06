@@ -1,4 +1,27 @@
-当前办公场景已切换为本地静态编辑，统一回写暂缓。
+当前办公场景采用静态美术布局与摄像头动态实例混合模式。以下先说明 2026-11-02 的摄像头恢复，其后为原静态转换记录。
+
+2026-11-02 摄像头恢复：
+
+- 当前主关卡为 `/Game/OfficeShell/Maps/Office_Demo_ArtMerged`；运行管理器位于 `L_OntoTwin_Runtime`。
+- 沿用原实例 ID 17–30，通过平台模型绑定与空间回写 API 保存当前模型、位置、旋转和缩放。未修改其余 63 个实例，也未改动 Web 交互版本 16 的业务成员与点击绑定。
+- `bUseLevelGeometry=true` 时，`LevelGeometryDynamicInstanceIds` 指定的实例仍从数据库生成 `ATwinInstance`，其余对象继续使用静态关卡布局。空名单保留原先完全静态的行为。
+- 摄像头使用当前固定姿态网格和原材质，动态指数据库驱动的实例身份与生命周期；本次未增加摄像头机械转动动画。
+- 动态实例生成后，其带 `OntoTwinInstanceId` 标签的静态副本只在运行时隐藏并关闭碰撞；编辑器原对象保留作备份。退出运行时恢复副本状态。以后摄像头的运行坐标以平台数据为准。
+- 摄像头网格启用复杂碰撞供 Visibility 射线拾取。点击仍沿用原 `open_detail` 绑定，打开 `monitor-test.html?camera_id=<原实例ID>`。
+- CLI 工具位于 `Tools/OntoTwinRestoration/`：`restore_camera_records.py` 写回记录，`configure_dynamic_cameras.py` 配置关卡，`verify_dynamic_cameras.py` 后台集成验证。
+- 备份与验证记录在本机 `Saved/CameraDynamicRestore/`。原项目数据为 `project-before.json`，原关卡/网格在 `files-before/`。需要回退时，清空动态实例名单并按备份逐个恢复这 14 个实例；不要用整份旧项目覆盖后续其他业务修改。
+- 验证：UE 编辑器目标编译通过；无桌面操作的 `-RenderOffscreen` 运行检查通过，14 个动态实例、14 个隐藏静态副本、模型/材质/变换一致、14 个 Visibility 射线命中、14 个详情页打开成功。
+
+摄像机视角联动（2026-11-02）：
+
+- 摄像头实例 17–30 对应关卡中原有的 `OntoTwin_Camera_17`–`OntoTwin_Camera_30`。`bind_camera_views.py` 为这些 CameraActor 保存 `OntoTwinViewForInstance=<ID>` 标签，运行与打包后均按标签匹配，不依赖编辑器名称。
+- 打开对应实例详情或通过 Web 选择实例时，使用目标摄像机组件当前的世界位置、朝向、视场角和画面比例，平滑进入观察视角。视频页和点击绑定保持原样；没有关联摄像机的实例继续采用原来的模型聚焦行为。
+- 漫游中的切换沿用观察 Pawn，可继续移动和切回人物视角。连续点击以最后一次选择为准。源 CameraActor 的位置与镜头参数不被此联动修改；若视频融合模块应用标定，联动使用应用标定后的当前视角。
+- 绑定前关卡备份、编号清单和后台运行验证位于 `Saved/CameraViewBinding/`；测试脚本为 `verify_camera_views.py`。
+
+原静态转换记录（2026-10-27）：
+
+当时办公场景切换为本地静态编辑，统一回写暂缓。
 
 建筑外壳也已拆开：主关卡中的 `BP_OfficeShell` 实例已替换为 23 个普通 `StaticMeshActor`，位于 `Building/OfficeShell_Editable`。包括 CeilingTrays、CeilingCoves、FeatureCeiling 和 Skirting，均可独立选择编辑。按原网格部件拆分，未进一步拆开单个网格中的各片墙体。原蓝图及网格资产仍保留；保存后的模型、材质、世界变换、碰撞和已检查渲染属性与转换前一致，验证记录见 `Tools/ActorConversion/verification.json`。
 

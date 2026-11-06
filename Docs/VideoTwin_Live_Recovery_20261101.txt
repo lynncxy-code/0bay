@@ -1,0 +1,33 @@
+VideoTwin 状态文字与直播恢复（2026-11-01，更新于 21:56）
+
+当前结果
+四路 17/24/18/19 真实直播已经恢复。现有 runtime 未重启，自动从录像切回直播。
+四路状态文字默认隐藏，Z/X/C 保持可用；诊断文字仅在 -VideoTwinShowStatus 下显示。
+
+根因及证据
+19:56 的 UE 编辑器 PIE 日志确认同一 Office_Demo_ArtMerged 四路直播打开成功，没有录像回退。
+20:22 起转流日志出现丢包、解码错误，之后 RTSP 请求持续超时，runtime 退回本地录像。
+编辑器与 runtime 使用相同 stream_url，不是两套视频配置。
+当前 Windows 默认把 192.168.229.x 摄像头地址路由到 Mihomo 虚拟网卡。
+默认 socket 访问 RTSP OPTIONS 超时；指定 WLAN 接口后四台均立即返回 RTSP/1.0 200 OK。
+普通进程无法修改系统路由（拒绝访问），最终使用本机转发，不修改代理/系统路由。
+
+本地恢复方式
+Tools/VideoTwin/camera_tcp_relay.py 仅监听 127.0.0.1:18554 起的端口，使用 Windows IP_UNICAST_IF 将上游连接绑定到 WLAN。
+MediaMTX 继续使用 RTSP/TCP，把四路直播提供在原 127.0.0.1:8888 地址；UE 及校准配置无需改变。
+摄像头凭据仍由现有 OFFICE_CAM_PASSWORD 环境变量交给 MediaMTX，转发程序不读取或保存口令。
+本机 Saved/VideoTwinMVP/live/network.json 保存 {"camera_interface":"WLAN"}，不纳入 Git。
+既有 VideoTwinLive 登录任务调用 start_live.ps1 时自动读取该文件；也可手动传 -CameraInterface WLAN。
+此模式需要本机 Python；离开当前摄像头网络、更换网卡或部署到其他电脑时须重新确认 camera_interface。
+删除本机 network.json 后重启转流服务，即恢复原直接连接方式。
+
+恢复逻辑
+退回录像后每 30 秒探测 HLS，探测期间继续播放录像；有效播放列表恢复后重新打开直播。
+start_live.ps1 等待旧的同配置进程退出，避免重启时端口争用。
+
+验证
+完整 OfficeHostEditor 编译通过，截图确认四路状态文字隐藏。
+21:55 四路 HLS HTTP 200，MediaMTX 成功将真实摄像头 H265 流转换为 HLS。
+现有 runtime 日志显示四路 retrying live stream after recovery、media opened 和 Playback started，播放位置为直播时间轴。
+日志：Saved/Logs/ShanghaiOfficeShell_OpenSteel.log，Saved/VideoTwinMVP/live/mediamtx.log。
+本次修改保存在本地，未推送 GitHub。

@@ -12,3 +12,13 @@ Plugins/**/Binaries/
 Plugins/**/Intermediate/
 Plugins/**/DerivedDataCache/
 Plugins/**/Saved/
+
+# Local Python caches and Unreal cook ordering logs
+__pycache__/
+*.py[cod]
+Build/*/FileOpenOrder/
+SourceAssets/**/*.log
+SourceAssets/**/*.pid
+SourceAssets/**/*.blend1
+SourceAssets/**/FailedImports/
+.venv/
